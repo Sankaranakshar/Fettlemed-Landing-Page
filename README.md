@@ -23,8 +23,8 @@ FettleMed is a secure, decentralized patient health records (PHR) infrastructure
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/fettlemed.git
-   cd fettlemed
+   git clone https://github.com/Sankaranakshar/Fettlemed-Landing-Page.git
+   cd Fettlemed-Landing-Page
    ```
 
 2. **Install dependencies:**
@@ -67,5 +67,5 @@ This project is proprietary and confidential. Unauthorized copying, distribution
 
 ## 📧 Contact
 
-- **Inquiries**: hello@namnalam.com
-- **Website**: [namnalam.com](https://namnalam.com)
+- **Inquiries**: partners@fettlemed.com
+- **Website**: [fettlemed.com](https://fettlemed.com)
