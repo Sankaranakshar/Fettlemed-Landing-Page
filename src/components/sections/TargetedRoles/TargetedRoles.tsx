@@ -70,9 +70,9 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
             {/* FLOW 1: Patient */}
             {activeRole === 'patient' && (
               <div className="flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-500">
-                <div className="w-full relative min-h-[300px]">
+                <div className="w-full grid grid-cols-1">
                   {/* Card 1 */}
-                  <div className={`absolute inset-0 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 0 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                  <div className={`col-start-1 row-start-1bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 0 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                     <div className="flex-1 w-full relative z-10">
                       <div className="w-12 h-12 bg-pine-100 text-accent-600 rounded-2xl flex items-center justify-center mb-6">
                         <Smartphone className="w-6 h-6"/>
@@ -99,7 +99,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                     </div>
                   </div>
                   {/* Card 2 */}
-                  <div className={`absolute inset-0 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 1 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                  <div className={`col-start-1 row-start-1bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 1 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                     <div className="flex-1 w-full relative z-10">
                       <div className="w-12 h-12 bg-pine-100 text-accent-600 rounded-2xl flex items-center justify-center mb-6">
                         <ShieldCheck className="w-6 h-6"/>
@@ -133,7 +133,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                     </div>
                   </div>
                   {/* Card 3 */}
-                  <div className={`absolute inset-0 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 2 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                  <div className={`col-start-1 row-start-1bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 2 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                     <div className="flex-1 w-full relative z-10">
                       <div className="w-12 h-12 bg-pine-100 text-accent-600 rounded-2xl flex items-center justify-center mb-6">
                         <FileCheck2 className="w-6 h-6"/>
@@ -202,9 +202,9 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                 <div className="absolute top-0 right-0 w-96 h-96 bg-teal-800/50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3"></div>
                 
                 <div className="flex flex-col items-center relative z-10 w-full">
-                  <div className="w-full relative min-h-[300px]">
+                  <div className="w-full grid grid-cols-1">
                     {/* Card 1 */}
-                    <div className={`absolute inset-0 bg-teal-950/80 border border-teal-800 p-8 rounded-3xl backdrop-blur-sm hover:bg-teal-950 transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 0 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                    <div className={`col-start-1 row-start-1bg-teal-950/80 border border-teal-800 p-8 rounded-3xl backdrop-blur-sm hover:bg-teal-950 transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 0 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                       <div className="flex-1 w-full relative z-10">
                         <div className="w-12 h-12 bg-teal-800 text-white rounded-2xl flex items-center justify-center mb-6 border border-teal-700">
                           <Stethoscope className="w-6 h-6"/>
@@ -246,7 +246,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       </div>
                     </div>
                     {/* Card 2 */}
-                    <div className={`absolute inset-0 bg-teal-950/80 border border-teal-800 p-8 rounded-3xl backdrop-blur-sm hover:bg-teal-950 transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 1 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                    <div className={`col-start-1 row-start-1bg-teal-950/80 border border-teal-800 p-8 rounded-3xl backdrop-blur-sm hover:bg-teal-950 transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 1 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                       <div className="flex-1 w-full relative z-10">
                         <div className="w-12 h-12 bg-teal-800 text-white rounded-2xl flex items-center justify-center mb-6 border border-teal-700">
                           <FileCheck2 className="w-6 h-6"/>
@@ -283,7 +283,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       </div>
                     </div>
                     {/* Card 3 */}
-                    <div className={`absolute inset-0 bg-teal-950/80 border border-teal-800 p-8 rounded-3xl backdrop-blur-sm hover:bg-teal-950 transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 2 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                    <div className={`col-start-1 row-start-1bg-teal-950/80 border border-teal-800 p-8 rounded-3xl backdrop-blur-sm hover:bg-teal-950 transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 2 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                       <div className="flex-1 w-full relative z-10">
                         <div className="w-12 h-12 bg-teal-800 text-white rounded-2xl flex items-center justify-center mb-6 border border-teal-700">
                           <ShieldCheck className="w-6 h-6"/>
@@ -305,7 +305,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                             <motion.div className="bg-pine-800 p-4 rounded-2xl border border-pine-700 shadow-xl flex items-center justify-center relative z-10 w-32 h-32"
                                 initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ type: "spring", bounce: 0.5 }}>
                               <Lock className="w-12 h-12 text-white" />
-                              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="absolute inset-0 bg-pine-800 rounded-2xl border border-pine-700 flex items-center justify-center z-20">
+                              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="col-start-1 row-start-1bg-pine-800 rounded-2xl border border-pine-700 flex items-center justify-center z-20">
                                  <ShieldCheck className="w-12 h-12 text-white" />
                               </motion.div>
                               <motion.div initial={{ scale: 1 }} animate={{ scale: 0 }} transition={{ delay: 0.8 }} className="absolute -right-4 -bottom-4 bg-white text-pine-900 text-[10px] font-bold px-2 py-1 rounded-full shadow-lg z-30 flex items-center gap-1">
@@ -345,9 +345,9 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
             {/* FLOW 3: Clinic */}
             {activeRole === 'clinic' && (
               <div className="flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-500">
-                <div className="w-full relative min-h-[300px]">
+                <div className="w-full grid grid-cols-1">
                   {/* Card 1 */}
-                  <div className={`absolute inset-0 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 0 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                  <div className={`col-start-1 row-start-1bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 0 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                     <div className="flex-1 w-full relative z-10">
                       <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center mb-6">
                         <Building2 className="w-6 h-6"/>
@@ -388,7 +388,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                     </div>
                   </div>
                   {/* Card 2 */}
-                  <div className={`absolute inset-0 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 1 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                  <div className={`col-start-1 row-start-1bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 1 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                     <div className="flex-1 w-full relative z-10">
                       <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center mb-6">
                         <Building2 className="w-6 h-6"/>
@@ -426,7 +426,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                     </div>
                   </div>
                   {/* Card 3 */}
-                  <div className={`absolute inset-0 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 2 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                  <div className={`col-start-1 row-start-1bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 2 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                     <div className="flex-1 w-full relative z-10">
                       <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center mb-6">
                         <Building2 className="w-6 h-6"/>
