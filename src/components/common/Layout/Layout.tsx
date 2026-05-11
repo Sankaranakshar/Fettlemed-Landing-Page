@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Button } from "@/components/common/Button";
 import { WaitlistModal } from "@/components/common/WaitlistModal";
 import { cn } from "@/utils/cn";
@@ -41,25 +41,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
           
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const isActive = link.path === "/" 
-                ? location.pathname === "/" || location.pathname === "/home"
-                : link.path === "/home"
-                  ? location.pathname === "/" || location.pathname === "/home"
-                  : location.pathname.startsWith(link.path);
-              return (
-              <Link
+            {navLinks.map((link) => (
+              <NavLink
                 key={link.path}
                 to={link.path}
                 onMouseEnter={() => preloadRoutes[link.path]?.()}
-                className={cn(
+                className={({ isActive }) => cn(
                   "text-sm font-semibold tracking-wide transition-all",
                   isActive ? "text-pine-600" : "text-stone-500 hover:text-pine-900"
                 )}
               >
                 {link.name}
-              </Link>
-            )})}
+              </NavLink>
+            ))}
             <div className="h-5 w-[1px] bg-stone-200 mx-2" />
             <Button variant="animated" onClick={() => setWaitlistOpen(true)} className="bg-accent-600 hover:bg-accent-700 text-white rounded-lg shadow-sm text-sm h-10 px-6 font-bold transition-colors">
               Join Waitlist
@@ -79,26 +73,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-surface-50 border-t border-stone-200 p-6 space-y-6 shadow-xl absolute w-full left-0 z-50">
             <nav className="flex flex-col space-y-6">
-              {navLinks.map((link) => {
-                const isActive = link.path === "/" 
-                  ? location.pathname === "/" || location.pathname === "/home"
-                  : link.path === "/home"
-                    ? location.pathname === "/" || location.pathname === "/home"
-                    : location.pathname.startsWith(link.path);
-                return (
-                <Link
+              {navLinks.map((link) => (
+                <NavLink
                   key={link.path}
                   to={link.path}
                   onMouseEnter={() => preloadRoutes[link.path]?.()}
-                  className={cn(
+                  className={({ isActive }) => cn(
                     "block text-xl font-semibold tracking-wide py-5 px-4 -mx-4 rounded-xl transition-all active:bg-stone-100",
                     isActive ? "text-pine-600 bg-pine-50/50" : "text-stone-800"
                   )}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
-                </Link>
-              )})}
+                </NavLink>
+              ))}
               <div className="pt-6 border-t border-stone-200 flex flex-col gap-4">
                 <Button variant="animated" size="lg" onClick={() => { setIsMobileMenuOpen(false); setWaitlistOpen(true); }} className="w-full bg-accent-600 hover:bg-accent-700 text-white rounded-xl h-14 font-bold">Join Waitlist</Button>
               </div>
