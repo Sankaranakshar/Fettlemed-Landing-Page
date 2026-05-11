@@ -63,7 +63,7 @@ body {
 
 /* Snap scroll — applied only on Home page via .home-snap class on <html> */
 html.home-snap {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 html.home-snap section {
   scroll-snap-align: start;

@@ -41,6 +41,7 @@ export function SEO({
       {/* Standard metadata tags */}
       <title>{fullTitle}</title>
       <meta name='description' content={description} />
+      <link rel="canonical" href={`https://fettlemed.com${typeof window !== 'undefined' ? window.location.pathname : '/'}`} />
       
       {/* OpenGraph tags */}
       <meta property="og:type" content={type} />

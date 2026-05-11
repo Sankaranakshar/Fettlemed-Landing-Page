@@ -4,6 +4,7 @@ import { Button } from "@/components/common/Button";
 import { WaitlistModal } from "@/components/common/WaitlistModal";
 import { cn } from "@/utils/cn";
 import { Menu, X } from "lucide-react";
+import { preloadRoutes } from "@/preloadRoutes";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -50,6 +51,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <Link
                 key={link.path}
                 to={link.path}
+                onMouseEnter={() => preloadRoutes[link.path]?.()}
                 className={cn(
                   "text-sm font-semibold tracking-wide transition-all",
                   isActive ? "text-pine-600" : "text-stone-500 hover:text-pine-900"
@@ -87,6 +89,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Link
                   key={link.path}
                   to={link.path}
+                  onMouseEnter={() => preloadRoutes[link.path]?.()}
                   className={cn(
                     "block text-xl font-semibold tracking-wide py-5 px-4 -mx-4 rounded-xl transition-all active:bg-stone-100",
                     isActive ? "text-pine-600 bg-pine-50/50" : "text-stone-800"

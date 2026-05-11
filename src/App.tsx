@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Layout } from "@/components/common/Layout";
 import { HelmetProvider } from "react-helmet-async";
 import { AnimatedRoutes } from "./AnimatedRoutes";
+import { ErrorBoundary } from "@/components/common/ErrorBoundary/ErrorBoundary";
 
 // A simple loading fallback
 const PageLoader = () => (
@@ -25,9 +26,11 @@ export default function App() {
     <HelmetProvider>
       <Router>
         <Layout>
-          <Suspense fallback={<PageLoader />}>
-            <AnimatedRoutes />
-          </Suspense>
+          <ErrorBoundary>
+            <Suspense fallback={<PageLoader />}>
+              <AnimatedRoutes />
+            </Suspense>
+          </ErrorBoundary>
         </Layout>
       </Router>
     </HelmetProvider>
