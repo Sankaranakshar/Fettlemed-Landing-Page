@@ -24,8 +24,8 @@
   --color-accent-800: #183e41;
   --color-accent-900: #102a2c;
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Inter", ui-sans-serif, system-ui, sans-serif; /* Unify typography for premium modern feel */
+  --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Sora", ui-sans-serif, system-ui, sans-serif;
 }
 
 html {

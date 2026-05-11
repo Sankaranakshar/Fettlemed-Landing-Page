@@ -31,13 +31,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
       {/* Navbar */}
       <header className="sticky top-0 z-50 w-full h-20 border-b border-stone-200/50 bg-surface-50/80 backdrop-blur-xl transition-all">
         <div className="container mx-auto px-4 md:px-8 h-full flex items-center justify-between max-w-none">
-          <Link to="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)} aria-label="FettleMed Home">
-            <div className="w-10 h-10 bg-pine-900 rounded-lg flex items-center justify-center shadow-sm" role="img" aria-label="FettleMed Logo">
-              <span className="text-white font-black text-xl">F</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-pine-900 tracking-tight leading-none">FettleMed</span>
-            </div>
+          <Link to="/" className="flex items-center gap-2.5" onClick={() => setIsMobileMenuOpen(false)} aria-label="FettleMed Home">
+            <img src="/brand/mark.svg" alt="" aria-hidden="true" className="w-9 h-9 shrink-0" />
+            <span className="text-xl tracking-tight leading-none select-none">
+              <span className="font-semibold text-stone-900">Fettle</span><span className="font-light text-pine-600">Med</span>
+            </span>
           </Link>
           
           {/* Desktop Nav */}
@@ -149,11 +147,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-pine-200/60 text-xs font-medium">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded shrink-0 bg-pine-600 flex items-center justify-center">
-                <span className="text-white font-black text-xl">F</span>
-              </div>
-              <span className="text-lg font-bold text-white tracking-tight">FettleMed</span>
+            <div className="flex items-center gap-2.5">
+              <svg viewBox="0 0 64 64" className="w-8 h-8 shrink-0" aria-hidden="true">
+                <g transform="rotate(-18 32 32)">
+                  <path d="M32 4C18 8 10 18 10 32s8 24 22 28c14-4 22-14 22-28S46 8 32 4Z" fill="#F4F1EA"/>
+                </g>
+                <path d="M2 34h11l3-6 3 6 4-20 5 28 4-18 3 10h27" fill="none" stroke="#0B4A3A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span className="text-lg tracking-tight leading-none select-none">
+                <span className="font-semibold text-white">Fettle</span><span className="font-light text-pine-300">Med</span>
+              </span>
             </div>
             
             <div className="text-center md:text-right flex flex-col gap-2">
