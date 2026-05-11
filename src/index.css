@@ -1,28 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  --color-pine-50: #eaf1ee;
-  --color-pine-100: #cde0d9;
-  --color-pine-200: #9bc1b2;
-  --color-pine-300: #69a18c;
-  --color-pine-400: #299b7d;
-  --color-pine-500: #11785D;
-  --color-pine-600: #0A4D3C;
-  --color-pine-700: #073a2d;
-  --color-pine-800: #05261d;
-  --color-pine-900: #0B1F1A;
-  
-  --color-surface-50: #F7FAF9;
-  --color-accent-50: #f4f8f8;
-  --color-accent-100: #eaf1f1;
-  --color-accent-200: #cbdada;
-  --color-accent-300: #abc2c4;
-  --color-accent-400: #6b9397;
-  --color-accent-500: #4a7d81;
-  --color-accent-600: #2F6F73;
-  --color-accent-700: #215154;
-  --color-accent-800: #183e41;
-  --color-accent-900: #102a2c;
+  --color-pine-50: #EDF4F0;
+  --color-pine-100: #D7E7DF;
+  --color-pine-200: #B8D4CA;
+  --color-pine-300: #7AAE9A;
+  --color-pine-400: #4A8A70;
+  --color-pine-500: #1F7A5C;
+  --color-pine-600: #0B4A3A;
+  --color-pine-700: #083A2D;
+  --color-pine-800: #052B21;
+  --color-pine-900: #08231C;
+
+  --color-surface-50: #F4F1EA;
+  --color-accent-50: #EDF4F0;
+  --color-accent-100: #D7E7DF;
+  --color-accent-200: #B8D4CA;
+  --color-accent-300: #7AAE9A;
+  --color-accent-400: #4A8A70;
+  --color-accent-500: #1F7A5C;
+  --color-accent-600: #0B4A3A;
+  --color-accent-700: #083A2D;
+  --color-accent-800: #08231C;
+  --color-accent-900: #031A12;
 
   --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Sora", ui-sans-serif, system-ui, sans-serif;
@@ -36,7 +36,7 @@ html {
 
 body {
   background-color: var(--color-surface-50);
-  color: var(--color-stone-900);
+  color: #0E1F1A;
   overflow-x: hidden;
   width: 100%;
 }
