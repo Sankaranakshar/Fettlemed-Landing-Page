@@ -64,23 +64,36 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSd_Gd_OmWQGHLY_gF_q3Xuj9kATD3cEXkjaym5pQFN7JyjSWw/formResponse";
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     if (honeypot || Date.now() - loadTime < 3000) {
-      e.preventDefault();
       setIsSubmitting(true);
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setSubmitted(true);
-        onSuccess?.();
-      }, 1200);
+      setTimeout(() => { setIsSubmitting(false); setSubmitted(true); onSuccess?.(); }, 1200);
       return;
     }
+
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      onSuccess?.();
-    }, 1200);
+
+    const data = new FormData();
+    data.append("entry.1983186495", finalRole);
+    data.append("entry.177738397",  name);
+    data.append("entry.1945336821", email);
+    data.append("entry.764661147",  phone);
+    data.append("entry.1761616143", city);
+    data.append("entry.838799959",  comments);
+
+    try {
+      await fetch(FORM_URL, { method: "POST", mode: "no-cors", body: data });
+    } catch {
+      // no-cors means we can't read the response — failure is silent by design
+    }
+
+    setIsSubmitting(false);
+    setSubmitted(true);
+    onSuccess?.();
   };
 
   const finalRole = role === "Clinic" ? "Clinic / Practice Owner" : role;
@@ -99,11 +112,7 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
 
   return (
     <>
-      <iframe name="hidden_iframe_wl" id="hidden_iframe_wl" style={{ display: "none" }} title="hidden" />
       <form
-        action="https://docs.google.com/forms/d/e/1FAIpQLSd_Gd_OmWQGHLY_gF_q3Xuj9kATD3cEXkjaym5pQFN7JyjSWw/formResponse"
-        method="POST"
-        target="hidden_iframe_wl"
         onSubmit={handleSubmit}
         className="space-y-6"
       >
