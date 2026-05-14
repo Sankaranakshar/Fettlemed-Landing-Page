@@ -14,7 +14,7 @@ export const Hero = () => {
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <FadeIn noYOffset>
+            <FadeIn noYOffset eager>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight mb-8 text-pine-950 drop-shadow-sm">
                 Own Your Health Records. <span className="text-pine-700/80">Connect Your Care Network.</span>
               </h1>

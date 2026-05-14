@@ -13,7 +13,7 @@ export function SEO({
   description, 
   name = "Fettlemed", 
   type = "website",
-  image = "/og-image.png" 
+  image = "/brand/lockup.svg"
 }: SEOProps) {
   const isHome = title === 'Home' || title === 'Fettlemed';
   const fullTitle = isHome 
@@ -25,7 +25,7 @@ export function SEO({
     "@type": isHome ? "Organization" : "MedicalWebPage",
     "name": name,
     "url": "https://fettlemed.com",
-    "logo": "https://fettlemed.com/logo.png",
+    "logo": "https://fettlemed.com/brand/lockup.svg",
     "description": description,
     ...(isHome ? {
       "contactPoint": {

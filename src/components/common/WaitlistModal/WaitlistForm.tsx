@@ -173,17 +173,19 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
         <div className="flex flex-col space-y-4 pt-4 border-t border-stone-200">
           <div>
             <label className="text-sm font-semibold text-stone-700 mb-1 block">Human Verification</label>
-            <p className="text-xs text-stone-500 mb-3">Please solve the math problem below to submit.</p>
+            <p id="wl-math-desc" className="text-xs text-stone-500 mb-3">Please solve the math problem below to submit.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
             <div className="rounded-xl border border-stone-200 overflow-hidden shadow-sm inline-block">
-              <canvas ref={canvasRef} width={300} height={96} style={{ width: "150px", height: "48px" }} className="bg-stone-50 mix-blend-multiply" title="Math challenge" />
+              <canvas ref={canvasRef} width={300} height={96} style={{ width: "150px", height: "48px" }} className="bg-stone-50 mix-blend-multiply" role="img" aria-label="Math addition problem" />
             </div>
+            <label htmlFor="wl-math" className="sr-only">Answer to the math problem shown above</label>
             <input
               type="text"
               inputMode="numeric"
               pattern="[0-9]*"
               id="wl-math"
+              aria-describedby="wl-math-desc"
               placeholder="Your answer"
               value={mathAnswer}
               onChange={(e) => setMathAnswer(e.target.value.replace(/[^0-9]/g, ""))}

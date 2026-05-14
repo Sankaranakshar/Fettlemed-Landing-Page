@@ -14,12 +14,12 @@ export function PatientHero() {
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
           {/* Text column */}
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <FadeIn>
+            <FadeIn eager>
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-pine-200 bg-pine-50 shadow-sm text-xs font-bold text-pine-700 uppercase tracking-widest mb-8">
                 For Everyone
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-pine-900 leading-[1.05] mb-6 tracking-tight text-balance">
-                Your health journey deserves to be remembered. <span className="text-stone-400">Your records shouldn't be lost in the noise.</span>
+                Your health journey deserves to be remembered. <span className="text-stone-500">Your records shouldn't be lost in the noise.</span>
               </h1>
               <p className="text-xl md:text-2xl text-stone-500 mb-10 font-medium leading-relaxed max-w-2xl text-balance">
                 Wellbeing is a journey. Fettlemed gives you a journal, everything health, in one place.

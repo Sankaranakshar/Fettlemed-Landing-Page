@@ -14,9 +14,9 @@ import { ErrorBoundary } from "@/components/common/ErrorBoundary/ErrorBoundary";
 const PageLoader = () => (
   <div className="flex h-[80vh] w-full items-center justify-center">
     <div className="flex flex-row gap-2 justify-center items-center">
-      <div className="w-2.5 h-2.5 rounded-full bg-accent-400 animate-bounce [animation-delay:.7s]" />
-      <div className="w-2.5 h-2.5 rounded-full bg-accent-500 animate-bounce [animation-delay:.3s]" />
-      <div className="w-2.5 h-2.5 rounded-full bg-accent-600 animate-bounce [animation-delay:.7s]" />
+      <div className="w-2.5 h-2.5 rounded-full bg-accent-400 motion-safe:animate-bounce [animation-delay:.7s]" />
+      <div className="w-2.5 h-2.5 rounded-full bg-accent-500 motion-safe:animate-bounce [animation-delay:.3s]" />
+      <div className="w-2.5 h-2.5 rounded-full bg-accent-600 motion-safe:animate-bounce [animation-delay:.7s]" />
     </div>
   </div>
 );

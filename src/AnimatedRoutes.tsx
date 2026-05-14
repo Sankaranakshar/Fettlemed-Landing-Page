@@ -2,8 +2,8 @@ import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 
-// Lazy load pages
-const Home = React.lazy(() => import("./pages/Home"));
+// Home is eagerly imported — it's the entry page and must not show a spinner
+import Home from "./pages/Home";
 const ClinicManagement = React.lazy(() => import("./pages/ClinicManagement"));
 const ClinicFeatures = React.lazy(() => import("./pages/ClinicFeatures"));
 const ClinicPricing = React.lazy(() => import("./pages/ClinicPricing"));

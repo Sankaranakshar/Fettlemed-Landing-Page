@@ -14,12 +14,12 @@ export function ClinicHero() {
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
           {/* Text column */}
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <FadeIn>
+            <FadeIn eager>
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-pine-200 bg-pine-50 shadow-sm text-xs font-bold text-pine-700 uppercase tracking-widest mb-8">
                 For Clinics
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-pine-900 leading-[1.05] mb-6 tracking-tight text-balance">
-                You handle the patients. <span className="text-stone-400">We handle everything else.</span>
+                You handle the patients. <span className="text-stone-500">We handle everything else.</span>
               </h1>
               <p className="text-xl md:text-2xl text-stone-500 mb-10 font-medium leading-relaxed max-w-2xl text-balance">
                 Fettlemed handles the operations, so you can focus on excellence in healthcare.
@@ -31,7 +31,7 @@ export function ClinicHero() {
                   onClick={() => setModalOpen(true)}
                   className="bg-accent-600 hover:bg-accent-700 text-white h-14 px-12 text-lg rounded-xl font-bold shadow-lg shadow-accent-600/20"
                 >
-                  Join the waitlist
+                  Join the clinic pilot
                 </Button>
                 <p className="text-stone-500 text-sm font-medium">Works for solo clinics and polyclinics. No IT team. No hardware. No long setup.</p>
               </div>

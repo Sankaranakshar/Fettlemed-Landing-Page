@@ -18,10 +18,9 @@ export default function About() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-pine-800/50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
 
         <div className="container mx-auto px-4 md:px-8 max-w-[900px] text-center relative z-10">
-          <FadeIn>
+          <FadeIn eager>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.05] mb-16 tracking-tight text-balance">
-              Healthcare shouldn't be fragmented. <br/>
-              <span className="text-accent-400">We connect all the pieces of the puzzle.</span>
+              Healthcare shouldn't be fragmented. <span className="text-accent-400">We connect all the pieces of the puzzle.</span>
             </h1>
 
             <div className="space-y-16">

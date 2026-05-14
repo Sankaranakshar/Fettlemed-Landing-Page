@@ -102,7 +102,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <footer className="w-full text-white mt-auto bg-pine-900 pt-20 pb-12">
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16 border-b border-pine-800 pb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-16 border-b border-pine-800 pb-16">
              {/* Column 1: Product */}
              <nav className="flex flex-col gap-4" aria-label="Product Links">
                 <h3 className="text-sm font-black tracking-widest text-pine-400 uppercase mb-2">Product</h3>

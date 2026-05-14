@@ -6,25 +6,39 @@ interface FadeInProps {
   delay?: number;
   className?: string;
   noYOffset?: boolean;
+  eager?: boolean;
 }
 
-export function FadeIn({ children, delay = 0, className = "", noYOffset = false }: FadeInProps) {
+export function FadeIn({ children, delay = 0, className = "", noYOffset = false, eager = false }: FadeInProps) {
   const shouldReduceMotion = useReducedMotion();
-  
+  const yOffset = (shouldReduceMotion || noYOffset) ? 0 : 20;
+  const transitionProps = {
+    duration: shouldReduceMotion ? 0.2 : 0.6,
+    delay: shouldReduceMotion ? 0 : delay,
+    ease: "easeOut" as const,
+  };
+  const cls = `${className} ${shouldReduceMotion ? '' : 'will-change-transform'}`;
+
+  if (eager) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: yOffset }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={transitionProps}
+        className={cls}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
-      initial={{ 
-        opacity: 0, 
-        y: (shouldReduceMotion || noYOffset) ? 0 : 20 
-      }}
+      initial={{ opacity: 0, y: yOffset }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ 
-        duration: shouldReduceMotion ? 0.2 : 0.6, 
-        delay: shouldReduceMotion ? 0 : delay, 
-        ease: "easeOut" 
-      }}
-      className={`${className} ${shouldReduceMotion ? '' : 'will-change-transform'}`}
+      transition={transitionProps}
+      className={cls}
     >
       {children}
     </motion.div>

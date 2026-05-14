@@ -5,12 +5,12 @@ import { FadeIn } from "@/components/common/FadeIn";
 export default function Security() {
   return (
     <>
-      <SEO title="Security" description="Fettlemed Security and data privacy." />
+      <SEO title="Security" description="Your health data is encrypted, patient-controlled, and stored in India. Fettlemed is built on health-grade security — here is exactly how it works." />
       <div className="flex flex-col w-full bg-stone-50 min-h-screen">
       {/* Hero */}
       <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-stone-900 text-white">
         <div className="container mx-auto px-4 md:px-8 max-w-[800px] text-center">
-          <FadeIn>
+          <FadeIn eager>
             <ShieldAlert className="w-16 h-16 text-pine-400 mx-auto mb-8" />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 tracking-tight">
               Security is not a feature. It’s the foundation.

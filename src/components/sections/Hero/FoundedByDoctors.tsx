@@ -39,7 +39,7 @@ export const FoundedByDoctors = () => {
                 transition={{ delay: 0.4, duration: 0.8 }}
                 className="absolute -bottom-2 -right-4 bg-accent-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow-lg shadow-accent-600/20 z-20 flex items-center gap-1.5"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-white motion-safe:animate-pulse" />
                 MD Led
               </motion.div>
             </div>
@@ -71,8 +71,11 @@ export const FoundedByDoctors = () => {
                 <div className="p-1.5 rounded-lg bg-surface-50 group-hover:bg-pine-50 transition-colors">
                   <item.icon className="w-4 h-4 text-pine-600"/>
                 </div>
-                <span className="group-hover:text-pine-900 transition-colors">{item.text}</span>
-                <div className="relative">
+                <div className="flex flex-col">
+                  <span className="group-hover:text-pine-900 transition-colors">{item.text}</span>
+                  <span className="text-[11px] text-stone-400 font-medium lg:hidden">{item.tip}</span>
+                </div>
+                <div className="relative hidden lg:block">
                   <span className="w-4 h-4 rounded-full border border-stone-300 bg-white text-stone-400 text-[10px] font-bold flex items-center justify-center cursor-help peer select-none">i</span>
                   <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-stone-900 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity pointer-events-none z-50">
                     {item.tip}
