@@ -16,7 +16,7 @@ export function PatientDataRules() {
                    <ShieldCheck className="w-8 h-8 text-pine-600" />
                 </div>
                 <div>
-                   <h3 className="text-2xl font-bold text-pine-900 mb-3 tracking-tight">FettleMed never sells your data</h3>
+                   <h3 className="text-2xl font-bold text-pine-900 mb-3 tracking-tight">Fettlemed never sells your data</h3>
                    <p className="text-stone-600 font-medium text-lg leading-relaxed">Your health records are never used for advertising, never sold to insurers, never shared with your employer. Ever.</p>
                 </div>
              </FadeIn>
@@ -37,7 +37,7 @@ export function PatientDataRules() {
                 </div>
                 <div>
                    <h3 className="text-2xl font-bold text-pine-900 mb-3 tracking-tight">You can see who accessed your records</h3>
-                   <p className="text-stone-600 font-medium text-lg leading-relaxed">FettleMed keeps a full log of every time your records were accessed and by whom. You are never in the dark.</p>
+                   <p className="text-stone-600 font-medium text-lg leading-relaxed">Fettlemed keeps a full log of every time your records were accessed and by whom. You are never in the dark.</p>
                 </div>
              </FadeIn>
           </div>

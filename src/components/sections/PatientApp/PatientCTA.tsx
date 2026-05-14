@@ -16,12 +16,12 @@ export function PatientCTA() {
                 One place for everything.<br className="hidden md:block"/> Finally.
              </h2>
              <p className="text-xl text-stone-500 mb-10 font-medium max-w-2xl mx-auto leading-relaxed">
-                We are piloting with doctors and clinics from June 2026. The patient app follows shortly after. Join the waitlist and we'll reach out directly.
+                We are piloting with doctors and clinics from June 2026. The patient app follows shortly after. Get early access and we'll reach out directly.
              </p>
 
              <div className="flex flex-col items-center justify-center gap-6">
                <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="bg-accent-600 hover:bg-accent-700 text-white h-14 px-12 text-lg rounded-xl font-bold shadow-lg shadow-accent-600/20">
-                 Join the waitlist
+                 Get early access
                </Button>
 
                <div className="flex items-center gap-4 text-sm font-bold text-stone-500 mt-4">

@@ -31,7 +31,7 @@ export function PatientHero() {
                   onClick={() => setModalOpen(true)}
                   className="bg-accent-600 hover:bg-accent-700 text-white h-14 px-10 text-lg rounded-xl font-bold shadow-lg shadow-accent-600/20"
                 >
-                  Join the waitlist
+                  Get early access
                 </Button>
                 <p className="text-stone-500 text-sm font-medium">Coming soon. Be the first to know when the app is ready.</p>
               </div>

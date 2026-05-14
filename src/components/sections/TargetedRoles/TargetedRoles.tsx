@@ -77,9 +77,9 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       <div className="w-12 h-12 bg-pine-100 text-accent-600 rounded-2xl flex items-center justify-center mb-6">
                         <Smartphone className="w-6 h-6"/>
                       </div>
-                      <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Personal Health Record (PHR) Ownership & Management</h3>
+                      <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Your health records, all in one place</h3>
                       <ul className="space-y-3 text-stone-600 font-medium text-sm">
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Unified view of entire medical history from multiple sources (clinics, labs)</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Every test, prescription, and doctor visit — from any clinic or lab — in a single view</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Automatic aggregation and standardization of health data in real-time</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Patient owns and controls all medical records without depending on hospitals/clinics</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Build your profile to be better informed about your health</li>
@@ -138,9 +138,9 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       <div className="w-12 h-12 bg-pine-100 text-accent-600 rounded-2xl flex items-center justify-center mb-6">
                         <FileCheck2 className="w-6 h-6"/>
                       </div>
-                      <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Proactive Health Engagement & Family Management</h3>
+                      <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Stay ahead of your health</h3>
                       <ul className="space-y-3 text-stone-600 font-medium text-sm">
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-1.5 shrink-0"></span> Personalized smart insights and preventive health reminders</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-1.5 shrink-0"></span> Medication reminders, health insights, and preventive care alerts — for you and your family</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-1.5 shrink-0"></span> Medication alerts and tracking of key health metrics</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-1.5 shrink-0"></span> Tools to manage health of entire family (children, elderly parents)</li>
                       </ul>

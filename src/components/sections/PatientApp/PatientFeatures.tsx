@@ -7,7 +7,7 @@ export function PatientFeatures() {
     <section className="py-24 bg-surface-50 border-b border-stone-100">
        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <FadeIn className="text-center mb-16 max-w-3xl mx-auto">
-             <h2 className="text-3xl md:text-5xl font-bold text-pine-900 tracking-tight mb-6 text-balance">What FettleMed gives you</h2>
+             <h2 className="text-3xl md:text-5xl font-bold text-pine-900 tracking-tight mb-6 text-balance">What Fettlemed gives you</h2>
           </FadeIn>
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 auto-rows-fr">

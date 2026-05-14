@@ -28,7 +28,7 @@ export function PatientForWho() {
                 </div>
                 <div>
                    <h3 className="text-xl font-bold text-white mb-3 tracking-tight">For your family</h3>
-                   <p className="text-pine-200 leading-relaxed font-medium">You are the one who remembers your mother's last blood pressure reading, your father's medication list, your child's vaccination schedule. FettleMed lets you manage all of it in one place, separately and securely.</p>
+                   <p className="text-pine-200 leading-relaxed font-medium">You are the one who remembers your mother's last blood pressure reading, your father's medication list, your child's vaccination schedule. Fettlemed lets you manage all of it in one place, separately and securely.</p>
                 </div>
              </FadeIn>
           </div>

@@ -121,7 +121,7 @@ export function HomeFlowMockup() {
                   <div className="w-32 shrink-0 bg-pine-900 rounded-[1.2rem] p-2 border-4 border-pine-800 shadow-lg">
                     <div className="bg-white rounded-[0.8rem] overflow-hidden h-48 flex flex-col">
                       <div className="bg-pine-900 px-2 py-2 text-center">
-                        <p className="text-white text-[9px] font-bold">FettleMed</p>
+                        <p className="text-white text-[9px] font-bold">Fettlemed</p>
                       </div>
                       <div className="flex-1 p-2 space-y-1.5 overflow-hidden">
                         <motion.div initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="bg-pine-50 rounded-lg p-1.5 flex items-center gap-1.5">

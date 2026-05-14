@@ -12,12 +12,12 @@ export function ClinicSwitching() {
           <div className="space-y-8">
              <FadeIn delay={0.1}>
                 <h3 className="text-xl font-bold text-pine-900 mb-2">You do not switch everything at once</h3>
-                <p className="text-stone-600 text-lg font-medium leading-relaxed">FettleMed is modular. Start with appointments and patient registration. Add billing when the clinic is ready. Expand features at your own pace. You decide what goes first.</p>
+                <p className="text-stone-600 text-lg font-medium leading-relaxed">Fettlemed is modular. Start with appointments and patient registration. Add billing when the clinic is ready. Expand features at your own pace. You decide what goes first.</p>
              </FadeIn>
              
              <FadeIn delay={0.2}>
                 <h3 className="text-xl font-bold text-pine-900 mb-2">Your existing patients are not disrupted</h3>
-                <p className="text-stone-600 text-lg font-medium leading-relaxed">No historical data migration required. The clinic's digital record starts from the first day on FettleMed. Existing patients are registered as they walk in.</p>
+                <p className="text-stone-600 text-lg font-medium leading-relaxed">No historical data migration required. The clinic's digital record starts from the first day on Fettlemed. Existing patients are registered as they walk in.</p>
              </FadeIn>
              
              <FadeIn delay={0.3}>
@@ -27,7 +27,7 @@ export function ClinicSwitching() {
              
              <FadeIn delay={0.4}>
                 <h3 className="text-xl font-bold text-pine-900 mb-2">No new hardware</h3>
-                <p className="text-stone-600 text-lg font-medium leading-relaxed">FettleMed works on the devices the clinic already has: tablets, laptops, desktops. Whatever the front desk currently uses.</p>
+                <p className="text-stone-600 text-lg font-medium leading-relaxed">Fettlemed works on the devices the clinic already has: tablets, laptops, desktops. Whatever the front desk currently uses.</p>
              </FadeIn>
              
              <FadeIn delay={0.5}>

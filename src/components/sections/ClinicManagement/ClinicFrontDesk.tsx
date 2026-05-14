@@ -16,7 +16,7 @@ export function ClinicFrontDesk() {
                    <Laptop2 className="w-8 h-8 text-pine-600" />
                 </div>
                 <div className="space-y-4 text-lg text-stone-600 font-medium leading-relaxed">
-                   <p>FettleMed is built for staff who have never used clinic software before — not for teams with tech training. The most common front desk tasks take fewer steps than the paper process they currently use.</p>
+                   <p>Fettlemed is built for staff who have never used clinic software before — not for teams with tech training. The most common front desk tasks take fewer steps than the paper process they currently use.</p>
                    <p>Works on the tablet or computer already at the front desk — no new hardware. Staff can be onboarded in one session without disrupting the clinic's day.</p>
                    <p>Errors can be corrected. Nothing is permanent and irreversible. Works for clinics with one front desk person and clinics with five.</p>
                 </div>

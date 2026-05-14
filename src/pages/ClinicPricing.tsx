@@ -11,7 +11,7 @@ export default function ClinicPricing() {
   return (
     <>
       <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} />
-      <SEO title="Clinic Pricing" description="Pricing for FettleMed Clinic Management." />
+      <SEO title="Clinic Pricing" description="Pricing for Fettlemed Clinic Management." />
       <div className="flex flex-col w-full bg-white pt-24 pb-32">
       <div className="container mx-auto px-4 max-w-[1200px]">
         <Breadcrumbs />

@@ -7,11 +7,11 @@ import { FadeIn } from "@/components/common/FadeIn";
 export default function PatientHowItWorks() {
   return (
     <>
-      <SEO title="Patient - How it works" description="How FettleMed works for patients." />
+      <SEO title="Patient - How it works" description="How Fettlemed works for patients." />
       <div className="flex flex-col w-full bg-white pt-24 pb-32">
       <div className="container mx-auto px-4 max-w-[800px]">
         <Breadcrumbs />
-        <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-16 tracking-tight">How FettleMed works for patients</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-16 tracking-tight">How Fettlemed works for patients</h1>
 
         <div className="space-y-24">
           

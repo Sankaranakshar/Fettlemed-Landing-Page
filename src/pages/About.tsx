@@ -9,7 +9,7 @@ export default function About() {
 
   return (
     <>
-      <SEO title="About" description="Our mission to empower patients and providers." />
+      <SEO title="About" description="Fettlemed was founded by two doctors who spent decades watching health records get lost between clinics. We built what should have existed." />
       <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} />
       <div className="flex flex-col w-full bg-surface-50">
 
@@ -28,13 +28,13 @@ export default function About() {
                <div>
                   <h2 className="text-sm font-black tracking-widest uppercase text-accent-500 mb-6 border-b border-accent-500/20 inline-block pb-1">Our Analogy</h2>
                   <p className="text-2xl md:text-3xl font-medium leading-relaxed text-white max-w-3xl mx-auto text-balance">
-                    Think of FettleMed as the "Health Operating System." Just as an OS lets different apps run on the same hardware, FettleMed lets different doctors, clinics, and labs securely access the same medical history with your permission.
+                    Just as your phone connects all your apps, Fettlemed connects all your health records.
                   </p>
                </div>
                <div>
                   <h2 className="text-sm font-black tracking-widest uppercase text-accent-500 mb-6 border-b border-accent-500/20 inline-block pb-1">Our belief</h2>
                   <p className="text-2xl md:text-3xl font-medium leading-relaxed text-white max-w-3xl mx-auto text-balance">
-                    We believe the patient is the primary owner of their medical data, and we've built every part of FettleMed around that principle.
+                    We believe the patient is the primary owner of their medical data, and we've built every part of Fettlemed around that principle.
                   </p>
                </div>
             </div>
@@ -76,7 +76,7 @@ export default function About() {
                    <h3 className="text-2xl font-bold text-pine-900 mb-1">Akshar Sankaran Jaikumar</h3>
                    <p className="text-accent-600 font-bold mb-3">Co-founder & CEO</p>
                    <p className="text-stone-600 leading-relaxed">
-                     Leads business and technology strategy. Akshar's background in tech strategy drives the product roadmap, ensuring FettleMed scales across India's complex healthcare ecosystem while remaining invisible to the user.
+                     Leads business and technology strategy. Akshar's background in tech strategy drives the product roadmap, ensuring Fettlemed scales across India's complex healthcare ecosystem while remaining invisible to the user.
                    </p>
                 </div>
 
@@ -102,7 +102,7 @@ export default function About() {
                    <p className="text-accent-600 font-bold mb-3">Co-founder & Chief Clinical Officer</p>
                    <p className="text-stone-500 font-semibold text-sm mb-4">MBBS, MRCP (UK) (Paediatrics)</p>
                    <p className="text-stone-600 leading-relaxed">
-                     Honoured as a 'Singapore Silent Hero' for her dedication to community health, Dr. Sriram is a fierce advocate for making healthcare accessible and understandable for all. She pioneers care for adults with intellectual disabilities, championing their integration into the community. Her work shapes FettleMed's core mission, ensuring our platform is built with deep empathy and designed to empower every patient, especially the most vulnerable, to manage their own health journey.
+                     Honoured as a 'Singapore Silent Hero' for her dedication to community health, Dr. Sriram is a fierce advocate for making healthcare accessible and understandable for all. She pioneers care for adults with intellectual disabilities, championing their integration into the community. Her work shapes Fettlemed's core mission, ensuring our platform is built with deep empathy and designed to empower every patient, especially the most vulnerable, to manage their own health journey.
                    </p>
                 </div>
              </div>
@@ -116,7 +116,7 @@ export default function About() {
           <FadeIn>
             <h2 className="text-3xl md:text-5xl font-bold text-pine-900 mb-8">Where we are today</h2>
             <p className="text-xl text-stone-600 font-medium leading-relaxed mb-10">
-              Currently in early access — built with doctors, for doctors, and for every patient they see.
+              Currently in early access — built with doctors, for doctors and every patient they see.
             </p>
             <button onClick={() => setModalOpen(true)} className="inline-flex items-center gap-2 bg-pine-900 text-white font-bold px-10 py-5 rounded-2xl hover:bg-pine-800 transition-colors">Join Waitlist <ArrowRight className="w-5 h-5"/></button>
           </FadeIn>

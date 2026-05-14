@@ -22,7 +22,7 @@ export const Trust = () => {
               <div className="bg-surface-50 p-8 rounded-3xl border border-stone-100 md:col-span-2 lg:col-span-1">
                 <FileCheck2 className="w-8 h-8 text-pine-600 mb-4" />
                 <h3 className="text-xl font-bold text-pine-900 mb-3">Co-Built with Doctors</h3>
-                <p className="text-stone-600 leading-relaxed font-medium">FettleMed is directly shaped by the workflows of practicing clinicians Dr. Bhavani and Dr. Sriram.</p>
+                <p className="text-stone-600 leading-relaxed font-medium">Fettlemed is directly shaped by the workflows of practicing clinicians Dr. Bhavani and Dr. Sriram.</p>
               </div>
            </div>
 

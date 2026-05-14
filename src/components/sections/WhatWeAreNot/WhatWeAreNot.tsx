@@ -12,7 +12,7 @@ export const WhatWeAreNot = () => {
               What <span className="text-stone-500">we are not.</span>
             </h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto font-medium">
-              To understand FettleMed, it helps to understand what we chose not to be.
+              To understand Fettlemed, it helps to understand what we chose not to be.
             </p>
           </FadeIn>
         </div>
@@ -37,7 +37,7 @@ export const WhatWeAreNot = () => {
               </div>
               <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Not Rigid Hospital Software</h3>
               <p className="text-stone-600 leading-relaxed font-medium">
-                Old hospital software locks your data to one clinic. FettleMed is different. Your data is portable and follows you wherever you go, to any doctor you choose.
+                Old hospital software locks your data to one clinic. Fettlemed is different. Your data is portable and follows you wherever you go, to any doctor you choose.
               </p>
             </div>
           </FadeIn>

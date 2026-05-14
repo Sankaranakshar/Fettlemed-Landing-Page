@@ -6,7 +6,7 @@ import { ArrowLeft, CheckCircle2 } from "lucide-react";
 export default function ClinicFeatures() {
   return (
     <>
-      <SEO title="Clinic Features" description="Features of FettleMed Clinic Management." />
+      <SEO title="Clinic Features" description="Features of Fettlemed Clinic Management." />
       <div className="flex flex-col w-full bg-white pt-24 pb-32">
       <div className="container mx-auto px-4 max-w-[1000px]">
         <Breadcrumbs />
@@ -15,7 +15,7 @@ export default function ClinicFeatures() {
         <div className="grid lg:grid-cols-2 gap-12">
            <div>
              <h3 className="text-2xl font-bold text-stone-900 mb-4 flex gap-3"><CheckCircle2 className="w-6 h-6 text-pine-600 mt-1 shrink-0"/> Patient registration & records</h3>
-             <p className="text-stone-600 leading-relaxed text-lg">Digital information forms that can be filled by staff or completed by patients online before their visit via the FettleMed Patient App. ABHA ID verification and linking. Automatic generation of a Unique Patient Identifier (UHID). Secure upload of digital documents like IDs and referral letters. Patient details auto-populate across all integrated modules including EHR and billing.</p>
+             <p className="text-stone-600 leading-relaxed text-lg">Digital information forms that can be filled by staff or completed by patients online before their visit via the Fettlemed Patient App. ABHA ID verification and linking. Automatic generation of a Unique Patient Identifier (UHID). Secure upload of digital documents like IDs and referral letters. Patient details auto-populate across all integrated modules including EHR and billing.</p>
            </div>
            <div>
              <h3 className="text-2xl font-bold text-stone-900 mb-4 flex gap-3"><CheckCircle2 className="w-6 h-6 text-pine-600 mt-1 shrink-0"/> Appointment & patient flow</h3>

@@ -7,7 +7,7 @@ import { WaitlistForm } from "@/components/common/WaitlistModal";
 export default function Waitlist() {
   return (
     <>
-      <SEO title="Waitlist" description="Join the FettleMed waitlist." />
+      <SEO title="Waitlist" description="Join the Fettlemed waitlist." />
       <div className="flex flex-col w-full min-h-screen bg-surface-50 font-sans">
         <section className="pt-20 pb-24 md:pt-32 relative z-10">
           <div className="container mx-auto px-4 max-w-6xl">

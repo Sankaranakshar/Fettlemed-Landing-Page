@@ -11,7 +11,7 @@ export default function OurStory() {
   return (
     <>
       <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} />
-      <SEO title="Our Story" description="The story behind FettleMed." />
+      <SEO title="Our Story" description="The story behind Fettlemed." />
       <div className="flex flex-col w-full bg-stone-50 pt-24 pb-32 min-h-screen">
       <div className="container mx-auto px-4 max-w-5xl flex flex-col lg:flex-row gap-16 relative">
         
@@ -21,7 +21,7 @@ export default function OurStory() {
               <Breadcrumbs />
               <div className="h-[1px] w-12 bg-stone-200 mb-6" />
               <p className="text-sm font-semibold text-stone-400 uppercase tracking-widest leading-relaxed">
-                The origin story of FettleMed and why we believe health information must remain connected.
+                The origin story of Fettlemed and why we believe health information must remain connected.
               </p>
            </div>
         </div>
@@ -51,11 +51,11 @@ export default function OurStory() {
               <p>We realized that while healthcare records were scattered, the technology to connect them was already in everyone's pocket. Most of India now has a smartphone, providing the perfect infrastructure for a truly patient-centric health record system.</p>
               
               <div className="bg-pine-50 rounded-2xl p-8 my-12 border border-pine-100">
-                 <p className="font-sans text-pine-900 font-medium mb-0">FettleMed was born from a simple mission: to ensure that every person's health history lives permanently on their own device — structured, searchable, and shareable with any doctor in seconds.</p>
+                 <p className="font-sans text-pine-900 font-medium mb-0">Fettlemed was born from a simple mission: to ensure that every person's health history lives permanently on their own device — structured, searchable, and shareable with any doctor in seconds.</p>
               </div>
 
               <p>We're building the missing layer that connects patients, doctors, and clinics. Our platform ensures that doctors can see the full picture before they prescribe, and patients remain in full control of who sees their data and for how long.</p>
-              <p>Today, FettleMed is a commitment to making sure that no family ever has to start their healthcare journey from scratch again. We are building the infrastructure for a healthier, more connected India, one record at a time.</p>
+              <p>Today, Fettlemed is a commitment to making sure that no family ever has to start their healthcare journey from scratch again. We are building the infrastructure for a healthier, more connected India, one record at a time.</p>
               
               <div className="pt-8">
                 <button onClick={() => setModalOpen(true)} className="inline-flex items-center gap-2 text-pine-600 font-bold hover:text-pine-700 transition-colors">

@@ -1,5 +1,5 @@
 export const APP_CONFIG = {
-  name: 'FettleMed',
+  name: 'Fettlemed',
   tagline: "India's Health Operating System",
   description: 'Revolutionary EHR and practice management platform for Indian healthcare',
   url: 'https://fettlemed.com',

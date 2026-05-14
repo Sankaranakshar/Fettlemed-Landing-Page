@@ -32,7 +32,7 @@ export function ClinicShuffleMockup() {
           <span className="w-3 h-3 rounded-full bg-red-400" />
           <span className="w-3 h-3 rounded-full bg-amber-400" />
           <span className="w-3 h-3 rounded-full bg-green-400" />
-          <span className="mx-auto text-xs font-semibold text-stone-400">Clinic Dashboard — FettleMed</span>
+          <span className="mx-auto text-xs font-semibold text-stone-400">Clinic Dashboard — Fettlemed</span>
         </div>
 
         {/* Sidebar + main layout */}

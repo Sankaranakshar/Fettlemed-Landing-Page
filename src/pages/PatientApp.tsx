@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { FAQ } from '@/components/common/FAQ';
 import { SEO } from '@/components/common/SEO';
 import { FadeIn } from "@/components/common/FadeIn";
+import { Button } from "@/components/common/Button";
+import { WaitlistModal } from "@/components/common/WaitlistModal";
 import { PatientHero } from "@/components/sections/PatientApp/PatientHero";
 import { PatientProblem } from "@/components/sections/PatientApp/PatientProblem";
 import { PatientFeatures } from "@/components/sections/PatientApp/PatientFeatures";
@@ -18,8 +21,8 @@ const faqSections = [
         "answer": "The patient app is coming soon. We are currently piloting the doctor and clinic portal, with the patient app to follow shortly after. Join the waitlist and we will notify you the moment it is ready."
       },
       {
-        "question": "Does my doctor need to be on FettleMed for me to use the app?",
-        "answer": "No. You can start using the app independently — upload your existing prescriptions, lab reports, and medical records yourself and build your health profile straight away. When your doctor joins FettleMed, new records will sync to your profile automatically."
+        "question": "Does my doctor need to be on Fettlemed for me to use the app?",
+        "answer": "No. You can start using the app independently — upload your existing prescriptions, lab reports, and medical records yourself and build your health profile straight away. When your doctor joins Fettlemed, new records will sync to your profile automatically."
       },
       {
         "question": "Does it work in Hindi, Tamil, Telugu, or other Indian languages?",
@@ -27,7 +30,7 @@ const faqSections = [
       },
       {
         "question": "Do I need a smartphone?",
-        "answer": "Yes. FettleMed currently requires a smartphone running Android or iOS. It does not require a high-end device — any modern smartphone will work."
+        "answer": "Yes. Fettlemed currently requires a smartphone running Android or iOS. It does not require a high-end device — any modern smartphone will work."
       }
     ]
   },
@@ -36,19 +39,19 @@ const faqSections = [
     items: [
       {
         "question": "Where are my records stored?",
-        "answer": "Your records are stored securely on FettleMed's servers in India, not just on your phone. This means you can access them from any device at any time and never lose them if your phone is damaged or lost."
+        "answer": "Your records are stored securely on Fettlemed's servers in India, not just on your phone. This means you can access them from any device at any time and never lose them if your phone is damaged or lost."
       },
       {
         "question": "What types of records can I store?",
-        "answer": "You can store prescriptions, lab reports, diagnostic scans, consultation notes, and vaccination records. If your doctor uses FettleMed, new records from your consultations are added automatically."
+        "answer": "You can store prescriptions, lab reports, diagnostic scans, consultation notes, and vaccination records. If your doctor uses Fettlemed, new records from your consultations are added automatically."
       },
       {
         "question": "If I upload a PDF lab report, does the app just store it or does it understand what is in it?",
-        "answer": "FettleMed can read and structure the information inside your PDF lab reports — not just store the file. This means your results are organised, searchable, and presented in a way that is easy to understand rather than as a pile of documents."
+        "answer": "Fettlemed can read and structure the information inside your PDF lab reports — not just store the file. This means your results are organised, searchable, and presented in a way that is easy to understand rather than as a pile of documents."
       },
       {
-        "question": "Can I add records from before I started using FettleMed?",
-        "answer": "Yes. You can upload older prescriptions, lab reports, and medical documents at any time. FettleMed will read and organise them into your health timeline."
+        "question": "Can I add records from before I started using Fettlemed?",
+        "answer": "Yes. You can upload older prescriptions, lab reports, and medical documents at any time. Fettlemed will read and organise them into your health timeline."
       },
       {
         "question": "If I lose my phone, do I lose my records?",
@@ -77,7 +80,7 @@ const faqSections = [
       },
       {
         "question": "Can I see who has accessed my records and when?",
-        "answer": "Yes. FettleMed maintains a full audit trail. You can see a log of every time your records were accessed and by whom."
+        "answer": "Yes. Fettlemed maintains a full audit trail. You can see a log of every time your records were accessed and by whom."
       }
     ]
   },
@@ -86,7 +89,7 @@ const faqSections = [
     items: [
       {
         "question": "Can I manage health records for my parents or children?",
-        "answer": "Yes. You can manage health profiles for multiple family members from a single FettleMed account. Each family member has their own separate health record."
+        "answer": "Yes. You can manage health profiles for multiple family members from a single Fettlemed account. Each family member has their own separate health record."
       },
       {
         "question": "Does each family member have their own privacy settings?",
@@ -102,12 +105,12 @@ const faqSections = [
     title: "Data and privacy",
     items: [
       {
-        "question": "Does FettleMed sell my health data to anyone?",
+        "question": "Does Fettlemed sell my health data to anyone?",
         "answer": "Never. Your health data is never sold, never used for advertising, and never shared with any third party without your explicit consent."
       },
       {
-        "question": "Can FettleMed's team see my records?",
-        "answer": "FettleMed staff do not have access to your personal health records for any commercial or analytical purpose. Access is limited strictly to technical operations where necessary, with appropriate safeguards."
+        "question": "Can Fettlemed's team see my records?",
+        "answer": "Fettlemed staff do not have access to your personal health records for any commercial or analytical purpose. Access is limited strictly to technical operations where necessary, with appropriate safeguards."
       },
       {
         "question": "Is my data stored in India?",
@@ -118,8 +121,8 @@ const faqSections = [
         "answer": "You can request deletion of your account and your personal data at any time. We will provide you with a complete export of your records before deletion so you never lose your health history. Note that records created by your doctors during consultations are retained by them as required under Indian medical regulations."
       },
       {
-        "question": "Can my insurer or employer ever access my health data through FettleMed?",
-        "answer": "No. FettleMed never shares your data with insurers, employers, or any third party without your explicit consent. We will never facilitate this even if asked."
+        "question": "Can my insurer or employer ever access my health data through Fettlemed?",
+        "answer": "No. Fettlemed never shares your data with insurers, employers, or any third party without your explicit consent. We will never facilitate this even if asked."
       },
       {
         "question": "What if the government asks for my health data?",
@@ -130,9 +133,12 @@ const faqSections = [
 ];
 
 export default function PatientApp() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <>
-      <SEO title="For Everyone" description="Your health has always been yours. Your records haven't been. FettleMed gives you one place for everything." />
+      <SEO title="For Everyone" description="Every prescription, lab report, and doctor visit in one place. You control who sees your records. Free, secure, and always with you." />
+      <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} />
       <div className="flex flex-col w-full bg-surface-50">
         <PatientHero />
         <PatientProblem />
@@ -148,6 +154,19 @@ export default function PatientApp() {
            </FadeIn>
            <FAQ sections={faqSections} />
         </div>
+
+        {/* Bottom CTA */}
+        <section className="py-24 bg-pine-900 text-center">
+          <FadeIn>
+            <div className="container mx-auto px-6 max-w-2xl">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">The app is coming soon.</h2>
+              <p className="text-pine-300 text-lg font-medium mb-10">Join the waitlist to be first.</p>
+              <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="bg-white text-pine-900 hover:bg-pine-50 h-14 px-12 text-lg rounded-xl font-bold">
+                Get early access
+              </Button>
+            </div>
+          </FadeIn>
+        </section>
       </div>
     </>
   );

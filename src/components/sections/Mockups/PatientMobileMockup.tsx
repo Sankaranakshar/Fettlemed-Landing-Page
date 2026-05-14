@@ -26,7 +26,7 @@ export function PatientMobileMockup() {
           {/* Status bar */}
           <div className="bg-pine-900 px-4 py-2 flex justify-between items-center">
             <span className="text-white text-[10px] font-bold">9:41</span>
-            <span className="text-white text-[10px] font-bold tracking-tight">FettleMed</span>
+            <span className="text-white text-[10px] font-bold tracking-tight">Fettlemed</span>
             <span className="text-pine-300 text-[10px]">●●●</span>
           </div>
 

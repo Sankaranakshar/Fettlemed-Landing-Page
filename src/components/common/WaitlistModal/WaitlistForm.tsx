@@ -104,7 +104,7 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
         <CheckCircle2 className="w-16 h-16 text-pine-500 mb-6" />
         <h2 className="text-2xl font-bold text-pine-900 mb-3 tracking-tight">You're on the list.</h2>
         <p className="text-stone-600 leading-relaxed font-medium max-w-sm">
-          Thank you for your interest in FettleMed. We will be in touch shortly with next steps.
+          Thank you for your interest in Fettlemed. We will be in touch shortly with next steps.
         </p>
       </div>
     );

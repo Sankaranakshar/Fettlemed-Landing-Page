@@ -6,7 +6,7 @@ import { ArrowLeft, CheckCircle2 } from "lucide-react";
 export default function DoctorFeatures() {
   return (
     <>
-      <SEO title="Doctor Features" description="Features and tools for doctors using FettleMed." />
+      <SEO title="Doctor Features" description="Features and tools for doctors using Fettlemed." />
       <div className="flex flex-col w-full bg-white pt-24 pb-32">
       <div className="container mx-auto px-4 max-w-[1000px]">
         <Breadcrumbs />
@@ -34,8 +34,8 @@ export default function DoctorFeatures() {
              <p className="text-stone-600 leading-relaxed text-lg">Order lab tests digitally from within the portal. Track status from sample collection to result availability. Results are delivered electronically into both your portal and the patient’s app simultaneously.</p>
            </div>
            <div>
-             <h3 className="text-2xl font-bold text-stone-900 mb-4 flex gap-3"><CheckCircle2 className="w-6 h-6 text-pine-600 mt-1 shrink-0"/> Works standalone or with FettleMed CMS</h3>
-             <p className="text-stone-600 leading-relaxed text-lg">Use the Doctor Portal independently in any clinic. Or pair it with FettleMed Clinic Management System for full operational integration — appointments, billing, patient queue, and records all in one system.</p>
+             <h3 className="text-2xl font-bold text-stone-900 mb-4 flex gap-3"><CheckCircle2 className="w-6 h-6 text-pine-600 mt-1 shrink-0"/> Works standalone or with Fettlemed CMS</h3>
+             <p className="text-stone-600 leading-relaxed text-lg">Use the Doctor Portal independently in any clinic. Or pair it with Fettlemed Clinic Management System for full operational integration — appointments, billing, patient queue, and records all in one system.</p>
            </div>
         </div>
       </div>

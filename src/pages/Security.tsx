@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/common/FadeIn";
 export default function Security() {
   return (
     <>
-      <SEO title="Security" description="FettleMed Security and data privacy." />
+      <SEO title="Security" description="Fettlemed Security and data privacy." />
       <div className="flex flex-col w-full bg-stone-50 min-h-screen">
       {/* Hero */}
       <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-stone-900 text-white">
@@ -16,7 +16,7 @@ export default function Security() {
               Security is not a feature. It’s the foundation.
             </h1>
             <p className="text-xl text-stone-300 font-medium leading-relaxed">
-              Every layer of FettleMed is built with health-grade security. Here’s exactly how we protect your data.
+              Every layer of Fettlemed is built with health-grade security. Here’s exactly how we protect your data.
             </p>
           </FadeIn>
         </div>
@@ -107,7 +107,7 @@ export default function Security() {
                      <Settings className="w-8 h-8 text-pine-600 shrink-0 mt-1" />
                      <div>
                        <h3 className="text-2xl font-bold text-stone-900 mb-3">Consent architecture</h3>
-                       <p className="text-stone-600 text-lg leading-relaxed">FettleMed uses a granular, ABDM-compliant consent management system. Patients control exactly who accesses their data, what data they can see, and for how long. All consent events are recorded in an immutable audit trail. Real-time notifications alert patients to any new access request.</p>
+                       <p className="text-stone-600 text-lg leading-relaxed">Fettlemed uses a granular, ABDM-compliant consent management system. Patients control exactly who accesses their data, what data they can see, and for how long. All consent events are recorded in an immutable audit trail. Real-time notifications alert patients to any new access request.</p>
                      </div>
                    </div>
                 </FadeIn></div>

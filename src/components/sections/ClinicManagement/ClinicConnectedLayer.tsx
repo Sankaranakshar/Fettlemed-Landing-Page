@@ -16,9 +16,9 @@ export function ClinicConnectedLayer() {
                    <Network className="w-8 h-8 text-pine-600" />
                 </div>
                 <div className="space-y-4 text-lg text-stone-600 font-medium leading-relaxed">
-                   <p>When a doctor generates a prescription on FettleMed, it goes directly to the patient's app. The patient does not need a printout. The front desk does not handle prescription queries.</p>
+                   <p>When a doctor generates a prescription on Fettlemed, it goes directly to the patient's app. The patient does not need a printout. The front desk does not handle prescription queries.</p>
                    <p>When a patient uploads a follow-up test result, the doctor sees it without the patient needing another visit just to hand over a report. That visit slot opens up for someone else.</p>
-                   <p>When a patient comes to the clinic for the first time and is already on FettleMed, their history is available with their consent — not a blank registration form.</p>
+                   <p>When a patient comes to the clinic for the first time and is already on Fettlemed, their history is available with their consent — not a blank registration form.</p>
                    <div className="pt-4 border-t border-stone-100 mt-6 !mt-6 text-pine-900 font-bold">
                       <p>Each of these moments removes a task that currently lands on the front desk or the doctor's time. The platform is not a digital version of your paper system. It is a connected layer between the clinic, the doctors, and the patients. Fewer unnecessary touchpoints. Less friction at every step.</p>
                    </div>

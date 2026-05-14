@@ -55,11 +55,12 @@ export const FoundedByDoctors = () => {
           {/* Trust Markers - Staggered */}
           <div className="flex flex-wrap justify-center lg:justify-end gap-x-10 gap-y-6">
             {[
-              { icon: ShieldCheck, text: "ABDM Compliant", color: "text-pine-600" },
-              { icon: Lock, text: "HIPAA Aligned", color: "text-pine-600" },
-              { icon: CheckCircle2, text: "Zero-Knowledge", color: "text-pine-600" }
+              { icon: ShieldCheck, text: "ABDM Compliant",  tip: "India's national health data standard" },
+              { icon: Lock,        text: "HIPAA Aligned",   tip: "US health data privacy standard" },
+              { icon: CheckCircle2,text: "Zero-Knowledge",  tip: "Only you can access your data" },
+              { icon: ShieldCheck, text: "DPDP Act Ready",  tip: "India's digital personal data protection law" },
             ].map((item, i) => (
-              <motion.div 
+              <motion.div
                 key={item.text}
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -67,10 +68,17 @@ export const FoundedByDoctors = () => {
                 transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
                 className="flex items-center gap-2.5 font-bold text-stone-700 text-[15px] group cursor-default"
               >
-                <div className={`p-1.5 rounded-lg bg-surface-50 group-hover:bg-pine-50 transition-colors`}>
-                  <item.icon className={`w-4 h-4 ${item.color}`}/>
+                <div className="p-1.5 rounded-lg bg-surface-50 group-hover:bg-pine-50 transition-colors">
+                  <item.icon className="w-4 h-4 text-pine-600"/>
                 </div>
                 <span className="group-hover:text-pine-900 transition-colors">{item.text}</span>
+                <div className="relative">
+                  <span className="w-4 h-4 rounded-full border border-stone-300 bg-white text-stone-400 text-[10px] font-bold flex items-center justify-center cursor-help peer select-none">i</span>
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-stone-900 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity pointer-events-none z-50">
+                    {item.tip}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-stone-900" />
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

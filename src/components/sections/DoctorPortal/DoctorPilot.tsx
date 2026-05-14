@@ -21,7 +21,7 @@ export function DoctorPilot() {
                 <p className="font-bold text-white">We are a small team building something we believe Indian healthcare needs. We want doctors who believe that too.</p>
              </div>
              <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="bg-white hover:bg-stone-50 text-pine-900 h-14 px-12 text-lg rounded-xl font-bold shadow-lg">
-               Join the waitlist
+               Request early access for your practice
              </Button>
           </FadeIn>
        </div>

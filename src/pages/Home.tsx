@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <>
-      <SEO title="Home" description="Secure decentralized patient health records infrastructure." />
+      <SEO title="Home" description="Fettlemed gives you one place for your complete medical history. Built for patients, doctors, and clinics. ABDM compliant. Join the waitlist." />
       <div className="flex flex-col w-full font-sans bg-surface-50 selection:bg-pine-100 selection:text-pine-900 pb-0">
         
         {/* SECTION 1: Hero */}
@@ -32,11 +32,11 @@ export default function Home() {
         {/* SECTION 3: Features / Solution */}
         <Features />
 
-        {/* SECTION 4: Targeted Content by Role */}
-        <TargetedRoles />
-
-        {/* SECTION 4.5: What We Are Not */}
+        {/* SECTION 4: What We Are Not */}
         <WhatWeAreNot />
+
+        {/* SECTION 5: Targeted Content by Role */}
+        <TargetedRoles />
 
         {/* SECTION 5: Trust & Security */}
         <Trust />

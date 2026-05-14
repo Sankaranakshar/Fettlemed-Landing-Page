@@ -20,7 +20,7 @@ export default function DoctorHowItWorks() {
                  <div className="w-10 h-10 rounded-full bg-pine-500 text-white flex items-center justify-center font-bold text-lg shadow-md">1</div>
                  <h3 className="text-3xl font-bold text-stone-900 tracking-tight">Patient arrives at your clinic</h3>
               </div>
-              <p className="text-stone-600 text-lg leading-relaxed mb-10 max-w-2xl">They open their FettleMed Patient App. You (or your front desk staff) send a data access request from the Doctor Portal by entering their phone number or scanning their ABHA ID.</p>
+              <p className="text-stone-600 text-lg leading-relaxed mb-10 max-w-2xl">They open their Fettlemed Patient App. You (or your front desk staff) send a data access request from the Doctor Portal by entering their phone number or scanning their ABHA ID.</p>
               
               <div className="bg-stone-50 border border-stone-200 rounded-3xl p-8 md:p-12 shadow-inner w-full flex flex-col md:flex-row gap-8 items-center justify-center">
                  <div className="w-full max-w-xs bg-white rounded-2xl shadow-lg border border-stone-200 p-6 flex flex-col gap-4">

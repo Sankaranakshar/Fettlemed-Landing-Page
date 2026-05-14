@@ -11,11 +11,11 @@ interface SEOProps {
 export function SEO({ 
   title, 
   description, 
-  name = "FettleMed", 
+  name = "Fettlemed", 
   type = "website",
   image = "/og-image.png" 
 }: SEOProps) {
-  const isHome = title === 'Home' || title === 'FettleMed';
+  const isHome = title === 'Home' || title === 'Fettlemed';
   const fullTitle = isHome 
     ? `${name} — Your Complete Health Record`
     : `${title} | ${name}`;
