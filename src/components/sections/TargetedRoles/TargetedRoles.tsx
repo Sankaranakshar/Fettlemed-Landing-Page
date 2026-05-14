@@ -79,10 +79,9 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       </div>
                       <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Your health records, all in one place</h3>
                       <ul className="space-y-3 text-stone-600 font-medium text-sm">
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Every test, prescription, and doctor visit — from any clinic or lab — in a single view</li>
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Automatic aggregation and standardization of health data in real-time</li>
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Patient owns and controls all medical records without depending on hospitals/clinics</li>
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Build your profile to be better informed about your health</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Every test, prescription, and doctor visit from any clinic or lab, in a single view</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Records from new consultations update automatically</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Your records belong to you, not the last clinic you visited</li>
                       </ul>
                     </div>
                     <div className="flex-1 w-full h-[200px] md:h-full flex items-center justify-center relative bg-stone-50/50 rounded-2xl overflow-hidden">
