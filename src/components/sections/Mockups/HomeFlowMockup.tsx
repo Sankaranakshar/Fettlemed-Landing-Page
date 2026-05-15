@@ -132,26 +132,36 @@ function FileUploadRow({ filename, label, status }: FileUploadRowProps) {
 // ---------------------------------------------------------------------------
 
 function ClinicPanel() {
-  // Timed visibility flags (ms from mount)
-  const [showCheckin, setShowCheckin] = useState(false);       // 150ms
-  const [showForm, setShowForm] = useState(false);             // 300ms
-  const [file1Status, setFile1Status] = useState<FileStatus>("waiting");   // 800ms uploading
-  const [file2Status, setFile2Status] = useState<FileStatus>("waiting");   // 2200ms uploading
-  const [showSynced, setShowSynced] = useState(false);         // 3200ms
+  const [showCheckin, setShowCheckin] = useState(false);
+  const [showVitals, setShowVitals] = useState(false);
+  const [file1Status, setFile1Status] = useState<FileStatus>("waiting");
+  const [file2Status, setFile2Status] = useState<FileStatus>("waiting");
+  const [showSynced, setShowSynced] = useState(false);
 
-  const visitText = "Follow-up: Hypertension";
-  const visitDisplayed = useTypewriter(visitText, 300, 28);
-  const visitDone = visitDisplayed.length >= visitText.length;
+  // Vitals type out sequentially: height → weight → bp
+  // "172 cm" = 6 chars × 30ms = 180ms  → done ~580ms
+  // "78 kg"  = 5 chars × 30ms = 150ms  → done ~850ms
+  // "138/88" = 6 chars × 30ms = 180ms  → done ~1130ms
+  const heightVal = "172 cm";
+  const weightVal = "78 kg";
+  const bpVal     = "138/88";
+  const heightText = useTypewriter(heightVal, 400, 30);
+  const weightText = useTypewriter(weightVal, 700, 30);
+  const bpText     = useTypewriter(bpVal,     950, 30);
+  const heightDone = heightText.length >= heightVal.length;
+  const weightDone = weightText.length >= weightVal.length;
+  const bpDone     = bpText.length     >= bpVal.length;
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setShowCheckin(true), 150),
-      setTimeout(() => setShowForm(true), 300),
-      setTimeout(() => setFile1Status("uploading"), 800),
-      setTimeout(() => setFile1Status("done"), 1800),
-      setTimeout(() => setFile2Status("uploading"), 2200),
-      setTimeout(() => setFile2Status("done"), 3000),
-      setTimeout(() => setShowSynced(true), 3200),
+      setTimeout(() => setShowCheckin(true),         150),
+      setTimeout(() => setShowVitals(true),           350),
+      // files start after vitals finish (~1130ms) — give a small buffer
+      setTimeout(() => setFile1Status("uploading"), 1300),
+      setTimeout(() => setFile1Status("done"),      2100),
+      setTimeout(() => setFile2Status("uploading"), 2300),
+      setTimeout(() => setFile2Status("done"),      3100),
+      setTimeout(() => setShowSynced(true),         3300),
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
@@ -182,23 +192,42 @@ function ClinicPanel() {
         )}
       </AnimatePresence>
 
-      {/* Reason for visit form field */}
+      {/* Vitals entry */}
       <AnimatePresence>
-        {showForm && (
+        {showVitals && (
           <motion.div
-            key="form"
+            key="vitals"
             initial={{ opacity: 0, y: -4 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
             className="bg-white border border-stone-200 rounded-xl p-3"
           >
-            <p className="text-[10px] font-bold text-stone-400 mb-1.5 uppercase tracking-widest">
-              Reason for visit
+            <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-2">
+              Vitals
             </p>
-            <p className="text-xs font-medium text-stone-700 min-h-[1rem]">
-              {visitDisplayed}
-              <BlinkingCursor visible={!visitDone} />
-            </p>
+            <div className="grid grid-cols-3 gap-2">
+              {/* Height */}
+              <div className="bg-stone-50 rounded-lg px-2 py-2">
+                <p className="text-[9px] text-stone-400 mb-0.5">Height</p>
+                <p className="text-xs font-bold text-pine-900 min-h-[1rem]">
+                  {heightText}<BlinkingCursor visible={!heightDone} />
+                </p>
+              </div>
+              {/* Weight */}
+              <div className="bg-stone-50 rounded-lg px-2 py-2">
+                <p className="text-[9px] text-stone-400 mb-0.5">Weight</p>
+                <p className="text-xs font-bold text-pine-900 min-h-[1rem]">
+                  {weightText}<BlinkingCursor visible={!weightDone} />
+                </p>
+              </div>
+              {/* BP */}
+              <div className="bg-stone-50 rounded-lg px-2 py-2">
+                <p className="text-[9px] text-stone-400 mb-0.5">BP</p>
+                <p className="text-xs font-bold text-pine-900 min-h-[1rem]">
+                  {bpText}<BlinkingCursor visible={!bpDone} />
+                </p>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -469,6 +498,16 @@ function PatientPanel() {
                   <ClipboardList className="w-3 h-3 text-pine-600 shrink-0" />
                   <span className="text-[8px] font-bold text-pine-900">Visit notes</span>
                 </motion.div>
+
+                <motion.div
+                  initial={{ x: 40, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 1.6, duration: 0.35, ease: "easeOut" }}
+                  className="bg-stone-100 rounded-lg px-2 py-1.5 flex items-center gap-1.5"
+                >
+                  <FileText className="w-3 h-3 text-stone-500 shrink-0" />
+                  <span className="text-[8px] font-bold text-stone-700">Clinic Report</span>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -490,10 +529,16 @@ function PatientPanel() {
               delay: 0.7,
             },
             {
-              icon: CheckCircle2,
-              label: "Records up to date",
-              sub: "Last updated today",
+              icon: FileText,
+              label: "Clinic report ready",
+              sub: "Vitals + visit summary",
               delay: 1.0,
+            },
+            {
+              icon: CheckCircle2,
+              label: "All records current",
+              sub: "Last updated today",
+              delay: 1.3,
             },
           ].map(({ icon: Icon, label, sub, delay }) => (
             <motion.div
