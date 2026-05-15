@@ -24,8 +24,8 @@
   --color-accent-800: #08231C;
   --color-accent-900: #031A12;
 
-  --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
 html {
