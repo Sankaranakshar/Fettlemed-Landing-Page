@@ -318,33 +318,67 @@ function DoctorPanel() {
   }, []);
 
   return (
-    <div className="pt-2 space-y-2.5 min-h-[320px]">
+    <div className="pt-2 space-y-2.5 min-h-[360px]">
       {/* Patient context card — visible immediately */}
-      <div className="bg-stone-50 border border-stone-200 rounded-xl p-3 space-y-1.5">
-        <div className="flex items-center justify-between mb-1">
-          <p className="text-xs font-bold text-pine-900">Rajan, 52</p>
-          <span className="text-[10px] text-stone-400 font-medium">
-            Hypertension Stage 1
+      <div className="bg-stone-50 border border-stone-200 rounded-xl p-2.5 space-y-2">
+
+        {/* Name + conditions */}
+        <div className="flex items-start justify-between gap-2">
+          <p className="text-xs font-bold text-pine-900 shrink-0">Rajan, 52</p>
+          <div className="text-right">
+            <p className="text-[9px] font-semibold text-stone-600 leading-tight">Hypertension Stage 1</p>
+            <p className="text-[9px] text-stone-400 leading-tight">Pre-diabetes (HbA1c borderline)</p>
+          </div>
+        </div>
+
+        {/* Allergy row */}
+        <div className="flex items-center gap-1.5">
+          <span className="text-[8px] font-bold text-red-500 shrink-0">⚠ Allergies:</span>
+          <span className="text-[9px] font-semibold bg-red-50 border border-red-200 text-red-700 rounded-full px-2 py-0.5">
+            Penicillin
+          </span>
+          <span className="text-[9px] font-semibold bg-red-50 border border-red-200 text-red-700 rounded-full px-2 py-0.5">
+            Sulfa drugs
           </span>
         </div>
-        <div className="flex items-center justify-between">
-          <span className="text-[10px] text-stone-400">Last BP</span>
-          <span className="text-[10px] font-semibold text-pine-900">142/90</span>
+
+        <div className="h-px bg-stone-200" />
+
+        {/* Vitals from clinic */}
+        <div>
+          <p className="text-[9px] font-bold text-stone-400 uppercase tracking-widest mb-1">
+            Vitals · recorded today
+          </p>
+          <div className="flex items-center gap-2 text-[9px] font-bold text-pine-900">
+            <span>172 cm</span>
+            <span className="text-stone-300">·</span>
+            <span>78 kg</span>
+            <span className="text-stone-300">·</span>
+            <span>BP 138/88</span>
+          </div>
         </div>
-        <div className="flex items-center justify-between">
-          <span className="text-[10px] text-stone-400">CBC</span>
-          <span className="text-[10px] font-semibold text-green-600">
-            ✓ Uploaded today
-          </span>
-        </div>
-        {/* File context badges */}
-        <div className="flex gap-1.5 pt-1">
-          <span className="inline-flex items-center gap-1 text-[9px] font-semibold bg-pine-100 text-pine-800 rounded-full px-2 py-0.5">
-            <FileText className="w-2.5 h-2.5" /> Entry_Form
-          </span>
-          <span className="inline-flex items-center gap-1 text-[9px] font-semibold bg-pine-100 text-pine-800 rounded-full px-2 py-0.5">
-            <FileText className="w-2.5 h-2.5" /> CBC_Report
-          </span>
+
+        <div className="h-px bg-stone-200" />
+
+        {/* Recent tests */}
+        <div>
+          <p className="text-[9px] font-bold text-stone-400 uppercase tracking-widest mb-1.5">
+            Recent tests
+          </p>
+          <div className="flex flex-wrap gap-1">
+            <span className="text-[9px] font-semibold bg-green-50 border border-green-200 text-green-700 rounded-full px-2 py-0.5">
+              CBC · today
+            </span>
+            <span className="text-[9px] font-semibold bg-stone-100 text-stone-600 rounded-full px-2 py-0.5">
+              BP 138/88 · today
+            </span>
+            <span className="text-[9px] font-semibold bg-stone-100 text-stone-600 rounded-full px-2 py-0.5">
+              HbA1c · normal
+            </span>
+            <span className="text-[9px] font-semibold bg-stone-100 text-stone-600 rounded-full px-2 py-0.5">
+              ECG · 6mo ago
+            </span>
+          </div>
         </div>
       </div>
 
@@ -637,7 +671,7 @@ export function HomeFlowMockup() {
         </div>
 
         {/* Content area */}
-        <div className="px-5 pb-5 min-h-[320px] relative">
+        <div className="px-5 pb-5 min-h-[360px] relative">
           <AnimatePresence mode="wait">
             {active === "Clinic" && (
               <motion.div
