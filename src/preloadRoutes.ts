@@ -1,6 +1,5 @@
 export const preloadRoutes: Record<string, () => Promise<unknown>> = {
-  '/': () => import('./pages/Home'),
-  '/home': () => import('./pages/Home'),
+  // Home is eagerly imported in AnimatedRoutes — no preload needed
   '/patient-app': () => import('./pages/PatientApp'),
   '/doctor-portal': () => import('./pages/DoctorPortal'),
   '/clinic-management': () => import('./pages/ClinicManagement'),

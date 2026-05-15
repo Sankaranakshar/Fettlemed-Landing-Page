@@ -5,7 +5,7 @@ export const APP_CONFIG = {
   url: 'https://fettlemed.com',
   email: 'hello@fettlemed.com',
   supportEmail: 'partners@fettlemed.com',
-  phone: '+91-999-999-9999', // Updated placeholder to a more standard demo format or remove if not needed
+  phone: '',
 } as const;
 
 export const THEME = {
@@ -72,19 +72,19 @@ export const FEATURES_CONFIG = {
   },
   ai: {
     title: 'AI-Powered Insights',
-    description: 'Clinical decision support powered by Google Gemini',
+    description: 'Clinical decision support and smart health summaries',
     icon: 'brain',
   },
 } as const;
 
 export const COMPLIANCE_BADGES = [
   {
-    name: 'ABDM Certified',
+    name: 'ABDM Compliant',
     logo: '/assets/badges/abdm.svg',
     link: 'https://abdm.gov.in',
   },
   {
-    name: 'ISO 27001',
+    name: 'ISO 27001 Aligned',
     logo: '/assets/badges/iso27001.svg',
     link: '#',
   },
