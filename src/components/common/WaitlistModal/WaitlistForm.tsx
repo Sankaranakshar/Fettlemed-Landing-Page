@@ -129,7 +129,7 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
                 key={r}
                 type="button"
                 onClick={() => setRole(r)}
-                className={`py-3 px-2 rounded-xl border text-sm font-bold transition-all ${
+                className={`py-3 px-2 rounded-xl border text-sm font-bold transition-[background-color,border-color,color,box-shadow] duration-150 ease-out ${
                   role === r
                     ? "bg-pine-900 border-pine-900 text-white shadow-md"
                     : "bg-white border-stone-200 text-stone-600 hover:border-pine-300 hover:bg-stone-50"
@@ -143,17 +143,17 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
 
         <div className="flex flex-col space-y-2">
           <label htmlFor="wl-name" className="text-sm font-semibold text-stone-700">Full Name</label>
-          <input name="entry.177738397" required type="text" id="wl-name" value={name} onChange={(e) => setName(e.target.value)} className="w-full h-12 px-4 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-pine-500 focus:border-pine-500 transition-all text-pine-900 placeholder:text-stone-400" />
+          <input name="entry.177738397" required type="text" id="wl-name" value={name} onChange={(e) => setName(e.target.value)} className="w-full h-12 px-4 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-pine-500 focus:border-pine-500 transition-[border-color,box-shadow] duration-150 text-pine-900 placeholder:text-stone-400" />
         </div>
 
         <div className="flex flex-col space-y-2">
           <label htmlFor="wl-email" className="text-sm font-semibold text-stone-700">Email Address</label>
-          <input name="entry.1945336821" required type="email" id="wl-email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full h-12 px-4 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-pine-500 focus:border-pine-500 transition-all text-pine-900 placeholder:text-stone-400" />
+          <input name="entry.1945336821" required type="email" id="wl-email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full h-12 px-4 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-pine-500 focus:border-pine-500 transition-[border-color,box-shadow] duration-150 text-pine-900 placeholder:text-stone-400" />
         </div>
 
         <div className="flex flex-col space-y-2">
           <label htmlFor="wl-phone" className="text-sm font-semibold text-stone-700">Phone Number (optional)</label>
-          <input name="entry.764661147" type="tel" id="wl-phone" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full h-12 px-4 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-pine-500 focus:border-pine-500 transition-all text-pine-900 placeholder:text-stone-400" />
+          <input name="entry.764661147" type="tel" id="wl-phone" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full h-12 px-4 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-pine-500 focus:border-pine-500 transition-[border-color,box-shadow] duration-150 text-pine-900 placeholder:text-stone-400" />
         </div>
 
         <div className="flex flex-col space-y-2">
@@ -162,12 +162,12 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
             {role === "Doctor" && "Specialty Field (optional)"}
             {role === "Clinic" && "Clinic Name & Size (optional)"}
           </label>
-          <input name="entry.1761616143" type="text" id="wl-city" value={city} onChange={(e) => setCity(e.target.value)} className="w-full h-12 px-4 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-pine-500 focus:border-pine-500 transition-all text-pine-900 placeholder:text-stone-400" />
+          <input name="entry.1761616143" type="text" id="wl-city" value={city} onChange={(e) => setCity(e.target.value)} className="w-full h-12 px-4 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-pine-500 focus:border-pine-500 transition-[border-color,box-shadow] duration-150 text-pine-900 placeholder:text-stone-400" />
         </div>
 
         <div className="flex flex-col space-y-2">
           <label htmlFor="wl-comments" className="text-sm font-semibold text-stone-700">Comments / Questions (optional)</label>
-          <textarea name="entry.838799959" id="wl-comments" rows={3} value={comments} onChange={(e) => setComments(e.target.value)} className="w-full p-4 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-pine-500 focus:border-pine-500 transition-all text-pine-900 placeholder:text-stone-400 resize-none" />
+          <textarea name="entry.838799959" id="wl-comments" rows={3} value={comments} onChange={(e) => setComments(e.target.value)} className="w-full p-4 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-pine-500 focus:border-pine-500 transition-[border-color,box-shadow] duration-150 text-pine-900 placeholder:text-stone-400 resize-none" />
         </div>
 
         <div className="flex flex-col space-y-4 pt-4 border-t border-stone-200">
@@ -189,13 +189,13 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
               placeholder="Your answer"
               value={mathAnswer}
               onChange={(e) => setMathAnswer(e.target.value.replace(/[^0-9]/g, ""))}
-              className={`w-full sm:w-32 h-12 px-4 rounded-xl border ${isHumanVerified ? "border-green-500 ring-2 ring-green-500/20 bg-green-50" : "border-stone-300 focus:ring-pine-500 focus:border-pine-500"} focus:outline-none focus:ring-2 transition-all text-pine-900 placeholder:text-stone-400 font-medium`}
+              className={`w-full sm:w-32 h-12 px-4 rounded-xl border ${isHumanVerified ? "border-green-500 ring-2 ring-green-500/20 bg-green-50" : "border-stone-300 focus:ring-pine-500 focus:border-pine-500"} focus:outline-none focus:ring-2 transition-[border-color,box-shadow,background-color] duration-150 text-pine-900 placeholder:text-stone-400 font-medium`}
             />
             {isHumanVerified && <span className="text-green-600 font-bold text-sm flex items-center">Verified! ✓</span>}
           </div>
         </div>
 
-        <Button variant="animated" disabled={isSubmitting || !isHumanVerified} type="submit" size="lg" className="w-full h-14 text-lg bg-accent-600 hover:bg-accent-700 text-white rounded-xl shadow-lg shadow-accent-600/20 font-bold disabled:opacity-70 disabled:cursor-not-allowed transition-all">
+        <Button variant="animated" disabled={isSubmitting || !isHumanVerified} type="submit" size="lg" className="w-full h-14 text-lg bg-accent-600 hover:bg-accent-700 text-white rounded-xl shadow-lg shadow-accent-600/20 font-bold disabled:opacity-70 disabled:cursor-not-allowed">
           {isSubmitting ? <UiverseLoader /> : "Request Access"}
         </Button>
       </form>

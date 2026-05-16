@@ -30,7 +30,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <a href="#main-content" className="skip-link">Skip to main content</a>
 
       {/* Navbar */}
-      <header className="sticky top-0 z-50 w-full h-20 border-b border-stone-200/50 bg-surface-50/80 backdrop-blur-xl transition-all">
+      <header className="sticky top-0 z-50 w-full h-20 border-b border-stone-200/50 bg-surface-50/80 backdrop-blur-xl transition-[background-color,border-color] duration-150">
         <div className="container mx-auto px-4 md:px-8 h-full flex items-center justify-between max-w-none">
           <Link to="/" className="flex items-center gap-2.5" onClick={() => setIsMobileMenuOpen(false)} aria-label="Fettlemed Home">
             <img src="/brand/mark.svg" alt="" aria-hidden="true" className="w-9 h-9 shrink-0" />
@@ -47,7 +47,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 to={link.path}
                 onMouseEnter={() => preloadRoutes[link.path]?.()}
                 className={({ isActive }) => cn(
-                  "text-sm font-semibold tracking-wide transition-all",
+                  "text-sm font-semibold tracking-wide transition-colors duration-150 ease-out",
                   isActive ? "text-pine-600" : "text-stone-500 hover:text-pine-900"
                 )}
               >
@@ -79,7 +79,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   to={link.path}
                   onMouseEnter={() => preloadRoutes[link.path]?.()}
                   className={({ isActive }) => cn(
-                    "block text-xl font-semibold tracking-wide py-5 px-4 -mx-4 rounded-xl transition-all active:bg-stone-100",
+                    "block text-xl font-semibold tracking-wide py-5 px-4 -mx-4 rounded-xl transition-colors duration-150 ease-out active:bg-stone-100",
                     isActive ? "text-pine-600 bg-pine-50/50" : "text-stone-800"
                   )}
                   onClick={() => setIsMobileMenuOpen(false)}

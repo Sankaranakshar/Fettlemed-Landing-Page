@@ -54,7 +54,7 @@ export function DoctorConsultationMockup() {
             <button
               key={t}
               onClick={() => { setActive(t); setPaused(true); }}
-              className={`flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold border-b-2 transition-all ${
+              className={`flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold border-b-2 transition-[border-color,color] duration-150 ease-out ${
                 active === t ? "border-pine-700 text-pine-900" : "border-transparent text-stone-400 hover:text-stone-600"
               }`}
             >

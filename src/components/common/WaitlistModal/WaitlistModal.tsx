@@ -35,7 +35,7 @@ export function WaitlistModal({ open, onClose }: WaitlistModalProps) {
       onClick={handleBackdropClick}
       onCancel={onClose}
       aria-labelledby="wl-modal-title"
-      className="m-auto w-full max-w-lg rounded-[2rem] border border-stone-200 p-0 shadow-2xl backdrop:bg-pine-950/60 backdrop:backdrop-blur-sm open:animate-in open:fade-in open:slide-in-from-bottom-4 open:duration-300"
+      className="m-auto w-full max-w-lg rounded-[2rem] border border-stone-200 p-0 shadow-2xl backdrop:bg-pine-950/60 backdrop:backdrop-blur-sm open:animate-in open:fade-in open:slide-in-from-bottom-4 open:zoom-in-95 open:duration-200 open:ease-out"
     >
       <div className="relative max-h-[90vh] overflow-y-auto p-8">
         <div className="flex items-center justify-between mb-6">

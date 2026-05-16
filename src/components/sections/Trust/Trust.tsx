@@ -5,23 +5,31 @@ import { FadeIn } from "@/components/common/FadeIn";
 
 export const Trust = () => {
   return (
-    <section className="py-24 md:py-32 bg-white border-t border-stone-100">
+    <section className="py-16 md:py-24 bg-surface-50 border-t border-stone-100">
       <div className="container mx-auto px-6 max-w-5xl text-center">
         <FadeIn>
-           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left mb-16">
-              <div className="bg-surface-50 p-8 rounded-3xl border border-stone-100">
-                <ShieldCheck className="w-8 h-8 text-pine-600 mb-4" />
-                <h3 className="text-xl font-bold text-pine-900 mb-3">2-Tap Consent</h3>
-                <p className="text-stone-600 leading-relaxed font-medium">Grant access in 2 taps, revoke in 1. When you revoke, the doctor instantly loses access to your past medical reports.</p>
+           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left mb-16">
+              {/* Larger featured card — spans 2 cols on md */}
+              <div className="bg-pine-50 border border-pine-100 p-8 rounded-3xl md:col-span-2 lg:col-span-1 flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="w-7 h-7 text-pine-600 shrink-0" />
+                  <h3 className="text-2xl font-bold text-pine-900">2-Tap Consent</h3>
+                </div>
+                <p className="text-stone-600 leading-relaxed font-medium max-w-[55ch]">Grant access in 2 taps, revoke in 1. When you revoke, the doctor instantly loses access to your past medical reports.</p>
               </div>
-              <div className="bg-surface-50 p-8 rounded-3xl border border-stone-100">
-                <Lock className="w-8 h-8 text-pine-600 mb-4" />
-                <h3 className="text-xl font-bold text-pine-900 mb-3">Clinical First</h3>
+              {/* Plain text card — no container box */}
+              <div className="p-8 flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <Lock className="w-6 h-6 text-pine-600 shrink-0" />
+                  <h3 className="text-xl font-bold text-pine-900">Clinical First</h3>
+                </div>
                 <p className="text-stone-600 leading-relaxed font-medium">Built from months of sitting with doctors. We learned that simple, fast digital prescriptions matter more than complex software features.</p>
               </div>
-              <div className="bg-surface-50 p-8 rounded-3xl border border-stone-100 md:col-span-2 lg:col-span-1">
-                <FileCheck2 className="w-8 h-8 text-pine-600 mb-4" />
-                <h3 className="text-xl font-bold text-pine-900 mb-3">Co-Built with Doctors</h3>
+              <div className="p-8 flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <FileCheck2 className="w-6 h-6 text-pine-600 shrink-0" />
+                  <h3 className="text-xl font-bold text-pine-900">Co-Built with Doctors</h3>
+                </div>
                 <p className="text-stone-600 leading-relaxed font-medium">Fettlemed is directly shaped by the workflows of practicing clinicians Dr. Bhavani and Dr. Sriram.</p>
               </div>
            </div>

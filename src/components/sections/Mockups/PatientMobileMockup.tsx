@@ -143,7 +143,7 @@ export function PatientMobileMockup() {
                   </div>
                   <div className="px-3 py-3 space-y-2">
                     {["Allergies: Penicillin", "Chronic: Hypertension, Type 2 Diabetes", "Last physical: Jan 2025"].map((item, i) => (
-                      <motion.div key={item} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.15 }} className="bg-white rounded-xl px-3 py-2.5 border border-stone-100 shadow-sm">
+                      <motion.div key={item} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.06 }} className="bg-white rounded-xl px-3 py-2.5 border border-stone-100 shadow-sm">
                         <p className="text-[10px] font-semibold text-stone-600">{item}</p>
                       </motion.div>
                     ))}
@@ -161,7 +161,7 @@ export function PatientMobileMockup() {
                 <button
                   key={t}
                   onClick={() => setActive(t)}
-                  className={`flex-1 flex flex-col items-center justify-center gap-0.5 transition-all ${active === t ? "text-pine-700" : "text-stone-300"}`}
+                  className={`flex-1 flex flex-col items-center justify-center gap-0.5 transition-colors duration-150 ease-out ${active === t ? "text-pine-700" : "text-stone-300"}`}
                 >
                   <Icon className="w-4 h-4" />
                   <span className="text-[8px] font-bold">{t}</span>

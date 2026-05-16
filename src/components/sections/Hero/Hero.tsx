@@ -23,7 +23,7 @@ export const Hero = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center lg:justify-start flex-wrap mb-10">
-                <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold text-stone-600 bg-white/80 backdrop-blur-sm px-5 py-3 rounded-2xl border border-stone-200 shadow-sm w-full sm:w-auto justify-center">
+                <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold text-stone-600 bg-surface-50 px-5 py-3 rounded-2xl border border-stone-200 shadow-sm w-full sm:w-auto justify-center">
                    <span className="flex items-center gap-1.5"><Lock className="w-4 h-4 text-pine-600"/> Secure & Private</span>
                    <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-pine-600"/> You own your records</span>
                    <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-pine-600"/> No data selling</span>

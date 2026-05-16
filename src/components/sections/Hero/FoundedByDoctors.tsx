@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export const FoundedByDoctors = () => {
   return (
-    <section className="bg-white border-y border-stone-200 py-10 relative z-20 overflow-hidden">
+    <section className="bg-surface-50 border-y border-stone-200 py-10 relative z-20 overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
         <motion.div 
           initial={{ opacity: 0, y: 10 }}

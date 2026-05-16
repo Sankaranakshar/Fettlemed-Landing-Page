@@ -114,8 +114,8 @@ function FileUploadRow({ filename, label, status }: FileUploadRowProps) {
           {status === "done" && (
             <motion.div
               key="tick"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
               transition={{ type: "spring", stiffness: 400, damping: 18 }}
             >
               <CheckCircle2 className="w-4 h-4 text-green-500" />
@@ -656,7 +656,7 @@ export function HomeFlowMockup() {
                 switchTab(t);
                 setPaused(true);
               }}
-              className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+              className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold transition-[background-color,color,box-shadow] duration-150 ease-out ${
                 active === t
                   ? "bg-pine-900 text-white shadow-sm"
                   : "bg-stone-100 text-stone-500 hover:bg-stone-200"
@@ -723,7 +723,7 @@ export function HomeFlowMockup() {
             aria-label={`Switch to ${t}`}
           >
             <div
-              className={`transition-all duration-300 h-2 rounded-full ${
+              className={`transition-[width,background-color] duration-150 ease-out h-2 rounded-full ${
                 active === t
                   ? "bg-pine-700 w-6"
                   : "bg-stone-300 w-2 hover:bg-stone-400"
