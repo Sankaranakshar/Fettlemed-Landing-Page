@@ -32,9 +32,9 @@ export function FAQ({ sections }: FAQProps) {
             <div className="flex flex-col items-center">
               <button 
                 onClick={() => setIsExpanded(true)}
-                className="group flex flex-col items-center gap-6 p-12 w-full rounded-[2.5rem] bg-stone-50 border-2 border-dashed border-stone-200 hover:border-accent-400 hover:bg-stone-100/50 transition-all duration-500 cursor-pointer"
+                className="group flex flex-col items-center gap-6 p-12 w-full rounded-[2.5rem] bg-stone-50 border-2 border-dashed border-stone-200 hover:border-accent-400 hover:bg-stone-100/50 transition-[border-color,background-color] duration-200 cursor-pointer"
               >
-                <div className="w-16 h-16 rounded-2xl bg-white shadow-xl shadow-stone-200/50 flex items-center justify-center text-accent-600 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-16 h-16 rounded-2xl bg-white shadow-xl shadow-stone-200/50 flex items-center justify-center text-accent-600 group-hover:scale-110 transition-transform duration-200 ease-out">
                   <HelpCircle className="w-8 h-8" />
                 </div>
                 <div className="text-center">
@@ -68,19 +68,19 @@ export function FAQ({ sections }: FAQProps) {
                           const id = `${sIndex}-${iIndex}`;
                           const isOpen = openIds === id;
                           return (
-                             <div key={iIndex} className={`border border-stone-200 rounded-2xl transition-all duration-300 ${isOpen ? "bg-white shadow-xl shadow-stone-200/40 border-stone-300" : "bg-stone-50/50 hover:bg-stone-50"}`}>
+                             <div key={iIndex} className={`border border-stone-200 rounded-2xl transition-[background-color,border-color,box-shadow] duration-200 ${isOpen ? "bg-white shadow-xl shadow-stone-200/40 border-stone-300" : "bg-stone-50/50 hover:bg-stone-50"}`}>
                                 <button 
                                    onClick={() => toggleOpen(sIndex, iIndex)} 
                                    className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
                                 >
                                    <span className={`font-bold text-lg transition-colors ${isOpen ? "text-pine-900" : "text-stone-700"}`}>{item.question}</span>
-                                   <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? "bg-pine-900 text-white rotate-180" : "bg-stone-200 text-stone-500"}`}>
+                                   <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-[transform,background-color,color] duration-200 ease-out ${isOpen ? "bg-pine-900 text-white rotate-180" : "bg-stone-200 text-stone-500"}`}>
                                      <ChevronDown className="w-4 h-4" />
                                    </div>
                                 </button>
                                 
                                 <div 
-                                   className={`px-6 overflow-hidden transition-all duration-500 ease-in-out ${
+                                   className={`px-6 overflow-hidden transition-[max-height,opacity,padding] duration-300 ease-out ${
                                       isOpen ? "max-h-[500px] pb-6 opacity-100" : "max-h-0 pb-0 opacity-0"
                                    }`}
                                 >

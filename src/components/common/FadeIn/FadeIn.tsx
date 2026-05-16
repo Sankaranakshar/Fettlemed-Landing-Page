@@ -12,18 +12,19 @@ interface FadeInProps {
 export function FadeIn({ children, delay = 0, className = "", noYOffset = false, eager = false }: FadeInProps) {
   const shouldReduceMotion = useReducedMotion();
   const yOffset = (shouldReduceMotion || noYOffset) ? 0 : 20;
+  const initialScale = shouldReduceMotion ? 1 : 0.98;
   const transitionProps = {
-    duration: shouldReduceMotion ? 0.2 : 0.6,
+    duration: shouldReduceMotion ? 0.2 : 0.5,
     delay: shouldReduceMotion ? 0 : delay,
-    ease: "easeOut" as const,
+    ease: [0.23, 1, 0.32, 1] as [number, number, number, number],
   };
   const cls = `${className} ${shouldReduceMotion ? '' : 'will-change-transform'}`;
 
   if (eager) {
     return (
       <motion.div
-        initial={{ opacity: 0, y: yOffset }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: yOffset, scale: initialScale }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={transitionProps}
         className={cls}
       >
@@ -34,8 +35,8 @@ export function FadeIn({ children, delay = 0, className = "", noYOffset = false,
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: yOffset }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: yOffset, scale: initialScale }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={transitionProps}
       className={cls}

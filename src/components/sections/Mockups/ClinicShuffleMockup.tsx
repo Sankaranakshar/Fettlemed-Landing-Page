@@ -45,7 +45,7 @@ export function ClinicShuffleMockup() {
                 <button
                   key={v}
                   onClick={() => { setActive(v); setPaused(true); }}
-                  className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold transition-all text-left ${
+                  className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold transition-[background-color,color] duration-150 ease-out text-left ${
                     active === v ? "bg-pine-900 text-white" : "text-stone-500 hover:bg-stone-200 hover:text-stone-700"
                   }`}
                 >
@@ -123,7 +123,7 @@ export function ClinicShuffleMockup() {
                     { label: "No-shows", value: 4, max: 20, color: "rose" },
                     { label: "Avg wait time", value: "8 min", bar: false },
                   ].map(({ label, value, max, color, bar }, i) => (
-                    <motion.div key={label} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.15 }} className="space-y-1.5">
+                    <motion.div key={label} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06 }} className="space-y-1.5">
                       <div className="flex justify-between items-center">
                         <span className="text-xs text-stone-500 font-semibold">{label}</span>
                         <span className="text-xs font-bold text-pine-900">{value}{typeof value === "number" && max ? `/${max}` : ""}</span>
@@ -133,7 +133,7 @@ export function ClinicShuffleMockup() {
                           <motion.div
                             initial={{ width: 0 }}
                             animate={{ width: `${(value / max) * 100}%` }}
-                            transition={{ delay: 0.3 + i * 0.15, duration: 0.8, ease: "easeOut" }}
+                            transition={{ delay: 0.3 + i * 0.06, duration: 0.8, ease: "easeOut" }}
                             className={`h-full rounded-full ${color === "pine" ? "bg-pine-600" : "bg-rose-400"}`}
                           />
                         </div>

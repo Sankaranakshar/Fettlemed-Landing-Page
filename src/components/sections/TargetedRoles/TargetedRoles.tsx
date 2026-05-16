@@ -33,7 +33,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
               <div className="inline-flex flex-col sm:flex-row bg-white rounded-2xl md:rounded-full p-2 border border-stone-200 shadow-sm gap-2">
                 <button
                   onClick={() => setActiveRole('patient')}
-                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-bold transition-all ${
+                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-bold transition-[background-color,color,box-shadow] duration-150 ease-out ${
                     activeRole === 'patient'
                       ? 'bg-violet-600 text-white shadow-md'
                       : 'text-stone-500 hover:text-pine-900 hover:bg-stone-50'
@@ -43,7 +43,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                 </button>
                 <button
                   onClick={() => setActiveRole('doctor')}
-                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-bold transition-all ${
+                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-bold transition-[background-color,color,box-shadow] duration-150 ease-out ${
                     activeRole === 'doctor'
                       ? 'bg-teal-800 text-white shadow-md'
                       : 'text-stone-500 hover:text-pine-900 hover:bg-stone-50'
@@ -53,7 +53,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                 </button>
                 <button
                   onClick={() => setActiveRole('clinic')}
-                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-bold transition-all ${
+                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-bold transition-[background-color,color,box-shadow] duration-150 ease-out ${
                     activeRole === 'clinic'
                       ? 'bg-amber-600 text-white shadow-md'
                       : 'text-stone-500 hover:text-pine-900 hover:bg-stone-50'
@@ -69,10 +69,10 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
             
             {/* FLOW 1: Patient */}
             {activeRole === 'patient' && (
-              <div className="flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className="flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-200">
                 <div className="w-full grid grid-cols-1" aria-live="polite" aria-atomic="true">
                   {/* Card 1 */}
-                  <div className={`col-start-1 row-start-1 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 0 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                  <div className={`col-start-1 row-start-1 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-[transform,opacity,box-shadow] duration-200 ease-out flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 0 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                     <div className="flex-1 w-full relative z-10">
                       <div className="w-12 h-12 bg-pine-100 text-accent-600 rounded-2xl flex items-center justify-center mb-6">
                         <Smartphone className="w-6 h-6"/>
@@ -98,7 +98,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                     </div>
                   </div>
                   {/* Card 2 */}
-                  <div className={`col-start-1 row-start-1 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 1 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                  <div className={`col-start-1 row-start-1 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-[transform,opacity,box-shadow] duration-200 ease-out flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 1 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                     <div className="flex-1 w-full relative z-10">
                       <div className="w-12 h-12 bg-pine-100 text-accent-600 rounded-2xl flex items-center justify-center mb-6">
                         <ShieldCheck className="w-6 h-6"/>
@@ -119,7 +119,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                               <span className="text-xs font-bold text-stone-400 uppercase tracking-wider">Access Request</span>
                               <span className="text-sm font-medium text-stone-700">Dr. Sarah requires access</span>
                             </div>
-                            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.8, type: "spring" }} className="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center text-accent-600 border border-accent-200">
+                            <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.8, type: "spring" }} className="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center text-accent-600 border border-accent-200">
                               <CheckCircle2 className="w-5 h-5"/>
                             </motion.div>
                           </motion.div>
@@ -132,7 +132,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                     </div>
                   </div>
                   {/* Card 3 */}
-                  <div className={`col-start-1 row-start-1 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 2 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                  <div className={`col-start-1 row-start-1 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-[transform,opacity,box-shadow] duration-200 ease-out flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 2 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                     <div className="flex-1 w-full relative z-10">
                       <div className="w-12 h-12 bg-pine-100 text-accent-600 rounded-2xl flex items-center justify-center mb-6">
                         <FileCheck2 className="w-6 h-6"/>
@@ -184,7 +184,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       className="h-12 w-12 flex items-center justify-center group"
                       aria-label={`Show slide ${idx + 1}`}
                     >
-                      <div className={`transition-all duration-300 h-2.5 rounded-full ${activeCardIndex === idx ? 'bg-accent-600 w-8' : 'bg-stone-300 w-2.5 group-hover:bg-stone-400'}`} />
+                      <div className={`transition-[width,background-color] duration-150 ease-out h-2.5 rounded-full ${activeCardIndex === idx ? 'bg-accent-600 w-8' : 'bg-stone-300 w-2.5 group-hover:bg-stone-400'}`} />
                     </button>
                   ))}
                 </div>
@@ -197,13 +197,13 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
 
             {/* FLOW 2: Doctor */}
             {activeRole === 'doctor' && (
-              <div className="bg-teal-900 rounded-[3rem] p-8 md:p-12 relative overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className="bg-teal-900 rounded-[3rem] p-8 md:p-12 relative overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-teal-800/50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3"></div>
                 
                 <div className="flex flex-col items-center relative z-10 w-full">
                   <div className="w-full grid grid-cols-1" aria-live="polite" aria-atomic="true">
                     {/* Card 1 */}
-                    <div className={`col-start-1 row-start-1 bg-teal-950/80 border border-teal-800 p-8 rounded-3xl backdrop-blur-sm hover:bg-teal-950 transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 0 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                    <div className={`col-start-1 row-start-1 bg-teal-950/80 border border-teal-800 p-8 rounded-3xl backdrop-blur-sm hover:bg-teal-950 transition-[transform,opacity,background-color] duration-200 ease-out flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 0 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                       <div className="flex-1 w-full relative z-10">
                         <div className="w-12 h-12 bg-teal-800 text-white rounded-2xl flex items-center justify-center mb-6 border border-teal-700">
                           <Stethoscope className="w-6 h-6"/>
@@ -245,7 +245,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       </div>
                     </div>
                     {/* Card 2 */}
-                    <div className={`col-start-1 row-start-1 bg-teal-950/80 border border-teal-800 p-8 rounded-3xl backdrop-blur-sm hover:bg-teal-950 transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 1 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                    <div className={`col-start-1 row-start-1 bg-teal-950/80 border border-teal-800 p-8 rounded-3xl backdrop-blur-sm hover:bg-teal-950 transition-[transform,opacity,background-color] duration-200 ease-out flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 1 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                       <div className="flex-1 w-full relative z-10">
                         <div className="w-12 h-12 bg-teal-800 text-white rounded-2xl flex items-center justify-center mb-6 border border-teal-700">
                           <FileCheck2 className="w-6 h-6"/>
@@ -282,7 +282,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       </div>
                     </div>
                     {/* Card 3 */}
-                    <div className={`col-start-1 row-start-1 bg-teal-950/80 border border-teal-800 p-8 rounded-3xl backdrop-blur-sm hover:bg-teal-950 transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 2 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                    <div className={`col-start-1 row-start-1 bg-teal-950/80 border border-teal-800 p-8 rounded-3xl backdrop-blur-sm hover:bg-teal-950 transition-[transform,opacity,background-color] duration-200 ease-out flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 2 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                       <div className="flex-1 w-full relative z-10">
                         <div className="w-12 h-12 bg-teal-800 text-white rounded-2xl flex items-center justify-center mb-6 border border-teal-700">
                           <ShieldCheck className="w-6 h-6"/>
@@ -310,7 +310,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                               <motion.div initial={{ scale: 1 }} animate={{ scale: 0 }} transition={{ delay: 0.8 }} className="absolute -right-4 -bottom-4 bg-white text-pine-900 text-[10px] font-bold px-2 py-1 rounded-full shadow-lg z-30 flex items-center gap-1">
                                 <Smartphone className="w-3 h-3"/> Pending
                               </motion.div>
-                              <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.2 }} className="absolute -right-4 -bottom-4 bg-accent-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-lg z-30 flex items-center gap-1">
+                              <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 1.2 }} className="absolute -right-4 -bottom-4 bg-accent-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-lg z-30 flex items-center gap-1">
                                 <CheckCircle2 className="w-3 h-3"/> Approved
                               </motion.div>
                             </motion.div>
@@ -329,7 +329,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       className="h-12 w-12 flex items-center justify-center group"
                       aria-label={`Show slide ${idx + 1}`}
                     >
-                      <div className={`transition-all duration-300 h-2.5 rounded-full ${activeCardIndex === idx ? 'bg-teal-400 w-8' : 'bg-teal-700 group-hover:bg-teal-600'}`} />
+                      <div className={`transition-[width,background-color] duration-150 ease-out h-2.5 rounded-full ${activeCardIndex === idx ? 'bg-teal-400 w-8' : 'bg-teal-700 group-hover:bg-teal-600'}`} />
                     </button>
                   ))}
                   </div>
@@ -343,10 +343,10 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
 
             {/* FLOW 3: Clinic */}
             {activeRole === 'clinic' && (
-              <div className="flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className="flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-200">
                 <div className="w-full grid grid-cols-1" aria-live="polite" aria-atomic="true">
                   {/* Card 1 */}
-                  <div className={`col-start-1 row-start-1 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 0 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                  <div className={`col-start-1 row-start-1 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-[transform,opacity,box-shadow] duration-200 ease-out flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 0 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                     <div className="flex-1 w-full relative z-10">
                       <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center mb-6">
                         <Building2 className="w-6 h-6"/>
@@ -387,7 +387,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                     </div>
                   </div>
                   {/* Card 2 */}
-                  <div className={`col-start-1 row-start-1 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 1 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                  <div className={`col-start-1 row-start-1 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-[transform,opacity,box-shadow] duration-200 ease-out flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 1 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                     <div className="flex-1 w-full relative z-10">
                       <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center mb-6">
                         <Building2 className="w-6 h-6"/>
@@ -425,7 +425,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                     </div>
                   </div>
                   {/* Card 3 */}
-                  <div className={`col-start-1 row-start-1 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 2 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
+                  <div className={`col-start-1 row-start-1 bg-white border border-stone-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-[transform,opacity,box-shadow] duration-200 ease-out flex flex-col md:flex-row gap-8 items-center ${activeCardIndex === 2 ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'}`}>
                     <div className="flex-1 w-full relative z-10">
                       <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center mb-6">
                         <Building2 className="w-6 h-6"/>
@@ -455,7 +455,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                             <div className="w-16 h-16 bg-white rounded-2xl shadow-md border border-pine-200 flex items-center justify-center">
                               <FileCheck2 className="w-8 h-8 text-pine-600" />
                             </div>
-                            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.2, type: "spring" }} className="absolute -top-2 -right-2 w-6 h-6 bg-accent-500 rounded-full border-2 border-white flex items-center justify-center text-white">
+                            <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 1.2, type: "spring" }} className="absolute -top-2 -right-2 w-6 h-6 bg-accent-500 rounded-full border-2 border-white flex items-center justify-center text-white">
                               <CheckCircle2 className="w-4 h-4" />
                             </motion.div>
                           </motion.div>
@@ -474,7 +474,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                     className="h-12 w-12 flex items-center justify-center group"
                     aria-label={`Show slide ${idx + 1}`}
                   >
-                    <div className={`transition-all duration-300 h-2.5 rounded-full ${activeCardIndex === idx ? 'bg-amber-600 w-8' : 'bg-stone-300 w-2.5 group-hover:bg-stone-400'}`} />
+                    <div className={`transition-[width,background-color] duration-150 ease-out h-2.5 rounded-full ${activeCardIndex === idx ? 'bg-amber-600 w-8' : 'bg-stone-300 w-2.5 group-hover:bg-stone-400'}`} />
                   </button>
                 ))}
                 </div>
