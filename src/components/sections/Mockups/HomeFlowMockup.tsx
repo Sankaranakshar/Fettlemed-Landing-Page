@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useInView } from "motion/react";
 import {
   Upload,
   FileText,
@@ -603,10 +603,15 @@ function PatientPanel() {
 
 export function HomeFlowMockup() {
   const [active, setActive] = useState<Tab>("Clinic");
-  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
   // tabKey increments on each tab switch so panels fully remount (fresh state + animation reset)
   const [tabKey, setTabKey] = useState(0);
   const prevActive = useRef<Tab>(active);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { amount: 0.3 });
+
+  // Paused when hovered OR scrolled out of view
+  const paused = hovered || !isInView;
 
   function switchTab(t: Tab) {
     if (t !== prevActive.current) {
@@ -631,9 +636,10 @@ export function HomeFlowMockup() {
 
   return (
     <div
+      ref={containerRef}
       className="w-full max-w-[540px] mx-auto select-none"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       {/* Window chrome */}
       <div className="bg-white rounded-[1.5rem] border border-stone-200 shadow-xl overflow-hidden">
@@ -654,7 +660,7 @@ export function HomeFlowMockup() {
               key={t}
               onClick={() => {
                 switchTab(t);
-                setPaused(true);
+                setHovered(true);
               }}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold transition-[background-color,color,box-shadow] duration-150 ease-out ${
                 active === t
@@ -717,7 +723,7 @@ export function HomeFlowMockup() {
             key={t}
             onClick={() => {
               switchTab(t);
-              setPaused(true);
+              setHovered(true);
             }}
             className="h-8 w-8 flex items-center justify-center"
             aria-label={`Switch to ${t}`}

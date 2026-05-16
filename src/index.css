@@ -26,6 +26,11 @@
 
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Custom easing — available as ease-out-strong, ease-in-out-strong, ease-drawer utilities */
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 html {
@@ -41,6 +46,11 @@ body {
   width: 100%;
 }
 
+/* Global heading balance — prevents orphan words across all screen widths */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
 .skip-link {
   position: absolute;
   top: -40px;
@@ -53,12 +63,6 @@ body {
 }
 .skip-link:focus {
   top: 0;
-}
-
-:root {
-  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
-  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 @layer utilities {

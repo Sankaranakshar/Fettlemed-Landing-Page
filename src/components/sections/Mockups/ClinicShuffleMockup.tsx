@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "motion/react";
 import { CalendarDays, WalletCards, BarChart2, CheckCircle2, Clock, Users } from "lucide-react";
 
 const views = ["Appointments", "Billing", "Reports"] as const;
@@ -7,7 +7,10 @@ type View = typeof views[number];
 
 export function ClinicShuffleMockup() {
   const [active, setActive] = useState<View>("Appointments");
-  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { amount: 0.3 });
+  const paused = hovered || !isInView;
 
   useEffect(() => {
     if (paused) return;
@@ -22,9 +25,10 @@ export function ClinicShuffleMockup() {
 
   return (
     <div
+      ref={containerRef}
       className="w-full max-w-[540px] mx-auto select-none"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       <div className="bg-white rounded-[1.5rem] border border-stone-200 shadow-xl overflow-hidden">
         {/* Window chrome */}
@@ -44,7 +48,7 @@ export function ClinicShuffleMockup() {
               return (
                 <button
                   key={v}
-                  onClick={() => { setActive(v); setPaused(true); }}
+                  onClick={() => { setActive(v); setHovered(true); }}
                   className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold transition-[background-color,color] duration-150 ease-out text-left ${
                     active === v ? "bg-pine-900 text-white" : "text-stone-500 hover:bg-stone-200 hover:text-stone-700"
                   }`}

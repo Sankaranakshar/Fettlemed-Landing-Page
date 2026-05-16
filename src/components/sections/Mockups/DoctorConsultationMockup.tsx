@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "motion/react";
 import { Stethoscope, FileText, Pill, PenLine, CheckCircle2, Activity, Upload } from "lucide-react";
 
 const tabs = ["Patient Summary", "Prescriptions", "Add Note"] as const;
@@ -7,7 +7,10 @@ type Tab = typeof tabs[number];
 
 export function DoctorConsultationMockup() {
   const [active, setActive] = useState<Tab>("Patient Summary");
-  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { amount: 0.3 });
+  const paused = hovered || !isInView;
 
   useEffect(() => {
     if (paused) return;
@@ -22,9 +25,10 @@ export function DoctorConsultationMockup() {
 
   return (
     <div
+      ref={containerRef}
       className="w-full max-w-[540px] mx-auto select-none"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       <div className="bg-white rounded-[1.5rem] border border-stone-200 shadow-xl overflow-hidden">
         {/* Window chrome */}
@@ -53,7 +57,7 @@ export function DoctorConsultationMockup() {
           {tabs.map((t) => (
             <button
               key={t}
-              onClick={() => { setActive(t); setPaused(true); }}
+              onClick={() => { setActive(t); setHovered(true); }}
               className={`flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold border-b-2 transition-[border-color,color] duration-150 ease-out ${
                 active === t ? "border-pine-700 text-pine-900" : "border-transparent text-stone-400 hover:text-stone-600"
               }`}
