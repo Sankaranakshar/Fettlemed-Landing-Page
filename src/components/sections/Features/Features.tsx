@@ -13,11 +13,11 @@ export const Features = () => {
        <div className="absolute top-0 right-0 w-96 h-96 bg-pine-800 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
        <div className="container mx-auto px-6 max-w-6xl relative z-10 flex flex-col items-center text-center">
           <FadeIn>
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-16">One place for your complete health record.</h2>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-16 text-balance">One place for your complete health record.</h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-6 mb-16 max-w-5xl mx-auto text-left">
                {/* For Patients */}
-               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 pb-8 backdrop-blur-sm relative overflow-hidden lg:col-span-1 md:col-span-2">
+               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 pb-8 relative overflow-hidden lg:col-span-1 md:col-span-2">
                   <div className="absolute top-0 left-0 w-full h-1 bg-accent-600"></div>
                   <h3 className="text-xl font-bold mb-6 flex items-center gap-2"><Smartphone className="w-5 h-5 text-accent-400" /> For Patients</h3>
                   <ul className="space-y-4 font-medium text-pine-100">
@@ -28,7 +28,7 @@ export const Features = () => {
                </div>
                
                {/* For Doctors */}
-               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 pb-8 backdrop-blur-sm relative overflow-hidden">
+               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 pb-8 relative overflow-hidden">
                   <div className="absolute top-0 left-0 w-full h-1 bg-pine-600"></div>
                   <h3 className="text-xl font-bold mb-6 flex items-center gap-2"><Stethoscope className="w-5 h-5 text-pine-400" /> For Doctors</h3>
                   <ul className="space-y-4 font-medium text-pine-100">
@@ -38,7 +38,7 @@ export const Features = () => {
                </div>
                
                {/* For Clinics */}
-               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 pb-8 backdrop-blur-sm relative overflow-hidden">
+               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 pb-8 relative overflow-hidden">
                   <div className="absolute top-0 left-0 w-full h-1 bg-pine-700"></div>
                   <h3 className="text-xl font-bold mb-6 flex items-center gap-2"><Building2 className="w-5 h-5 text-pine-400" /> For Clinics</h3>
                   <ul className="space-y-4 font-medium text-pine-100">

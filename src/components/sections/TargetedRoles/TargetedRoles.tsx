@@ -25,7 +25,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
        <div className="container mx-auto px-6 max-w-6xl">
           <FadeIn>
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-pine-900 mb-8">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-pine-900 mb-8 text-balance">
                 Built for your needs.
               </h2>
               
@@ -139,7 +139,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       </div>
                       <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Stay ahead of your health</h3>
                       <ul className="space-y-3 text-stone-600 font-medium text-sm">
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-1.5 shrink-0"></span> Medication reminders, health insights, and preventive care alerts — for you and your family</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-1.5 shrink-0"></span> Medication reminders, health insights, and preventive care alerts for you and your family</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-1.5 shrink-0"></span> Medication alerts and tracking of key health metrics</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-1.5 shrink-0"></span> Tools to manage health of entire family (children, elderly parents)</li>
                       </ul>
