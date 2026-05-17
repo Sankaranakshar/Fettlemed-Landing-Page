@@ -38,10 +38,10 @@ export function FAQ({ sections }: FAQProps) {
                   <HelpCircle className="w-8 h-8" />
                 </div>
                 <div className="text-center">
-                  <h2 className="text-3xl md:text-4xl font-bold text-pine-900 mb-2 tracking-tight">Have questions?</h2>
+                  <h2 className="text-3xl md:text-4xl font-medium text-pine-900 mb-2 tracking-tight">Have questions?</h2>
                   <p className="text-stone-500 font-medium text-lg">Click to view our detailed frequently asked questions</p>
                 </div>
-                <div className="flex items-center gap-2 text-accent-600 font-bold uppercase tracking-widest text-sm bg-accent-50 px-6 py-2 rounded-full group-hover:bg-accent-100 transition-colors">
+                <div className="flex items-center gap-2 text-accent-600 font-medium uppercase tracking-widest text-sm bg-accent-50 px-6 py-2 rounded-full group-hover:bg-accent-100 transition-colors">
                   View FAQs <ChevronDown className="w-4 h-4" />
                 </div>
               </button>
@@ -49,10 +49,10 @@ export function FAQ({ sections }: FAQProps) {
           ) : (
             <>
               <div className="flex items-center justify-between mb-16 pb-8 border-b border-stone-200">
-                <h2 className="text-3xl md:text-5xl font-bold text-pine-900 tracking-tight">Frequently Asked Questions</h2>
+                <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight">Frequently Asked Questions</h2>
                 <button 
                   onClick={() => setIsExpanded(false)}
-                  className="text-stone-400 hover:text-stone-600 font-bold flex items-center gap-2 transition-colors"
+                  className="text-stone-400 hover:text-stone-600 font-medium flex items-center gap-2 transition-colors"
                 >
                   Close <ChevronDown className="w-4 h-4 rotate-180" />
                 </button>
@@ -61,7 +61,7 @@ export function FAQ({ sections }: FAQProps) {
               <div className="space-y-16">
                 {sections.map((section, sIndex) => (
                   <div key={sIndex} className="space-y-6">
-                    <h3 className="text-xl font-bold text-pine-700/60 uppercase tracking-widest pl-2 border-l-4 border-accent-600/30">{section.title}</h3>
+                    <h3 className="text-xl font-medium text-pine-700/60 uppercase tracking-widest pl-2 border-l-4 border-accent-600/30">{section.title}</h3>
                     
                     <div className="space-y-4">
                        {section.items.map((item, iIndex) => {
@@ -73,7 +73,7 @@ export function FAQ({ sections }: FAQProps) {
                                    onClick={() => toggleOpen(sIndex, iIndex)} 
                                    className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
                                 >
-                                   <span className={`font-bold text-lg transition-colors ${isOpen ? "text-pine-900" : "text-stone-700"}`}>{item.question}</span>
+                                   <span className={`font-medium text-lg transition-colors ${isOpen ? "text-pine-900" : "text-stone-700"}`}>{item.question}</span>
                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-[transform,background-color,color] duration-200 ease-out ${isOpen ? "bg-pine-900 text-white rotate-180" : "bg-stone-200 text-stone-500"}`}>
                                      <ChevronDown className="w-4 h-4" />
                                    </div>

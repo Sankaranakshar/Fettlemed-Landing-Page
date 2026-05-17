@@ -25,7 +25,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             <div className="relative h-full w-10 bg-white/20 blur-sm" />
           </div>
           
-          <span className="relative flex items-center gap-2 font-bold tracking-wide">
+          <span className="relative flex items-center gap-2 font-medium tracking-wide">
             {children}
           </span>
         </button>
@@ -36,7 +36,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold tracking-wide ring-offset-background transition-[transform,background-color,box-shadow] duration-150 ease-out active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+          "inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium tracking-wide ring-offset-background transition-[transform,background-color,box-shadow] duration-150 ease-out active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
           {
             "bg-stone-900 text-white hover:bg-stone-800 shadow-sm hover:shadow": variant === "default",
             "bg-pine-100 text-pine-900 hover:bg-pine-200": variant === "secondary",

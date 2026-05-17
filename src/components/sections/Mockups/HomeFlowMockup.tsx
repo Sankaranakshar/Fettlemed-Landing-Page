@@ -91,7 +91,7 @@ function FileUploadRow({ filename, label, status }: FileUploadRowProps) {
     >
       <FileText className="w-4 h-4 text-pine-600 shrink-0" />
       <div className="flex-1 min-w-0">
-        <p className="text-xs font-bold text-pine-900 truncate">{filename}</p>
+        <p className="text-xs font-medium text-pine-900 truncate">{filename}</p>
         <p className="text-[10px] text-stone-400">{label}</p>
       </div>
       <div className="shrink-0 w-5 h-5 flex items-center justify-center">
@@ -182,10 +182,10 @@ function ClinicPanel() {
               <User className="w-4 h-4 text-pine-700" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-bold text-pine-900">Rajan, 52</p>
+              <p className="text-xs font-medium text-pine-900">Rajan, 52</p>
               <p className="text-[10px] text-stone-400">Checked in · 10:02 AM</p>
             </div>
-            <span className="text-[10px] font-semibold bg-green-100 text-green-700 rounded-full px-2 py-0.5 shrink-0">
+            <span className="text-[10px] font-medium bg-green-100 text-green-700 rounded-full px-2 py-0.5 shrink-0">
               Walk-in
             </span>
           </motion.div>
@@ -202,28 +202,28 @@ function ClinicPanel() {
             transition={{ duration: 0.3 }}
             className="bg-white border border-stone-200 rounded-xl p-3"
           >
-            <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-2">
+            <p className="text-[10px] font-medium text-stone-400 uppercase tracking-widest mb-2">
               Vitals
             </p>
             <div className="grid grid-cols-3 gap-2">
               {/* Height */}
               <div className="bg-stone-50 rounded-lg px-2 py-2">
                 <p className="text-[9px] text-stone-400 mb-0.5">Height</p>
-                <p className="text-xs font-bold text-pine-900 min-h-[1rem]">
+                <p className="text-xs font-medium text-pine-900 min-h-[1rem]">
                   {heightText}<BlinkingCursor visible={!heightDone} />
                 </p>
               </div>
               {/* Weight */}
               <div className="bg-stone-50 rounded-lg px-2 py-2">
                 <p className="text-[9px] text-stone-400 mb-0.5">Weight</p>
-                <p className="text-xs font-bold text-pine-900 min-h-[1rem]">
+                <p className="text-xs font-medium text-pine-900 min-h-[1rem]">
                   {weightText}<BlinkingCursor visible={!weightDone} />
                 </p>
               </div>
               {/* BP */}
               <div className="bg-stone-50 rounded-lg px-2 py-2">
                 <p className="text-[9px] text-stone-400 mb-0.5">BP</p>
-                <p className="text-xs font-bold text-pine-900 min-h-[1rem]">
+                <p className="text-xs font-medium text-pine-900 min-h-[1rem]">
                   {bpText}<BlinkingCursor visible={!bpDone} />
                 </p>
               </div>
@@ -255,7 +255,7 @@ function ClinicPanel() {
             className="flex items-center gap-2 bg-green-100 border border-green-200 rounded-xl p-3"
           >
             <CheckCircle2 className="w-4 h-4 text-green-600 shrink-0" />
-            <p className="text-xs font-bold text-green-800">
+            <p className="text-xs font-medium text-green-800">
               Synced to Dr. Sriram's dashboard
             </p>
           </motion.div>
@@ -324,20 +324,20 @@ function DoctorPanel() {
 
         {/* Name + conditions */}
         <div className="flex items-start justify-between gap-2">
-          <p className="text-xs font-bold text-pine-900 shrink-0">Rajan, 52</p>
+          <p className="text-xs font-medium text-pine-900 shrink-0">Rajan, 52</p>
           <div className="text-right">
-            <p className="text-[9px] font-semibold text-stone-600 leading-tight">Hypertension Stage 1</p>
+            <p className="text-[9px] font-medium text-stone-600 leading-tight">Hypertension Stage 1</p>
             <p className="text-[9px] text-stone-400 leading-tight">Pre-diabetes (HbA1c borderline)</p>
           </div>
         </div>
 
         {/* Allergy row */}
         <div className="flex items-center gap-1.5">
-          <span className="text-[8px] font-bold text-red-500 shrink-0">⚠ Allergies:</span>
-          <span className="text-[9px] font-semibold bg-red-50 border border-red-200 text-red-700 rounded-full px-2 py-0.5">
+          <span className="text-[8px] font-medium text-red-500 shrink-0">⚠ Allergies:</span>
+          <span className="text-[9px] font-medium bg-red-50 border border-red-200 text-red-700 rounded-full px-2 py-0.5">
             Penicillin
           </span>
-          <span className="text-[9px] font-semibold bg-red-50 border border-red-200 text-red-700 rounded-full px-2 py-0.5">
+          <span className="text-[9px] font-medium bg-red-50 border border-red-200 text-red-700 rounded-full px-2 py-0.5">
             Sulfa drugs
           </span>
         </div>
@@ -346,10 +346,10 @@ function DoctorPanel() {
 
         {/* Vitals from clinic */}
         <div>
-          <p className="text-[9px] font-bold text-stone-400 uppercase tracking-widest mb-1">
+          <p className="text-[9px] font-medium text-stone-400 uppercase tracking-widest mb-1">
             Vitals · recorded today
           </p>
-          <div className="flex items-center gap-2 text-[9px] font-bold text-pine-900">
+          <div className="flex items-center gap-2 text-[9px] font-medium text-pine-900">
             <span>172 cm</span>
             <span className="text-stone-300">·</span>
             <span>78 kg</span>
@@ -362,20 +362,20 @@ function DoctorPanel() {
 
         {/* Recent tests */}
         <div>
-          <p className="text-[9px] font-bold text-stone-400 uppercase tracking-widest mb-1.5">
+          <p className="text-[9px] font-medium text-stone-400 uppercase tracking-widest mb-1.5">
             Recent tests
           </p>
           <div className="flex flex-wrap gap-1">
-            <span className="text-[9px] font-semibold bg-green-50 border border-green-200 text-green-700 rounded-full px-2 py-0.5">
+            <span className="text-[9px] font-medium bg-green-50 border border-green-200 text-green-700 rounded-full px-2 py-0.5">
               CBC · today
             </span>
-            <span className="text-[9px] font-semibold bg-stone-100 text-stone-600 rounded-full px-2 py-0.5">
+            <span className="text-[9px] font-medium bg-stone-100 text-stone-600 rounded-full px-2 py-0.5">
               BP 138/88 · today
             </span>
-            <span className="text-[9px] font-semibold bg-stone-100 text-stone-600 rounded-full px-2 py-0.5">
+            <span className="text-[9px] font-medium bg-stone-100 text-stone-600 rounded-full px-2 py-0.5">
               HbA1c · normal
             </span>
-            <span className="text-[9px] font-semibold bg-stone-100 text-stone-600 rounded-full px-2 py-0.5">
+            <span className="text-[9px] font-medium bg-stone-100 text-stone-600 rounded-full px-2 py-0.5">
               ECG · 6mo ago
             </span>
           </div>
@@ -394,7 +394,7 @@ function DoctorPanel() {
           >
             <div className="flex items-center gap-1.5">
               <ClipboardList className="w-3.5 h-3.5 text-stone-400" />
-              <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">
+              <p className="text-[10px] font-medium text-stone-400 uppercase tracking-widest">
                 Consultation note
               </p>
             </div>
@@ -437,7 +437,7 @@ function DoctorPanel() {
             transition={{ duration: 0.25 }}
           >
             <motion.button
-              className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold transition-colors ${
+              className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-medium transition-colors ${
                 sent
                   ? "bg-green-500 text-white"
                   : "bg-pine-900 text-white"
@@ -485,7 +485,7 @@ function PatientPanel() {
           <div className="bg-white rounded-[1rem] overflow-hidden" style={{ height: 220 }}>
             {/* Phone status bar */}
             <div className="bg-pine-900 px-2 py-1.5 text-center">
-              <p className="text-white text-[8px] font-bold tracking-wide">Fettlemed</p>
+              <p className="text-white text-[8px] font-medium tracking-wide">Fettlemed</p>
             </div>
 
             <div className="relative overflow-hidden flex-1" style={{ height: 184 }}>
@@ -496,7 +496,7 @@ function PatientPanel() {
                 transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
                 className="absolute top-1.5 left-1.5 right-1.5 bg-pine-800 rounded-lg px-2 py-1.5 z-10"
               >
-                <p className="text-white text-[8px] font-bold leading-tight">
+                <p className="text-white text-[8px] font-medium leading-tight">
                   Dr. Sriram sent your records
                 </p>
               </motion.div>
@@ -510,7 +510,7 @@ function PatientPanel() {
                   className="bg-pine-50 rounded-lg px-2 py-1.5 flex items-center gap-1.5"
                 >
                   <Activity className="w-3 h-3 text-pine-600 shrink-0" />
-                  <span className="text-[8px] font-bold text-pine-900">CBC Report</span>
+                  <span className="text-[8px] font-medium text-pine-900">CBC Report</span>
                 </motion.div>
 
                 <motion.div
@@ -520,7 +520,7 @@ function PatientPanel() {
                   className="bg-pine-50 rounded-lg px-2 py-1.5 flex items-center gap-1.5"
                 >
                   <Pill className="w-3 h-3 text-pine-600 shrink-0" />
-                  <span className="text-[8px] font-bold text-pine-900">Prescription</span>
+                  <span className="text-[8px] font-medium text-pine-900">Prescription</span>
                 </motion.div>
 
                 <motion.div
@@ -530,7 +530,7 @@ function PatientPanel() {
                   className="bg-pine-50 rounded-lg px-2 py-1.5 flex items-center gap-1.5"
                 >
                   <ClipboardList className="w-3 h-3 text-pine-600 shrink-0" />
-                  <span className="text-[8px] font-bold text-pine-900">Visit notes</span>
+                  <span className="text-[8px] font-medium text-pine-900">Visit notes</span>
                 </motion.div>
 
                 <motion.div
@@ -540,7 +540,7 @@ function PatientPanel() {
                   className="bg-stone-100 rounded-lg px-2 py-1.5 flex items-center gap-1.5"
                 >
                   <FileText className="w-3 h-3 text-stone-500 shrink-0" />
-                  <span className="text-[8px] font-bold text-stone-700">Clinic Report</span>
+                  <span className="text-[8px] font-medium text-stone-700">Clinic Report</span>
                 </motion.div>
               </div>
             </div>
@@ -586,7 +586,7 @@ function PatientPanel() {
                 <Icon className="w-3.5 h-3.5 text-pine-700" />
               </div>
               <div>
-                <p className="text-xs font-bold text-pine-900">{label}</p>
+                <p className="text-xs font-medium text-pine-900">{label}</p>
                 <p className="text-[10px] text-stone-400">{sub}</p>
               </div>
             </motion.div>
@@ -648,7 +648,7 @@ export function HomeFlowMockup() {
           <span className="w-3 h-3 rounded-full bg-red-400" />
           <span className="w-3 h-3 rounded-full bg-amber-400" />
           <span className="w-3 h-3 rounded-full bg-green-400" />
-          <span className="mx-auto text-xs font-semibold text-stone-400 tracking-wide">
+          <span className="mx-auto text-xs font-medium text-stone-400 tracking-wide">
             fettlemed.com
           </span>
         </div>
@@ -662,7 +662,7 @@ export function HomeFlowMockup() {
                 switchTab(t);
                 setHovered(true);
               }}
-              className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold transition-[background-color,color,box-shadow] duration-150 ease-out ${
+              className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-medium transition-[background-color,color,box-shadow] duration-150 ease-out ${
                 active === t
                   ? "bg-pine-900 text-white shadow-sm"
                   : "bg-stone-100 text-stone-500 hover:bg-stone-200"

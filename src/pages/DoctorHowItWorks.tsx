@@ -11,20 +11,20 @@ export default function DoctorHowItWorks() {
       <div className="flex flex-col w-full bg-white pt-24 pb-32">
       <div className="container mx-auto px-4 max-w-[800px]">
         <Breadcrumbs />
-        <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-16 tracking-tight">How consent-based data flows</h1>
+        <h1 className="text-4xl md:text-5xl font-medium text-stone-900 mb-16 tracking-tight">How consent-based data flows</h1>
 
         <div className="space-y-24">
           <FadeIn delay={0.1}>
             <div className="flex flex-col">
               <div className="flex items-center gap-4 mb-6">
-                 <div className="w-10 h-10 rounded-full bg-pine-500 text-white flex items-center justify-center font-bold text-lg shadow-md">1</div>
-                 <h3 className="text-3xl font-bold text-stone-900 tracking-tight">Patient arrives at your clinic</h3>
+                 <div className="w-10 h-10 rounded-full bg-pine-500 text-white flex items-center justify-center font-medium text-lg shadow-md">1</div>
+                 <h3 className="text-3xl font-medium text-stone-900 tracking-tight">Patient arrives at your clinic</h3>
               </div>
               <p className="text-stone-600 text-lg leading-relaxed mb-10 max-w-2xl">They open their Fettlemed Patient App. You (or your front desk staff) send a data access request from the Doctor Portal by entering their phone number or scanning their ABHA ID.</p>
               
               <div className="bg-stone-50 border border-stone-200 rounded-3xl p-8 md:p-12 shadow-inner w-full flex flex-col md:flex-row gap-8 items-center justify-center">
                  <div className="w-full max-w-xs bg-white rounded-2xl shadow-lg border border-stone-200 p-6 flex flex-col gap-4">
-                    <div className="h-6 w-1/2 bg-stone-800 rounded font-bold" />
+                    <div className="h-6 w-1/2 bg-stone-800 rounded font-medium" />
                     <div className="space-y-2 mt-4">
                        <div className="h-3 w-3/4 bg-stone-300 rounded" />
                        <div className="h-3 w-full bg-stone-200 rounded" />
@@ -41,8 +41,8 @@ export default function DoctorHowItWorks() {
           <FadeIn delay={0.2}>
             <div className="flex flex-col">
               <div className="flex items-center gap-4 mb-6">
-                 <div className="w-10 h-10 rounded-full bg-pine-500 text-white flex items-center justify-center font-bold text-lg shadow-md">2</div>
-                 <h3 className="text-3xl font-bold text-stone-900 tracking-tight">Patient approves in one tap</h3>
+                 <div className="w-10 h-10 rounded-full bg-pine-500 text-white flex items-center justify-center font-medium text-lg shadow-md">2</div>
+                 <h3 className="text-3xl font-medium text-stone-900 tracking-tight">Patient approves in one tap</h3>
               </div>
               <p className="text-stone-600 text-lg leading-relaxed mb-10 max-w-2xl">The patient receives a notification. They see who is requesting access and for what purpose. They tap "Approve" to securely share their medical history with you.</p>
               
@@ -55,8 +55,8 @@ export default function DoctorHowItWorks() {
                        <div className="h-2 w-full bg-stone-50 rounded" />
                     </div>
                     <div className="mt-auto space-y-3">
-                       <div className="h-12 w-full bg-accent-600 rounded-2xl flex items-center justify-center text-white text-xs font-bold">Approve Request</div>
-                       <div className="h-12 w-full border border-stone-200 rounded-2xl flex items-center justify-center text-stone-400 text-xs font-bold">Deny</div>
+                       <div className="h-12 w-full bg-accent-600 rounded-2xl flex items-center justify-center text-white text-xs font-medium">Approve Request</div>
+                       <div className="h-12 w-full border border-stone-200 rounded-2xl flex items-center justify-center text-stone-400 text-xs font-medium">Deny</div>
                     </div>
                  </div>
               </div>
@@ -66,8 +66,8 @@ export default function DoctorHowItWorks() {
           <FadeIn delay={0.3}>
             <div className="flex flex-col">
               <div className="flex items-center gap-4 mb-6">
-                 <div className="w-10 h-10 rounded-full bg-pine-500 text-white flex items-center justify-center font-bold text-lg shadow-md">3</div>
-                 <h3 className="text-3xl font-bold text-stone-900 tracking-tight">Access is granted instantly</h3>
+                 <div className="w-10 h-10 rounded-full bg-pine-500 text-white flex items-center justify-center font-medium text-lg shadow-md">3</div>
+                 <h3 className="text-3xl font-medium text-stone-900 tracking-tight">Access is granted instantly</h3>
               </div>
               <p className="text-stone-600 text-lg leading-relaxed mb-10 max-w-2xl">The patient's full medical history appears on your dashboard. You can review past medications, lab reports, and previous discharge summaries before the patient even walks into your consultation room.</p>
               
@@ -101,8 +101,8 @@ export default function DoctorHowItWorks() {
           <FadeIn delay={0.4}>
             <div className="flex flex-col">
               <div className="flex items-center gap-4 mb-6">
-                 <div className="w-10 h-10 rounded-full bg-pine-500 text-white flex items-center justify-center font-bold text-lg shadow-md">4</div>
-                 <h3 className="text-3xl font-bold text-stone-900 tracking-tight">One tap to revoke</h3>
+                 <div className="w-10 h-10 rounded-full bg-pine-500 text-white flex items-center justify-center font-medium text-lg shadow-md">4</div>
+                 <h3 className="text-3xl font-medium text-stone-900 tracking-tight">One tap to revoke</h3>
               </div>
               <p className="text-stone-600 text-lg leading-relaxed max-w-2xl">After the consultation, or at any time, the patient can revoke access. You retain the records you created for your legal requirements, but you can no longer see their wider history. The control remains with the patient.</p>
             </div>

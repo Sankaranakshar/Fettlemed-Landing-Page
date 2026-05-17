@@ -8,7 +8,7 @@ export const WhatWeAreNot = () => {
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-16">
           <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-pine-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-pine-900 mb-6">
               What <span className="text-stone-500">we are not.</span>
             </h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto font-medium">
@@ -23,7 +23,7 @@ export const WhatWeAreNot = () => {
               <div className="w-12 h-12 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center mb-6">
                 <XCircle className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Not an Appointment App</h3>
+              <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Not an Appointment App</h3>
               <p className="text-stone-600 leading-relaxed font-medium">
                 We provide an end-to-end management system for more accessible healthcare.
               </p>
@@ -35,7 +35,7 @@ export const WhatWeAreNot = () => {
               <div className="w-12 h-12 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-6">
                 <Building2 className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Not Rigid Hospital Software</h3>
+              <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Not Rigid Hospital Software</h3>
               <p className="text-stone-600 leading-relaxed font-medium">
                 Old hospital software locks your data to one clinic. Fettlemed is different. Your data is portable and follows you wherever you go, to any doctor you choose.
               </p>
@@ -47,7 +47,7 @@ export const WhatWeAreNot = () => {
               <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Not a Government Portal</h3>
+              <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Not a Government Portal</h3>
               <p className="text-stone-600 leading-relaxed font-medium">
                 We work with the national health system (ABDM), but we are a private, fast platform built for doctors and patients, not just for filing reports.
               </p>

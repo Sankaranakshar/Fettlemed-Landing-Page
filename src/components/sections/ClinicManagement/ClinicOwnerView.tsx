@@ -8,7 +8,7 @@ export function ClinicOwnerView() {
        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-50 transform translate-x-1/3 -translate-y-1/3"></div>
        <div className="container mx-auto px-4 md:px-8 max-w-4xl relative z-10">
           <FadeIn className="text-center mb-16">
-             <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight text-balance">What the owner sees</h2>
+             <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight text-balance">What the owner sees</h2>
           </FadeIn>
           
           <div className="bg-pine-800/50 border border-pine-700/50 rounded-3xl p-8 md:p-12 backdrop-blur-sm">
@@ -21,7 +21,7 @@ export function ClinicOwnerView() {
              </ul>
              
              <div className="mt-12 p-6 bg-white border border-stone-200 rounded-2xl text-center">
-                <p className="text-pine-900 font-bold text-xl md:text-2xl">Make decisions based on your clinic's data, available to you in one click.</p>
+                <p className="text-pine-900 font-medium text-xl md:text-2xl">Make decisions based on your clinic's data, available to you in one click.</p>
              </div>
           </div>
        </div>

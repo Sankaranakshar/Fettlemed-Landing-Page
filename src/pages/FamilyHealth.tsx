@@ -16,7 +16,7 @@ export default function FamilyHealth() {
         <div className="container mx-auto px-4 max-w-[800px]">
           <Breadcrumbs />
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 leading-[1.1] mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-stone-900 leading-[1.1] mb-6 tracking-tight">
               One app for your whole family’s health.
             </h1>
             <p className="text-xl text-stone-600 mb-10 font-medium leading-relaxed">
@@ -30,21 +30,21 @@ export default function FamilyHealth() {
          <div className="container mx-auto px-4 max-w-[1000px]">
            <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-stone-50 p-8 rounded-2xl border border-stone-100">
-                <h3 className="text-xl font-bold text-stone-900 mb-4">For parents with young children</h3>
+                <h3 className="text-xl font-medium text-stone-900 mb-4">For parents with young children</h3>
                 <p className="text-stone-600">Keep vaccination schedules, paediatrician notes, and growth records in one place. Share them with a new doctor in seconds when your child falls ill.</p>
               </div>
               <div className="bg-stone-50 p-8 rounded-2xl border border-stone-100">
-                <h3 className="text-xl font-bold text-stone-900 mb-4">For caregivers of elderly parents</h3>
+                <h3 className="text-xl font-medium text-stone-900 mb-4">For caregivers of elderly parents</h3>
                 <p className="text-stone-600">Your father’s cardiologist in Chennai and his GP in Coimbatore can both see his medication list. No more phone calls asking ‘what pills does he take?’</p>
               </div>
               <div className="bg-stone-50 p-8 rounded-2xl border border-stone-100">
-                <h3 className="text-xl font-bold text-stone-900 mb-4">For spouses</h3>
+                <h3 className="text-xl font-medium text-stone-900 mb-4">For spouses</h3>
                 <p className="text-stone-600">Manage each other’s records for insurance claims, emergency situations, or routine check-ups.</p>
               </div>
            </div>
 
            <div className="mt-20">
-             <h2 className="text-3xl font-bold text-stone-900 mb-8 border-b pb-4">How it works</h2>
+             <h2 className="text-3xl font-medium text-stone-900 mb-8 border-b pb-4">How it works</h2>
              <div className="flex flex-col md:flex-row items-center gap-6 text-stone-600 font-medium">
                <div className="bg-pine-50 px-6 py-4 rounded-xl border border-pine-100 text-center flex-1">Add a family member</div>
                <span className="text-stone-300 hidden md:block">→</span>

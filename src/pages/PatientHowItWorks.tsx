@@ -11,15 +11,15 @@ export default function PatientHowItWorks() {
       <div className="flex flex-col w-full bg-white pt-24 pb-32">
       <div className="container mx-auto px-4 max-w-[800px]">
         <Breadcrumbs />
-        <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-16 tracking-tight">How Fettlemed works for patients</h1>
+        <h1 className="text-4xl md:text-5xl font-medium text-stone-900 mb-16 tracking-tight">How Fettlemed works for patients</h1>
 
         <div className="space-y-24">
           
           <FadeIn delay={0.1}>
             <div className="flex flex-col">
               <div className="flex items-center gap-4 mb-6">
-                 <div className="w-10 h-10 rounded-full bg-pine-500 text-white flex items-center justify-center font-bold text-lg shadow-md">1</div>
-                 <h3 className="text-3xl font-bold text-stone-900 tracking-tight">Create your ABHA-linked account</h3>
+                 <div className="w-10 h-10 rounded-full bg-pine-500 text-white flex items-center justify-center font-medium text-lg shadow-md">1</div>
+                 <h3 className="text-3xl font-medium text-stone-900 tracking-tight">Create your ABHA-linked account</h3>
               </div>
               <p className="text-stone-600 text-lg leading-relaxed mb-10 max-w-2xl">Sign up with your phone number. Optionally link your ABHA ID for national health record portability. In under 2 minutes, your personal health vault is ready.</p>
               
@@ -30,7 +30,7 @@ export default function PatientHowItWorks() {
                     <div className="flex flex-col gap-2">
                        <div className="h-4 bg-stone-200 rounded w-24" />
                        <div className="h-12 border-2 border-stone-200 rounded-xl bg-white flex items-center px-4">
-                         <span className="text-stone-300 font-bold tracking-widest">Phone Number</span>
+                         <span className="text-stone-300 font-medium tracking-widest">Phone Number</span>
                        </div>
                     </div>
                     <div className="h-14 bg-pine-500 rounded-xl w-full mt-4 flex items-center justify-center shadow-lg shadow-pine-500/20">
@@ -47,8 +47,8 @@ export default function PatientHowItWorks() {
           <FadeIn delay={0.1}>
             <div className="flex flex-col">
               <div className="flex items-center gap-4 mb-6">
-                 <div className="w-10 h-10 rounded-full bg-pine-500 text-white flex items-center justify-center font-bold text-lg shadow-md">2</div>
-                 <h3 className="text-3xl font-bold text-stone-900 tracking-tight">Add your existing records</h3>
+                 <div className="w-10 h-10 rounded-full bg-pine-500 text-white flex items-center justify-center font-medium text-lg shadow-md">2</div>
+                 <h3 className="text-3xl font-medium text-stone-900 tracking-tight">Add your existing records</h3>
               </div>
               <p className="text-stone-600 text-lg leading-relaxed mb-10 max-w-2xl">Snap a photo of any prescription, lab report, or discharge summary. Our system extracts and structures the data automatically.</p>
               

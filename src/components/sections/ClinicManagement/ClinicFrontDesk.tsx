@@ -7,7 +7,7 @@ export function ClinicFrontDesk() {
     <section className="py-24 bg-white border-b border-stone-100">
        <div className="container mx-auto px-4 md:px-8 max-w-5xl">
           <FadeIn className="text-center mb-16">
-             <h2 className="text-3xl md:text-5xl font-bold text-pine-900 tracking-tight text-balance">For whoever runs the front desk</h2>
+             <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">For whoever runs the front desk</h2>
           </FadeIn>
 
           <div className="grid gap-6">

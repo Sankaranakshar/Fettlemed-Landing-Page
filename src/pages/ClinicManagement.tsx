@@ -136,7 +136,7 @@ export default function ClinicManagement() {
 
         <div className="container mx-auto px-4 lg:px-8 py-24 max-w-4xl">
            <FadeIn className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-pine-900 tracking-tight">Frequently asked questions</h2>
+              <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Frequently asked questions</h2>
            </FadeIn>
            <FAQ sections={faqSections} />
         </div>

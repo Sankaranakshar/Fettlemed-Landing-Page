@@ -7,7 +7,7 @@ export function DoctorSwitching() {
     <section className="py-24 bg-white border-b border-stone-100">
        <div className="container mx-auto px-4 md:px-8 max-w-4xl">
           <FadeIn className="text-center mb-16">
-             <h2 className="text-3xl md:text-5xl font-bold text-pine-900 tracking-tight text-balance">Switching from paper</h2>
+             <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">Switching from paper</h2>
              <p className="text-xl text-stone-500 mt-6 font-medium leading-relaxed">
                 Fettlemed is built for doctors currently on paper or Excel, not for hospitals with IT departments, and not for tech-forward super-clinics. It goes beyond outdated clinical software: it truly assists you, instead of being a place to dump data.
              </p>

@@ -40,7 +40,7 @@ export function WaitlistModal({ open, onClose }: WaitlistModalProps) {
       <div className="relative max-h-[90vh] overflow-y-auto p-8">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 id="wl-modal-title" className="text-xl font-bold text-pine-900 tracking-tight">Join the Waitlist</h2>
+            <h2 id="wl-modal-title" className="text-xl font-medium text-pine-900 tracking-tight">Join the Waitlist</h2>
             <p className="text-sm text-stone-500 font-medium mt-1">Early access for select clinics, doctors, and individuals.</p>
           </div>
           <button

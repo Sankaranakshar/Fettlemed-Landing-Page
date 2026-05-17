@@ -7,7 +7,7 @@ export function PatientDataRules() {
     <section className="py-24 bg-white border-b border-stone-100">
        <div className="container mx-auto px-4 md:px-8 max-w-5xl">
           <FadeIn className="text-center mb-16">
-             <h2 className="text-3xl md:text-5xl font-bold text-pine-900 tracking-tight text-balance">Your data, your rules</h2>
+             <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">Your data, your rules</h2>
           </FadeIn>
 
           <div className="grid gap-6">
@@ -16,7 +16,7 @@ export function PatientDataRules() {
                    <ShieldCheck className="w-8 h-8 text-pine-600" />
                 </div>
                 <div>
-                   <h3 className="text-2xl font-bold text-pine-900 mb-3 tracking-tight">Fettlemed never sells your data</h3>
+                   <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight">Fettlemed never sells your data</h3>
                    <p className="text-stone-600 font-medium text-lg leading-relaxed">Your health records are never used for advertising, never sold to insurers, never shared with your employer. Ever.</p>
                 </div>
              </FadeIn>
@@ -26,7 +26,7 @@ export function PatientDataRules() {
                    <FolderSync className="w-8 h-8 text-pine-600" />
                 </div>
                 <div>
-                   <h3 className="text-2xl font-bold text-pine-900 mb-3 tracking-tight">You control who sees what</h3>
+                   <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight">You control who sees what</h3>
                    <p className="text-stone-600 font-medium text-lg leading-relaxed">Every doctor sees only what you choose to share. You can revoke access anytime, from the app, in seconds.</p>
                 </div>
              </FadeIn>
@@ -36,7 +36,7 @@ export function PatientDataRules() {
                    <EyeOff className="w-8 h-8 text-pine-600" />
                 </div>
                 <div>
-                   <h3 className="text-2xl font-bold text-pine-900 mb-3 tracking-tight">You can see who accessed your records</h3>
+                   <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight">You can see who accessed your records</h3>
                    <p className="text-stone-600 font-medium text-lg leading-relaxed">Fettlemed keeps a full log of every time your records were accessed and by whom. You are never in the dark.</p>
                 </div>
              </FadeIn>

@@ -150,7 +150,7 @@ export default function PatientApp() {
 
         <div className="container mx-auto px-4 lg:px-8 py-24 max-w-4xl">
            <FadeIn className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-pine-900 tracking-tight">Frequently asked questions</h2>
+              <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Frequently asked questions</h2>
            </FadeIn>
            <FAQ sections={faqSections} />
         </div>
@@ -159,9 +159,9 @@ export default function PatientApp() {
         <section className="py-24 bg-pine-900 text-center">
           <FadeIn>
             <div className="container mx-auto px-6 max-w-2xl">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">The app is coming soon.</h2>
+              <h2 className="text-3xl md:text-4xl font-medium text-white mb-4 tracking-tight">The app is coming soon.</h2>
               <p className="text-pine-300 text-lg font-medium mb-10">Join the waitlist to be first.</p>
-              <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="bg-white text-pine-900 hover:bg-pine-50 h-14 px-12 text-lg rounded-xl font-bold">
+              <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="bg-white text-pine-900 hover:bg-pine-50 h-14 px-12 text-lg rounded-xl font-medium">
                 Get early access
               </Button>
             </div>

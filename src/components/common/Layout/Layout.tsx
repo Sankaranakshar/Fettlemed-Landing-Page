@@ -35,7 +35,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <Link to="/" className="flex items-center gap-2.5" onClick={() => setIsMobileMenuOpen(false)} aria-label="Fettlemed Home">
             <img src="/brand/mark.svg" alt="" aria-hidden="true" className="w-9 h-9 shrink-0" />
             <span className="text-xl tracking-tight leading-none select-none">
-              <span className="font-semibold text-stone-900">Fettle</span><span className="font-light text-pine-600">med</span>
+              <span className="font-medium text-stone-900">Fettle</span><span className="font-light text-pine-600">med</span>
             </span>
           </Link>
           
@@ -47,7 +47,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 to={link.path}
                 onMouseEnter={() => preloadRoutes[link.path]?.()}
                 className={({ isActive }) => cn(
-                  "text-sm font-semibold tracking-wide transition-colors duration-150 ease-out",
+                  "text-sm font-medium tracking-wide transition-colors duration-150 ease-out",
                   isActive ? "text-pine-600" : "text-stone-500 hover:text-pine-900"
                 )}
               >
@@ -55,7 +55,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </NavLink>
             ))}
             <div className="h-5 w-[1px] bg-stone-200 mx-2" />
-            <Button variant="animated" onClick={() => setWaitlistOpen(true)} className="bg-accent-600 hover:bg-accent-700 text-white rounded-lg shadow-sm text-sm h-10 px-6 font-bold transition-colors">
+            <Button variant="animated" onClick={() => setWaitlistOpen(true)} className="bg-accent-600 hover:bg-accent-700 text-white rounded-lg shadow-sm text-sm h-10 px-6 font-medium transition-colors">
               Join Waitlist
             </Button>
           </nav>
@@ -79,7 +79,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   to={link.path}
                   onMouseEnter={() => preloadRoutes[link.path]?.()}
                   className={({ isActive }) => cn(
-                    "block text-xl font-semibold tracking-wide py-5 px-4 -mx-4 rounded-xl transition-colors duration-150 ease-out active:bg-stone-100",
+                    "block text-xl font-medium tracking-wide py-5 px-4 -mx-4 rounded-xl transition-colors duration-150 ease-out active:bg-stone-100",
                     isActive ? "text-pine-600 bg-pine-50/50" : "text-stone-800"
                   )}
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -88,7 +88,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </NavLink>
               ))}
               <div className="pt-6 border-t border-stone-200 flex flex-col gap-4">
-                <Button variant="animated" size="lg" onClick={() => { setIsMobileMenuOpen(false); setWaitlistOpen(true); }} className="w-full bg-accent-600 hover:bg-accent-700 text-white rounded-xl h-14 font-bold">Join Waitlist</Button>
+                <Button variant="animated" size="lg" onClick={() => { setIsMobileMenuOpen(false); setWaitlistOpen(true); }} className="w-full bg-accent-600 hover:bg-accent-700 text-white rounded-xl h-14 font-medium">Join Waitlist</Button>
               </div>
             </nav>
           </div>
@@ -105,7 +105,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-16 border-b border-pine-800 pb-16">
              {/* Column 1: Product */}
              <nav className="flex flex-col gap-4" aria-label="Product Links">
-                <h3 className="text-sm font-black tracking-widest text-pine-400 uppercase mb-2">Product</h3>
+                <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Product</h3>
                 <Link to="/patient-app" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Everyone</Link>
                 <Link to="/doctor-portal" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Doctors</Link>
                 <Link to="/clinic-management" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Clinics</Link>
@@ -114,7 +114,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
              {/* Column 2: Company */}
              <nav className="flex flex-col gap-4" aria-label="Company Links">
-                <h3 className="text-sm font-black tracking-widest text-pine-400 uppercase mb-2">Company</h3>
+                <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Company</h3>
                 <Link to="/about" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">About</Link>
                 <Link to="/about#team" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Team</Link>
                 <Link to="/about#contact" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Contact</Link>
@@ -122,14 +122,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
              {/* Column 3: Legal */}
              <nav className="flex flex-col gap-4" aria-label="Legal Links">
-                <h3 className="text-sm font-black tracking-widest text-pine-400 uppercase mb-2">Legal</h3>
+                <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Legal</h3>
                 <Link to="/privacy" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Privacy Policy</Link>
                 <Link to="/terms" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Terms of Service</Link>
              </nav>
 
              {/* Column 4: Connect */}
              <nav className="flex flex-col gap-4" aria-label="Connect Links">
-                <h3 className="text-sm font-black tracking-widest text-pine-400 uppercase mb-2">Connect</h3>
+                <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Connect</h3>
                 <a href="mailto:hello@fettlemed.com" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">hello@fettlemed.com</a>
                 <a href="https://www.linkedin.com/company/fettlemed/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">LinkedIn</a>
                 <a href="https://x.com/FETTLEMEDHEALTH" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">X (Twitter)</a>
@@ -146,7 +146,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <path d="M2 34h11l3-6 3 6 4-20 5 28 4-18 3 10h27" fill="none" stroke="#0B4A3A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <span className="text-lg tracking-tight leading-none select-none">
-                <span className="font-semibold text-white">Fettle</span><span className="font-light text-pine-300">med</span>
+                <span className="font-medium text-white">Fettle</span><span className="font-light text-pine-300">med</span>
               </span>
             </div>
             

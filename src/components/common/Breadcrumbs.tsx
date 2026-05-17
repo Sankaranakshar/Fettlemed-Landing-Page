@@ -11,7 +11,7 @@ export function Breadcrumbs() {
 
   return (
     <nav aria-label="Breadcrumb" className="mb-8">
-      <ol className="flex items-center space-x-2 text-xs md:text-sm font-bold uppercase tracking-widest">
+      <ol className="flex items-center space-x-2 text-xs md:text-sm font-medium uppercase tracking-widest">
         <li>
           <Link
             to="/"

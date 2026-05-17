@@ -25,7 +25,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
        <div className="container mx-auto px-6 max-w-6xl">
           <FadeIn>
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-pine-900 mb-8 text-balance">
+              <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-pine-900 mb-8 text-balance">
                 Built for your needs.
               </h2>
               
@@ -33,7 +33,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
               <div className="inline-flex flex-col sm:flex-row bg-white rounded-2xl md:rounded-full p-2 border border-stone-200 shadow-sm gap-2">
                 <button
                   onClick={() => setActiveRole('patient')}
-                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-bold transition-[background-color,color,box-shadow] duration-150 ease-out ${
+                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-medium transition-[background-color,color,box-shadow] duration-150 ease-out ${
                     activeRole === 'patient'
                       ? 'bg-violet-600 text-white shadow-md'
                       : 'text-stone-500 hover:text-pine-900 hover:bg-stone-50'
@@ -43,7 +43,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                 </button>
                 <button
                   onClick={() => setActiveRole('doctor')}
-                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-bold transition-[background-color,color,box-shadow] duration-150 ease-out ${
+                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-medium transition-[background-color,color,box-shadow] duration-150 ease-out ${
                     activeRole === 'doctor'
                       ? 'bg-teal-800 text-white shadow-md'
                       : 'text-stone-500 hover:text-pine-900 hover:bg-stone-50'
@@ -53,7 +53,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                 </button>
                 <button
                   onClick={() => setActiveRole('clinic')}
-                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-bold transition-[background-color,color,box-shadow] duration-150 ease-out ${
+                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-medium transition-[background-color,color,box-shadow] duration-150 ease-out ${
                     activeRole === 'clinic'
                       ? 'bg-amber-600 text-white shadow-md'
                       : 'text-stone-500 hover:text-pine-900 hover:bg-stone-50'
@@ -77,7 +77,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       <div className="w-12 h-12 bg-pine-100 text-accent-600 rounded-2xl flex items-center justify-center mb-6">
                         <Smartphone className="w-6 h-6"/>
                       </div>
-                      <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Your health records, all in one place</h3>
+                      <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Your health records, all in one place</h3>
                       <ul className="space-y-3 text-stone-600 font-medium text-sm">
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Every test, prescription, and doctor visit from any clinic or lab, in a single view</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0"></span> Records from new consultations update automatically</li>
@@ -103,7 +103,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       <div className="w-12 h-12 bg-pine-100 text-accent-600 rounded-2xl flex items-center justify-center mb-6">
                         <ShieldCheck className="w-6 h-6"/>
                       </div>
-                      <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">You decide who sees your records</h3>
+                      <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">You decide who sees your records</h3>
                       <ul className="space-y-3 text-stone-600 font-medium text-sm">
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-1.5 shrink-0"></span> Full control over who can access health data (specific doctors/clinics)</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-1.5 shrink-0"></span> Selective sharing of specific records or data types for stated purposes</li>
@@ -116,7 +116,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                           <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="bg-white px-6 py-4 rounded-2xl shadow-lg border border-stone-100 flex items-center gap-4 z-10">
                             <ShieldCheck className="w-8 h-8 text-pine-500" />
                             <div className="flex flex-col gap-1">
-                              <span className="text-xs font-bold text-stone-400 uppercase tracking-wider">Access Request</span>
+                              <span className="text-xs font-medium text-stone-400 uppercase tracking-wider">Access Request</span>
                               <span className="text-sm font-medium text-stone-700">Dr. Sarah requires access</span>
                             </div>
                             <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.8, type: "spring" }} className="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center text-accent-600 border border-accent-200">
@@ -137,7 +137,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       <div className="w-12 h-12 bg-pine-100 text-accent-600 rounded-2xl flex items-center justify-center mb-6">
                         <FileCheck2 className="w-6 h-6"/>
                       </div>
-                      <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Stay ahead of your health</h3>
+                      <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Stay ahead of your health</h3>
                       <ul className="space-y-3 text-stone-600 font-medium text-sm">
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-1.5 shrink-0"></span> Medication reminders, health insights, and preventive care alerts for you and your family</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-1.5 shrink-0"></span> Medication alerts and tracking of key health metrics</li>
@@ -190,7 +190,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                 </div>
 
                 <div className="mt-8 text-center flex justify-center z-20">
-                  <Link to="/patient-app" className="font-bold text-accent-600 hover:text-accent-700 inline-flex items-center gap-2 text-lg">Explore the Patient App <ArrowUpRight className="w-5 h-5" /></Link>
+                  <Link to="/patient-app" className="font-medium text-accent-600 hover:text-accent-700 inline-flex items-center gap-2 text-lg">Explore the Patient App <ArrowUpRight className="w-5 h-5" /></Link>
                 </div>
               </div>
             )}
@@ -208,7 +208,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                         <div className="w-12 h-12 bg-teal-800 text-white rounded-2xl flex items-center justify-center mb-6 border border-teal-700">
                           <Stethoscope className="w-6 h-6"/>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-4 tracking-tight">Smart Patient History Dashboard</h3>
+                        <h3 className="text-xl font-medium text-white mb-4 tracking-tight">Smart Patient History Dashboard</h3>
                         <ul className="space-y-3 text-white font-medium text-sm">
                           <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-1.5 shrink-0"></span> Complete patient medical history at a glance before consultation begins</li>
                           <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-1.5 shrink-0"></span> Relevant patient information is available instantly to assist decision making, nothing is missed.</li>
@@ -250,7 +250,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                         <div className="w-12 h-12 bg-teal-800 text-white rounded-2xl flex items-center justify-center mb-6 border border-teal-700">
                           <FileCheck2 className="w-6 h-6"/>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-4 tracking-tight">Digital E-Prescription & Clinical Documentation</h3>
+                        <h3 className="text-xl font-medium text-white mb-4 tracking-tight">Digital E-Prescription & Clinical Documentation</h3>
                         <ul className="space-y-3 text-white font-medium text-sm">
                           <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-1.5 shrink-0"></span> Searchable drug database for error-free prescriptions</li>
                           <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-1.5 shrink-0"></span> Customizable templates for common conditions enabling rapid data entry</li>
@@ -260,7 +260,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       <div className="flex-1 w-full h-[200px] md:h-full flex items-center justify-center relative bg-teal-900/50 rounded-2xl overflow-hidden border border-teal-800">
                         {activeCardIndex === 1 && (
                           <div className="w-full max-w-[200px] bg-white rounded-lg shadow-xl overflow-hidden transform rotate-2 origin-bottom-right">
-                            <div className="bg-pine-100 p-2 text-center text-xs font-bold text-pine-800 border-b border-pine-200">
+                            <div className="bg-pine-100 p-2 text-center text-xs font-medium text-pine-800 border-b border-pine-200">
                               Rx Prescription
                             </div>
                             <div className="p-4 flex flex-col gap-3">
@@ -287,7 +287,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                         <div className="w-12 h-12 bg-teal-800 text-white rounded-2xl flex items-center justify-center mb-6 border border-teal-700">
                           <ShieldCheck className="w-6 h-6"/>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-4 tracking-tight">Secure, Consent-Based Access to Complete Patient EHR</h3>
+                        <h3 className="text-xl font-medium text-white mb-4 tracking-tight">Secure, Consent-Based Access to Complete Patient EHR</h3>
                         <ul className="space-y-3 text-white font-medium text-sm">
                           <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-1.5 shrink-0"></span> Centralized interface to view/manage/update patient records</li>
                           <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-1.5 shrink-0"></span> Access to complete medical history, diagnoses, treatment plans, and allergies</li>
@@ -307,10 +307,10 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="col-start-1 row-start-1 bg-pine-800 rounded-2xl border border-pine-700 flex items-center justify-center z-20">
                                  <ShieldCheck className="w-12 h-12 text-white" />
                               </motion.div>
-                              <motion.div initial={{ scale: 1 }} animate={{ scale: 0 }} transition={{ delay: 0.8 }} className="absolute -right-4 -bottom-4 bg-white text-pine-900 text-[10px] font-bold px-2 py-1 rounded-full shadow-lg z-30 flex items-center gap-1">
+                              <motion.div initial={{ scale: 1 }} animate={{ scale: 0 }} transition={{ delay: 0.8 }} className="absolute -right-4 -bottom-4 bg-white text-pine-900 text-[10px] font-medium px-2 py-1 rounded-full shadow-lg z-30 flex items-center gap-1">
                                 <Smartphone className="w-3 h-3"/> Pending
                               </motion.div>
-                              <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 1.2 }} className="absolute -right-4 -bottom-4 bg-accent-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-lg z-30 flex items-center gap-1">
+                              <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 1.2 }} className="absolute -right-4 -bottom-4 bg-accent-500 text-white text-[10px] font-medium px-2 py-1 rounded-full shadow-lg z-30 flex items-center gap-1">
                                 <CheckCircle2 className="w-3 h-3"/> Approved
                               </motion.div>
                             </motion.div>
@@ -335,7 +335,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                   </div>
 
                   <div className="mt-8 text-center flex justify-center z-20">
-                    <Link to="/doctor-portal" className="inline-flex font-bold text-teal-300 hover:text-white items-center gap-2 text-lg">Explore the Doctor Portal <ArrowUpRight className="w-5 h-5" /></Link>
+                    <Link to="/doctor-portal" className="inline-flex font-medium text-teal-300 hover:text-white items-center gap-2 text-lg">Explore the Doctor Portal <ArrowUpRight className="w-5 h-5" /></Link>
                   </div>
                 </div>
               </div>
@@ -351,7 +351,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center mb-6">
                         <Building2 className="w-6 h-6"/>
                       </div>
-                      <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Patient Registration & Queue Management</h3>
+                      <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Patient Registration & Queue Management</h3>
                       <ul className="space-y-3 text-stone-600 font-medium text-sm">
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-1.5 shrink-0"></span> Digital pre-registration via Patient App or staff entry</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-1.5 shrink-0"></span> ABHA ID verification and automatic UHID generation</li>
@@ -363,24 +363,24 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                         <div className="flex flex-col gap-3 relative w-full px-8">
                           <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.1 }} className="bg-white p-3 rounded-xl shadow-sm border border-stone-200 flex justify-between items-center z-20">
                             <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 bg-pine-100 text-pine-600 rounded-full flex items-center justify-center text-xs font-bold">1</div>
+                              <div className="w-8 h-8 bg-pine-100 text-pine-600 rounded-full flex items-center justify-center text-xs font-medium">1</div>
                               <span className="text-sm font-medium text-stone-800">John Doe</span>
                             </div>
-                            <span className="text-xs font-bold text-pine-600 bg-pine-50 px-2 py-1 rounded-full">Consulting</span>
+                            <span className="text-xs font-medium text-pine-600 bg-pine-50 px-2 py-1 rounded-full">Consulting</span>
                           </motion.div>
                           <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 0.8 }} transition={{ delay: 0.3 }} className="bg-white p-3 rounded-xl shadow-sm border border-stone-200 flex justify-between items-center z-10 scale-95 origin-left">
                             <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 bg-stone-100 text-stone-500 rounded-full flex items-center justify-center text-xs font-bold">2</div>
+                              <div className="w-8 h-8 bg-stone-100 text-stone-500 rounded-full flex items-center justify-center text-xs font-medium">2</div>
                               <span className="text-sm font-medium text-stone-600">Jane Smith</span>
                             </div>
-                            <span className="text-xs font-bold text-stone-500 bg-stone-50 px-2 py-1 rounded-full">Waiting</span>
+                            <span className="text-xs font-medium text-stone-500 bg-stone-50 px-2 py-1 rounded-full">Waiting</span>
                           </motion.div>
                           <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 0.6 }} transition={{ delay: 0.5 }} className="bg-white p-3 rounded-xl shadow-sm border border-stone-200 flex justify-between items-center z-0 scale-90 origin-left">
                             <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 bg-stone-100 text-stone-500 rounded-full flex items-center justify-center text-xs font-bold">3</div>
+                              <div className="w-8 h-8 bg-stone-100 text-stone-500 rounded-full flex items-center justify-center text-xs font-medium">3</div>
                               <span className="text-sm font-medium text-stone-600">Robert M.</span>
                             </div>
-                            <span className="text-xs font-bold text-stone-500 bg-stone-50 px-2 py-1 rounded-full">Waiting</span>
+                            <span className="text-xs font-medium text-stone-500 bg-stone-50 px-2 py-1 rounded-full">Waiting</span>
                           </motion.div>
                         </div>
                       )}
@@ -392,7 +392,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center mb-6">
                         <Building2 className="w-6 h-6"/>
                       </div>
-                      <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Billing & Financial Management</h3>
+                      <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Billing & Financial Management</h3>
                       <ul className="space-y-3 text-stone-600 font-medium text-sm">
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-1.5 shrink-0"></span> Itemized digital invoices with GST compliance</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-1.5 shrink-0"></span> Multiple online payment gateways (UPI, cards, net banking)</li>
@@ -405,7 +405,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                           <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.1 }} className="bg-white p-5 rounded-2xl shadow-lg border border-stone-200 w-48 relative z-20">
                             <div className="flex justify-between items-center mb-4">
                               <Wallet className="w-6 h-6 text-pine-600"/>
-                              <span className="text-lg font-bold text-pine-900">₹1,200</span>
+                              <span className="text-lg font-medium text-pine-900">₹1,200</span>
                             </div>
                             <div className="space-y-2">
                               <div className="h-1.5 w-full bg-stone-100 rounded"></div>
@@ -430,7 +430,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                       <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center mb-6">
                         <Building2 className="w-6 h-6"/>
                       </div>
-                      <h3 className="text-xl font-bold text-pine-900 mb-4 tracking-tight">Integrated Diagnostic Workflow</h3>
+                      <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Integrated Diagnostic Workflow</h3>
                       <ul className="space-y-3 text-stone-600 font-medium text-sm">
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-1.5 shrink-0"></span> Digital catalog of lab tests with affiliated diagnostic center directory</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-1.5 shrink-0"></span> Real-time order tracking from sample collection to results</li>
@@ -480,7 +480,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: 'pati
                 </div>
 
                 <div className="mt-8 text-center flex justify-center z-20">
-                  <Link to="/clinic-management" className="inline-flex font-bold text-amber-700 hover:text-amber-800 items-center gap-2 text-lg">View the Clinic SaaS <ArrowUpRight className="w-5 h-5" /></Link>
+                  <Link to="/clinic-management" className="inline-flex font-medium text-amber-700 hover:text-amber-800 items-center gap-2 text-lg">View the Clinic SaaS <ArrowUpRight className="w-5 h-5" /></Link>
                 </div>
               </div>
             )}

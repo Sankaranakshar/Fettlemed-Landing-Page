@@ -12,15 +12,15 @@ export function DoctorPilot() {
        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-50 transform translate-x-1/3 -translate-y-1/3"></div>
        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center relative z-10">
           <FadeIn>
-             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight mb-8">
+             <h2 className="text-3xl md:text-4xl font-medium text-white tracking-tight leading-tight mb-8">
                 What the pilot means for you
              </h2>
              <div className="space-y-6 text-lg text-pine-100 font-medium leading-relaxed text-left md:text-center mb-10">
                 <p>Pilots begin soon with doctors across India. Joining the pilot gives you early access and a direct line to the founding team. Your feedback will directly shape which features we build next.</p>
                 <p className="text-pine-300 italic">Note: Regional language support is currently not available for the pilot phase but is actively being built.</p>
-                <p className="font-bold text-white">We are a small team building something we believe Indian healthcare needs. We want doctors who believe that too.</p>
+                <p className="font-medium text-white">We are a small team building something we believe Indian healthcare needs. We want doctors who believe that too.</p>
              </div>
-             <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="bg-white hover:bg-stone-50 text-pine-900 h-14 px-12 text-lg rounded-xl font-bold shadow-lg">
+             <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="bg-white hover:bg-stone-50 text-pine-900 h-14 px-12 text-lg rounded-xl font-medium shadow-lg">
                Request early access for your practice
              </Button>
           </FadeIn>

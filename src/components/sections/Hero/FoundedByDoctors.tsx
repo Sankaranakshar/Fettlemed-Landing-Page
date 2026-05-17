@@ -37,7 +37,7 @@ export const FoundedByDoctors = () => {
                 whileInView={{ x: 20, y: 8, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="absolute -bottom-2 -right-4 bg-accent-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow-lg shadow-accent-600/20 z-20 flex items-center gap-1.5"
+                className="absolute -bottom-2 -right-4 bg-accent-600 text-white px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg shadow-accent-600/20 z-20 flex items-center gap-1.5"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-white motion-safe:animate-pulse" />
                 MD Led
@@ -45,7 +45,7 @@ export const FoundedByDoctors = () => {
             </div>
             
             <div className="text-left">
-              <h3 className="font-bold text-pine-950 text-xl leading-tight mb-1">Built by Physicians.</h3>
+              <h3 className="font-medium text-pine-950 text-xl leading-tight mb-1">Built by Physicians.</h3>
               <p className="text-stone-500 font-medium">Designed for clinical excellence.</p>
             </div>
           </div>
@@ -66,7 +66,7 @@ export const FoundedByDoctors = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
-                className="flex items-center gap-2.5 font-bold text-stone-700 text-[15px] group cursor-default"
+                className="flex items-center gap-2.5 font-medium text-stone-700 text-[15px] group cursor-default"
               >
                 <div className="p-1.5 rounded-lg bg-surface-50 group-hover:bg-pine-50 transition-colors">
                   <item.icon className="w-4 h-4 text-pine-600"/>
@@ -76,7 +76,7 @@ export const FoundedByDoctors = () => {
                   <span className="text-[11px] text-stone-400 font-medium lg:hidden">{item.tip}</span>
                 </div>
                 <div className="relative hidden lg:block">
-                  <span className="w-4 h-4 rounded-full border border-stone-300 bg-white text-stone-400 text-[10px] font-bold flex items-center justify-center cursor-help peer select-none">i</span>
+                  <span className="w-4 h-4 rounded-full border border-stone-300 bg-white text-stone-400 text-[10px] font-medium flex items-center justify-center cursor-help peer select-none">i</span>
                   <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-stone-900 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity pointer-events-none z-50">
                     {item.tip}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-stone-900" />

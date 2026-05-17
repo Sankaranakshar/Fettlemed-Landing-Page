@@ -8,7 +8,7 @@ export function PatientForWho() {
        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-50 transform translate-x-1/3 -translate-y-1/3"></div>
        <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
           <FadeIn className="mb-16">
-             <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight text-balance">Who this is for</h2>
+             <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight text-balance">Who this is for</h2>
           </FadeIn>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -17,7 +17,7 @@ export function PatientForWho() {
                    <User className="w-5 h-5 text-pine-200" />
                 </div>
                 <div>
-                   <h3 className="text-xl font-bold text-white mb-3 tracking-tight">For you</h3>
+                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">For you</h3>
                    <p className="text-pine-200 leading-relaxed font-medium">You manage your own health and want to stop depending on your memory and a bag of paper every time you see a doctor.</p>
                 </div>
              </FadeIn>
@@ -27,7 +27,7 @@ export function PatientForWho() {
                    <Users className="w-5 h-5 text-pine-200" />
                 </div>
                 <div>
-                   <h3 className="text-xl font-bold text-white mb-3 tracking-tight">For your family</h3>
+                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">For your family</h3>
                    <p className="text-pine-200 leading-relaxed font-medium">You are the one who remembers your mother's last blood pressure reading, your father's medication list, your child's vaccination schedule. Fettlemed lets you manage all of it in one place, separately and securely.</p>
                 </div>
              </FadeIn>

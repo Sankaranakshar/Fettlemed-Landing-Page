@@ -20,7 +20,7 @@ export default function OurStory() {
            <div className="sticky top-32">
               <Breadcrumbs />
               <div className="h-[1px] w-12 bg-stone-200 mb-6" />
-              <p className="text-sm font-semibold text-stone-400 uppercase tracking-widest leading-relaxed">
+              <p className="text-sm font-medium text-stone-400 uppercase tracking-widest leading-relaxed">
                 The origin story of Fettlemed and why we believe health information must remain connected.
               </p>
            </div>
@@ -32,7 +32,7 @@ export default function OurStory() {
             <div className="lg:hidden">
               <Breadcrumbs />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 mb-12 tracking-tight leading-[1.1]">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-stone-900 mb-12 tracking-tight leading-[1.1]">
               Every family deserves better.
             </h1>
             
@@ -58,7 +58,7 @@ export default function OurStory() {
               <p>Today, Fettlemed is a commitment to making sure that no family ever has to start their healthcare journey from scratch again. We are building the infrastructure for a healthier, more connected India, one record at a time.</p>
               
               <div className="pt-8">
-                <button onClick={() => setModalOpen(true)} className="inline-flex items-center gap-2 text-pine-600 font-bold hover:text-pine-700 transition-colors">
+                <button onClick={() => setModalOpen(true)} className="inline-flex items-center gap-2 text-pine-600 font-medium hover:text-pine-700 transition-colors">
                   Join us on this journey <ArrowLeft className="w-5 h-5 rotate-180" />
                 </button>
               </div>
