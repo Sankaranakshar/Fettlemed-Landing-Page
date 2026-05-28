@@ -39,9 +39,9 @@ export function PatientFeatures() {
                 <div className="w-12 h-12 bg-pine-50 rounded-2xl flex items-center justify-center mb-5 border border-pine-100 shrink-0">
                    <Share2 className="w-6 h-6 text-pine-700" />
                 </div>
-                <h3 className="text-xl font-medium text-pine-900 mb-3 tracking-tight">One tap to share, one tap to revoke</h3>
+                <h3 className="text-xl font-medium text-pine-900 mb-3 tracking-tight">Two taps to share, one tap to revoke</h3>
                 <ul className="space-y-2 text-dim-2 font-medium text-base">
-                   <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Share your full history with any doctor in two taps</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Share your full history with any FettleMed doctor in two taps</li>
                    <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Set access to expire after one consultation, or keep it open for ongoing care</li>
                    <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Revoke it in one tap, anytime, from your phone</li>
                    <li className="flex items-start gap-2 text-pine-700 font-medium"><span className="text-pine-500 mt-0.5 shrink-0">•</span>You are notified every time someone views your records</li>

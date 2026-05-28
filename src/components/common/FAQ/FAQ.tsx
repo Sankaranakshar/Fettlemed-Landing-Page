@@ -19,11 +19,19 @@ interface FAQProps {
 export function FAQ({ sections }: FAQProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [openIds, setOpenIds] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<number | null>(null);
 
   const toggleOpen = (sectionIndex: number, itemIndex: number) => {
     const id = `${sectionIndex}-${itemIndex}`;
     setOpenIds(openIds === id ? null : id);
   };
+
+  const handleChip = (index: number | null) => {
+    setActiveSection(index);
+    setOpenIds(null); // close any open accordion when switching category
+  };
+
+  const visibleSections = activeSection !== null ? [{ ...sections[activeSection], _origIndex: activeSection }] : sections.map((s, i) => ({ ...s, _origIndex: i }));
 
   return (
     <div className="w-full max-w-4xl mx-auto mt-20 mb-32">
@@ -48,21 +56,42 @@ export function FAQ({ sections }: FAQProps) {
             </div>
           ) : (
             <>
-              <div className="flex items-center justify-between mb-16 pb-8 border-b border-stone-200">
+              <div className="flex items-center justify-between mb-8 pb-8 border-b border-stone-200">
                 <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight">Frequently Asked Questions</h2>
-                <button 
+                <button
                   onClick={() => setIsExpanded(false)}
                   className="text-stone-400 hover:text-stone-600 font-medium flex items-center gap-2 transition-colors"
                 >
                   Close <ChevronDown className="w-4 h-4 rotate-180" />
                 </button>
               </div>
-              
+
+              {/* Category filter chips */}
+              <div className="flex flex-wrap gap-2 mb-10">
+                <button
+                  onClick={() => handleChip(null)}
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeSection === null ? 'bg-pine-900 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'}`}
+                >
+                  All
+                </button>
+                {sections.map((section, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handleChip(i)}
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeSection === i ? 'bg-pine-900 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'}`}
+                  >
+                    {section.title}
+                  </button>
+                ))}
+              </div>
+
               <div className="space-y-16">
-                {sections.map((section, sIndex) => (
+                {visibleSections.map((section) => {
+                  const sIndex = section._origIndex;
+                  return (
                   <div key={sIndex} className="space-y-6">
                     <h3 className="text-xl font-medium text-pine-700/60 uppercase tracking-widest pl-2 border-l-4 border-pine-600/30">{section.title}</h3>
-                    
+
                     <div className="space-y-4">
                        {section.items.map((item, iIndex) => {
                           const id = `${sIndex}-${iIndex}`;
@@ -91,7 +120,8 @@ export function FAQ({ sections }: FAQProps) {
                        })}
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </>
           )}

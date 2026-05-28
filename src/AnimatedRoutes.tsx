@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -16,6 +16,22 @@ const NotFound = React.lazy(() => import("./pages/NotFound"));
 
 export function AnimatedRoutes() {
   const location = useLocation();
+
+  // Prefetch the pilot pages in the background after the home page loads
+  // so navigation to /doctor-portal and /clinic-management is instant
+  useEffect(() => {
+    const prefetch = () => {
+      import("./pages/DoctorPortal");
+      import("./pages/ClinicManagement");
+    };
+    if ("requestIdleCallback" in window) {
+      const id = window.requestIdleCallback(prefetch);
+      return () => window.cancelIdleCallback(id);
+    } else {
+      const id = setTimeout(prefetch, 2000);
+      return () => clearTimeout(id);
+    }
+  }, []);
 
   return (
     <AnimatePresence mode="wait">

@@ -24,7 +24,7 @@ export function PatientHowItWorks() {
                 <div className="w-16 h-16 bg-white border border-stone-200 shadow-sm rounded-full flex items-center justify-center text-2xl font-medium text-pine-900 shrink-0">2</div>
                 <div>
                    <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight">Records grow with every visit</h3>
-                   <p className="text-dim-2 text-lg font-medium leading-relaxed">Visit a FettleMed doctor and notes and prescriptions appear automatically. No uploads needed.</p>
+                   <p className="text-dim-2 text-lg font-medium leading-relaxed">At a FettleMed clinic, show your QR code at check-in. Your app confirms consent — the doctor gets access, and after the consultation their notes and prescription sync directly to your profile. You triggered it. Nothing happens without that confirmation.</p>
                 </div>
              </FadeIn>
 
