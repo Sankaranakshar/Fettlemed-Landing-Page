@@ -11,64 +11,49 @@ export function PatientDataRules() {
              <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">Your data, your rules</h2>
           </FadeIn>
 
-          <div className="grid gap-6">
-             <FadeIn delay={0.1} className="p-8 md:p-10 rounded-3xl bg-surface-50 border border-stone-100 flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
-                <div className="w-16 h-16 bg-white shrink-0 rounded-2xl shadow-sm border border-stone-200 flex items-center justify-center">
-                   <ShieldCheck className="w-8 h-8 text-pine-600" />
-                </div>
-                <div>
-                   <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight">Fettlemed never sells your data</h3>
-                   <ul className="space-y-2 text-dim-2 font-medium text-lg leading-relaxed">
-                      <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Never used for advertising</li>
-                      <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Never sold to insurers or employers</li>
-                      <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Never shared with third parties. Ever.</li>
-                   </ul>
-                </div>
+          {/* Bento grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+             {/* Hero card — 0 Third Parties */}
+             <FadeIn delay={0.1} className="md:col-span-2 bg-pine-900 rounded-3xl p-8 flex flex-col">
+                <ShieldCheck className="w-7 h-7 text-pine-400 mb-6" />
+                <p className="text-7xl font-bold text-white tracking-tight leading-none mb-2">0</p>
+                <p className="text-pine-200 font-semibold text-2xl mb-5">Third Parties</p>
+                <p className="text-pine-400 font-medium text-base leading-relaxed mt-auto">Never sold. Never used for ads. Never shared with insurers, employers, or anyone else. Architecturally enforced, not just policy.</p>
              </FadeIn>
 
-             <FadeIn delay={0.2} className="p-8 md:p-10 rounded-3xl bg-surface-50 border border-stone-100 flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
-                <div className="w-16 h-16 bg-white shrink-0 rounded-2xl shadow-sm border border-stone-200 flex items-center justify-center">
-                   <FolderSync className="w-8 h-8 text-pine-600" />
+             {/* 2 taps / 1 tap */}
+             <FadeIn delay={0.2} className="bg-surface-50 border border-stone-100 rounded-3xl p-8 flex flex-col">
+                <FolderSync className="w-7 h-7 text-pine-600 mb-6" />
+                <div className="flex-1">
+                   <p className="text-6xl font-bold text-pine-900 tracking-tight leading-none">2</p>
+                   <p className="text-pine-600 font-semibold text-base mb-5">taps to share</p>
+                   <p className="text-6xl font-bold text-pine-900 tracking-tight leading-none">1</p>
+                   <p className="text-pine-600 font-semibold text-base">tap to revoke</p>
                 </div>
-                <div>
-                   <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight">You control who sees what</h3>
-                   <ul className="space-y-2 text-dim-2 font-medium text-lg leading-relaxed">
-                      <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Every doctor sees only what you choose to share</li>
-                      <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Access expires after one visit, or stays open — you decide</li>
-                      <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Revoke anytime in seconds. Nothing stays open longer than you intend.</li>
-                   </ul>
-                </div>
+                <p className="text-dim-2 font-medium text-sm leading-relaxed mt-5">You set the access window. Nothing stays open longer than you intend.</p>
              </FadeIn>
 
-             <FadeIn delay={0.3} className="p-8 md:p-10 rounded-3xl bg-surface-50 border border-stone-100 flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
-                <div className="w-16 h-16 bg-white shrink-0 rounded-2xl shadow-sm border border-stone-200 flex items-center justify-center">
-                   <EyeOff className="w-8 h-8 text-pine-600" />
-                </div>
-                <div>
-                   <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight">You always see who viewed your records, and when</h3>
-                   <ul className="space-y-2 text-dim-2 font-medium text-lg leading-relaxed">
-                      <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Full access log: who viewed your records and when</li>
-                      <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Close access instantly from the app</li>
-                   </ul>
-                </div>
+             {/* Full Audit Trail */}
+             <FadeIn delay={0.3} className="bg-surface-50 border border-stone-100 rounded-3xl p-8 flex flex-col">
+                <EyeOff className="w-7 h-7 text-pine-600 mb-6" />
+                <p className="text-4xl font-bold text-pine-900 tracking-tight leading-tight mb-5">Full<br/>Audit<br/>Trail</p>
+                <p className="text-dim-2 font-medium text-sm leading-relaxed mt-auto">Every access logged — who viewed your records, when, and for how long. Always visible to you in the app.</p>
              </FadeIn>
 
-             <FadeIn delay={0.4} className="p-8 md:p-10 rounded-3xl bg-surface-50 border border-stone-100 flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
-                <div className="w-16 h-16 bg-white shrink-0 rounded-2xl shadow-sm border border-stone-200 flex items-center justify-center">
-                   <Server className="w-8 h-8 text-pine-600" />
+             {/* India Only */}
+             <FadeIn delay={0.4} className="md:col-span-2 bg-pine-50 border border-pine-100 rounded-3xl p-8 flex flex-col md:flex-row md:items-center gap-8">
+                <div className="shrink-0">
+                   <Server className="w-7 h-7 text-pine-600 mb-4" />
+                   <p className="text-7xl font-bold text-pine-900 tracking-tight leading-none">IN</p>
+                   <p className="text-pine-600 font-semibold text-xl mt-1">India Only</p>
                 </div>
-                <div>
-                   <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight">All your data stays in India</h3>
-                   <ul className="space-y-2 text-dim-2 font-medium text-lg leading-relaxed">
-                      <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Stored on secure servers within India</li>
-                      <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Not just a policy — it's built into the architecture</li>
-                      <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Your data cannot leave Indian servers</li>
-                   </ul>
-                </div>
+                <p className="text-dim-2 font-medium text-base leading-relaxed">Stored on secure servers within India. Your data cannot leave Indian infrastructure. This is not just a policy — it is the architecture.</p>
              </FadeIn>
+
           </div>
 
-          <FadeIn delay={0.5} className="text-center mt-10">
+          <FadeIn delay={0.5} className="text-center mt-8">
              <Link to="/security" className="text-pine-600 font-medium hover:text-pine-700 transition-colors">
                 Read our full security and compliance details →
              </Link>
