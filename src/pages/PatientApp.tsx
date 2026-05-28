@@ -139,11 +139,6 @@ export default function PatientApp() {
         <PatientProblem />
         <PatientFeatures />
 
-        {/* Proof signal */}
-        <div className="py-6 bg-pine-50 border-y border-pine-100 text-center">
-          <p className="text-sm font-medium text-pine-700">Designed with input from patients currently in our closed pilot.</p>
-        </div>
-
         <PatientForWho />
         <PatientHowItWorks />
         <PatientDataRules />

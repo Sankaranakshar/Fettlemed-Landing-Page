@@ -300,14 +300,14 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
   const cards = CARDS[activeRole];
 
   return (
-    <section id="roles" className="py-16 md:py-20 bg-surface-50">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section id="roles" className="h-[calc(100vh-80px)] min-h-[600px] flex flex-col bg-surface-50 overflow-hidden">
+      <div className="container mx-auto px-6 max-w-6xl flex flex-col flex-1 min-h-0 py-8 md:py-10">
         <FadeIn>
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-pine-900 mb-3 text-balance">
+          <div className="text-center mb-5">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-pine-900 mb-2 text-balance">
               See what FettleMed changes for you.
             </h2>
-            <p className="text-sm font-medium text-dim mb-6">Select your role.</p>
+            <p className="text-sm font-medium text-dim mb-4">Select your role.</p>
 
             {/* Tab selector */}
             <div role="tablist" className="inline-flex flex-row bg-white rounded-full p-1.5 border border-stone-200 shadow-sm gap-1">
@@ -335,28 +335,28 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
         {/* Card panel — same structure for all roles */}
         <div
           key={activeRole}
-          className="flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-200"
+          className="flex-1 min-h-0 flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-200"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="w-full grid grid-cols-1 min-h-[260px]" aria-live="polite" aria-atomic="true">
+          <div className="w-full flex-1 min-h-0 relative" aria-live="polite" aria-atomic="true">
             {cards.map((card, idx) => (
               <div
                 key={idx}
-                className={`col-start-1 row-start-1 ${s.cardBg} border ${s.cardBorder} p-8 rounded-3xl transition-[transform,opacity] duration-200 ease-out flex flex-col md:flex-row gap-8 items-center ${
+                className={`absolute inset-0 ${s.cardBg} border ${s.cardBorder} p-6 rounded-3xl transition-[transform,opacity] duration-200 ease-out flex flex-col md:flex-row gap-6 ${
                   activeCardIndex === idx ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'
                 }`}
               >
                 {/* Left: text */}
-                <div className="flex-1 w-full">
-                  <div className={`w-12 h-12 ${s.iconBg} ${s.iconColor} rounded-2xl flex items-center justify-center mb-6`}>
+                <div className="flex-1 w-full flex flex-col justify-center">
+                  <div className={`w-10 h-10 ${s.iconBg} ${s.iconColor} rounded-xl flex items-center justify-center mb-4`}>
                     {card.icon}
                   </div>
                   <h3 className={`text-xl font-medium ${s.heading} mb-4 tracking-tight`}>{card.heading}</h3>
                   <ul className="space-y-3">
                     {card.bullets.map((b, bi) => (
-                      <li key={bi} className={`flex items-start gap-2 ${s.bullets} font-medium text-sm`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${s.bulletDot} mt-1.5 shrink-0`} />
+                      <li key={bi} className={`flex items-start gap-2.5 ${s.bullets} font-medium text-base`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${s.bulletDot} mt-2 shrink-0`} />
                         {b}
                       </li>
                     ))}
@@ -364,7 +364,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
                 </div>
 
                 {/* Right: visual */}
-                <div className={`flex-1 w-full h-[220px] flex items-center justify-center ${s.visualBg} rounded-2xl border ${s.visualBorder} overflow-hidden`}>
+                <div className={`flex-1 w-full flex items-center justify-center ${s.visualBg} rounded-2xl border ${s.visualBorder} overflow-hidden min-h-[180px]`}>
                   {activeCardIndex === idx && card.visual}
                 </div>
               </div>
@@ -372,7 +372,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
           </div>
 
           {/* Dot indicators */}
-          <div className="flex gap-3 mt-6">
+          <div className="flex gap-3 mt-4 justify-center">
             {[0, 1, 2].map((idx) => (
               <button
                 key={idx}
@@ -388,7 +388,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
           </div>
 
           {/* CTA */}
-          <div className="mt-6 text-center flex justify-center">
+          <div className="mt-3 text-center flex justify-center">
             <Link
               to={s.ctaTo}
               className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl ${s.ctaClass} text-white font-medium text-base transition-colors shadow-sm`}

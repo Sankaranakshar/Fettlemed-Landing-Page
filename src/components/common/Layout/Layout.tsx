@@ -40,28 +40,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </Link>
           
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-4 lg:gap-8">
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}
                 onMouseEnter={() => preloadRoutes[link.path]?.()}
                 className={({ isActive }) => cn(
-                  "text-sm font-medium tracking-wide transition-colors duration-150 ease-out",
+                  "text-xs lg:text-sm font-medium tracking-wide transition-colors duration-150 ease-out whitespace-nowrap",
                   isActive ? "text-pine-600" : "text-dim hover:text-pine-600"
                 )}
               >
                 {link.name}
               </NavLink>
             ))}
-            <div className="h-5 w-[1px] bg-stone-200 mx-2" />
-            <Button variant="animated" onClick={() => setWaitlistOpen(true)} className="bg-pine-900 hover:bg-pine-800 text-white rounded-lg shadow-sm text-sm h-10 px-6 font-medium transition-colors">
+            <div className="h-5 w-[1px] bg-stone-200 mx-1 lg:mx-2" />
+            <Button variant="animated" onClick={() => setWaitlistOpen(true)} className="bg-pine-900 hover:bg-pine-800 text-white rounded-lg shadow-sm text-xs lg:text-sm h-9 lg:h-10 px-4 lg:px-6 font-medium transition-colors">
               Join Waitlist
             </Button>
           </nav>
- 
+
           <button
-            className="lg:hidden text-stone-900 p-2"
+            className="md:hidden text-stone-900 p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -71,7 +71,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Nav */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-surface-50 border-t border-stone-200 p-6 space-y-6 shadow-xl absolute w-full left-0 z-50">
+          <div className="md:hidden bg-surface-50 border-t border-stone-200 p-6 space-y-6 shadow-xl absolute w-full left-0 z-50">
             <nav className="flex flex-col space-y-6">
               {navLinks.map((link) => (
                 <NavLink

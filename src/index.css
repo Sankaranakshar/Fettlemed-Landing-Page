@@ -79,9 +79,13 @@ h1, h2, h3 {
 
 /* Snap scroll — applied only on Home page via .home-snap class on <html> */
 html.home-snap {
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
 }
 html.home-snap section {
+  scroll-snap-align: start;
+  scroll-margin-top: 80px; /* offset for sticky navbar height */
+}
+html.home-snap footer {
   scroll-snap-align: start;
   scroll-margin-top: 80px; /* offset for sticky navbar height */
 }
