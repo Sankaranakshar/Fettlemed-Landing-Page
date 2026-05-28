@@ -18,21 +18,21 @@ export function PatientProblem() {
                    <FolderSync className="w-7 h-7 text-pine-300" />
                 </div>
                 <h3 className="text-2xl font-medium text-white mb-4 tracking-tight">The Memory Burden</h3>
-                <p className="text-pine-200 text-base font-medium leading-relaxed mb-6 flex-1">Reports pile up in folders, in WhatsApp forwards, in the memory of whoever tracks these things. Something always goes missing.</p>
+                <p className="text-pine-50 text-base font-medium leading-relaxed mb-6 flex-1">Reports pile up in folders, in WhatsApp forwards, in the memory of whoever tracks these things. Something always goes missing.</p>
                 <ul className="space-y-2.5">
-                   <li className="flex items-center gap-3 text-pine-200 font-medium text-sm">
+                   <li className="flex items-center gap-3 text-pine-50 font-medium text-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-pine-400 shrink-0" />
                       Medications from years ago you can't fully recall
                    </li>
-                   <li className="flex items-center gap-3 text-pine-200 font-medium text-sm">
+                   <li className="flex items-center gap-3 text-pine-50 font-medium text-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-pine-400 shrink-0" />
                       A diagnosis you only half understood at the time
                    </li>
-                   <li className="flex items-center gap-3 text-pine-200 font-medium text-sm">
+                   <li className="flex items-center gap-3 text-pine-50 font-medium text-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-pine-400 shrink-0" />
                       A report you're not sure you still have
                    </li>
-                   <li className="flex items-center gap-3 text-pine-200 font-medium text-sm">
+                   <li className="flex items-center gap-3 text-pine-50 font-medium text-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-pine-400 shrink-0" />
                       A new doctor who needs all of it, right now
                    </li>
@@ -45,21 +45,21 @@ export function PatientProblem() {
                    <EyeOff className="w-7 h-7 text-pine-300" />
                 </div>
                 <h3 className="text-2xl font-medium text-white mb-4 tracking-tight">The Comprehension Gap</h3>
-                <p className="text-pine-200 text-base font-medium leading-relaxed mb-6 flex-1">A blood report arrives. It says your haemoglobin is 10.2 g/dL. Is that normal? Should you be worried? What did the doctor say to watch for?</p>
+                <p className="text-pine-50 text-base font-medium leading-relaxed mb-6 flex-1">A blood report arrives. It says your haemoglobin is 10.2 g/dL. Is that normal? Should you be worried? What did the doctor say to watch for?</p>
                 <ul className="space-y-2.5">
-                   <li className="flex items-center gap-3 text-pine-200 font-medium text-sm">
+                   <li className="flex items-center gap-3 text-pine-50 font-medium text-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-pine-400 shrink-0" />
                       Reports use clinical shorthand patients can't read
                    </li>
-                   <li className="flex items-center gap-3 text-pine-200 font-medium text-sm">
+                   <li className="flex items-center gap-3 text-pine-50 font-medium text-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-pine-400 shrink-0" />
                       Prescriptions list drug names you've never heard of
                    </li>
-                   <li className="flex items-center gap-3 text-pine-200 font-medium text-sm">
+                   <li className="flex items-center gap-3 text-pine-50 font-medium text-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-pine-400 shrink-0" />
                       The doctor had four minutes before the next patient
                    </li>
-                   <li className="flex items-center gap-3 text-pine-200 font-medium text-sm">
+                   <li className="flex items-center gap-3 text-pine-50 font-medium text-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-pine-400 shrink-0" />
                       No plain-language summary, no way to see what changed
                    </li>

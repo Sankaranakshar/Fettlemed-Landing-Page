@@ -69,7 +69,7 @@ const faqSections = [
         "answer": "Yes. Consent is yours to control. You decide whether to share your full health profile or specific records only."
       },
       {
-        "question": "If I give a doctor access, how do I take it back?",
+        "question": "How do I revoke a clinic's access to my records?",
         "answer": "You can revoke access at any time through the app. Once revoked, the doctor no longer has access to your broader health profile. The records they created during your consultation remain with them as required by Indian medical regulations."
       },
       {
@@ -151,15 +151,18 @@ export default function PatientApp() {
            <FAQ sections={faqSections} />
         </div>
 
-        {/* Bottom crosslinks */}
+        {/* Bottom crosslinks — segmented cards to demarcate patient vs clinical environments */}
         <section className="py-16 bg-pine-900 text-center">
           <FadeIn>
             <div className="container mx-auto px-6 max-w-2xl">
-              <p className="text-pine-300 text-lg font-medium mb-6">FettleMed also serves the doctors and clinics you visit.</p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm font-medium">
-                <Link to="/doctor-portal" className="text-white hover:text-pine-200 transition-colors">Are you a doctor? Join the pilot →</Link>
-                <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-600"></span>
-                <Link to="/clinic-management" className="text-white hover:text-pine-200 transition-colors">Do you run a clinic? Join the pilot →</Link>
+              <p className="text-pine-300 text-lg font-medium mb-8">FettleMed also serves the doctors and clinics you visit.</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/doctor-portal" className="px-6 py-3 border border-pine-700 bg-pine-800 rounded-xl text-white text-sm font-medium hover:bg-pine-700 transition-colors">
+                  For Medical Professionals →
+                </Link>
+                <Link to="/clinic-management" className="px-6 py-3 border border-pine-700 bg-pine-800 rounded-xl text-white text-sm font-medium hover:bg-pine-700 transition-colors">
+                  For Clinic Administration →
+                </Link>
               </div>
             </div>
           </FadeIn>

@@ -22,7 +22,7 @@ export function PatientHero() {
                 Your health history, <span className="text-pine-600">always with you.</span>
               </h1>
               <p className="text-xl md:text-2xl text-dim mb-10 font-medium leading-relaxed max-w-2xl text-balance">
-                Every prescription, every result, every visit, in one place. FettleMed is your complete health record, built by doctors, controlled entirely by you.
+                Your complete clinical history in one secure timeline. Instant access to prescriptions and lab results — with granular consent controls you manage.
               </p>
               <div className="flex flex-col items-center lg:items-start gap-4">
                 <Button
