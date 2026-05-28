@@ -7,12 +7,12 @@ export const CTA = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section className="py-16 md:py-20 bg-surface-50 border-t border-stone-100">
+    <section className="h-[calc(100vh-80px)] min-h-[600px] flex flex-col justify-center bg-surface-50 border-t border-stone-100 overflow-hidden">
        <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} />
        <div className="container mx-auto px-6 max-w-4xl text-center">
           <FadeIn>
-             <h2 className="text-4xl md:text-5xl font-medium text-pine-900 tracking-tight mb-6">Get early access. Help us build what matters.</h2>
-             <p className="text-lg font-medium text-dim mb-10 max-w-2xl mx-auto">
+             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-pine-900 tracking-tight mb-5">Get early access. Help us build what matters.</h2>
+             <p className="text-base md:text-lg font-medium text-dim mb-8 max-w-2xl mx-auto">
                Join the waitlist for early access. Your feedback directly shapes which features are built first.
              </p>
              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">

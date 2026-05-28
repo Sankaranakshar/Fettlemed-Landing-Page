@@ -300,14 +300,14 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
   const cards = CARDS[activeRole];
 
   return (
-    <section id="roles" className="py-16 md:py-20 bg-surface-50">
+    <section id="roles" className="h-[calc(100vh-80px)] min-h-[600px] flex flex-col justify-center bg-surface-50 overflow-hidden">
       <div className="container mx-auto px-6 max-w-6xl">
         <FadeIn>
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-pine-900 mb-3 text-balance">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight text-pine-900 mb-2 text-balance">
               See what FettleMed changes for you.
             </h2>
-            <p className="text-sm font-medium text-dim mb-6">Select your role.</p>
+            <p className="text-sm font-medium text-dim mb-4">Select your role.</p>
 
             {/* Tab selector */}
             <div role="tablist" className="inline-flex flex-row bg-white rounded-full p-1.5 border border-stone-200 shadow-sm gap-1">
@@ -343,16 +343,16 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
             {cards.map((card, idx) => (
               <div
                 key={idx}
-                className={`col-start-1 row-start-1 ${s.cardBg} border ${s.cardBorder} p-8 rounded-3xl transition-[transform,opacity] duration-200 ease-out flex flex-col md:flex-row gap-8 items-center ${
+                className={`col-start-1 row-start-1 ${s.cardBg} border ${s.cardBorder} p-6 rounded-3xl transition-[transform,opacity] duration-200 ease-out flex flex-col md:flex-row gap-6 items-center ${
                   activeCardIndex === idx ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'
                 }`}
               >
                 {/* Left: text */}
                 <div className="flex-1 w-full">
-                  <div className={`w-12 h-12 ${s.iconBg} ${s.iconColor} rounded-2xl flex items-center justify-center mb-6`}>
+                  <div className={`w-10 h-10 ${s.iconBg} ${s.iconColor} rounded-xl flex items-center justify-center mb-4`}>
                     {card.icon}
                   </div>
-                  <h3 className={`text-xl font-medium ${s.heading} mb-4 tracking-tight`}>{card.heading}</h3>
+                  <h3 className={`text-lg font-medium ${s.heading} mb-3 tracking-tight`}>{card.heading}</h3>
                   <ul className="space-y-3">
                     {card.bullets.map((b, bi) => (
                       <li key={bi} className={`flex items-start gap-2 ${s.bullets} font-medium text-sm`}>
@@ -364,7 +364,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
                 </div>
 
                 {/* Right: visual */}
-                <div className={`flex-1 w-full h-[220px] flex items-center justify-center ${s.visualBg} rounded-2xl border ${s.visualBorder} overflow-hidden`}>
+                <div className={`flex-1 w-full h-[180px] flex items-center justify-center ${s.visualBg} rounded-2xl border ${s.visualBorder} overflow-hidden`}>
                   {activeCardIndex === idx && card.visual}
                 </div>
               </div>
@@ -372,7 +372,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
           </div>
 
           {/* Dot indicators */}
-          <div className="flex gap-3 mt-6">
+          <div className="flex gap-3 mt-4">
             {[0, 1, 2].map((idx) => (
               <button
                 key={idx}
@@ -388,7 +388,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
           </div>
 
           {/* CTA */}
-          <div className="mt-6 text-center flex justify-center">
+          <div className="mt-4 text-center flex justify-center">
             <Link
               to={s.ctaTo}
               className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl ${s.ctaClass} text-white font-medium text-base transition-colors shadow-sm`}
