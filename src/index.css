@@ -85,3 +85,7 @@ html.home-snap section {
   scroll-snap-align: start;
   scroll-margin-top: 80px; /* offset for sticky navbar height */
 }
+html.home-snap footer {
+  scroll-snap-align: start;
+  scroll-margin-top: 80px; /* offset for sticky navbar height */
+}
