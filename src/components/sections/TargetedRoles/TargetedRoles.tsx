@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import {
   Smartphone, Stethoscope, Building2,
@@ -13,9 +13,10 @@ import { FadeIn } from "@/components/common/FadeIn";
 type Role = 'patient' | 'doctor' | 'clinic';
 
 /* ─── card data ─── */
-const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: string[]; visual: React.ReactNode }[]> = {
+const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: string[]; visual: React.ReactNode; navLabel: string }[]> = {
   patient: [
     {
+      navLabel: "Health Records",
       icon: <Smartphone className="w-6 h-6" />,
       heading: "Your health records, all in one place",
       bullets: [
@@ -35,6 +36,7 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
       ),
     },
     {
+      navLabel: "Consent Control",
       icon: <ShieldCheck className="w-6 h-6" />,
       heading: "You decide who sees your records",
       bullets: [
@@ -58,6 +60,7 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
       ),
     },
     {
+      navLabel: "Health Tracking",
       icon: <FileCheck2 className="w-6 h-6" />,
       heading: "Stay ahead of your health",
       bullets: [
@@ -85,6 +88,7 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
   ],
   doctor: [
     {
+      navLabel: "Full History",
       icon: <Stethoscope className="w-6 h-6" />,
       heading: "Every patient's full history before they sit down",
       bullets: [
@@ -108,6 +112,7 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
       ),
     },
     {
+      navLabel: "E-Prescriptions",
       icon: <FileCheck2 className="w-6 h-6" />,
       heading: "Prescriptions in seconds. Notes that don't live in a register.",
       bullets: [
@@ -136,6 +141,7 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
       ),
     },
     {
+      navLabel: "Follow-up Audit",
       icon: <ShieldCheck className="w-6 h-6" />,
       heading: "Your clinical relationship doesn't end at the door.",
       bullets: [
@@ -160,6 +166,7 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
   ],
   clinic: [
     {
+      navLabel: "Patient Registration",
       icon: <Building2 className="w-6 h-6" />,
       heading: "No more starting from scratch with returning patients.",
       bullets: [
@@ -186,6 +193,7 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
       ),
     },
     {
+      navLabel: "Billing & Revenue",
       icon: <Wallet className="w-6 h-6" />,
       heading: "Know what was billed, what was collected, and what's outstanding.",
       bullets: [
@@ -207,6 +215,7 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
       ),
     },
     {
+      navLabel: "Lab & Diagnostics",
       icon: <TestTube className="w-6 h-6" />,
       heading: "Test orders, results, and records — without the paper trail.",
       bullets: [
@@ -245,7 +254,7 @@ const ROLE_STYLES: Record<Role, {
   iconBg: string; iconColor: string;
   heading: string; bullets: string; bulletDot: string;
   visualBg: string; visualBorder: string;
-  dotActive: string; dotInactive: string;
+  navActive: string; navInactive: string;
   ctaTo: string; ctaLabel: string; ctaClass: string;
 }> = {
   patient: {
@@ -254,7 +263,8 @@ const ROLE_STYLES: Record<Role, {
     iconBg: 'bg-pine-50', iconColor: 'text-pine-700',
     heading: 'text-pine-900', bullets: 'text-dim-2', bulletDot: 'bg-pine-600',
     visualBg: 'bg-surface-50', visualBorder: 'border-pine-100',
-    dotActive: 'bg-pine-900', dotInactive: 'bg-pine-200 group-hover:bg-pine-300',
+    navActive: 'bg-pine-900 text-white',
+    navInactive: 'bg-pine-100 text-pine-700 hover:bg-pine-200',
     ctaTo: '/patient-app', ctaLabel: 'See the full Patient experience', ctaClass: 'bg-pine-900 hover:bg-pine-800',
   },
   doctor: {
@@ -263,7 +273,8 @@ const ROLE_STYLES: Record<Role, {
     iconBg: 'bg-pine-800', iconColor: 'text-pine-200',
     heading: 'text-white', bullets: 'text-pine-200', bulletDot: 'bg-pine-400',
     visualBg: 'bg-pine-800/50', visualBorder: 'border-pine-700',
-    dotActive: 'bg-pine-300', dotInactive: 'bg-pine-700 group-hover:bg-pine-600',
+    navActive: 'bg-pine-300 text-pine-900',
+    navInactive: 'bg-pine-800 text-pine-300 hover:bg-pine-700',
     ctaTo: '/doctor-portal', ctaLabel: 'See the full Doctor experience', ctaClass: 'bg-pine-700 hover:bg-pine-600',
   },
   clinic: {
@@ -272,7 +283,8 @@ const ROLE_STYLES: Record<Role, {
     iconBg: 'bg-pine-50', iconColor: 'text-pine-700',
     heading: 'text-pine-900', bullets: 'text-dim-2', bulletDot: 'bg-pine-600',
     visualBg: 'bg-surface-50', visualBorder: 'border-pine-100',
-    dotActive: 'bg-pine-900', dotInactive: 'bg-pine-200 group-hover:bg-pine-300',
+    navActive: 'bg-pine-900 text-white',
+    navInactive: 'bg-pine-100 text-pine-700 hover:bg-pine-200',
     ctaTo: '/clinic-management', ctaLabel: 'See the full Clinic experience', ctaClass: 'bg-pine-900 hover:bg-pine-800',
   },
 };
@@ -281,20 +293,11 @@ const ROLE_STYLES: Record<Role, {
 export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role }) => {
   const [activeRole, setActiveRole] = useState<Role>(initialRole);
   const [activeCardIndex, setActiveCardIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const advance = useCallback(() => {
-    setActiveCardIndex((prev) => (prev + 1) % 3);
-  }, []);
-
-  useEffect(() => { setActiveCardIndex(0); }, [activeRole]);
-
-  useEffect(() => {
-    if (isPaused) return;
-    intervalRef.current = setInterval(advance, 5000);
-    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
-  }, [activeRole, isPaused, advance]);
+  const handleRoleChange = (role: Role) => {
+    setActiveRole(role);
+    setActiveCardIndex(0);
+  };
 
   const s = ROLE_STYLES[activeRole];
   const cards = CARDS[activeRole];
@@ -320,7 +323,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
                   key={role}
                   role="tab"
                   aria-selected={activeRole === role}
-                  onClick={() => setActiveRole(role)}
+                  onClick={() => handleRoleChange(role)}
                   className={`flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-[background-color,color,box-shadow] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 focus-visible:ring-offset-1 ${
                     activeRole === role ? ROLE_STYLES[role].tab : 'text-dim hover:text-pine-900 hover:bg-pine-50'
                   }`}
@@ -336,8 +339,6 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
         <div
           key={activeRole}
           className="flex-1 min-h-0 flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-200"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
         >
           <div className="w-full flex-1 min-h-0 relative" aria-live="polite" aria-atomic="true">
             {cards.map((card, idx) => (
@@ -371,18 +372,18 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
             ))}
           </div>
 
-          {/* Dot indicators */}
-          <div className="flex gap-3 mt-4 justify-center">
-            {[0, 1, 2].map((idx) => (
+          {/* Labeled nav chips — explicit feature navigation */}
+          <div className="flex gap-2 mt-4 justify-center flex-wrap">
+            {cards.map((card, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveCardIndex(idx)}
-                className="flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 rounded-full"
-                aria-label={`Show slide ${idx + 1}`}
+                aria-pressed={activeCardIndex === idx}
+                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 ${
+                  activeCardIndex === idx ? s.navActive : s.navInactive
+                }`}
               >
-                <div className={`transition-[width,background-color] duration-150 ease-out h-2 rounded-full ${
-                  activeCardIndex === idx ? `${s.dotActive} w-6` : `${s.dotInactive} w-2`
-                }`} />
+                {card.navLabel}
               </button>
             ))}
           </div>

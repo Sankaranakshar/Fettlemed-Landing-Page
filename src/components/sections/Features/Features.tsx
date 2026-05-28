@@ -19,7 +19,7 @@ export const Features = () => {
                {/* For Patients */}
                <div className="bg-white/5 border border-white/10 rounded-2xl p-7 relative overflow-hidden lg:col-span-1 md:col-span-2 flex flex-col h-full">
                   <div className="absolute top-0 left-0 w-full h-1 bg-pine-500"></div>
-                  <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Smartphone className="w-5 h-5 text-pine-300" /> For Patients</h3>
+                  <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Smartphone className="w-5 h-5 text-pine-300" /> Patient Empowerment</h3>
                   <ul className="space-y-4 font-medium text-pine-100 flex-1">
                     <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-400 shrink-0 mt-0.5" /> <span><span className="text-white font-medium">You control</span> who sees your data</span></li>
                     <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-400 shrink-0 mt-0.5" /> <span>Own your complete medical history</span></li>
@@ -30,7 +30,7 @@ export const Features = () => {
                {/* For Doctors */}
                <div className="bg-white/5 border border-white/10 rounded-2xl p-7 relative overflow-hidden flex flex-col h-full">
                   <div className="absolute top-0 left-0 w-full h-1 bg-pine-600"></div>
-                  <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Stethoscope className="w-5 h-5 text-pine-400" /> For Doctors</h3>
+                  <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Stethoscope className="w-5 h-5 text-pine-400" /> Clinical Efficiency</h3>
                   <ul className="space-y-4 font-medium text-pine-100 flex-1">
                     <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-500 shrink-0 mt-0.5" /> <span>Complete patient history before the consultation starts</span></li>
                     <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-500 shrink-0 mt-0.5" /> <span>Digital prescriptions generated in seconds</span></li>
@@ -41,7 +41,7 @@ export const Features = () => {
                {/* For Clinics */}
                <div className="bg-white/5 border border-white/10 rounded-2xl p-7 relative overflow-hidden flex flex-col h-full">
                   <div className="absolute top-0 left-0 w-full h-1 bg-pine-700"></div>
-                  <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Building2 className="w-5 h-5 text-pine-400" /> For Clinics</h3>
+                  <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Building2 className="w-5 h-5 text-pine-400" /> Practice Management</h3>
                   <ul className="space-y-4 font-medium text-pine-100 flex-1">
                     <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-600 shrink-0 mt-0.5" /> <span>ABHA ID verification and patient registration in one flow</span></li>
                     <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-600 shrink-0 mt-0.5" /> <span>Appointments, billing, and queues managed from one screen</span></li>
