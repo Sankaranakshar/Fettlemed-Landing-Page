@@ -30,22 +30,22 @@ export function NetworkFlow() {
       {/* Animated Data Packets (Amber Highlights! Moderated glow for breathability) */}
       {!shouldReduceMotion && (
         <>
-          <motion.div 
-            className="absolute w-2.5 h-2.5 bg-accent-600 rounded-full shadow-[0_0_8px_#2F6F73] z-10 will-change-transform"
+          <motion.div
+            className="absolute w-2.5 h-2.5 bg-pine-600 rounded-full shadow-[0_0_8px_#1F7A5C] z-10 will-change-transform"
             initial={{ left: '25%', top: '75%', scale: 0 }}
             animate={{ left: '50%', top: '20%', scale: [0, 1, 1, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
           />
           
-          <motion.div 
-            className="absolute w-2 h-2 bg-accent-600/80 rounded-full shadow-[0_0_6px_#2F6F73] z-10 will-change-transform"
+          <motion.div
+            className="absolute w-2 h-2 bg-pine-600/80 rounded-full shadow-[0_0_6px_#1F7A5C] z-10 will-change-transform"
             initial={{ left: '50%', top: '20%', scale: 0 }}
             animate={{ left: '75%', top: '75%', scale: [0, 1, 1, 0] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
           />
 
-          <motion.div 
-            className="absolute w-2 h-2 bg-accent-600/90 rounded-full shadow-[0_0_6px_#2F6F73] z-10 will-change-transform"
+          <motion.div
+            className="absolute w-2 h-2 bg-pine-600/90 rounded-full shadow-[0_0_6px_#1F7A5C] z-10 will-change-transform"
             initial={{ left: '25%', top: '75%', scale: 0 }}
             animate={{ left: '75%', top: '75%', scale: [0, 1, 1, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}

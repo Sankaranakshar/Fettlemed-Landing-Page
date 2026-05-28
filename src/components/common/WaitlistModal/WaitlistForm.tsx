@@ -4,7 +4,6 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/common/Button";
-import { UiverseLoader } from "@/components/common/Loader";
 
 // ---------------------------------------------------------------------------
 // Schema
@@ -123,12 +122,13 @@ FloatingTextarea.displayName = "FloatingTextarea";
 
 interface WaitlistFormProps {
   onSuccess?: () => void;
+  defaultRole?: "Individual" | "Doctor" | "Clinic";
 }
 
-export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
+export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
   const [submitted, setSubmitted]   = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [role, setRole]             = useState("Individual");
+  const [role, setRole]             = useState<string>(defaultRole ?? "Individual");
   const [honeypot, setHoneypot]     = useState("");
   const [loadTime]                  = useState(Date.now());
 
@@ -368,14 +368,17 @@ export function WaitlistForm({ onSuccess }: WaitlistFormProps) {
         disabled={isSubmitting || !isHumanVerified}
         type="submit"
         size="lg"
-        className="relative w-full h-14 text-lg bg-accent-600 hover:bg-accent-700 text-white rounded-xl shadow-lg shadow-accent-600/20 font-medium disabled:opacity-70 disabled:cursor-not-allowed"
+        className="relative w-full h-14 text-lg bg-pine-900 hover:bg-pine-800 text-white rounded-xl shadow-lg font-medium disabled:opacity-70 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
       >
         <span className={`transition-opacity duration-150 ${isSubmitting ? "opacity-0" : "opacity-100"}`}>
           Request Access
         </span>
         {isSubmitting && (
           <span className="absolute inset-0 flex items-center justify-center">
-            <UiverseLoader />
+            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+            </svg>
           </span>
         )}
       </Button>

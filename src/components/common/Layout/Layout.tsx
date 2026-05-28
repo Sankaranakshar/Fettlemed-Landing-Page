@@ -17,7 +17,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   const navLinks = [
     { name: "Home", path: "/home" },
-    { name: "For Everyone", path: "/patient-app" },
+    { name: "For Patients", path: "/patient-app" },
     { name: "For Doctors", path: "/doctor-portal" },
     { name: "For Clinics", path: "/clinic-management" },
     { name: "About", path: "/about" },
@@ -35,7 +35,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <Link to="/" className="flex items-center gap-2.5" onClick={() => setIsMobileMenuOpen(false)} aria-label="Fettlemed Home">
             <img src="/brand/mark.svg" alt="" aria-hidden="true" className="w-9 h-9 shrink-0" />
             <span className="text-xl tracking-tight leading-none select-none">
-              <span className="font-medium text-stone-900">Fettle</span><span className="font-light text-pine-600">med</span>
+              <span className="font-bold text-ink">Fettle</span><span className="font-bold text-pine-600">Med</span>
             </span>
           </Link>
           
@@ -48,14 +48,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 onMouseEnter={() => preloadRoutes[link.path]?.()}
                 className={({ isActive }) => cn(
                   "text-sm font-medium tracking-wide transition-colors duration-150 ease-out",
-                  isActive ? "text-pine-600" : "text-stone-500 hover:text-pine-900"
+                  isActive ? "text-pine-600" : "text-dim hover:text-pine-600"
                 )}
               >
                 {link.name}
               </NavLink>
             ))}
             <div className="h-5 w-[1px] bg-stone-200 mx-2" />
-            <Button variant="animated" onClick={() => setWaitlistOpen(true)} className="bg-accent-600 hover:bg-accent-700 text-white rounded-lg shadow-sm text-sm h-10 px-6 font-medium transition-colors">
+            <Button variant="animated" onClick={() => setWaitlistOpen(true)} className="bg-pine-900 hover:bg-pine-800 text-white rounded-lg shadow-sm text-sm h-10 px-6 font-medium transition-colors">
               Join Waitlist
             </Button>
           </nav>
@@ -88,7 +88,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </NavLink>
               ))}
               <div className="pt-6 border-t border-stone-200 flex flex-col gap-4">
-                <Button variant="animated" size="lg" onClick={() => { setIsMobileMenuOpen(false); setWaitlistOpen(true); }} className="w-full bg-accent-600 hover:bg-accent-700 text-white rounded-xl h-14 font-medium">Join Waitlist</Button>
+                <Button variant="animated" size="lg" onClick={() => { setIsMobileMenuOpen(false); setWaitlistOpen(true); }} className="w-full bg-pine-900 hover:bg-pine-800 text-white rounded-xl h-14 font-medium">Join Waitlist</Button>
               </div>
             </nav>
           </div>
@@ -146,7 +146,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <path d="M2 34h11l3-6 3 6 4-20 5 28 4-18 3 10h27" fill="none" stroke="#0B4A3A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <span className="text-lg tracking-tight leading-none select-none">
-                <span className="font-medium text-white">Fettle</span><span className="font-light text-pine-300">med</span>
+                <span className="font-bold text-white">Fettle</span><span className="font-bold text-pine-200">Med</span>
               </span>
             </div>
             

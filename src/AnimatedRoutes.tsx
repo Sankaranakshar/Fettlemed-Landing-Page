@@ -5,16 +5,9 @@ import { motion, AnimatePresence } from "motion/react";
 // Home is eagerly imported — it's the entry page and must not show a spinner
 import Home from "./pages/Home";
 const ClinicManagement = React.lazy(() => import("./pages/ClinicManagement"));
-const ClinicFeatures = React.lazy(() => import("./pages/ClinicFeatures"));
-const ClinicPricing = React.lazy(() => import("./pages/ClinicPricing"));
 const DoctorPortal = React.lazy(() => import("./pages/DoctorPortal"));
-const DoctorHowItWorks = React.lazy(() => import("./pages/DoctorHowItWorks"));
-const DoctorFeatures = React.lazy(() => import("./pages/DoctorFeatures"));
 const PatientApp = React.lazy(() => import("./pages/PatientApp"));
-const PatientHowItWorks = React.lazy(() => import("./pages/PatientHowItWorks"));
-const FamilyHealth = React.lazy(() => import("./pages/FamilyHealth"));
 const About = React.lazy(() => import("./pages/About"));
-const OurStory = React.lazy(() => import("./pages/OurStory"));
 const Security = React.lazy(() => import("./pages/Security"));
 const Waitlist = React.lazy(() => import("./pages/Waitlist"));
 const TermsOfService = React.lazy(() => import("./pages/TermsOfService"));
@@ -37,16 +30,9 @@ export function AnimatedRoutes() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/clinic-management" element={<ClinicManagement />} />
-          <Route path="/clinic-management/features" element={<ClinicFeatures />} />
-          <Route path="/clinic-management/pricing" element={<ClinicPricing />} />
           <Route path="/doctor-portal" element={<DoctorPortal />} />
-          <Route path="/doctor-portal/how-it-works" element={<DoctorHowItWorks />} />
-          <Route path="/doctor-portal/features" element={<DoctorFeatures />} />
           <Route path="/patient-app" element={<PatientApp />} />
-          <Route path="/patient-app/how-it-works" element={<PatientHowItWorks />} />
-          <Route path="/patient-app/family-health" element={<FamilyHealth />} />
           <Route path="/about" element={<About />} />
-          <Route path="/about/our-story" element={<OurStory />} />
           <Route path="/security" element={<Security />} />
           <Route path="/waitlist" element={<Waitlist />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />

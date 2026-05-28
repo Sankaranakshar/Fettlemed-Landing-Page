@@ -32,16 +32,16 @@ export function FAQ({ sections }: FAQProps) {
             <div className="flex flex-col items-center">
               <button 
                 onClick={() => setIsExpanded(true)}
-                className="group flex flex-col items-center gap-6 p-12 w-full rounded-[2.5rem] bg-stone-50 border-2 border-dashed border-stone-200 hover:border-accent-400 hover:bg-stone-100/50 transition-[border-color,background-color] duration-200 cursor-pointer"
+                className="group flex flex-col items-center gap-6 p-12 w-full rounded-3xl bg-surface-50 border-2 border-dashed border-pine-100 hover:border-pine-400 hover:bg-pine-50/50 transition-[border-color,background-color] duration-200 cursor-pointer"
               >
-                <div className="w-16 h-16 rounded-2xl bg-white shadow-xl shadow-stone-200/50 flex items-center justify-center text-accent-600 group-hover:scale-110 transition-transform duration-200 ease-out">
+                <div className="w-16 h-16 rounded-2xl bg-white shadow-xl shadow-stone-200/50 flex items-center justify-center text-pine-600 group-hover:scale-110 transition-transform duration-200 ease-out">
                   <HelpCircle className="w-8 h-8" />
                 </div>
                 <div className="text-center">
                   <h2 className="text-3xl md:text-4xl font-medium text-pine-900 mb-2 tracking-tight">Have questions?</h2>
                   <p className="text-stone-500 font-medium text-lg">Click to view our detailed frequently asked questions</p>
                 </div>
-                <div className="flex items-center gap-2 text-accent-600 font-medium uppercase tracking-widest text-sm bg-accent-50 px-6 py-2 rounded-full group-hover:bg-accent-100 transition-colors">
+                <div className="flex items-center gap-2 text-pine-600 font-medium uppercase tracking-widest text-sm bg-pine-50 px-6 py-2 rounded-full group-hover:bg-pine-100 transition-colors">
                   View FAQs <ChevronDown className="w-4 h-4" />
                 </div>
               </button>
@@ -61,7 +61,7 @@ export function FAQ({ sections }: FAQProps) {
               <div className="space-y-16">
                 {sections.map((section, sIndex) => (
                   <div key={sIndex} className="space-y-6">
-                    <h3 className="text-xl font-medium text-pine-700/60 uppercase tracking-widest pl-2 border-l-4 border-accent-600/30">{section.title}</h3>
+                    <h3 className="text-xl font-medium text-pine-700/60 uppercase tracking-widest pl-2 border-l-4 border-pine-600/30">{section.title}</h3>
                     
                     <div className="space-y-4">
                        {section.items.map((item, iIndex) => {

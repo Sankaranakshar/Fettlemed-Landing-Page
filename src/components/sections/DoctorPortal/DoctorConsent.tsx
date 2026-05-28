@@ -4,11 +4,14 @@ import { FadeIn } from "@/components/common/FadeIn";
 
 export function DoctorConsent() {
   return (
-    <section className="py-24 bg-pine-900 text-white relative overflow-hidden">
+    <section className="py-16 md:py-20 bg-pine-900 text-white relative overflow-hidden">
        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-50 transform translate-x-1/3 -translate-y-1/3"></div>
        <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
-          <FadeIn className="mb-16">
-             <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight text-balance">The consent model</h2>
+          <FadeIn className="mb-6">
+             <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight text-balance">Who owns what, and why it matters for you.</h2>
+          </FadeIn>
+          <FadeIn className="mb-10">
+             <p className="text-pine-200 text-lg font-medium leading-relaxed max-w-3xl">You keep everything you create. Patients control what they share beyond that. Both of you can see every access, every time.</p>
           </FadeIn>
 
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
@@ -17,8 +20,13 @@ export function DoctorConsent() {
                    <Lock className="w-5 h-5 text-pine-200" />
                 </div>
                 <div>
-                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">1. What you keep</h3>
-                   <p className="text-pine-200 leading-relaxed font-medium">Every record you create belongs to you. Your consultation notes, your prescriptions, your clinical observations — these are yours regardless of what the patient does with their account. This is legally grounded in the Indian Medical Council Regulations 2002.</p>
+                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">1. The records you create are yours.</h3>
+                   <p className="text-pine-200 leading-relaxed font-medium mb-4">Your notes, prescriptions, and observations belong to you — as they always have. Consistent with Indian Medical Council Regulations 2002.</p>
+                   <ul className="space-y-2 text-pine-200 font-medium">
+                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>FettleMed stores and structures your records, nothing more</li>
+                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>Nothing changes about who your documentation belongs to</li>
+                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>You leave with everything you created, always</li>
+                   </ul>
                 </div>
              </FadeIn>
 
@@ -27,8 +35,13 @@ export function DoctorConsent() {
                    <Fingerprint className="w-5 h-5 text-pine-200" />
                 </div>
                 <div>
-                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">2. What the patient controls</h3>
-                   <p className="text-pine-200 leading-relaxed font-medium">Patients decide whether to share their broader health profile with you — records from other doctors, uploaded lab reports, their history outside your clinic. They can grant per consultation access, for a set period, or indefinitely. They can revoke access anytime.</p>
+                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">2. Patients decide what they share with you.</h3>
+                   <p className="text-pine-200 leading-relaxed font-medium mb-4">Patients control whether you see records from other doctors, previous clinics, or their full history.</p>
+                   <ul className="space-y-2 text-pine-200 font-medium">
+                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>Share for one consultation, a fixed period, or ongoing</li>
+                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>They can revoke at any time — you'll be notified immediately</li>
+                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>You never have unauthorised access. That protects you as much as them.</li>
+                   </ul>
                 </div>
              </FadeIn>
 
@@ -37,8 +50,13 @@ export function DoctorConsent() {
                    <Link2 className="w-5 h-5 text-pine-200" />
                 </div>
                 <div>
-                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">3. Why this is better for you</h3>
-                   <p className="text-pine-200 leading-relaxed font-medium">When a patient shares their full profile with you, you make better decisions. You see the full picture — not just the fragment they remembered to mention. You never have to ask a patient to bring reports again.</p>
+                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">3. When they share, you practice better medicine.</h3>
+                   <p className="text-pine-200 leading-relaxed font-medium mb-4">When a patient shares their full profile, you see what every other doctor who treated them saw.</p>
+                   <ul className="space-y-2 text-pine-200 font-medium">
+                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>No asking what they were prescribed six months ago</li>
+                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>No guessing at drug interactions from another clinic</li>
+                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>No repeating a test from three weeks ago</li>
+                   </ul>
                 </div>
              </FadeIn>
 
@@ -47,8 +65,14 @@ export function DoctorConsent() {
                    <ShieldCheck className="w-5 h-5 text-pine-200" />
                 </div>
                 <div>
-                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">4. The audit trail</h3>
-                   <p className="text-pine-200 leading-relaxed font-medium">Every access to a patient's records is logged. You and the patient can both see who accessed what and when. This protects you as much as it protects the patient.</p>
+                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">4. Every access is logged. For both of you.</h3>
+                   <p className="text-pine-200 leading-relaxed font-medium mb-4">Every access is recorded with a timestamp and user identifier. You can see the full audit trail. So can the patient.</p>
+                   <ul className="space-y-2 text-pine-200 font-medium mb-4">
+                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>Logged each time records are accessed, by anyone</li>
+                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>If a complaint arises, what you had access to is documented and verifiable</li>
+                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>Visible to you and to the patient, always</li>
+                   </ul>
+                   <p className="text-pine-100 font-medium">This is not just a privacy feature. It is professional protection.</p>
                 </div>
              </FadeIn>
           </div>

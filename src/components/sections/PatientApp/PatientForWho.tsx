@@ -1,36 +1,48 @@
 import React from 'react';
-import { User, Users } from "lucide-react";
+import { Users, FolderOpen, Zap } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
+
+const CARDS = [
+  {
+    icon: Users,
+    heading: "One login. Every family member.",
+    body: "Your mother's blood pressure. Your father's medications. Your child's next vaccine. All tracked under one account, each person with their own separate record.",
+  },
+  {
+    icon: FolderOpen,
+    heading: "Organised by person, private by default.",
+    body: "Each family member's records are kept separately. You manage who can access what. Their health information stays private to them — you handle logistics, not their content.",
+  },
+  {
+    icon: Zap,
+    heading: "Ready the moment you need it.",
+    body: "Emergency appointment, new specialist, last-minute referral — their full record is already in your pocket. No searching through WhatsApp chats or old paper folders.",
+  },
+];
 
 export function PatientForWho() {
   return (
-    <section className="py-24 bg-pine-900 text-white relative overflow-hidden">
-       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-50 transform translate-x-1/3 -translate-y-1/3"></div>
+    <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100 relative overflow-hidden">
        <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
-          <FadeIn className="mb-16">
-             <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight text-balance">Who this is for</h2>
+          <FadeIn className="mb-4">
+             <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">You don't have to be a patient to need this.</h2>
+          </FadeIn>
+          <FadeIn className="mb-12">
+             <p className="text-dim text-lg font-medium mt-4 max-w-2xl">In most families, one person tracks everyone's health. You didn't sign up to be the family health administrator. But since you are, you deserve a proper tool.</p>
           </FadeIn>
 
-          <div className="grid md:grid-cols-2 gap-8">
-             <FadeIn delay={0.1} className="flex flex-col gap-6 p-8 rounded-3xl bg-pine-800/50 border border-pine-700 backdrop-blur-sm">
-                <div className="w-12 h-12 bg-pine-700/80 rounded-full flex items-center justify-center">
-                   <User className="w-5 h-5 text-pine-200" />
-                </div>
-                <div>
-                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">For you</h3>
-                   <p className="text-pine-200 leading-relaxed font-medium">You manage your own health and want to stop depending on your memory and a bag of paper every time you see a doctor.</p>
-                </div>
-             </FadeIn>
-
-             <FadeIn delay={0.2} className="flex flex-col gap-6 p-8 rounded-3xl bg-pine-800/50 border border-pine-700 backdrop-blur-sm">
-                <div className="w-12 h-12 bg-pine-700/80 rounded-full flex items-center justify-center">
-                   <Users className="w-5 h-5 text-pine-200" />
-                </div>
-                <div>
-                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">For your family</h3>
-                   <p className="text-pine-200 leading-relaxed font-medium">You are the one who remembers your mother's last blood pressure reading, your father's medication list, your child's vaccination schedule. Fettlemed lets you manage all of it in one place, separately and securely.</p>
-                </div>
-             </FadeIn>
+          <div className="grid md:grid-cols-3 gap-5">
+             {CARDS.map(({ icon: Icon, heading, body }, i) => (
+                <FadeIn key={i} delay={0.1 + i * 0.1} className="flex flex-col gap-5 p-7 rounded-2xl bg-white border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+                   <div className="w-11 h-11 bg-pine-50 rounded-xl flex items-center justify-center shrink-0 border border-pine-100">
+                      <Icon className="w-5 h-5 text-pine-700" />
+                   </div>
+                   <div>
+                      <h3 className="text-lg font-medium text-pine-900 mb-2 tracking-tight">{heading}</h3>
+                      <p className="text-dim-2 text-sm leading-relaxed font-medium">{body}</p>
+                   </div>
+                </FadeIn>
+             ))}
           </div>
        </div>
     </section>

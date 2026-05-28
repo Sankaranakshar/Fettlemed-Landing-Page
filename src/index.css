@@ -1,16 +1,22 @@
 @import "tailwindcss";
 
 @theme {
+  /* Brand palette — FettleMed Brand v5 */
   --color-pine-50: #EDF4F0;
-  --color-pine-100: #D7E7DF;
+  --color-pine-100: #D7E7DF;   /* Mist */
   --color-pine-200: #B8D4CA;
   --color-pine-300: #7AAE9A;
   --color-pine-400: #4A8A70;
-  --color-pine-500: #1F7A5C;
-  --color-pine-600: #0B4A3A;
+  --color-pine-500: #1F7A5C;   /* Sage */
+  --color-pine-600: #0B4A3A;   /* Forest — primary brand */
   --color-pine-700: #083A2D;
   --color-pine-800: #052B21;
-  --color-pine-900: #08231C;
+  --color-pine-900: #08231C;   /* Bark — dark surfaces */
+
+  /* Brand text colours — Ink and its dim variants */
+  --color-ink: #0E1F1A;        /* Only approved body text on light backgrounds */
+  --color-dim: #2E3B36;        /* Secondary text on light backgrounds */
+  --color-dim-2: #1A2620;      /* Near-ink secondary text */
 
   --color-surface-50: #F7FAF9;
   --color-accent-50: #EDF4F0;
@@ -77,4 +83,5 @@ html.home-snap {
 }
 html.home-snap section {
   scroll-snap-align: start;
+  scroll-margin-top: 80px; /* offset for sticky navbar height */
 }

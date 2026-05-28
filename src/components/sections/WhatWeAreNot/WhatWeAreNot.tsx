@@ -4,53 +4,59 @@ import { BookOpen, Layers, Network } from "lucide-react";
 
 export const WhatWeAreNot = () => {
   return (
-    <section className="py-24 md:py-32 bg-stone-50 border-t border-stone-100">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="text-center mb-16">
+    <section className="py-16 md:py-20 bg-surface-50 border-t border-stone-100">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <div className="text-center mb-10">
           <FadeIn>
             <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-pine-900 mb-6">
-              The FettleMed <span className="text-accent-500">Ecosystem.</span>
+              Three layers. <span className="text-pine-600">One connected system.</span>
             </h2>
-            <p className="text-lg text-stone-600 max-w-2xl mx-auto font-medium">
-              Three integrated layers, built for patients, clinicians, and clinics.
+            <p className="text-lg text-dim-2 max-w-2xl mx-auto font-medium">
+              Every piece of FettleMed is designed to work together, so nothing gets lost between the patient, the doctor, and the clinic.
             </p>
           </FadeIn>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <FadeIn delay={0.1}>
-            <div className="bg-white p-8 rounded-[2rem] border border-stone-200 h-full">
-              <div className="w-12 h-12 bg-accent-50 text-accent-600 rounded-2xl flex items-center justify-center mb-6">
-                <BookOpen className="w-6 h-6" />
+            <div className="bg-white p-7 rounded-2xl border border-stone-200 h-full shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-11 h-11 bg-pine-50 text-pine-700 rounded-xl flex items-center justify-center mb-5 border border-pine-100">
+                <BookOpen className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Living Health Timeline</h3>
-              <p className="text-stone-600 leading-relaxed font-medium">
-                No more digging through chaotic WhatsApp chats or paper folders. FettleMed automatically organizes your medical history into a structured, secure timeline that travels with you.
-              </p>
+              <h3 className="text-lg font-medium text-pine-900 mb-3 tracking-tight">Living Health Timeline</h3>
+              <ul className="space-y-2.5 text-dim-2 font-medium text-sm">
+                <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-1.5 shrink-0"></span>No digging through WhatsApp forwards, paper folders, or memory</li>
+                <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-1.5 shrink-0"></span>Every result, diagnosis, and prescription in one place, in order</li>
+                <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-1.5 shrink-0"></span>Walk into any consultation with your full history already there</li>
+              </ul>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <div className="bg-white p-8 rounded-[2rem] border border-stone-200 h-full">
-              <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                <Layers className="w-6 h-6" />
+            <div className="bg-white p-7 rounded-2xl border border-stone-200 h-full shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-11 h-11 bg-pine-50 text-pine-700 rounded-xl flex items-center justify-center mb-5 border border-pine-100">
+                <Layers className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Seamless Ecosystem Integration</h3>
-              <p className="text-stone-600 leading-relaxed font-medium">
-                FettleMed embeds ABDM compliance directly into a simple interface, so clinicians clear regulatory hurdles without interrupting their workflow.
-              </p>
+              <h3 className="text-lg font-medium text-pine-900 mb-3 tracking-tight">Built on National Standards</h3>
+              <ul className="space-y-2.5 text-dim-2 font-medium text-sm">
+                <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-1.5 shrink-0"></span>Built on the ABDM framework and ABHA ID infrastructure</li>
+                <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-1.5 shrink-0"></span>The same national standards India's healthcare system is moving toward</li>
+                <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-1.5 shrink-0"></span>Compliance is not an add-on. It is the architecture.</li>
+              </ul>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.3}>
-            <div className="bg-white p-8 rounded-[2rem] border border-stone-200 h-full md:col-span-2 lg:col-span-1">
-              <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
-                <Network className="w-6 h-6" />
+            <div className="bg-white p-7 rounded-2xl border border-stone-200 h-full shadow-sm hover:shadow-md transition-shadow md:col-span-2 lg:col-span-1">
+              <div className="w-11 h-11 bg-pine-50 text-pine-700 rounded-xl flex items-center justify-center mb-5 border border-pine-100">
+                <Network className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Integrated Care Network</h3>
-              <p className="text-stone-600 leading-relaxed font-medium">
-                FettleMed goes far beyond basic scheduling and billing. By connecting your front desk directly to real-time, longitudinal patient records, we elevate the standard of care your clinic can deliver.
-              </p>
+              <h3 className="text-lg font-medium text-pine-900 mb-3 tracking-tight">Connected at Every Step</h3>
+              <ul className="space-y-2.5 text-dim-2 font-medium text-sm">
+                <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-1.5 shrink-0"></span>Prescription generated by the doctor appears in the patient's app instantly</li>
+                <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-1.5 shrink-0"></span>Follow-up results uploaded by the patient, visible to the clinic without another visit</li>
+                <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-1.5 shrink-0"></span>New FettleMed patients walk in as known patients, not strangers</li>
+              </ul>
             </div>
           </FadeIn>
         </div>

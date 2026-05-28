@@ -1,39 +1,60 @@
 import React from 'react';
-import { CheckCircle2 } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
+
+
+const points = [
+  {
+    n: "1",
+    heading: "You don't migrate anything.",
+    body: "FettleMed starts from your next consultation, not from your filing cabinet. Historical records stay where they are. New records build from today.",
+  },
+  {
+    n: "2",
+    heading: "Your patients don't need to download anything, at first.",
+    body: "You can create digital records for any patient on FettleMed, whether or not they have the app. When they do join, their records are already waiting for them.",
+  },
+  {
+    n: "3",
+    heading: "Setup takes one session.",
+    body: "You can see your first patient on FettleMed on the same day you sign up. No IT onboarding, no training week. If you can use WhatsApp, you can use FettleMed.",
+  },
+  {
+    n: "4",
+    heading: "Regional language support is being built, not yet available for the pilot.",
+    body: "Tamil, Telugu, Hindi, and other regional language prescription support is actively in development. It will not be available at pilot launch. If this is essential for your practice, mention it when you apply.",
+  },
+  {
+    n: "5",
+    heading: "If FettleMed isn't right for you, you leave with everything.",
+    body: "All records you've created are exportable in full. Nothing is locked to our platform. We would rather you leave with your data than stay without confidence in the product.",
+  },
+];
 
 export function DoctorSwitching() {
   return (
-    <section className="py-24 bg-white border-b border-stone-100">
+    <section className="py-16 md:py-20 bg-white border-b border-stone-100">
        <div className="container mx-auto px-4 md:px-8 max-w-4xl">
-          <FadeIn className="text-center mb-16">
+          <FadeIn className="text-center mb-10">
              <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">Switching from paper</h2>
-             <p className="text-xl text-stone-500 mt-6 font-medium leading-relaxed">
-                Fettlemed is built for doctors currently on paper or Excel, not for hospitals with IT departments, and not for tech-forward super-clinics. It goes beyond outdated clinical software: it truly assists you, instead of being a place to dump data.
+             <p className="text-xl text-dim mt-6 font-medium leading-relaxed">
+                FettleMed is built for doctors on paper or Excel, not for hospitals with IT departments. Every anxiety about switching software has a specific answer below.
              </p>
           </FadeIn>
 
-          <div className="space-y-6">
-             <FadeIn delay={0.1} className="flex gap-4 items-start">
-                <CheckCircle2 className="w-6 h-6 text-pine-600 shrink-0 mt-1" />
-                <p className="text-stone-600 text-lg font-medium leading-relaxed">You do not enter historical patient records. You start from the first consultation on Fettlemed and build from there.</p>
-             </FadeIn>
-             <FadeIn delay={0.2} className="flex gap-4 items-start">
-                <CheckCircle2 className="w-6 h-6 text-pine-600 shrink-0 mt-1" />
-                <p className="text-stone-600 text-lg font-medium leading-relaxed">Your existing patients do not need to download anything for you to use Fettlemed. You can create digital records for any patient.</p>
-             </FadeIn>
-             <FadeIn delay={0.3} className="flex gap-4 items-start">
-                <CheckCircle2 className="w-6 h-6 text-pine-600 shrink-0 mt-1" />
-                <p className="text-stone-600 text-lg font-medium leading-relaxed">Setup takes one session. You can see your first patient on Fettlemed on the same day you sign up.</p>
-             </FadeIn>
-             <FadeIn delay={0.4} className="flex gap-4 items-start">
-                <CheckCircle2 className="w-6 h-6 text-pine-600 shrink-0 mt-1" />
-                <p className="text-stone-600 text-lg font-medium leading-relaxed">Regional language support for prescriptions is in development and coming soon.</p>
-             </FadeIn>
-             <FadeIn delay={0.6} className="flex gap-4 items-start">
-                <CheckCircle2 className="w-6 h-6 text-pine-600 shrink-0 mt-1" />
-                <p className="text-stone-600 text-lg font-medium leading-relaxed">If you decide Fettlemed is not right for you, you take all your records with you. Nothing is locked in.</p>
-             </FadeIn>
+          <div className="space-y-8">
+             {points.map(({ n, heading, body }, i) => (
+                <React.Fragment key={n}>
+                   <FadeIn delay={i * 0.1} className="flex gap-6 items-start">
+                      <div className="w-10 h-10 bg-pine-50 border border-pine-100 rounded-full flex items-center justify-center text-base font-medium text-pine-700 shrink-0 mt-0.5">
+                         {n}
+                      </div>
+                      <div>
+                         <p className="text-pine-900 text-lg font-medium mb-1">{heading}</p>
+                         <p className="text-dim-2 text-lg font-medium leading-relaxed">{body}</p>
+                      </div>
+                   </FadeIn>
+                </React.Fragment>
+             ))}
           </div>
        </div>
     </section>

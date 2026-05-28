@@ -10,7 +10,7 @@ export default function TermsOfService() {
         <FadeIn>
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-medium text-pine-900 mb-4 tracking-tight">TERMS OF SERVICE</h1>
-            <h2 className="text-xl md:text-2xl font-medium text-accent-600 mb-2">Fettlemed (Fettlemed Health Tech Private Limited)</h2>
+            <h2 className="text-xl md:text-2xl font-medium text-pine-600 mb-2">Fettlemed (Fettlemed Health Tech Private Limited)</h2>
             <p className="text-stone-500 font-medium italic mb-6">Your Health, Your Control</p>
             <p className="text-stone-500 font-medium inline-block bg-white px-4 py-2 border border-stone-200 rounded-full text-sm">
               Effective Date: April 20, 2026
@@ -187,7 +187,7 @@ export default function TermsOfService() {
             <p>If you have questions about these Terms or the Services, please contact us at:</p>
 
             <div className="bg-stone-50 border border-stone-200 p-6 rounded-2xl mt-6">
-              <p className="mb-2"><strong>Email:</strong> <a href="mailto:hello@fettlemed.com" className="text-accent-600 hover:text-accent-700">hello@fettlemed.com</a></p>
+              <p className="mb-2"><strong>Email:</strong> <a href="mailto:hello@fettlemed.com" className="text-pine-600 hover:text-pine-700">hello@fettlemed.com</a></p>
               <p className="mt-4 mb-1"><strong>Mailing Address:</strong></p>
               <address className="not-italic text-stone-600">
                 NAMNALAM HEALTH TECH PVT LTD<br />
@@ -198,7 +198,7 @@ export default function TermsOfService() {
                 GUINDY, CHENNAI – 600032
               </address>
               <p className="mt-6">
-                <strong>Websites:</strong> <a href="https://www.fettlemed.com" className="text-accent-600 hover:text-accent-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a> | <a href="https://www.fettlemed.com" className="text-accent-600 hover:text-accent-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a>
+                <strong>Websites:</strong> <a href="https://www.fettlemed.com" className="text-pine-600 hover:text-pine-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a> | <a href="https://www.fettlemed.com" className="text-pine-600 hover:text-pine-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a>
               </p>
             </div>
             <p className="mt-6 text-sm text-stone-500 italic">We will respond to inquiries within 7 business days.</p>

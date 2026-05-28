@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
         <FadeIn>
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-medium text-pine-900 mb-4 tracking-tight">PRIVACY POLICY</h1>
-            <h2 className="text-xl md:text-2xl font-medium text-accent-600 mb-2">Fettlemed (Fettlemed Health Tech Private Limited)</h2>
+            <h2 className="text-xl md:text-2xl font-medium text-pine-600 mb-2">Fettlemed (Fettlemed Health Tech Private Limited)</h2>
             <p className="text-stone-500 font-medium italic mb-6">Your Health, Your Control</p>
             <p className="text-stone-500 font-medium inline-block bg-white px-4 py-2 border border-stone-200 rounded-full text-sm">
               Effective Date: April 20, 2026
@@ -255,8 +255,8 @@ export default function PrivacyPolicy() {
             <p>If you have questions, concerns, requests regarding this Privacy Policy, or if you wish to exercise any of your privacy rights, please contact us:</p>
             
             <div className="bg-stone-50 border border-stone-200 p-6 rounded-2xl mt-6">
-              <p className="mb-2"><strong>Email:</strong> <a href="mailto:hello@fettlemed.com" className="text-accent-600 hover:text-accent-700">hello@fettlemed.com</a></p>
-              <p className="mb-2"><strong>Data Protection Officer:</strong> <a href="mailto:dpo@fettlemed.com" className="text-accent-600 hover:text-accent-700">dpo@fettlemed.com</a></p>
+              <p className="mb-2"><strong>Email:</strong> <a href="mailto:hello@fettlemed.com" className="text-pine-600 hover:text-pine-700">hello@fettlemed.com</a></p>
+              <p className="mb-2"><strong>Data Protection Officer:</strong> <a href="mailto:dpo@fettlemed.com" className="text-pine-600 hover:text-pine-700">dpo@fettlemed.com</a></p>
               <p className="mt-4 mb-1"><strong>Mailing Address:</strong></p>
               <address className="not-italic text-stone-600">
                 NAMNALAM HEALTH TECH PVT LTD<br />
@@ -267,7 +267,7 @@ export default function PrivacyPolicy() {
                 GUINDY, CHENNAI – 600032
               </address>
               <p className="mt-6">
-                <strong>Websites:</strong> <a href="https://www.fettlemed.com" className="text-accent-600 hover:text-accent-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a> | <a href="https://www.fettlemed.com" className="text-accent-600 hover:text-accent-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a>
+                <strong>Websites:</strong> <a href="https://www.fettlemed.com" className="text-pine-600 hover:text-pine-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a> | <a href="https://www.fettlemed.com" className="text-pine-600 hover:text-pine-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a>
               </p>
             </div>
 

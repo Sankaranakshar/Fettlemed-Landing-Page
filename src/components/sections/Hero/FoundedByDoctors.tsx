@@ -4,14 +4,14 @@ import { motion } from "motion/react";
 
 export const FoundedByDoctors = () => {
   return (
-    <section className="bg-surface-50 border-y border-stone-200 py-10 relative z-20 overflow-hidden">
+    <div className="bg-surface-50 border-t border-stone-200 py-6 relative z-20 overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col lg:flex-row items-center justify-between gap-8"
+          className="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-8"
         >
           {/* Main Badge Area */}
           <div className="flex items-center gap-6">
@@ -37,7 +37,7 @@ export const FoundedByDoctors = () => {
                 whileInView={{ x: 20, y: 8, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="absolute -bottom-2 -right-4 bg-accent-600 text-white px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg shadow-accent-600/20 z-20 flex items-center gap-1.5"
+                className="absolute -bottom-2 -right-4 bg-pine-700 text-white px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg z-20 flex items-center gap-1.5"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-white motion-safe:animate-pulse" />
                 MD Led
@@ -53,7 +53,7 @@ export const FoundedByDoctors = () => {
           <div className="hidden lg:block w-px h-12 bg-stone-200"></div>
           
           {/* Trust Markers - Staggered */}
-          <div className="flex flex-wrap justify-center lg:justify-end gap-x-10 gap-y-6">
+          <div className="grid grid-cols-2 lg:flex lg:flex-wrap justify-center lg:justify-end gap-x-8 gap-y-3 lg:gap-x-10 lg:gap-y-6">
             {[
               { icon: ShieldCheck, text: "ABDM Compliant",  tip: "India's national health data standard" },
               { icon: Lock,        text: "HIPAA Aligned",   tip: "US health data privacy standard" },
@@ -66,15 +66,12 @@ export const FoundedByDoctors = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
-                className="flex items-center gap-2.5 font-medium text-stone-700 text-[15px] group cursor-default"
+                className="flex items-center gap-2 font-medium text-stone-700 text-[13px] lg:text-[15px] group cursor-default"
               >
-                <div className="p-1.5 rounded-lg bg-surface-50 group-hover:bg-pine-50 transition-colors">
+                <div className="p-1.5 rounded-lg bg-surface-50 group-hover:bg-pine-50 transition-colors shrink-0">
                   <item.icon className="w-4 h-4 text-pine-600"/>
                 </div>
-                <div className="flex flex-col">
-                  <span className="group-hover:text-pine-900 transition-colors">{item.text}</span>
-                  <span className="text-[11px] text-stone-400 font-medium lg:hidden">{item.tip}</span>
-                </div>
+                <span className="group-hover:text-pine-900 transition-colors leading-tight">{item.text}</span>
                 <div className="relative hidden lg:block">
                   <span className="w-4 h-4 rounded-full border border-stone-300 bg-white text-stone-400 text-[10px] font-medium flex items-center justify-center cursor-help peer select-none">i</span>
                   <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-stone-900 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity pointer-events-none z-50">
@@ -87,6 +84,6 @@ export const FoundedByDoctors = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 };

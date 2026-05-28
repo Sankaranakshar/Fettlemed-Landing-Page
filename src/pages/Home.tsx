@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { SEO } from '@/components/common/SEO';
 import { Hero } from '@/components/sections/Hero';
-import { FoundedByDoctors } from '@/components/sections/Hero/FoundedByDoctors';
 import { Problem } from '@/components/sections/Problem';
 import { Features } from '@/components/sections/Features';
 import { TargetedRoles } from '@/components/sections/TargetedRoles';
@@ -20,11 +19,8 @@ export default function Home() {
       <SEO title="Home" description="Fettlemed gives you one place for your complete medical history. Built for patients, doctors, and clinics. ABDM compliant. Join the waitlist." />
       <div className="flex flex-col w-full font-sans bg-surface-50 selection:bg-pine-100 selection:text-pine-900 pb-0">
         
-        {/* SECTION 1: Hero */}
+        {/* SECTION 1: Hero (includes FoundedByDoctors strip at bottom) */}
         <Hero />
-
-        {/* MICRO-SECTION: Founded by Doctors */}
-        <FoundedByDoctors />
 
         {/* SECTION 2: Problem */}
         <Problem />

@@ -5,9 +5,10 @@ import { WaitlistForm } from "./WaitlistForm";
 interface WaitlistModalProps {
   open: boolean;
   onClose: () => void;
+  defaultRole?: "Individual" | "Doctor" | "Clinic";
 }
 
-export function WaitlistModal({ open, onClose }: WaitlistModalProps) {
+export function WaitlistModal({ open, onClose, defaultRole }: WaitlistModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -51,7 +52,7 @@ export function WaitlistModal({ open, onClose }: WaitlistModalProps) {
             <X className="w-4 h-4 text-stone-600" />
           </button>
         </div>
-        <WaitlistForm onSuccess={onClose} />
+        <WaitlistForm onSuccess={onClose} defaultRole={defaultRole} />
       </div>
     </dialog>
   );

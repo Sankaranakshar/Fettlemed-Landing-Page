@@ -9,7 +9,7 @@ export function ClinicHero() {
 
   return (
     <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 border-b border-stone-100 bg-surface-50 overflow-hidden">
-      <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} defaultRole="Clinic" />
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
           {/* Text column */}
@@ -19,21 +19,27 @@ export function ClinicHero() {
                 For Clinics
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium text-pine-900 leading-[1.05] mb-6 tracking-tight text-balance">
-                You handle the patients. <span className="text-stone-500">We handle everything else.</span>
+                You handle the patients. <span className="text-dim">We handle everything else.</span>
               </h1>
-              <p className="text-xl md:text-2xl text-stone-500 mb-10 font-medium leading-relaxed max-w-2xl text-balance">
-                Fettlemed handles the operations, so you can focus on excellence in healthcare.
+              <p className="text-xl md:text-2xl text-dim mb-10 font-medium leading-relaxed max-w-2xl text-balance">
+                Appointments, billing, queues, and staff — all in one place. No IT department needed.
               </p>
-              <div className="flex flex-col items-center lg:items-start gap-4">
+              <div className="flex flex-col items-center lg:items-start gap-3">
                 <Button
                   variant="animated"
                   size="lg"
                   onClick={() => setModalOpen(true)}
-                  className="bg-accent-600 hover:bg-accent-700 text-white h-14 px-12 text-lg rounded-xl font-medium shadow-lg shadow-accent-600/20"
+                  className="bg-pine-900 hover:bg-pine-800 text-white h-14 px-12 text-lg rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
                   Join the clinic pilot
                 </Button>
-                <p className="text-stone-500 text-sm font-medium">Works for solo clinics and polyclinics. No IT team. No hardware. No long setup.</p>
+                <p className="text-dim text-sm font-medium">Works on your existing devices. Your staff is ready on day one.</p>
+                <a
+                  href="#platform"
+                  className="text-pine-600 hover:text-pine-700 text-sm font-medium transition-colors mt-1"
+                >
+                  See what the platform handles →
+                </a>
               </div>
             </FadeIn>
           </div>

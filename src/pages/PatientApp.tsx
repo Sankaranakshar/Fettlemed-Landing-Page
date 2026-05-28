@@ -1,9 +1,7 @@
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FAQ } from '@/components/common/FAQ';
 import { SEO } from '@/components/common/SEO';
 import { FadeIn } from "@/components/common/FadeIn";
-import { Button } from "@/components/common/Button";
-import { WaitlistModal } from "@/components/common/WaitlistModal";
 import { PatientHero } from "@/components/sections/PatientApp/PatientHero";
 import { PatientProblem } from "@/components/sections/PatientApp/PatientProblem";
 import { PatientFeatures } from "@/components/sections/PatientApp/PatientFeatures";
@@ -133,37 +131,41 @@ const faqSections = [
 ];
 
 export default function PatientApp() {
-  const [modalOpen, setModalOpen] = useState(false);
-
   return (
     <>
-      <SEO title="For Everyone" description="Every prescription, lab report, and doctor visit in one place. You control who sees your records. Free, secure, and always with you." />
-      <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <SEO title="For Patients & Families" description="Every prescription, lab report, and doctor visit in one place. Free for patients, always. You control who sees your records, and for how long." />
       <div className="flex flex-col w-full bg-surface-50">
         <PatientHero />
         <PatientProblem />
         <PatientFeatures />
+
+        {/* Proof signal */}
+        <div className="py-6 bg-pine-50 border-y border-pine-100 text-center">
+          <p className="text-sm font-medium text-pine-700">Designed with input from patients currently in our closed pilot.</p>
+        </div>
+
         <PatientForWho />
         <PatientHowItWorks />
         <PatientDataRules />
         <PatientCTA />
 
-        <div className="container mx-auto px-4 lg:px-8 py-24 max-w-4xl">
+        <div className="container mx-auto px-4 lg:px-8 py-16 md:py-20 max-w-4xl">
            <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Frequently asked questions</h2>
            </FadeIn>
            <FAQ sections={faqSections} />
         </div>
 
-        {/* Bottom CTA */}
-        <section className="py-24 bg-pine-900 text-center">
+        {/* Bottom crosslinks */}
+        <section className="py-16 bg-pine-900 text-center">
           <FadeIn>
             <div className="container mx-auto px-6 max-w-2xl">
-              <h2 className="text-3xl md:text-4xl font-medium text-white mb-4 tracking-tight">The app is coming soon.</h2>
-              <p className="text-pine-300 text-lg font-medium mb-10">Join the waitlist to be first.</p>
-              <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="bg-white text-pine-900 hover:bg-pine-50 h-14 px-12 text-lg rounded-xl font-medium">
-                Get early access
-              </Button>
+              <p className="text-pine-300 text-lg font-medium mb-6">FettleMed also serves the doctors and clinics you visit.</p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm font-medium">
+                <Link to="/doctor-portal" className="text-white hover:text-pine-200 transition-colors">Are you a doctor? Join the pilot →</Link>
+                <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-600"></span>
+                <Link to="/clinic-management" className="text-white hover:text-pine-200 transition-colors">Do you run a clinic? Join the pilot →</Link>
+              </div>
             </div>
           </FadeIn>
         </section>
