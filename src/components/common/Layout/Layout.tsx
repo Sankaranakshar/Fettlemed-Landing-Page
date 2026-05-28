@@ -32,8 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       {/* Navbar */}
       <header className="sticky top-0 z-50 w-full h-20 border-b border-stone-200/50 bg-surface-50/80 backdrop-blur-xl transition-[background-color,border-color] duration-150">
         <div className="container mx-auto px-4 md:px-8 h-full flex items-center justify-between max-w-none">
-          <Link to="/" className="flex items-center gap-2.5" onClick={() => setIsMobileMenuOpen(false)} aria-label="Fettlemed Home">
-            <img src="/brand/mark.svg" alt="" aria-hidden="true" className="w-9 h-9 shrink-0" />
+          <Link to="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)} aria-label="Fettlemed Home">
             <span className="text-xl tracking-tight leading-none select-none">
               <span className="font-bold text-ink">Fettle</span><span className="font-bold text-pine-600">Med</span>
             </span>
@@ -138,13 +137,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-pine-200/60 text-xs font-medium">
-            <div className="flex items-center gap-2.5">
-              <svg viewBox="0 0 64 64" className="w-8 h-8 shrink-0" aria-hidden="true">
-                <g transform="rotate(-18 32 32)">
-                  <path d="M32 4C18 8 10 18 10 32s8 24 22 28c14-4 22-14 22-28S46 8 32 4Z" fill="#F4F1EA"/>
-                </g>
-                <path d="M2 34h11l3-6 3 6 4-20 5 28 4-18 3 10h27" fill="none" stroke="#0B4A3A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            <div className="flex items-center">
               <span className="text-lg tracking-tight leading-none select-none">
                 <span className="font-bold text-white">Fettle</span><span className="font-bold text-pine-200">Med</span>
               </span>
