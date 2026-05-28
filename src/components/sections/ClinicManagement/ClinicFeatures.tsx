@@ -7,7 +7,7 @@ export function ClinicFeatures() {
     <section id="platform" className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <FadeIn className="text-center mb-10 max-w-3xl mx-auto">
-             <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight mb-6 text-balance">What stops being your problem on day one.</h2>
+             <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight mb-6 text-balance">Your clinic's operations, seamlessly automated on day one.</h2>
           </FadeIn>
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 auto-rows-fr">
@@ -60,8 +60,10 @@ export function ClinicFeatures() {
                    <li>Billing staff: invoices and payment records.</li>
                    <li>Doctors: clinical records and consultation notes.</li>
                    <li>Owner: everything, across all staff, all doctors, all days.</li>
-                   <li className="text-pine-700 font-medium list-none pl-0">Role-based. Time-bound. Adjustable on the fly. No one sees what isn't theirs.</li>
                 </ul>
+                <div className="bg-pine-50 rounded-xl p-4 mt-5 text-pine-800 text-sm font-medium leading-relaxed border border-pine-100">
+                   Role-based, time-bound, and per-clinic access — adjust on the fly as your team changes. No one sees what isn't theirs.
+                </div>
              </FadeIn>
           </div>
        </div>

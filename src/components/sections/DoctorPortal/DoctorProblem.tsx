@@ -10,7 +10,7 @@ export function DoctorProblem() {
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
              {/* Column 1 — primary pain: face not history */}
              <FadeIn delay={0.1} className="flex flex-col flex-1">
-                <div className="w-12 h-12 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mb-6 border border-red-100/50 shadow-sm">
+                <div className="w-12 h-12 bg-pine-50 text-pine-600 rounded-2xl flex items-center justify-center mb-6 border border-pine-100 shadow-sm">
                    <History className="w-6 h-6" />
                 </div>
                 <div className="space-y-4 text-lg text-dim-2 font-medium leading-relaxed">
@@ -21,7 +21,7 @@ export function DoctorProblem() {
 
              {/* Column 2 — secondary pain: administrative burden */}
              <FadeIn delay={0.2} className="flex flex-col flex-1">
-                <div className="w-12 h-12 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mb-6 border border-red-100/50 shadow-sm">
+                <div className="w-12 h-12 bg-pine-50 text-pine-600 rounded-2xl flex items-center justify-center mb-6 border border-pine-100 shadow-sm">
                    <PenLine className="w-6 h-6" />
                 </div>
                 <div className="space-y-4 text-lg text-dim-2 font-medium leading-relaxed">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Laptop2 } from "lucide-react";
+import { Laptop2, ShieldOff, RotateCcw } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 
 export function ClinicFrontDesk() {
@@ -10,28 +10,41 @@ export function ClinicFrontDesk() {
              <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">Ready on day one. No software experience needed.</h2>
           </FadeIn>
 
-          <div className="grid gap-6">
-             <FadeIn delay={0.1} className="p-8 md:p-10 rounded-3xl bg-surface-50 border border-stone-100 flex flex-col md:flex-row gap-8 items-start text-left">
-                <div className="w-16 h-16 bg-white shrink-0 rounded-2xl shadow-sm border border-stone-200 flex items-center justify-center">
-                   <Laptop2 className="w-8 h-8 text-pine-600" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+             <FadeIn delay={0.1} className="p-8 rounded-3xl bg-surface-50 border border-stone-100 flex flex-col gap-5 hover:shadow-sm transition-shadow">
+                <div className="w-12 h-12 bg-white rounded-2xl shadow-sm border border-stone-200 flex items-center justify-center shrink-0">
+                   <Laptop2 className="w-6 h-6 text-pine-600" />
                 </div>
-                <div className="space-y-6 text-lg text-dim-2 font-medium leading-relaxed">
-                   <div>
-                      <p className="text-pine-900 font-medium mb-1">No tech background required.</p>
-                      <p>FettleMed is built for staff who have never used clinic software. The most common front desk tasks take fewer steps on FettleMed than the paper process they're already using.</p>
-                   </div>
-                   <div>
-                      <p className="text-pine-900 font-medium mb-1">Works on what's already there.</p>
-                      <p>No new hardware. No new devices. Works on the tablet or computer already at the front desk. Setup doesn't require a technician, or a day off.</p>
-                   </div>
-                   <div>
-                      <p className="text-pine-900 font-medium mb-1">Mistakes are easy to correct.</p>
-                      <p>Nothing is irreversible. Errors can be fixed, records updated. No one is one wrong click away from a permanent problem.</p>
-                   </div>
-                   <p className="text-dim font-medium">Works for a clinic with one front desk person. Works for a clinic with five.</p>
+                <div>
+                   <p className="text-xs font-semibold text-pine-600 uppercase tracking-widest mb-2">No tech background required</p>
+                   <p className="text-dim-2 text-base font-medium leading-relaxed">Built for staff who have never used clinic software. The most common front desk tasks take fewer steps than the paper process they're already using.</p>
+                </div>
+             </FadeIn>
+
+             <FadeIn delay={0.2} className="p-8 rounded-3xl bg-surface-50 border border-stone-100 flex flex-col gap-5 hover:shadow-sm transition-shadow">
+                <div className="w-12 h-12 bg-white rounded-2xl shadow-sm border border-stone-200 flex items-center justify-center shrink-0">
+                   <ShieldOff className="w-6 h-6 text-pine-600" />
+                </div>
+                <div>
+                   <p className="text-xs font-semibold text-pine-600 uppercase tracking-widest mb-2">Zero hardware dependency</p>
+                   <p className="text-dim-2 text-base font-medium leading-relaxed">Works on the tablet or computer already at the front desk. No new devices, no technician, no day off for setup.</p>
+                </div>
+             </FadeIn>
+
+             <FadeIn delay={0.3} className="p-8 rounded-3xl bg-surface-50 border border-stone-100 flex flex-col gap-5 hover:shadow-sm transition-shadow">
+                <div className="w-12 h-12 bg-white rounded-2xl shadow-sm border border-stone-200 flex items-center justify-center shrink-0">
+                   <RotateCcw className="w-6 h-6 text-pine-600" />
+                </div>
+                <div>
+                   <p className="text-xs font-semibold text-pine-600 uppercase tracking-widest mb-2">Mistakes are easy to correct</p>
+                   <p className="text-dim-2 text-base font-medium leading-relaxed">Nothing is irreversible. Errors can be fixed, records updated. No one is one wrong click away from a permanent problem.</p>
                 </div>
              </FadeIn>
           </div>
+
+          <FadeIn delay={0.4} className="mt-6">
+             <p className="text-center text-dim text-base font-medium">Works for a clinic with one front desk person. Works for a clinic with five.</p>
+          </FadeIn>
        </div>
     </section>
   );

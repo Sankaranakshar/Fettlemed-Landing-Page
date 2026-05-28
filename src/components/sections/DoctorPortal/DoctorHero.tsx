@@ -31,7 +31,7 @@ export function DoctorHero() {
                   onClick={() => setModalOpen(true)}
                   className="bg-pine-900 hover:bg-pine-800 text-white h-14 px-12 text-lg rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
-                  Request early access
+                  Join the Clinical Pilot
                 </Button>
                 <p className="text-dim text-sm font-medium">For your practice. No IT team. No specialised hardware. Setup in one session.</p>
                 <a

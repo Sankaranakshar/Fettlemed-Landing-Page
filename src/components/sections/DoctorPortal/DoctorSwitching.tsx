@@ -20,11 +20,6 @@ const points = [
   },
   {
     n: "4",
-    heading: "Regional language support is being built, not yet available for the pilot.",
-    body: "Tamil, Telugu, Hindi, and other regional language prescription support is actively in development. It will not be available at pilot launch. If this is essential for your practice, mention it when you apply.",
-  },
-  {
-    n: "5",
     heading: "If FettleMed isn't right for you, you leave with everything.",
     body: "All records you've created are exportable in full. Nothing is locked to our platform. We would rather you leave with your data than stay without confidence in the product.",
   },
@@ -56,6 +51,18 @@ export function DoctorSwitching() {
                 </React.Fragment>
              ))}
           </div>
+
+          <FadeIn delay={0.4} className="mt-8">
+             <div className="flex gap-4 items-start rounded-2xl border border-amber-200 bg-amber-50/50 p-5">
+                <div className="w-5 h-5 rounded-full bg-amber-400 shrink-0 mt-0.5 flex items-center justify-center">
+                   <span className="text-white text-xs font-bold leading-none">!</span>
+                </div>
+                <div>
+                   <p className="text-amber-900 text-base font-semibold mb-1">Current limitation: no regional language support at pilot launch.</p>
+                   <p className="text-amber-800 text-sm font-medium leading-relaxed">Tamil, Telugu, Hindi, and other regional language prescription support is actively in development and will not be available when the pilot begins. If this is essential for your practice, mention it when you apply — it directly influences our development priority.</p>
+                </div>
+             </div>
+          </FadeIn>
        </div>
     </section>
   );

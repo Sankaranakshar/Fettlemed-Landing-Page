@@ -50,8 +50,8 @@ export function DoctorConsent() {
                    <Link2 className="w-5 h-5 text-pine-200" />
                 </div>
                 <div>
-                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">3. When they share, you practice better medicine.</h3>
-                   <p className="text-pine-200 leading-relaxed font-medium mb-4">When a patient shares their full profile, you see what every other doctor who treated them saw.</p>
+                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">3. Unified clinical context: practicing without blind spots.</h3>
+                   <p className="text-pine-200 leading-relaxed font-medium mb-4">When a patient shares their full profile, you see what every other doctor who treated them saw — no gaps, no guessing.</p>
                    <ul className="space-y-2 text-pine-200 font-medium">
                       <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>No asking what they were prescribed six months ago</li>
                       <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>No guessing at drug interactions from another clinic</li>

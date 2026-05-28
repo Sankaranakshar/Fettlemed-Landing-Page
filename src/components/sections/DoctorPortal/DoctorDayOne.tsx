@@ -13,27 +13,27 @@ export function DoctorDayOne() {
              <FadeIn delay={0.1} className="bg-white border border-stone-200 rounded-3xl p-8 shadow-sm flex flex-col h-full hover:shadow-md transition-shadow">
                 <h3 className="text-2xl font-medium text-pine-900 mb-4 tracking-tight text-balance">Consultations without the paperwork</h3>
                 <ul className="text-dim-2 leading-relaxed font-medium text-lg space-y-3">
-                   <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>E-prescription generated and sent to the patient's phone before they leave the chair.</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Consultation notes structured, dated, and searchable, not buried in a register.</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Referral letters drafted in the time it used to take to find the letterhead.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>E-prescription generated and sent to the patient's phone before they leave the chair.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Consultation notes structured, dated, and searchable, not buried in a register.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Referral letters drafted in the time it used to take to find the letterhead.</li>
                 </ul>
              </FadeIn>
 
              <FadeIn delay={0.2} className="bg-white border border-stone-200 rounded-3xl p-8 shadow-sm flex flex-col h-full hover:shadow-md transition-shadow">
                 <h3 className="text-2xl font-medium text-pine-900 mb-4 tracking-tight text-balance">The full picture. Before they sit down.</h3>
                 <ul className="text-dim-2 leading-relaxed font-medium text-lg space-y-3">
-                   <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Diagnoses, prescriptions, lab results, without asking, without searching.</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Consented records from other doctors, available in the same view.</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Allergies, current medications, chronic conditions, flagged before the consultation starts.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Diagnoses, prescriptions, lab results, without asking, without searching.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Consented records from other doctors, available in the same view.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Allergies, current medications, chronic conditions, flagged before the consultation starts.</li>
                 </ul>
              </FadeIn>
 
              <FadeIn delay={0.3} className="bg-white border border-stone-200 rounded-3xl p-8 shadow-sm flex flex-col h-full hover:shadow-md transition-shadow">
                 <h3 className="text-2xl font-medium text-pine-900 mb-4 tracking-tight text-balance">You know what happens after they leave</h3>
                 <ul className="text-dim-2 leading-relaxed font-medium text-lg space-y-3">
-                   <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Prescriptions reach the patient's app the moment you generate them, no printout, no pharmacy confusion.</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>Patients upload follow-up test results directly. You see them without scheduling another visit.</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-500 mt-1 shrink-0">•</span>That freed slot goes to someone who actually needs to be there.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Prescriptions reach the patient's app the moment you generate them, no printout, no pharmacy confusion.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Patients upload follow-up test results directly. You see them without scheduling another visit.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>That freed slot goes to someone who actually needs to be there.</li>
                 </ul>
              </FadeIn>
           </div>
