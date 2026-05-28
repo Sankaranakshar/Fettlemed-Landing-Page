@@ -31,17 +31,6 @@ export const FoundedByDoctors = () => {
                 className="absolute inset-0 bg-pine-600 rounded-2xl -z-0 blur-lg"
               />
               
-              {/* Secondary "Dr" Badge Overlap - Cleaner version */}
-              <motion.div 
-                initial={{ x: 10, y: 10, opacity: 0 }}
-                whileInView={{ x: 20, y: 8, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="absolute -bottom-2 -right-4 bg-pine-700 text-white px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg z-20 flex items-center gap-1.5"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-white motion-safe:animate-pulse" />
-                MD Led
-              </motion.div>
             </div>
             
             <div className="text-left">
