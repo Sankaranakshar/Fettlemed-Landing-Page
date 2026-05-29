@@ -22,12 +22,12 @@ export default function TermsOfService() {
             {/* Section 1 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-8">1. Acceptance of Terms</h2>
             <p>
-              By accessing and using the FettleMed Health Tech platform (including the Patient App, Doctor Clinical Portal, Clinic Management System, and related services) (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use the Services. These Terms apply to all users, whether you are an individual patient ("B2C User"), a healthcare provider such as a doctor or clinic ("B2B User"), or any other entity accessing our Services.
+              By accessing and using the FettleMed platform (including the Patient App, Doctor Clinical Portal, Clinic Management System, and related services) (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use the Services. These Terms apply to all users, whether you are an individual patient ("B2C User"), a healthcare provider such as a doctor or clinic ("B2B User"), or any other entity accessing our Services.
             </p>
 
             {/* Section 2 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">2. Definitions</h2>
-            <p>"Services" refers to all platforms, applications, products, and services provided by FettleMed (NamNalam Health Tech Private Limited (trading as FettleMed)), including:</p>
+            <p>"Services" refers to all platforms, applications, products, and services provided by NamNalam Health Tech Private Limited (trading as FettleMed), including:</p>
             <ul className="space-y-2 list-disc list-inside">
               <li><strong>Patient App</strong> - the mobile and web application for personal health record management</li>
               <li><strong>Doctor Clinical Management Portal</strong> - the provider-facing platform for clinical workflows</li>
@@ -140,7 +140,7 @@ export default function TermsOfService() {
 
             {/* Section 9 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">9. Indemnification</h2>
-            <p>You agree to indemnify, defend, and hold harmless FettleMed (NamNalam Health Tech Private Limited (trading as FettleMed)), its officers, directors, employees, and agents from any and all claims, damages, losses, and expenses (including reasonable attorneys' fees) arising from: (a) your use of the Services in violation of these Terms; (b) your violation of any applicable law or regulation; (c) your violation of the rights of any third party; or (d) your breach of these Terms. This indemnity does not apply to claims arising solely from FettleMed's negligence or willful misconduct.</p>
+            <p>You agree to indemnify, defend, and hold harmless NamNalam Health Tech Private Limited (trading as FettleMed), its officers, directors, employees, and agents from any and all claims, damages, losses, and expenses (including reasonable attorneys' fees) arising from: (a) your use of the Services in violation of these Terms; (b) your violation of any applicable law or regulation; (c) your violation of the rights of any third party; or (d) your breach of these Terms. This indemnity does not apply to claims arising solely from FettleMed's negligence or willful misconduct.</p>
 
             {/* Section 10 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">10. Limitation of Liability</h2>
