@@ -7,6 +7,7 @@ interface FadeInProps {
   className?: string;
   noYOffset?: boolean;
   eager?: boolean;
+  key?: React.Key;
 }
 
 export function FadeIn({ children, delay = 0, className = "", noYOffset = false, eager = false }: FadeInProps) {

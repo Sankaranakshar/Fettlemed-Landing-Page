@@ -129,6 +129,7 @@ interface WaitlistFormProps {
 export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
   const [submitted, setSubmitted]   = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [role, setRole]             = useState<string>(defaultRole ?? "Individual");
   const [honeypot, setHoneypot]     = useState("");
   const [loadTime]                  = useState(Date.now());
@@ -209,6 +210,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
     }
 
     setIsSubmitting(true);
+    setSubmitError(false);
 
     const data = new FormData();
     data.append("entry.1983186495", finalRole);
@@ -218,13 +220,20 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
     data.append("entry.1761616143", values.context ?? "");
     data.append("entry.838799959",  values.comments ?? "");
 
+    let networkError = false;
     try {
       await fetch(FORM_URL, { method: "POST", mode: "no-cors", body: data });
     } catch {
-      // no-cors — response is opaque by design
+      // no-cors responses are opaque — fetch only throws here on genuine
+      // network failure (offline, DNS, firewall), not on server errors.
+      networkError = true;
     }
 
     setIsSubmitting(false);
+    if (networkError) {
+      setSubmitError(true);
+      return;
+    }
     setSubmitted(true);
     onSuccess?.();
   };
@@ -371,6 +380,13 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
         <Link to="/privacy-policy" className="underline hover:text-pine-600 transition-colors">Privacy Policy</Link>.
         We will not share your personal information with third parties.
       </p>
+
+      {/* Network error notice */}
+      {submitError && (
+        <p className="text-sm text-red-600 font-medium bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+          Something went wrong — please check your connection and try again.
+        </p>
+      )}
 
       {/* Submit — loader overlays text so button width never shifts */}
       <Button

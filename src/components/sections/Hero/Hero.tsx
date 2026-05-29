@@ -18,7 +18,7 @@ export const Hero = () => {
           <div className="w-full md:w-1/2 text-center md:text-left">
             <FadeIn noYOffset eager>
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium leading-[1.08] tracking-tight mb-4 md:mb-5 lg:mb-4 text-ink drop-shadow-sm">
-                Own Your Health Records. <span className="text-pine-600">Share them with any FettleMed doctor, instantly.</span>
+                Own Your Health Records. <span className="text-pine-600">Share them with your doctor, on your terms.</span>
               </h1>
               <p className="text-lg md:text-xl text-dim mb-5 md:mb-5 lg:mb-4 max-w-xl mx-auto md:mx-0 leading-relaxed font-medium text-balance">
                 FettleMed connects patients, doctors, and clinics on one unified, secure platform.

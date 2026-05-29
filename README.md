@@ -1,71 +1,55 @@
 # FettleMed
 
-FettleMed is a secure, decentralized patient health records (PHR) infrastructure. It provides a unified view of medical history, empowering patients with ownership of their health data while enabling seamless, consent-based sharing with doctors and clinics.
+Marketing and waitlist site for **FettleMed** — a consent-first health record platform connecting patients, doctors, and clinics in India.
 
-## 🚀 Features
+This repository contains the public landing page only. No patient health data is stored or processed here.
 
-- **Personal Health Record (PHR) Ownership**: Patients own and control their medical records without dependency on specific hospitals.
-- **Granular Consent Management**: Securely share specific records with healthcare providers in real-time.
-- **Doctor Portal**: Smart patient history dashboards for faster, more accurate clinical decision-making.
-- **Clinic Management SaaS**: Streamlined registration, digital E-Prescriptions, and integrated diagnostic workflows.
-- **HIPAA Aligned Strategy**: Built with a zero-knowledge architecture to prioritize data privacy.
+## Tech Stack
 
-## 🛠️ Tech Stack
-
-- **Frontend**: React 19, TypeScript, Vite
-- **Styling**: Tailwind CSS 4
-- **Animations**: Motion
+- **Frontend**: React 19, TypeScript, Vite 6
+- **Styling**: Tailwind CSS v4 (CSS-first `@theme`)
+- **Animations**: Motion (formerly Framer Motion)
 - **Icons**: Lucide React
-- **Router**: React Router 7
-- **AI Integration**: Google Gemini API
+- **Router**: React Router v7
 
-## 📦 Installation
+## Getting Started
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Sankaranakshar/Fettlemed-Landing-Page.git
-   cd Fettlemed-Landing-Page
-   ```
+```bash
+# Install dependencies
+npm install
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+# Start dev server (localhost:3000)
+npm run dev
 
-3. **Set up environment variables:**
-   Copy the example environment file and fill in your keys:
-   ```bash
-   cp .env.example .env
-   ```
-   Required variables:
-   - `GEMINI_API_KEY`: Your Google Gemini API key.
+# Production build
+npm run build
 
-## 🏃 Usage
+# Type check
+npm run typecheck
+```
 
-- **Development Server**:
-  ```bash
-  npm run dev
-  ```
-  Runs the app on [http://localhost:3000](http://localhost:3000).
+## Environment Variables
 
-- **Production Build**:
-  ```bash
-  npm run build
-  ```
-  Generates static files in the `dist/` directory.
+Copy `.env.example` to `.env`:
 
-- **Type Checking**:
-  ```bash
-  npm run lint
-  ```
+```bash
+cp .env.example .env
+```
 
-## 📄 License
+Currently only Google Analytics is configurable via env. Analytics loads only after cookie consent is accepted.
 
-Copyright © 2026 Namnalam Health Tech Private Limited. All rights reserved.
+## Legal Entity
 
-This project is proprietary and confidential. Unauthorized copying, distribution, or use is strictly prohibited.
+**NamNalam Health Tech Private Limited**
+CIN: U62013TN2026PTC191755
+INNOV8 SKCL Tech Square, Guindy, Chennai – 600032, Tamil Nadu, India
 
-## 📧 Contact
+## Contact
 
-- **Inquiries**: partners@fettlemed.com
-- **Website**: [fettlemed.com](https://fettlemed.com)
+- General: hello@fettlemed.com
+- Privacy / Data: privacy@fettlemed.com
+
+## License
+
+Copyright © 2026 NamNalam Health Tech Private Limited. All rights reserved.
+This project is proprietary and confidential. Unauthorised copying, distribution, or use is strictly prohibited.
