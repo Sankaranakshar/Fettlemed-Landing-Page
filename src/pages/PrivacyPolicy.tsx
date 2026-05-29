@@ -4,13 +4,13 @@ import { FadeIn } from "@/components/common/FadeIn";
 export default function PrivacyPolicy() {
   return (
     <>
-      <SEO title="Privacy Policy" description="Privacy policy." />
+      <SEO title="Privacy Policy" description="FettleMed Privacy Policy. How NamNalam Health Tech Private Limited collects, uses, and protects your personal and health data under Indian law." />
       <div className="flex flex-col w-full bg-surface-50 pt-24 pb-32 min-h-screen">
       <div className="container mx-auto px-4 max-w-4xl relative">
         <FadeIn>
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-medium text-pine-900 mb-4 tracking-tight">PRIVACY POLICY</h1>
-            <h2 className="text-xl md:text-2xl font-medium text-pine-600 mb-2">Fettlemed (Fettlemed Health Tech Private Limited)</h2>
+            <h2 className="text-xl md:text-2xl font-medium text-pine-600 mb-2">FettleMed (FettleMed Health Tech Private Limited)</h2>
             <p className="text-stone-500 font-medium italic mb-6">Your Health, Your Control</p>
             <p className="text-stone-500 font-medium inline-block bg-white px-4 py-2 border border-stone-200 rounded-full text-sm">
               Effective Date: April 20, 2026
@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
             {/* Section 1 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-8">1. Introduction and Commitment to Your Privacy</h2>
             <p>
-              Fettlemed (Fettlemed Health Tech Private Limited) ("we," "us," "our," or "Fettlemed") is committed to building India's digital health backbone while placing your health data ownership at the absolute center of everything we do. This Privacy Policy explains how we collect, use, disclose, and otherwise process your personal and health information in connection with our integrated digital health platform, including our Patient App, Doctor Clinical Portal, Clinic Management System, and related services (collectively, the "Services").
+              FettleMed (FettleMed Health Tech Private Limited) ("we," "us," "our," or "FettleMed") is committed to building India's digital health backbone while placing your health data ownership at the absolute center of everything we do. This Privacy Policy explains how we collect, use, disclose, and otherwise process your personal and health information in connection with our integrated digital health platform, including our Patient App, Doctor Clinical Portal, Clinic Management System, and related services (collectively, the "Services").
             </p>
             <p>
               Our core principle is <strong>Patient Data Sovereignty</strong>. You own your health data, and we are committed to transparency, trust, and security in how we handle it. We believe that empowering patients with complete control over their health information is not just ethically right—it is essential to building a more equitable and efficient healthcare ecosystem in India. Please read this Policy carefully to understand our privacy practices and your rights.
@@ -30,7 +30,7 @@ export default function PrivacyPolicy() {
 
             {/* Section 2 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">2. Our Privacy Principles</h2>
-            <p>At Fettlemed, we are guided by the following fundamental privacy principles that inform every decision we make:</p>
+            <p>At FettleMed, we are guided by the following fundamental privacy principles that inform every decision we make:</p>
             <ul className="space-y-2 list-disc list-inside">
               <li><strong>Patient-Centricity:</strong> You are at the core of everything we do. Your rights, preferences, and well-being drive our product development and operational decisions.</li>
               <li><strong>Ownership:</strong> We recognize your fundamental right to own and control your personal health data. Your health information is yours, and you have the final say on who can access it.</li>
@@ -69,13 +69,13 @@ export default function PrivacyPolicy() {
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">3.4 Information from Healthcare Providers</h3>
             <ul className="list-disc list-inside space-y-1">
-              <li><strong>Doctor and Clinic Data:</strong> When your doctor or clinic uploads your records to Fettlemed with your consent</li>
+              <li><strong>Doctor and Clinic Data:</strong> When your doctor or clinic uploads your records to FettleMed with your consent</li>
               <li><strong>Lab Reports:</strong> Digital submission of test results from diagnostic centers</li>
             </ul>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">3.5 Information from Third Parties</h3>
             <ul className="list-disc list-inside space-y-1">
-              <li><strong>Social Media:</strong> Information if you choose to connect your social media accounts to your Fettlemed profile</li>
+              <li><strong>Social Media:</strong> Information if you choose to connect your social media accounts to your FettleMed profile</li>
               <li><strong>Service Providers:</strong> Information from our partners who provide specific services to enhance the platform (always with appropriate safeguards)</li>
             </ul>
 
@@ -142,11 +142,11 @@ export default function PrivacyPolicy() {
             <p>We may use aggregated, de-identified health data for research that improves digital health in India. This research is conducted only with Institutional Ethics Committee approval and never contains personally identifiable information. You will be notified of research initiatives, and we will provide opt-out mechanisms.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">5.6 Business Transfers</h3>
-            <p>If Fettlemed is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. Any successor organization will be required to maintain the same commitments to your privacy and data sovereignty. We will notify you of any material changes.</p>
+            <p>If FettleMed is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. Any successor organization will be required to maintain the same commitments to your privacy and data sovereignty. We will notify you of any material changes.</p>
 
             {/* Section 6 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">6. Your Consent and Control: The Heart of Our Privacy Model</h2>
-            <p>Patient Data Sovereignty is not just a concept at Fettlemed—it is operational reality embedded in our platform architecture. You maintain granular, auditable control over your health information at all times.</p>
+            <p>Patient Data Sovereignty is not just a concept at FettleMed—it is operational reality embedded in our platform architecture. You maintain granular, auditable control over your health information at all times.</p>
             
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">6.1 Granular Consent Management</h3>
             <ul className="list-disc list-inside space-y-1">
@@ -206,7 +206,7 @@ export default function PrivacyPolicy() {
 
             {/* Section 9 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">9. International Data Transfers</h2>
-            <p>While Fettlemed is headquartered in India and primarily operates within India, some of our service providers (e.g., cloud infrastructure, security partners) may be located in other countries. Any international transfer of your information will be subject to appropriate legal safeguards, including Standard Contractual Clauses or other mechanisms recognized by applicable data protection laws. We ensure that your information receives adequate protection consistent with the standards in India.</p>
+            <p>While FettleMed is headquartered in India and primarily operates within India, some of our service providers (e.g., cloud infrastructure, security partners) may be located in other countries. Any international transfer of your information will be subject to appropriate legal safeguards, including Standard Contractual Clauses or other mechanisms recognized by applicable data protection laws. We ensure that your information receives adequate protection consistent with the standards in India.</p>
 
             {/* Section 10 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">10. Children's Privacy</h2>
@@ -214,13 +214,13 @@ export default function PrivacyPolicy() {
 
             {/* Section 11 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">11. Third-Party Links and Services</h2>
-            <p>Our Services may contain links to third-party websites, applications, and services that are not operated by Fettlemed. This Privacy Policy does not apply to third-party services, and we are not responsible for their privacy practices. We encourage you to review the privacy policies of any third-party services before providing your information or using those services. We are not liable for the privacy practices or content of third-party services.</p>
+            <p>Our Services may contain links to third-party websites, applications, and services that are not operated by FettleMed. This Privacy Policy does not apply to third-party services, and we are not responsible for their privacy practices. We encourage you to review the privacy policies of any third-party services before providing your information or using those services. We are not liable for the privacy practices or content of third-party services.</p>
 
             {/* Section 12 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">12. Compliance with Data Protection Regulations</h2>
             
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">12.1 ABDM (Ayushman Bharat Digital Mission) Compliance</h3>
-            <p>Fettlemed is designed to align with the Ayushman Bharat Digital Mission (ABDM) framework established by the Government of India. We implement the consent and data exchange standards mandated by ABDM, ensuring interoperability with the broader Indian healthcare ecosystem while maintaining your data sovereignty principles.</p>
+            <p>FettleMed is designed to align with the Ayushman Bharat Digital Mission (ABDM) framework established by the Government of India. We implement the consent and data exchange standards mandated by ABDM, ensuring interoperability with the broader Indian healthcare ecosystem while maintaining your data sovereignty principles.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">12.2 India Data Protection Laws</h3>
             <p>We comply with applicable Indian data protection laws, including provisions related to health data handling. We recognize the sensitive nature of health information and implement protections that exceed minimum legal requirements.</p>
@@ -232,7 +232,7 @@ export default function PrivacyPolicy() {
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">13. Your Rights and Choices</h2>
             
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">13.1 Right to Access</h3>
-            <p>You have the right to request access to the personal and health information we hold about you. You can view most of your information directly through your Fettlemed account. For comprehensive data export, contact our privacy team.</p>
+            <p>You have the right to request access to the personal and health information we hold about you. You can view most of your information directly through your FettleMed account. For comprehensive data export, contact our privacy team.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">13.2 Right to Rectification</h3>
             <p>You have the right to correct inaccurate personal information. You can update most information directly through your account settings.</p>
@@ -276,7 +276,7 @@ export default function PrivacyPolicy() {
             </p>
 
             <div className="text-center mt-12 pt-8 border-t border-stone-200">
-              <p className="text-stone-400 font-medium">© 2026 Fettlemed (Fettlemed Health Tech Private Limited). All rights reserved.</p>
+              <p className="text-stone-400 font-medium">© 2026 FettleMed (FettleMed Health Tech Private Limited). All rights reserved.</p>
               <p className="text-stone-400 italic">Your Health, Your Control</p>
             </div>
             

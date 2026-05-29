@@ -18,7 +18,11 @@
   --color-dim: #2E3B36;        /* Secondary text on light backgrounds */
   --color-dim-2: #1A2620;      /* Near-ink secondary text */
 
-  --color-surface-50: #F7FAF9;
+  /* Brand cream — the only approved warm background. Never pure white. */
+  --color-surface-50: #FBF8F1;
+  /* Override Tailwind's white token so bg-white/text-white resolve to cream.
+     Pure #FFFFFF is banned by brand guidelines (v7). */
+  --color-white: #FBF8F1;
   --color-accent-50: #EDF4F0;
   --color-accent-100: #D7E7DF;
   --color-accent-200: #B8D4CA;
@@ -31,7 +35,7 @@
   --color-accent-900: #031A12;
 
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: ui-monospace, monospace;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
   /* Custom easing — available as ease-out-strong, ease-in-out-strong, ease-drawer utilities */
   --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);

@@ -8,16 +8,16 @@ interface SEOProps {
   image?: string;
 }
 
-export function SEO({ 
-  title, 
-  description, 
-  name = "Fettlemed", 
+export function SEO({
+  title,
+  description,
+  name = "FettleMed",
   type = "website",
   image = "/brand/lockup.svg"
 }: SEOProps) {
-  const isHome = title === 'Home' || title === 'Fettlemed';
-  const fullTitle = isHome 
-    ? `${name} — Your Complete Health Record`
+  const isHome = title === 'Home';
+  const fullTitle = isHome
+    ? `${name}: Your Complete Health Record`
     : `${title} | ${name}`;
 
   const structuredData = {

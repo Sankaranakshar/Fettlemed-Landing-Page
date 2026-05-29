@@ -139,7 +139,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-pine-200/60 text-xs font-medium">
             <div className="flex items-center">
               <span className="text-lg tracking-tight leading-none select-none">
-                <span className="font-bold text-white">Fettle</span><span className="font-bold text-pine-200">Med</span>
+                <span className="font-bold text-white">Fettle</span><span className="font-bold text-white">Med</span>
               </span>
             </div>
             

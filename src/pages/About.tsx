@@ -19,7 +19,7 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About FettleMed — Our Mission, Story, and Team | NamNalam Health Tech"
+        title="About"
         description="FettleMed was built on one belief: health data belongs to the patient. Meet the clinical founders, read our origin story, and learn how we're building India's connected health platform."
       />
       <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} defaultRole={defaultRole} />

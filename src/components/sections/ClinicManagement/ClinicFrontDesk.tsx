@@ -16,7 +16,7 @@ export function ClinicFrontDesk() {
                    <Laptop2 className="w-6 h-6 text-pine-600" />
                 </div>
                 <div>
-                   <p className="text-xs font-semibold text-pine-600 uppercase tracking-widest mb-2">No tech background required</p>
+                   <p className="text-xs font-medium text-pine-600 uppercase tracking-widest mb-2">No tech background required</p>
                    <p className="text-dim-2 text-base font-medium leading-relaxed">Built for staff who have never used clinic software. The most common front desk tasks take fewer steps than the paper process they're already using.</p>
                 </div>
              </FadeIn>
@@ -26,7 +26,7 @@ export function ClinicFrontDesk() {
                    <ShieldOff className="w-6 h-6 text-pine-600" />
                 </div>
                 <div>
-                   <p className="text-xs font-semibold text-pine-600 uppercase tracking-widest mb-2">Zero hardware dependency</p>
+                   <p className="text-xs font-medium text-pine-600 uppercase tracking-widest mb-2">Zero hardware dependency</p>
                    <p className="text-dim-2 text-base font-medium leading-relaxed">Works on the tablet or computer already at the front desk. No new devices, no technician, no day off for setup.</p>
                 </div>
              </FadeIn>
@@ -36,7 +36,7 @@ export function ClinicFrontDesk() {
                    <RotateCcw className="w-6 h-6 text-pine-600" />
                 </div>
                 <div>
-                   <p className="text-xs font-semibold text-pine-600 uppercase tracking-widest mb-2">Mistakes are easy to correct</p>
+                   <p className="text-xs font-medium text-pine-600 uppercase tracking-widest mb-2">Mistakes are easy to correct</p>
                    <p className="text-dim-2 text-base font-medium leading-relaxed">Nothing is irreversible. Errors can be fixed, records updated. No one is one wrong click away from a permanent problem.</p>
                 </div>
              </FadeIn>

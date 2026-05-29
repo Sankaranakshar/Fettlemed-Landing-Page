@@ -17,7 +17,7 @@ const faqSections = [
     items: [
       {
         "question": "Is this built for solo clinics or larger polyclinics too?",
-        "answer": "Both. Fettlemed works for a single-doctor GP clinic and for multi-doctor polyclinics. The platform scales to the size of your practice."
+        "answer": "Both. FettleMed works for a single-doctor GP clinic and for multi-doctor polyclinics. The platform scales to the size of your practice."
       },
       {
         "question": "How many staff members can I add?",
@@ -25,11 +25,11 @@ const faqSections = [
       },
       {
         "question": "Can different staff see different things?",
-        "answer": "Yes. Fettlemed uses role-based access control. Front desk staff see what they need for registration and scheduling. Billing staff see financial information. Clinical notes are visible only to doctors. Each role sees only what is relevant to their work."
+        "answer": "Yes. FettleMed uses role-based access control. Front desk staff see what they need for registration and scheduling. Billing staff see financial information. Clinical notes are visible only to doctors. Each role sees only what is relevant to their work."
       },
       {
         "question": "Do we need to replace our entire setup or can we start with one module?",
-        "answer": "You can start with what matters most to you. Fettlemed is modular. Some clinics will start with the doctor portal and add clinic management features as they get comfortable. You do not have to implement everything on day one."
+        "answer": "You can start with what matters most to you. FettleMed is modular. Some clinics will start with the doctor portal and add clinic management features as they get comfortable. You do not have to implement everything on day one."
       }
     ]
   },
@@ -38,7 +38,7 @@ const faqSections = [
     items: [
       {
         "question": "Can the system send appointment reminders to patients automatically?",
-        "answer": "Yes. Fettlemed sends automated reminders to patients ahead of their appointments to reduce no-shows."
+        "answer": "Yes. FettleMed sends automated reminders to patients ahead of their appointments to reduce no-shows."
       },
       {
         "question": "What happens when a patient does not show up?",
@@ -54,7 +54,7 @@ const faqSections = [
       },
       {
         "question": "Can the front desk use it on a tablet?",
-        "answer": "Yes. Fettlemed works on tablets and laptops. No dedicated hardware is required."
+        "answer": "Yes. FettleMed works on tablets and laptops. No dedicated hardware is required."
       }
     ]
   },
@@ -80,19 +80,19 @@ const faqSections = [
     items: [
       {
         "question": "Do we have to digitise all our existing paper records first?",
-        "answer": "No. You start fresh from the first consultation on Fettlemed. Historical paper records do not need to be entered. Patients can upload their own older records through the patient app if they choose to."
+        "answer": "No. You start fresh from the first consultation on FettleMed. Historical paper records do not need to be entered. Patients can upload their own older records through the patient app if they choose to."
       },
       {
         "question": "How long does it take to train front desk staff?",
-        "answer": "Fettlemed is designed for staff who have never used clinic software before. Most front desk operations can be learned in one session. We support your team through onboarding."
+        "answer": "FettleMed is designed for staff who have never used clinic software before. Most front desk operations can be learned in one session. We support your team through onboarding."
       },
       {
         "question": "If we expand to a second location, can both clinics be managed from one account?",
         "answer": "Multi-location management is planned for a future release. It is on our roadmap based on demand from clinic owners."
       },
       {
-        "question": "What happens to our data if we stop using Fettlemed?",
-        "answer": "You keep everything. We will provide a complete export of all clinic and patient records created during your time on Fettlemed. Your data does not disappear."
+        "question": "What happens to our data if we stop using FettleMed?",
+        "answer": "You keep everything. We will provide a complete export of all clinic and patient records created during your time on FettleMed. Your data does not disappear."
       }
     ]
   },
@@ -104,8 +104,8 @@ const faqSections = [
         "answer": "No. Staff access is controlled by role. Front desk staff see registration and appointment information only. Clinical records are visible only to doctors. A patient's records from other clinics are visible only with that patient's explicit consent."
       },
       {
-        "question": "Who is responsible for data security — Fettlemed or the clinic?",
-        "answer": "Fettlemed is responsible for the security of the platform and the infrastructure. The clinic is responsible for ensuring that staff access is managed correctly — for example, not sharing login credentials. We make this easy through role-based access controls."
+        "question": "Who is responsible for data security — FettleMed or the clinic?",
+        "answer": "FettleMed is responsible for the security of the platform and the infrastructure. The clinic is responsible for ensuring that staff access is managed correctly — for example, not sharing login credentials. We make this easy through role-based access controls."
       },
       {
         "question": "What happens if there is a data breach?",
@@ -122,7 +122,7 @@ const faqSections = [
 export default function ClinicManagement() {
   return (
     <>
-      <SEO title="For Clinics" description="Run your clinic without the chaos. Appointments, billing, patient records, and ABDM integration — one platform, no IT team needed." />
+      <SEO title="For Clinics" description="FettleMed helps Indian clinics manage appointments, billing, and patient records in one platform. ABDM-aligned. No IT team needed. Built for GPs, specialists, and polyclinics." />
       <div className="flex flex-col w-full bg-surface-50 font-sans">
         <ClinicHero />
         <ClinicProblem />

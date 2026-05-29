@@ -91,8 +91,8 @@ export default function Security() {
   return (
     <>
       <SEO
-        title="Security - FettleMed"
-        description="Your health data is encrypted, patient-controlled, and stored in India. Here is exactly how FettleMed protects your data."
+        title="Security"
+        description="Your health data is encrypted, patient-controlled, and stored entirely in India. Here is exactly how FettleMed protects your health records."
       />
       <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} />
       <div className="flex flex-col w-full bg-surface-50 min-h-screen">

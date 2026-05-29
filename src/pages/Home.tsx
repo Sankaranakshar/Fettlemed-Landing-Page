@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <>
-      <SEO title="Home" description="FettleMed gives you one place for your complete medical history. Built for patients, doctors, and clinics. ABDM-aligned. Join the waitlist." />
+      <SEO title="Home" description="FettleMed is India's connected health record platform. Store your complete medical history, share it with any doctor instantly, and give your clinic smarter tools. ABDM-aligned. Join the waitlist." />
       <div className="flex flex-col w-full font-sans bg-surface-50 selection:bg-pine-100 selection:text-pine-900 pb-0">
         
         {/* SECTION 1: Hero (includes FoundedByDoctors strip at bottom) */}

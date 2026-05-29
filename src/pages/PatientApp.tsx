@@ -19,8 +19,8 @@ const faqSections = [
         "answer": "The patient app is coming soon. We are currently piloting the doctor and clinic portal, with the patient app to follow shortly after. Join the waitlist and we will notify you the moment it is ready."
       },
       {
-        "question": "Does my doctor need to be on Fettlemed for me to use the app?",
-        "answer": "No. You can start using the app independently — upload your existing prescriptions, lab reports, and medical records yourself and build your health profile straight away. When your doctor joins Fettlemed, new records will sync to your profile automatically."
+        "question": "Does my doctor need to be on FettleMed for me to use the app?",
+        "answer": "No. You can start using the app independently — upload your existing prescriptions, lab reports, and medical records yourself and build your health profile straight away. When your doctor joins FettleMed, new records will sync to your profile automatically."
       },
       {
         "question": "Does it work in Hindi, Tamil, Telugu, or other Indian languages?",
@@ -28,7 +28,7 @@ const faqSections = [
       },
       {
         "question": "Do I need a smartphone?",
-        "answer": "Yes. Fettlemed currently requires a smartphone running Android or iOS. It does not require a high-end device — any modern smartphone will work."
+        "answer": "Yes. FettleMed currently requires a smartphone running Android or iOS. It does not require a high-end device — any modern smartphone will work."
       }
     ]
   },
@@ -37,19 +37,19 @@ const faqSections = [
     items: [
       {
         "question": "Where are my records stored?",
-        "answer": "Your records are stored securely on Fettlemed's servers in India, not just on your phone. This means you can access them from any device at any time and never lose them if your phone is damaged or lost."
+        "answer": "Your records are stored securely on FettleMed's servers in India, not just on your phone. This means you can access them from any device at any time and never lose them if your phone is damaged or lost."
       },
       {
         "question": "What types of records can I store?",
-        "answer": "You can store prescriptions, lab reports, diagnostic scans, consultation notes, and vaccination records. If your doctor uses Fettlemed, new records from your consultations are added automatically."
+        "answer": "You can store prescriptions, lab reports, diagnostic scans, consultation notes, and vaccination records. If your doctor uses FettleMed, new records from your consultations are added automatically."
       },
       {
         "question": "If I upload a PDF lab report, does the app just store it or does it understand what is in it?",
-        "answer": "Fettlemed can read and structure the information inside your PDF lab reports — not just store the file. This means your results are organised, searchable, and presented in a way that is easy to understand rather than as a pile of documents."
+        "answer": "FettleMed can read and structure the information inside your PDF lab reports — not just store the file. This means your results are organised, searchable, and presented in a way that is easy to understand rather than as a pile of documents."
       },
       {
-        "question": "Can I add records from before I started using Fettlemed?",
-        "answer": "Yes. You can upload older prescriptions, lab reports, and medical documents at any time. Fettlemed will read and organise them into your health timeline."
+        "question": "Can I add records from before I started using FettleMed?",
+        "answer": "Yes. You can upload older prescriptions, lab reports, and medical documents at any time. FettleMed will read and organise them into your health timeline."
       },
       {
         "question": "If I lose my phone, do I lose my records?",
@@ -78,7 +78,7 @@ const faqSections = [
       },
       {
         "question": "Can I see who has accessed my records and when?",
-        "answer": "Yes. Fettlemed maintains a full audit trail. You can see a log of every time your records were accessed and by whom."
+        "answer": "Yes. FettleMed maintains a full audit trail. You can see a log of every time your records were accessed and by whom."
       }
     ]
   },
@@ -87,7 +87,7 @@ const faqSections = [
     items: [
       {
         "question": "Can I manage health records for my parents or children?",
-        "answer": "Yes. You can manage health profiles for multiple family members from a single Fettlemed account. Each family member has their own separate health record."
+        "answer": "Yes. You can manage health profiles for multiple family members from a single FettleMed account. Each family member has their own separate health record."
       },
       {
         "question": "Does each family member have their own privacy settings?",
@@ -103,12 +103,12 @@ const faqSections = [
     title: "Data and privacy",
     items: [
       {
-        "question": "Does Fettlemed sell my health data to anyone?",
+        "question": "Does FettleMed sell my health data to anyone?",
         "answer": "Never. Your health data is never sold, never used for advertising, and never shared with any third party without your explicit consent."
       },
       {
-        "question": "Can Fettlemed's team see my records?",
-        "answer": "Fettlemed staff do not have access to your personal health records for any commercial or analytical purpose. Access is limited strictly to technical operations where necessary, with appropriate safeguards."
+        "question": "Can FettleMed's team see my records?",
+        "answer": "FettleMed staff do not have access to your personal health records for any commercial or analytical purpose. Access is limited strictly to technical operations where necessary, with appropriate safeguards."
       },
       {
         "question": "Is my data stored in India?",
@@ -119,8 +119,8 @@ const faqSections = [
         "answer": "You can request deletion of your account and your personal data at any time. We will provide you with a complete export of your records before deletion so you never lose your health history. Note that records created by your doctors during consultations are retained by them as required under Indian medical regulations."
       },
       {
-        "question": "Can my insurer or employer ever access my health data through Fettlemed?",
-        "answer": "No. Fettlemed never shares your data with insurers, employers, or any third party without your explicit consent. We will never facilitate this even if asked."
+        "question": "Can my insurer or employer ever access my health data through FettleMed?",
+        "answer": "No. FettleMed never shares your data with insurers, employers, or any third party without your explicit consent. We will never facilitate this even if asked."
       },
       {
         "question": "What if the government asks for my health data?",
@@ -133,7 +133,7 @@ const faqSections = [
 export default function PatientApp() {
   return (
     <>
-      <SEO title="For Patients & Families" description="Every prescription, lab report, and doctor visit in one place. Free for patients, always. You control who sees your records, and for how long." />
+      <SEO title="For Patients & Families" description="FettleMed keeps every prescription, lab report, and doctor visit in one place. Free for Indian patients, always. Share records with any doctor in seconds and revoke access any time." />
       <div className="flex flex-col w-full bg-surface-50">
         <PatientHero />
         <PatientProblem />

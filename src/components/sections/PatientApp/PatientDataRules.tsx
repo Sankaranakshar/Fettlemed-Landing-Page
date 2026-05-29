@@ -18,7 +18,7 @@ export function PatientDataRules() {
              <FadeIn delay={0.1} className="md:col-span-2 bg-pine-900 rounded-3xl p-8 flex flex-col">
                 <ShieldCheck className="w-7 h-7 text-pine-400 mb-6" />
                 <p className="text-7xl font-bold text-white tracking-tight leading-none mb-2">0</p>
-                <p className="text-pine-200 font-semibold text-2xl mb-5">Third Parties</p>
+                <p className="text-pine-200 font-medium text-2xl mb-5">Third Parties</p>
                 <p className="text-pine-400 font-medium text-base leading-relaxed mt-auto">Never sold. Never used for ads. Never shared with insurers, employers, or anyone else. Architecturally enforced, not just policy.</p>
              </FadeIn>
 
@@ -27,9 +27,9 @@ export function PatientDataRules() {
                 <FolderSync className="w-7 h-7 text-pine-600 mb-6" />
                 <div className="flex-1">
                    <p className="text-6xl font-bold text-pine-900 tracking-tight leading-none">2</p>
-                   <p className="text-pine-600 font-semibold text-base mb-5">taps to share</p>
+                   <p className="text-pine-600 font-medium text-base mb-5">taps to share</p>
                    <p className="text-6xl font-bold text-pine-900 tracking-tight leading-none">1</p>
-                   <p className="text-pine-600 font-semibold text-base">tap to revoke</p>
+                   <p className="text-pine-600 font-medium text-base">tap to revoke</p>
                 </div>
                 <p className="text-dim-2 font-medium text-sm leading-relaxed mt-5">You set the access window. Nothing stays open longer than you intend.</p>
              </FadeIn>
@@ -46,7 +46,7 @@ export function PatientDataRules() {
                 <div className="shrink-0">
                    <Server className="w-7 h-7 text-pine-600 mb-4" />
                    <p className="text-7xl font-bold text-pine-900 tracking-tight leading-none">IN</p>
-                   <p className="text-pine-600 font-semibold text-xl mt-1">India Only</p>
+                   <p className="text-pine-600 font-medium text-xl mt-1">India Only</p>
                 </div>
                 <p className="text-dim-2 font-medium text-base leading-relaxed">Stored on secure servers within India. Your data cannot leave Indian infrastructure. This is not just a policy — it is the architecture.</p>
              </FadeIn>

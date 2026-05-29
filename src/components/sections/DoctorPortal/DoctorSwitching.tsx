@@ -58,7 +58,7 @@ export function DoctorSwitching() {
                    <span className="text-white text-xs font-bold leading-none">!</span>
                 </div>
                 <div>
-                   <p className="text-amber-900 text-base font-semibold mb-1">Current limitation: no regional language support at pilot launch.</p>
+                   <p className="text-amber-900 text-base font-medium mb-1">Current limitation: no regional language support at pilot launch.</p>
                    <p className="text-amber-800 text-sm font-medium leading-relaxed">Tamil, Telugu, Hindi, and other regional language prescription support is actively in development and will not be available when the pilot begins. If this is essential for your practice, mention it when you apply — it directly influences our development priority.</p>
                 </div>
              </div>
