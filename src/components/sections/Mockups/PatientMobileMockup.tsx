@@ -112,7 +112,7 @@ export function PatientMobileMockup() {
               }}
             >
               {/* OLED screen */}
-              <div className="rounded-[2.7rem] overflow-hidden bg-white" style={{ height: 560 }}>
+              <div className="rounded-[2.7rem] overflow-hidden bg-pine-900 flex flex-col" style={{ height: 560 }}>
 
                 {/* Status bar with Dynamic Island */}
                 <div
@@ -135,8 +135,8 @@ export function PatientMobileMockup() {
                   </div>
                 </div>
 
-                {/* Tab content */}
-                <div className="overflow-hidden" style={{ height: 450 }}>
+                {/* Tab content — flex-1 fills whatever space remains */}
+                <div className="overflow-hidden flex-1 bg-surface-50">
                   <AnimatePresence mode="wait">
                     {active === "Home" && (
                       <motion.div
@@ -303,7 +303,7 @@ export function PatientMobileMockup() {
                 </div>
 
                 {/* Bottom tab bar */}
-                <div className="flex border-t border-stone-100 bg-white" style={{ height: 56 }}>
+                <div className="flex border-t border-stone-100 bg-white shrink-0" style={{ height: 56 }}>
                   {(Object.keys(tabIcons) as Tab[]).map((t) => {
                     const Icon = tabIcons[t];
                     const isActive = active === t;
@@ -323,7 +323,7 @@ export function PatientMobileMockup() {
                 </div>
 
                 {/* Home indicator */}
-                <div className="flex justify-center items-center bg-white" style={{ height: 24 }}>
+                <div className="flex justify-center items-center bg-white shrink-0" style={{ height: 24 }}>
                   <div style={{ width: 120, height: 4, backgroundColor: "#1a1a1a", borderRadius: 2, opacity: 0.18 }} />
                 </div>
 
