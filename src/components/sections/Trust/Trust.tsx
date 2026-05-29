@@ -53,7 +53,7 @@ export const Trust = () => {
             {/* Co-build with Doctors block */}
             <div className="bg-pine-900 rounded-2xl p-8 md:p-10 text-left flex-1 flex flex-col justify-center mb-6">
                <p className="text-sm font-medium text-pine-400 uppercase tracking-widest mb-3">The clinical co-founders behind FettleMed</p>
-               <h3 className="text-2xl md:text-3xl font-medium text-white mb-8 tracking-tight">Co-built with Doctors</h3>
+               <h2 className="text-2xl md:text-3xl font-medium text-white mb-8 tracking-tight">Co-built with Doctors</h2>
                <div className="grid md:grid-cols-2 gap-8">
                   {/* Dr. Sriram Shankar */}
                   <div className="flex gap-5 items-start">
@@ -82,7 +82,7 @@ export const Trust = () => {
             </div>
 
             <div className="text-center">
-              <Link to="/security" className="inline-flex items-center gap-2 font-medium text-pine-700 hover:text-pine-900 text-sm border border-pine-200 bg-white hover:bg-pine-50 px-5 py-2.5 rounded-xl transition-colors shadow-sm">
+              <Link to="/security" className="inline-flex items-center gap-2 font-medium text-pine-700 hover:text-pine-900 text-sm border border-pine-200 bg-white hover:bg-pine-50 px-5 py-3 rounded-xl transition-colors shadow-sm">
                  Learn more about our security practices <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

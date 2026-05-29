@@ -11,7 +11,7 @@ export default function Waitlist() {
       <div className="flex flex-col w-full min-h-screen bg-surface-50 font-sans">
         <section className="pt-20 pb-24 md:pt-32 relative z-10">
           <div className="container mx-auto px-4 max-w-6xl">
-            <FadeIn>
+            <FadeIn eager>
               <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
 
                 {/* Left: intro copy */}

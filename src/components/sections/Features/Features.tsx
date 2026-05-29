@@ -54,7 +54,7 @@ export const Features = () => {
               <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="h-12 px-10 text-base bg-white hover:bg-pine-50 text-pine-900 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900">
                 Join the Waitlist
               </Button>
-              <button onClick={() => { document.getElementById('roles')?.scrollIntoView({ behavior: 'smooth' }) }} className="text-base font-medium text-pine-300 hover:text-white flex items-center gap-2 transition-colors">
+              <button onClick={() => { document.getElementById('roles')?.scrollIntoView({ behavior: 'smooth' }) }} className="inline-flex items-center gap-2 p-3 -m-3 text-base font-medium text-pine-300 hover:text-white transition-colors">
                 See how it works for your role <ArrowRight className="w-4 h-4" />
               </button>
             </div>

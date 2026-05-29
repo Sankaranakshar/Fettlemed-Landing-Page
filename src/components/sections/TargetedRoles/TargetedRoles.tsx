@@ -324,7 +324,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
                   role="tab"
                   aria-selected={activeRole === role}
                   onClick={() => handleRoleChange(role)}
-                  className={`flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-[background-color,color,box-shadow] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 focus-visible:ring-offset-1 ${
+                  className={`flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-[background-color,color,box-shadow] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 focus-visible:ring-offset-1 ${
                     activeRole === role ? ROLE_STYLES[role].tab : 'text-dim hover:text-pine-900 hover:bg-pine-50'
                   }`}
                 >
@@ -379,7 +379,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
                 key={idx}
                 onClick={() => setActiveCardIndex(idx)}
                 aria-pressed={activeCardIndex === idx}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 ${
+                className={`px-4 py-3 min-h-[44px] rounded-full text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 ${
                   activeCardIndex === idx ? s.navActive : s.navInactive
                 }`}
               >

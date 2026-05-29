@@ -32,7 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       {/* Navbar */}
       <header className="sticky top-0 z-50 w-full h-20 border-b border-stone-200/50 bg-surface-50/80 backdrop-blur-xl transition-[background-color,border-color] duration-150">
         <div className="container mx-auto px-4 md:px-8 h-full flex items-center justify-between max-w-none">
-          <Link to="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)} aria-label="Fettlemed Home">
+          <Link to="/" className="flex items-center h-full" onClick={() => setIsMobileMenuOpen(false)} aria-label="Fettlemed Home">
             <span className="text-xl tracking-tight leading-none select-none">
               <span className="font-bold text-ink">Fettle</span><span className="font-bold text-pine-600">Med</span>
             </span>
@@ -60,7 +60,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           <button
-            className="md:hidden text-stone-900 p-2"
+            className="md:hidden text-stone-900 p-3"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >

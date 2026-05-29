@@ -214,7 +214,7 @@ export default function About() {
                   onClick={() => openAs("Individual")}
                   className="h-12 px-8 text-base bg-pine-900 hover:bg-pine-800 text-white rounded-xl font-medium focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
-                  Join Waitlist
+                  Join the Waitlist
                 </Button>
                 <Button
                   variant="animated"
@@ -314,7 +314,7 @@ export default function About() {
                   onClick={() => openAs("Individual")}
                   className="h-12 px-8 text-base border border-pine-600 text-pine-200 hover:bg-pine-800 rounded-xl font-medium focus-visible:ring-2 focus-visible:ring-pine-400 focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900"
                 >
-                  Join Waitlist
+                  Join the Waitlist
                 </Button>
               </div>
             </FadeIn>

@@ -36,7 +36,7 @@ export function DoctorHero() {
                 <p className="text-dim text-sm font-medium">For your practice. No IT team. No specialised hardware. Setup in one session.</p>
                 <a
                   href="#day-one"
-                  className="text-pine-600 hover:text-pine-700 text-sm font-medium transition-colors mt-1"
+                  className="inline-flex items-center p-3 -m-3 text-pine-600 hover:text-pine-700 text-sm font-medium transition-colors mt-2"
                 >
                   See what changes on day one →
                 </a>

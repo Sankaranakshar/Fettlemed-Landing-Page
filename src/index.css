@@ -31,7 +31,7 @@
   --color-accent-900: #031A12;
 
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-mono: ui-monospace, monospace;
 
   /* Custom easing — available as ease-out-strong, ease-in-out-strong, ease-drawer utilities */
   --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
