@@ -47,7 +47,7 @@ export function FAQ({ sections }: FAQProps) {
                 </div>
                 <div className="text-center">
                   <h2 className="text-3xl md:text-4xl font-medium text-pine-900 mb-2 tracking-tight">Have questions?</h2>
-                  <p className="text-stone-500 font-medium text-lg">Click to view our detailed frequently asked questions</p>
+                  <p className="text-dim font-medium text-lg">Click to view our detailed frequently asked questions</p>
                 </div>
                 <div className="flex items-center gap-2 text-pine-600 font-medium uppercase tracking-widest text-sm bg-pine-50 px-6 py-2 rounded-full group-hover:bg-pine-100 transition-colors">
                   View FAQs <ChevronDown className="w-4 h-4" />
@@ -60,7 +60,7 @@ export function FAQ({ sections }: FAQProps) {
                 <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight">Frequently Asked Questions</h2>
                 <button
                   onClick={() => setIsExpanded(false)}
-                  className="text-stone-400 hover:text-stone-600 font-medium flex items-center gap-2 transition-colors"
+                  className="text-dim hover:text-ink font-medium flex items-center gap-2 transition-colors"
                 >
                   Close <ChevronDown className="w-4 h-4 rotate-180" />
                 </button>
@@ -70,7 +70,7 @@ export function FAQ({ sections }: FAQProps) {
               <div className="flex flex-wrap gap-2 mb-10">
                 <button
                   onClick={() => handleChip(null)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeSection === null ? 'bg-pine-900 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'}`}
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeSection === null ? 'bg-pine-900 text-white' : 'bg-pine-50 text-dim hover:bg-pine-100'}`}
                 >
                   All
                 </button>
@@ -78,7 +78,7 @@ export function FAQ({ sections }: FAQProps) {
                   <button
                     key={i}
                     onClick={() => handleChip(i)}
-                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeSection === i ? 'bg-pine-900 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'}`}
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeSection === i ? 'bg-pine-900 text-white' : 'bg-pine-50 text-dim hover:bg-pine-100'}`}
                   >
                     {section.title}
                   </button>
@@ -102,8 +102,8 @@ export function FAQ({ sections }: FAQProps) {
                                    onClick={() => toggleOpen(sIndex, iIndex)} 
                                    className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
                                 >
-                                   <span className={`font-medium text-lg transition-colors ${isOpen ? "text-pine-900" : "text-stone-700"}`}>{item.question}</span>
-                                   <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-[transform,background-color,color] duration-200 ease-out ${isOpen ? "bg-pine-900 text-white rotate-180" : "bg-stone-200 text-stone-500"}`}>
+                                   <span className={`font-medium text-lg transition-colors ${isOpen ? "text-pine-900" : "text-dim-2"}`}>{item.question}</span>
+                                   <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-[transform,background-color,color] duration-200 ease-out ${isOpen ? "bg-pine-900 text-white rotate-180" : "bg-pine-100 text-dim"}`}>
                                      <ChevronDown className="w-4 h-4" />
                                    </div>
                                 </button>
@@ -113,7 +113,7 @@ export function FAQ({ sections }: FAQProps) {
                                       isOpen ? "max-h-[500px] pb-6 opacity-100" : "max-h-0 pb-0 opacity-0"
                                    }`}
                                 >
-                                   <p className="text-stone-600 leading-relaxed font-medium text-lg border-t border-stone-100 pt-5">{item.answer}</p>
+                                   <p className="text-dim leading-relaxed font-medium text-lg border-t border-pine-50 pt-5">{item.answer}</p>
                                 </div>
                              </div>
                           );

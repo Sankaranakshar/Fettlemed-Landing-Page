@@ -42,14 +42,14 @@ export function WaitlistModal({ open, onClose, defaultRole }: WaitlistModalProps
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 id="wl-modal-title" className="text-xl font-medium text-pine-900 tracking-tight">Join the Waitlist</h2>
-            <p className="text-sm text-stone-500 font-medium mt-1">Early access for select clinics, doctors, and individuals.</p>
+            <p className="text-sm text-dim font-medium mt-1">Early access for select clinics, doctors, and individuals.</p>
           </div>
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center transition-colors shrink-0 ml-4"
+            className="w-9 h-9 rounded-full bg-pine-50 hover:bg-pine-100 flex items-center justify-center transition-colors shrink-0 ml-4"
             aria-label="Close"
           >
-            <X className="w-4 h-4 text-stone-600" />
+            <X className="w-4 h-4 text-dim" />
           </button>
         </div>
         <WaitlistForm onSuccess={onClose} defaultRole={defaultRole} />

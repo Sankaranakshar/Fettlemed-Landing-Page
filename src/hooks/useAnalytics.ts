@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { trackEvent as gaTrackEvent } from '@/lib/analytics';
+import { trackEvent as gaTrackEvent, trackPageView as gaTrackPageView } from '@/lib/analytics';
 import type { AnalyticsEvent } from '@/types';
 
 export const useAnalytics = () => {
@@ -8,11 +8,7 @@ export const useAnalytics = () => {
   }, []);
 
   const trackPageView = useCallback((path: string) => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('config', import.meta.env.VITE_GA_TRACKING_ID, {
-        page_path: path,
-      });
-    }
+    gaTrackPageView(path);
   }, []);
 
   return {

@@ -8,7 +8,7 @@ import { SEO } from '@/components/common/SEO';
 import { FadeIn } from "@/components/common/FadeIn";
 import { Button } from "@/components/common/Button";
 import { FAQ } from "@/components/common/FAQ";
-import { WaitlistModal } from "@/components/common/WaitlistModal";
+import { useWaitlist } from "@/contexts/WaitlistContext";
 
 const SECTION_IDS = ["encryption", "consent", "access", "compliance", "sovereignty"] as const;
 type SectionId = typeof SECTION_IDS[number];
@@ -62,8 +62,8 @@ const faqData = [
 ];
 
 export default function Security() {
+  const { openWaitlist } = useWaitlist();
   const [activeSection, setActiveSection] = useState<SectionId>("encryption");
-  const [modalOpen, setModalOpen] = useState(false);
   const observersRef = useRef<IntersectionObserver[]>([]);
 
   useEffect(() => {
@@ -94,7 +94,6 @@ export default function Security() {
         title="Security"
         description="Your health data is encrypted, patient-controlled, and stored on infrastructure in India. Here is exactly how FettleMed protects your health records."
       />
-      <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} />
       <div className="flex flex-col w-full bg-surface-50 min-h-screen">
 
         {/* ── S1: Hero ─────────────────────────────────────────────────── */}
@@ -471,8 +470,8 @@ export default function Security() {
                             <h3 className="text-pine-900 font-medium mb-2">The legal commitment</h3>
                             <p className="text-dim-2 font-medium leading-relaxed mb-4">Our commitment to never sell or misuse your health data is documented in our Privacy Policy and Terms of Service. It applies to every user, every time.</p>
                             <div className="flex gap-4 text-sm font-medium">
-                              <Link to="/privacy" className="text-pine-600 hover:text-pine-700 transition-colors underline">Read our Privacy Policy</Link>
-                              <Link to="/terms" className="text-pine-600 hover:text-pine-700 transition-colors underline">Read our Terms of Service</Link>
+                              <Link to="/privacy-policy" className="text-pine-600 hover:text-pine-700 transition-colors underline">Read our Privacy Policy</Link>
+                              <Link to="/terms-of-service" className="text-pine-600 hover:text-pine-700 transition-colors underline">Read our Terms of Service</Link>
                             </div>
                           </div>
                         </div>
@@ -510,17 +509,18 @@ export default function Security() {
                 <Button
                   variant="animated"
                   size="lg"
-                  onClick={() => setModalOpen(true)}
+                  onClick={() => openWaitlist()}
                   className="h-12 px-8 text-base bg-pine-900 hover:bg-pine-800 text-white rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
                   Join the Waitlist
                 </Button>
                 <Link
-                  to="/privacy"
+                  to="/privacy-policy"
                   className="inline-flex items-center justify-center h-12 px-8 text-base border-2 border-pine-900 text-pine-900 hover:bg-pine-50 rounded-xl font-medium transition-colors"
                 >
                   Read our Privacy Policy
                 </Link>
+
               </div>
             </FadeIn>
           </div>

@@ -65,7 +65,7 @@ export function NetworkFlow() {
           <div className="absolute inset-0 bg-pine-50/50 rounded-2xl" />
           <Stethoscope className="w-8 h-8 text-pine-600 relative z-10" />
         </motion.div>
-        <span className="mt-4 font-medium text-stone-500 tracking-widest text-xs uppercase">Doctor Portal</span>
+        <span className="mt-4 font-medium text-dim tracking-widest text-xs uppercase">Doctor Portal</span>
       </div>
 
       {/* Bottom Left Node (Patient) */}
@@ -79,7 +79,7 @@ export function NetworkFlow() {
           <div className="absolute inset-0 bg-pine-50/50 rounded-2xl" />
           <Smartphone className="w-8 h-8 text-pine-600 relative z-10" />
         </motion.div>
-        <span className="mt-4 font-medium text-stone-500 tracking-widest text-xs uppercase">Patient App</span>
+        <span className="mt-4 font-medium text-dim tracking-widest text-xs uppercase">Patient App</span>
       </div>
 
       {/* Bottom Right Node (Clinic) */}
@@ -93,7 +93,7 @@ export function NetworkFlow() {
           <div className="absolute inset-0 bg-pine-50/50 rounded-2xl" />
           <Building2 className="w-8 h-8 text-pine-600 relative z-10" />
         </motion.div>
-        <span className="mt-4 font-medium text-stone-500 tracking-widest text-xs uppercase">Clinic CMS</span>
+        <span className="mt-4 font-medium text-dim tracking-widest text-xs uppercase">Clinic CMS</span>
       </div>
     </div>
   );

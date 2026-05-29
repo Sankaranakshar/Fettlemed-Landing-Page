@@ -11,13 +11,13 @@ export default function TermsOfService() {
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-medium text-pine-900 mb-4 tracking-tight">TERMS OF SERVICE</h1>
             <h2 className="text-xl md:text-2xl font-medium text-pine-600 mb-2">NamNalam Health Tech Private Limited (trading as FettleMed)</h2>
-            <p className="text-stone-500 font-medium italic mb-6">Your Health, Your Control</p>
-            <p className="text-stone-500 font-medium inline-block bg-white px-4 py-2 border border-stone-200 rounded-full text-sm">
+            <p className="text-dim font-medium italic mb-6">Your Health, Your Control</p>
+            <p className="text-dim font-medium inline-block bg-white px-4 py-2 border border-stone-200 rounded-full text-sm">
               Effective Date: April 20, 2026
             </p>
           </div>
 
-          <div className="bg-white border border-stone-200 rounded-3xl p-8 md:p-12 shadow-sm prose prose-lg max-w-none text-stone-600">
+          <div className="bg-white border border-stone-200 rounded-3xl p-8 md:p-12 shadow-sm prose prose-lg max-w-none text-dim">
             
             {/* Section 1 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-8">1. Acceptance of Terms</h2>
@@ -189,7 +189,7 @@ export default function TermsOfService() {
             <div className="bg-stone-50 border border-stone-200 p-6 rounded-2xl mt-6">
               <p className="mb-2"><strong>Email:</strong> <a href="mailto:hello@fettlemed.com" className="text-pine-600 hover:text-pine-700">hello@fettlemed.com</a></p>
               <p className="mt-4 mb-1"><strong>Mailing Address:</strong></p>
-              <address className="not-italic text-stone-600">
+              <address className="not-italic text-dim">
                 NAMNALAM HEALTH TECH PVT LTD<br />
                 CIN: U62013TN2026PTC191755<br />
                 REGD. OFFICE:<br />
@@ -201,7 +201,7 @@ export default function TermsOfService() {
                 <strong>Website:</strong> <a href="https://www.fettlemed.com" className="text-pine-600 hover:text-pine-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a>
               </p>
             </div>
-            <p className="mt-6 text-sm text-stone-500 italic">We will respond to inquiries within 7 business days.</p>
+            <p className="mt-6 text-sm text-dim italic">We will respond to inquiries within 7 business days.</p>
 
             {/* Section 15 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">15. Severability</h2>
@@ -228,8 +228,8 @@ export default function TermsOfService() {
             <p>By using FettleMed's Services, you acknowledge that you have read and understood these Terms of Service and agree to be bound by them. You further acknowledge that you understand the risks associated with digital health information management and accept those risks in exchange for the convenience and benefits the Services provide.</p>
 
             <div className="text-center mt-12 pt-8 border-t border-stone-200">
-              <p className="text-stone-400 font-medium">© 2026 NamNalam Health Tech Private Limited (trading as FettleMed). All rights reserved.</p>
-              <p className="text-stone-400 italic">Your Health, Your Control</p>
+              <p className="text-dim font-medium">© 2026 NamNalam Health Tech Private Limited (trading as FettleMed). All rights reserved.</p>
+              <p className="text-dim italic">Your Health, Your Control</p>
             </div>
             
           </div>

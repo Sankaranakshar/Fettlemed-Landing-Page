@@ -1,20 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { SEO } from '@/components/common/SEO';
 import { Mail, MapPin, User } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { Button } from "@/components/common/Button";
-import { WaitlistModal } from "@/components/common/WaitlistModal";
-
-type Role = "Individual" | "Doctor" | "Clinic";
+import { useWaitlist } from "@/contexts/WaitlistContext";
 
 export default function About() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [defaultRole, setDefaultRole] = useState<Role>("Individual");
-
-  function openAs(role: Role) {
-    setDefaultRole(role);
-    setModalOpen(true);
-  }
+  const { openWaitlist } = useWaitlist();
 
   return (
     <>
@@ -22,7 +14,6 @@ export default function About() {
         title="About"
         description="FettleMed was built on one belief: health data belongs to the patient. Meet the clinical founders, read our origin story, and learn how we're building India's connected health platform."
       />
-      <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} defaultRole={defaultRole} />
       <div className="flex flex-col w-full bg-surface-50">
 
         {/* ── S1: Hero / Mission ───────────────────────────────────────── */}
@@ -127,8 +118,8 @@ export default function About() {
               <div className="grid md:grid-cols-2 gap-4">
 
                 <div className="flex items-start gap-4 bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                  <div className="w-10 h-10 rounded-full bg-stone-100 border border-stone-200 flex items-center justify-center shrink-0">
-                    <User className="w-5 h-5 text-stone-400" />
+                  <div className="w-10 h-10 rounded-full bg-pine-50 border border-pine-100 flex items-center justify-center shrink-0">
+                    <User className="w-5 h-5 text-dim" />
                   </div>
                   <div>
                     <h3 className="text-base font-medium text-pine-900">Akshar Sankaran Jaikumar</h3>
@@ -138,8 +129,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4 bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                  <div className="w-10 h-10 rounded-full bg-stone-100 border border-stone-200 flex items-center justify-center shrink-0">
-                    <User className="w-5 h-5 text-stone-400" />
+                  <div className="w-10 h-10 rounded-full bg-pine-50 border border-pine-100 flex items-center justify-center shrink-0">
+                    <User className="w-5 h-5 text-dim" />
                   </div>
                   <div>
                     <h3 className="text-base font-medium text-pine-900">Gurubalaji</h3>
@@ -171,7 +162,7 @@ export default function About() {
                 <Button
                   variant="animated"
                   size="lg"
-                  onClick={() => openAs("Individual")}
+                  onClick={() => openWaitlist('Individual')}
                   className="h-12 px-8 text-base bg-pine-900 hover:bg-pine-800 text-white rounded-xl font-medium focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
                   Join the Waitlist
@@ -179,7 +170,7 @@ export default function About() {
                 <Button
                   variant="animated"
                   size="lg"
-                  onClick={() => openAs("Doctor")}
+                  onClick={() => openWaitlist('Doctor')}
                   className="h-12 px-8 text-base border-2 border-pine-900 text-pine-900 hover:bg-pine-50 rounded-xl font-medium focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
                   Join the Pilot
@@ -263,7 +254,7 @@ export default function About() {
                 <Button
                   variant="animated"
                   size="lg"
-                  onClick={() => openAs("Doctor")}
+                  onClick={() => openWaitlist('Doctor')}
                   className="h-12 px-8 text-base bg-white hover:bg-pine-50 text-pine-900 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900"
                 >
                   Join the Pilot
@@ -271,7 +262,7 @@ export default function About() {
                 <Button
                   variant="animated"
                   size="lg"
-                  onClick={() => openAs("Individual")}
+                  onClick={() => openWaitlist('Individual')}
                   className="h-12 px-8 text-base border border-pine-600 text-pine-200 hover:bg-pine-800 rounded-xl font-medium focus-visible:ring-2 focus-visible:ring-pine-400 focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900"
                 >
                   Join the Waitlist

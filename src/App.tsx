@@ -1,11 +1,11 @@
 import React, { Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { Layout } from "@/components/common/Layout";
 import { HelmetProvider } from "react-helmet-async";
 import { AnimatedRoutes } from "./AnimatedRoutes";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary/ErrorBoundary";
+import { WaitlistProvider } from "@/contexts/WaitlistContext";
 
-// A simple loading fallback
 const PageLoader = () => (
   <div className="flex h-[80vh] w-full items-center justify-center">
     <div className="flex flex-row gap-2 justify-center items-center">
@@ -20,13 +20,15 @@ export default function App() {
   return (
     <HelmetProvider>
       <Router>
-        <Layout>
-          <ErrorBoundary>
-            <Suspense fallback={<PageLoader />}>
-              <AnimatedRoutes />
-            </Suspense>
-          </ErrorBoundary>
-        </Layout>
+        <WaitlistProvider>
+          <Layout>
+            <ErrorBoundary>
+              <Suspense fallback={<PageLoader />}>
+                <AnimatedRoutes />
+              </Suspense>
+            </ErrorBoundary>
+          </Layout>
+        </WaitlistProvider>
       </Router>
     </HelmetProvider>
   );

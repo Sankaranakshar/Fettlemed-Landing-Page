@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Smartphone, Stethoscope, Building2, CheckCircle2, ArrowRight } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { Button } from "@/components/common/Button";
-import { WaitlistModal } from "@/components/common/WaitlistModal";
+import { useWaitlist } from "@/contexts/WaitlistContext";
 
 export const Features = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const { openWaitlist } = useWaitlist();
 
   return (
     <section className="h-[calc(100vh-80px)] min-h-[600px] flex flex-col bg-pine-900 text-white overflow-hidden relative">
-       <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} />
        <div className="absolute top-0 right-0 w-96 h-96 bg-pine-800 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
        <div className="container mx-auto px-6 max-w-6xl relative z-10 flex flex-col flex-1 min-h-0 py-12 md:py-16">
           <FadeIn className="flex flex-col flex-1 min-h-0">
@@ -51,7 +50,7 @@ export const Features = () => {
             </div>
 
             <div className="flex justify-center items-center gap-8 mt-8">
-              <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="h-12 px-10 text-base bg-white hover:bg-pine-50 text-pine-900 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900">
+              <Button variant="animated" size="lg" onClick={() => openWaitlist()} className="h-12 px-10 text-base bg-white hover:bg-pine-50 text-pine-900 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900">
                 Join the Waitlist
               </Button>
               <button onClick={() => { document.getElementById('roles')?.scrollIntoView({ behavior: 'smooth' }) }} className="inline-flex items-center gap-2 p-3 -m-3 text-base font-medium text-pine-300 hover:text-white transition-colors">

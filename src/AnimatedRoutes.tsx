@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 
 // Home is eagerly imported — it's the entry page and must not show a spinner
@@ -44,7 +44,7 @@ export function AnimatedRoutes() {
       >
         <Routes location={location}>
           <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="/clinic-management" element={<ClinicManagement />} />
           <Route path="/doctor-portal" element={<DoctorPortal />} />
           <Route path="/patient-app" element={<PatientApp />} />
@@ -52,9 +52,9 @@ export function AnimatedRoutes() {
           <Route path="/security" element={<Security />} />
           <Route path="/waitlist" element={<Waitlist />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/terms" element={<Navigate to="/terms-of-service" replace />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/privacy" element={<Navigate to="/privacy-policy" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </motion.div>

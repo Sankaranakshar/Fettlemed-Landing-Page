@@ -19,10 +19,10 @@ export default function Waitlist() {
                   <h1 className="text-4xl md:text-5xl font-medium text-pine-900 leading-[1.1] mb-6 tracking-tight text-balance">
                     Be the first to experience connected healthcare.
                   </h1>
-                  <p className="text-lg md:text-xl text-stone-500 font-medium leading-relaxed mb-8">
+                  <p className="text-lg md:text-xl text-dim font-medium leading-relaxed mb-8">
                     Join our waitlist for early access to the patient app, doctor portal, or clinic management system.
                   </p>
-                  <div className="flex flex-col gap-3 text-sm font-medium text-stone-600">
+                  <div className="flex flex-col gap-3 text-sm font-medium text-dim">
                     <span className="flex items-center gap-2 bg-white px-4 py-3 rounded-2xl shadow-sm border border-stone-200 w-fit">
                       <CheckCircle2 className="w-4 h-4 text-pine-600"/> Early access
                     </span>

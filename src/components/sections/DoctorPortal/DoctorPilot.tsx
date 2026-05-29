@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import { Button } from "@/components/common/Button";
 import { FadeIn } from "@/components/common/FadeIn";
-import { WaitlistModal } from "@/components/common/WaitlistModal";
+import { useWaitlist } from "@/contexts/WaitlistContext";
 
 export function DoctorPilot() {
-  const [modalOpen, setModalOpen] = useState(false);
+  const { openWaitlist } = useWaitlist();
 
   return (
     <section className="py-16 md:py-20 bg-pine-900 text-white relative overflow-hidden border-b border-stone-100">
-       <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} defaultRole="Doctor" />
        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-50 transform translate-x-1/3 -translate-y-1/3"></div>
        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center relative z-10">
           <FadeIn>
@@ -26,7 +25,7 @@ export function DoctorPilot() {
              </div>
 
              <div className="flex flex-col items-center gap-3">
-                <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="bg-white hover:bg-stone-50 text-pine-900 h-14 px-12 text-lg rounded-xl font-medium shadow-lg">
+                <Button variant="animated" size="lg" onClick={() => openWaitlist('Doctor')} className="bg-white hover:bg-pine-50 text-pine-900 h-14 px-12 text-lg rounded-xl font-medium shadow-lg">
                   Join the Clinical Pilot
                 </Button>
                 <p className="text-pine-300 text-sm font-medium">For your practice. Limited spots available.</p>

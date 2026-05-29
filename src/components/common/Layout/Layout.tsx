@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Button } from "@/components/common/Button";
-import { WaitlistModal } from "@/components/common/WaitlistModal";
 import { cn } from "@/utils/cn";
 import { Menu, X } from "lucide-react";
 import { preloadRoutes } from "@/preloadRoutes";
+import { useWaitlist } from "@/contexts/WaitlistContext";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const { openWaitlist } = useWaitlist();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [location.pathname]);
 
   const navLinks = [
-    { name: "Home", path: "/home" },
+    { name: "Home", path: "/" },
     { name: "For Patients", path: "/patient-app" },
     { name: "For Doctors", path: "/doctor-portal" },
     { name: "For Clinics", path: "/clinic-management" },
@@ -26,7 +26,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex min-h-screen flex-col font-sans bg-surface-50">
-      <WaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
       <a href="#main-content" className="skip-link">Skip to main content</a>
 
       {/* Navbar */}
@@ -37,13 +36,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <span className="font-bold text-ink">Fettle</span><span className="font-bold text-pine-600">Med</span>
             </span>
           </Link>
-          
+
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-4 lg:gap-8">
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}
+                end={link.path === "/"}
                 onMouseEnter={() => preloadRoutes[link.path]?.()}
                 className={({ isActive }) => cn(
                   "text-xs lg:text-sm font-medium tracking-wide transition-colors duration-150 ease-out whitespace-nowrap",
@@ -53,14 +53,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 {link.name}
               </NavLink>
             ))}
-            <div className="h-5 w-[1px] bg-stone-200 mx-1 lg:mx-2" />
-            <Button variant="animated" onClick={() => setWaitlistOpen(true)} className="bg-pine-900 hover:bg-pine-800 text-white rounded-lg shadow-sm text-xs lg:text-sm h-9 lg:h-10 px-4 lg:px-6 font-medium transition-colors">
+            <div className="h-5 w-[1px] bg-pine-100 mx-1 lg:mx-2" />
+            <Button variant="animated" onClick={() => openWaitlist()} className="bg-pine-900 hover:bg-pine-800 text-white rounded-lg shadow-sm text-xs lg:text-sm h-9 lg:h-10 px-4 lg:px-6 font-medium transition-colors">
               Join Waitlist
             </Button>
           </nav>
 
           <button
-            className="md:hidden text-stone-900 p-3"
+            className="md:hidden text-ink p-3"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -76,10 +76,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <NavLink
                   key={link.path}
                   to={link.path}
+                  end={link.path === "/"}
                   onMouseEnter={() => preloadRoutes[link.path]?.()}
                   className={({ isActive }) => cn(
-                    "block text-xl font-medium tracking-wide py-5 px-4 -mx-4 rounded-xl transition-colors duration-150 ease-out active:bg-stone-100",
-                    isActive ? "text-pine-600 bg-pine-50/50" : "text-stone-800"
+                    "block text-xl font-medium tracking-wide py-5 px-4 -mx-4 rounded-xl transition-colors duration-150 ease-out active:bg-pine-50",
+                    isActive ? "text-pine-600 bg-pine-50/50" : "text-ink"
                   )}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -87,7 +88,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </NavLink>
               ))}
               <div className="pt-6 border-t border-stone-200 flex flex-col gap-4">
-                <Button variant="animated" size="lg" onClick={() => { setIsMobileMenuOpen(false); setWaitlistOpen(true); }} className="w-full bg-pine-900 hover:bg-pine-800 text-white rounded-xl h-14 font-medium">Join Waitlist</Button>
+                <Button variant="animated" size="lg" onClick={() => { setIsMobileMenuOpen(false); openWaitlist(); }} className="w-full bg-pine-900 hover:bg-pine-800 text-white rounded-xl h-14 font-medium">Join Waitlist</Button>
               </div>
             </nav>
           </div>
@@ -100,7 +101,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       {/* Global Footer  */}
       <footer className="w-full text-white mt-auto bg-pine-900 pt-20 pb-12">
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-16 border-b border-pine-800 pb-16">
              {/* Column 1: Product */}
              <nav className="flex flex-col gap-4" aria-label="Product Links">
@@ -122,8 +123,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
              {/* Column 3: Legal */}
              <nav className="flex flex-col gap-4" aria-label="Legal Links">
                 <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Legal</h3>
-                <Link to="/privacy" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Privacy Policy</Link>
-                <Link to="/terms" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Terms of Service</Link>
+                <Link to="/privacy-policy" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Privacy Policy</Link>
+                <Link to="/terms-of-service" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Terms of Service</Link>
              </nav>
 
              {/* Column 4: Connect */}
@@ -142,7 +143,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <span className="font-bold text-white">Fettle</span><span className="font-bold text-white">Med</span>
               </span>
             </div>
-            
+
             <div className="text-center md:text-right flex flex-col gap-2">
                <p>© 2026 NamNalam Health Tech Private Limited. All rights reserved.</p>
                <p>CIN: U62013TN2026PTC191755</p>

@@ -57,7 +57,7 @@ const FloatingInput = React.forwardRef<HTMLInputElement, FloatingInputProps>(
           "peer-not-placeholder-shown:top-3.5 peer-not-placeholder-shown:text-[10px] peer-not-placeholder-shown:font-medium",
           error
             ? "text-red-400 peer-focus:text-red-400"
-            : "text-stone-400 peer-focus:text-pine-600 peer-not-placeholder-shown:text-stone-500",
+            : "text-dim peer-focus:text-pine-600 peer-not-placeholder-shown:text-dim",
         ].join(" ")}
       >
         {label}
@@ -105,7 +105,7 @@ const FloatingTextarea = React.forwardRef<HTMLTextAreaElement, FloatingTextareaP
           "peer-not-placeholder-shown:top-2 peer-not-placeholder-shown:text-[10px] peer-not-placeholder-shown:font-medium",
           error
             ? "text-red-400 peer-focus:text-red-400"
-            : "text-stone-400 peer-focus:text-pine-600 peer-not-placeholder-shown:text-stone-500",
+            : "text-dim peer-focus:text-pine-600 peer-not-placeholder-shown:text-dim",
         ].join(" ")}
       >
         {label}
@@ -235,7 +235,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
         <h2 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight">
           You're on the list.
         </h2>
-        <p className="text-stone-600 leading-relaxed font-medium max-w-sm">
+        <p className="text-dim leading-relaxed font-medium max-w-sm">
           Thank you for your interest in Fettlemed. We will be in touch shortly with next steps.
         </p>
       </div>
@@ -257,7 +257,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
 
       {/* Role selector */}
       <div className="flex flex-col space-y-3 pb-1">
-        <label id="role-group-label" className="text-sm font-medium text-stone-700">I am a:</label>
+        <label id="role-group-label" className="text-sm font-medium text-dim-2">I am a:</label>
         <div role="radiogroup" aria-labelledby="role-group-label" className="grid grid-cols-3 gap-3">
           {["Individual", "Doctor", "Clinic"].map((r) => (
             <button
@@ -267,7 +267,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
               className={`py-3 px-2 rounded-xl border text-sm font-medium transition-[background-color,border-color,color,box-shadow] duration-150 ease-out active:scale-[0.97] ${
                 role === r
                   ? "bg-pine-900 border-pine-900 text-white shadow-md"
-                  : "bg-white border-stone-200 text-stone-600 hover:border-pine-300 hover:bg-stone-50"
+                  : "bg-white border-pine-100 text-dim hover:border-pine-300 hover:bg-pine-50"
               }`}
             >
               {r}
@@ -317,10 +317,10 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
       {/* Human verification */}
       <div className="flex flex-col space-y-4 pt-4 border-t border-stone-200">
         <div>
-          <label className="text-sm font-medium text-stone-700 mb-1 block">
+          <label className="text-sm font-medium text-dim-2 mb-1 block">
             Human Verification
           </label>
-          <p id="wl-math-desc" className="text-xs text-stone-500 mb-3">
+          <p id="wl-math-desc" className="text-xs text-dim mb-3">
             Please solve the math problem below to submit.
           </p>
         </div>
@@ -351,7 +351,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
               isHumanVerified
                 ? "border-green-500 ring-2 ring-green-500/20 bg-green-50"
                 : "border-stone-300 focus-visible:ring-pine-500 focus-visible:border-pine-500"
-            } focus-visible:outline-none focus-visible:ring-2 transition-[border-color,box-shadow,background-color] duration-150 text-pine-900 placeholder:text-stone-400 font-medium`}
+            } focus-visible:outline-none focus-visible:ring-2 transition-[border-color,box-shadow,background-color] duration-150 text-pine-900 placeholder:text-dim font-medium`}
           />
           {isHumanVerified && (
             <span className="text-green-600 font-medium text-sm">Verified! ✓</span>

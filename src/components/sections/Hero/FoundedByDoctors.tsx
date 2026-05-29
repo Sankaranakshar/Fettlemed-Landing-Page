@@ -61,7 +61,7 @@ export const FoundedByDoctors = () => {
                 </div>
                 <span className="group-hover:text-pine-900 transition-colors leading-tight">{item.text}</span>
                 <div className="relative hidden md:block">
-                  <span className="w-4 h-4 rounded-full border border-stone-300 bg-white text-stone-400 text-[10px] font-medium flex items-center justify-center cursor-help peer select-none">i</span>
+                  <span className="w-4 h-4 rounded-full border border-pine-200 bg-white text-dim text-[10px] font-medium flex items-center justify-center cursor-help peer select-none">i</span>
                   <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-stone-900 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity pointer-events-none z-50">
                     {item.tip}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-stone-900" />

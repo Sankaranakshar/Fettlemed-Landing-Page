@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
-import { Lock, ShieldCheck, BadgeCheck, Stethoscope } from "lucide-react";
+import React from 'react';
+import { Lock, ShieldCheck, BadgeCheck } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { Button } from "@/components/common/Button";
 import { HomeFlowMockup } from "@/components/sections/Mockups";
-import { WaitlistModal } from "@/components/common/WaitlistModal";
 import { FoundedByDoctors } from "@/components/sections/Hero/FoundedByDoctors";
+import { useWaitlist } from "@/contexts/WaitlistContext";
 
 export const Hero = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const { openWaitlist } = useWaitlist();
 
   return (
     <section className="relative overflow-hidden flex flex-col bg-surface-50 h-[calc(100vh-80px)] min-h-[600px]">
-      <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} />
       {/* Main content — grows to fill space above the strip, centered vertically */}
       <div className="flex-1 min-h-0 flex items-center px-6 pt-12 pb-4 md:pt-14 lg:pt-6 md:pb-4 relative z-10">
         <div className="container mx-auto max-w-7xl w-full">
@@ -35,7 +34,7 @@ export const Hero = () => {
                 <Button
                   variant="animated"
                   size="lg"
-                  onClick={() => setModalOpen(true)}
+                  onClick={() => openWaitlist()}
                   className="w-full sm:w-auto h-14 px-10 text-lg bg-pine-900 hover:bg-pine-800 text-white rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
                   Join the Waitlist

@@ -9,6 +9,9 @@ import '@fontsource/ibm-plex-sans/700.css';
 // IBM Plex Mono — clinical data, codes, dosages
 import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/ibm-plex-mono/500.css';
+import { initAnalytics } from './lib/analytics';
+
+initAnalytics();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

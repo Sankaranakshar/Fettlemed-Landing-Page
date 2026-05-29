@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from "@/components/common/Button";
 import { FadeIn } from "@/components/common/FadeIn";
 import { DoctorConsultationMockup } from "@/components/sections/Mockups";
-import { WaitlistModal } from "@/components/common/WaitlistModal";
+import { useWaitlist } from "@/contexts/WaitlistContext";
 
 export function DoctorHero() {
-  const [modalOpen, setModalOpen] = useState(false);
+  const { openWaitlist } = useWaitlist();
 
   return (
     <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 border-b border-stone-100 bg-surface-50 overflow-hidden">
-      <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} defaultRole="Doctor" />
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
           {/* Text column */}
@@ -28,7 +27,7 @@ export function DoctorHero() {
                 <Button
                   variant="animated"
                   size="lg"
-                  onClick={() => setModalOpen(true)}
+                  onClick={() => openWaitlist('Doctor')}
                   className="bg-pine-900 hover:bg-pine-800 text-white h-14 px-12 text-lg rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
                   Join the Clinical Pilot

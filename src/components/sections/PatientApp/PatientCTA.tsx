@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import { Button } from "@/components/common/Button";
 import { FadeIn } from "@/components/common/FadeIn";
-import { WaitlistModal } from "@/components/common/WaitlistModal";
+import { useWaitlist } from "@/contexts/WaitlistContext";
 
 export function PatientCTA() {
-  const [modalOpen, setModalOpen] = useState(false);
+  const { openWaitlist } = useWaitlist();
 
   return (
     <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
-       <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} />
        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center">
           <FadeIn>
              <h2 className="text-3xl md:text-5xl font-medium text-pine-900 leading-[1.1] mb-6 tracking-tight text-balance">
@@ -20,7 +19,7 @@ export function PatientCTA() {
              </p>
 
              <div className="flex flex-col items-center justify-center gap-6">
-               <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="bg-pine-900 hover:bg-pine-800 text-white h-14 px-12 text-lg rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2">
+               <Button variant="animated" size="lg" onClick={() => openWaitlist()} className="bg-pine-900 hover:bg-pine-800 text-white h-14 px-12 text-lg rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2">
                  Join the Waitlist
                </Button>
 
