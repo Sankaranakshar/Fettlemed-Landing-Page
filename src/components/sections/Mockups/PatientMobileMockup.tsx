@@ -141,10 +141,10 @@ export function PatientMobileMockup() {
                     {active === "Home" && (
                       <motion.div
                         key="home"
-                        initial={{ opacity: 0, x: 12 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -12 }}
-                        transition={{ duration: 0.25 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.18 }}
                         className="absolute inset-0 flex flex-col"
                       >
                         <div className="bg-pine-600 px-4 pb-5 pt-3">
@@ -188,10 +188,10 @@ export function PatientMobileMockup() {
                     {active === "Records" && (
                       <motion.div
                         key="records"
-                        initial={{ opacity: 0, x: 12 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -12 }}
-                        transition={{ duration: 0.25 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.18 }}
                         className="absolute inset-0 bg-surface-50"
                       >
                         <div className="bg-pine-600 px-4 py-3">
@@ -229,10 +229,10 @@ export function PatientMobileMockup() {
                     {active === "Share" && (
                       <motion.div
                         key="share"
-                        initial={{ opacity: 0, x: 12 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -12 }}
-                        transition={{ duration: 0.25 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.18 }}
                         className="absolute inset-0 bg-surface-50"
                       >
                         <div className="bg-pine-600 px-4 py-3">
@@ -267,10 +267,10 @@ export function PatientMobileMockup() {
                     {active === "Profile" && (
                       <motion.div
                         key="profile"
-                        initial={{ opacity: 0, x: 12 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -12 }}
-                        transition={{ duration: 0.25 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.18 }}
                         className="absolute inset-0 bg-surface-50"
                       >
                         <div className="bg-pine-600 px-4 py-3 flex items-center gap-3">
