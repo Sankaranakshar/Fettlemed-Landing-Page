@@ -36,7 +36,7 @@ export function CookieConsent() {
     <div
       role="dialog"
       aria-label="Cookie consent"
-      className="fixed bottom-0 left-0 right-0 z-[100] bg-pine-950 border-t border-pine-800 px-4 py-4 md:py-5 shadow-2xl"
+      className="fixed bottom-0 left-0 right-0 z-[100] bg-pine-900 border-t border-pine-700 px-4 py-4 md:py-5 shadow-2xl"
     >
       <div className="container mx-auto max-w-6xl flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
         <p className="text-pine-200 text-sm font-medium leading-relaxed max-w-2xl">
