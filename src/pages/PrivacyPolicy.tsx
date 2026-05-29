@@ -76,7 +76,7 @@ export default function PrivacyPolicy() {
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">3.5 Information from Third Parties</h3>
             <ul className="list-disc list-inside space-y-1">
               <li><strong>Social Media:</strong> Information if you choose to connect your social media accounts to your FettleMed profile</li>
-              <li><strong>Service Providers:</strong> Information from our partners who provide specific services to enhance the platform (always with appropriate safeguards)</li>
+              <li><strong>Service Providers:</strong> Information from our partners who provide specific services to enhance the platform, under data processing agreements that limit their use of your information to the services they provide us</li>
             </ul>
 
             {/* Section 4 */}
@@ -86,28 +86,28 @@ export default function PrivacyPolicy() {
             <ul className="list-disc list-inside space-y-1">
               <li>Consolidate and organize your health records into a unified Personal Health Record</li>
               <li>Provide access to your health information through our Patient App, Doctor Portal, and related Services</li>
-              <li>Generate smart health insights and reminders for preventive care</li>
+              <li>Send appointment and medication reminders to help you stay on top of your care</li>
               <li>Continuously improve the functionality and user experience of our platform</li>
             </ul>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">4.2 To Support Clinical Care</h3>
             <ul className="list-disc list-inside space-y-1">
               <li>Share your health information with healthcare providers based on your explicit consent</li>
-              <li>Create smart patient history summaries for your doctors</li>
+              <li>Organise and present your health history to the healthcare providers you authorise</li>
               <li>Facilitate continuity of care across multiple healthcare providers</li>
             </ul>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">4.3 To Communicate with You</h3>
             <ul className="list-disc list-inside space-y-1">
               <li>Send appointment reminders, medication alerts, and follow-up communications</li>
-              <li>Provide health insights and preventive care recommendations based on your records</li>
+              <li>Notify you of record access and consent activity on your account</li>
               <li>Respond to your inquiries and provide customer support</li>
             </ul>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">4.4 For Analytics and Improvement</h3>
             <ul className="list-disc list-inside space-y-1">
               <li>Analyze usage patterns to improve platform functionality (using de-identified or aggregated data)</li>
-              <li>Conduct research on digital health effectiveness (with strict ethical oversight)</li>
+              <li>Conduct internal analysis using aggregated, de-identified data to understand how the platform is used and where it can be improved</li>
               <li>Understand how doctors and patients interact with our platform to enhance features</li>
             </ul>
 
@@ -119,7 +119,7 @@ export default function PrivacyPolicy() {
             </ul>
 
             <div className="bg-pine-50 border-l-4 border-pine-500 p-6 rounded-r-xl my-8">
-              <p className="text-pine-900 font-medium m-0 italic">Critical Principle: We will NEVER use your personal health information for commercial purposes, targeted advertising, or profit-driven activities without your consent. Your health data is sacred and will be treated accordingly.</p>
+              <p className="text-pine-900 font-medium m-0 italic">We do not use your personal health information for commercial purposes, targeted advertising, or profit-driven activities. Your health records are not a product.</p>
             </div>
 
             {/* Section 5 */}
@@ -139,7 +139,7 @@ export default function PrivacyPolicy() {
             <p>We may disclose your information if required by law, court order, or government regulation. In such cases, we will notify you promptly (unless legally prohibited) and work to limit disclosure to only what is legally required. We will cooperate with your efforts to seek protective orders.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">5.5 De-Identified Research (With Ethical Oversight)</h3>
-            <p>We may use aggregated, de-identified health data for research that improves digital health in India. This research is conducted only with Institutional Ethics Committee approval and never contains personally identifiable information. You will be notified of research initiatives, and we will provide opt-out mechanisms.</p>
+            <p>We may use aggregated, de-identified health data for research that improves digital health in India. Such data cannot be used to identify you. You can opt out of contributing to aggregated analysis at any time by contacting us at privacy@fettlemed.com.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">5.6 Business Transfers</h3>
             <p>If FettleMed is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. Any successor organization will be required to maintain the same commitments to your privacy and data sovereignty. We will notify you of any material changes.</p>
@@ -206,7 +206,7 @@ export default function PrivacyPolicy() {
 
             {/* Section 9 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">9. International Data Transfers</h2>
-            <p>While FettleMed is headquartered in India and primarily operates within India, some of our service providers (e.g., cloud infrastructure, security partners) may be located in other countries. Any international transfer of your information will be subject to appropriate legal safeguards, including Standard Contractual Clauses or other mechanisms recognized by applicable data protection laws. We ensure that your information receives adequate protection consistent with the standards in India.</p>
+            <p>FettleMed is headquartered in India and we store patient health records on infrastructure within India. Some supporting service providers, such as security monitoring tools or communications platforms, may process certain operational data outside India. In such cases, we apply contractual safeguards to ensure your information is handled responsibly and in accordance with applicable data protection laws.</p>
 
             {/* Section 10 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">10. Children's Privacy</h2>
@@ -226,7 +226,7 @@ export default function PrivacyPolicy() {
             <p>We comply with applicable Indian data protection laws, including provisions related to health data handling. We recognize the sensitive nature of health information and implement protections that exceed minimum legal requirements.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">12.3 Additional Rights for Certain Jurisdictions</h3>
-            <p>If you are located in the European Union, United Kingdom, or other jurisdictions with comprehensive data protection laws, you may have additional rights including rights of access, rectification, erasure, restriction, portability, and objection. We will honor these rights in accordance with applicable law. Please contact us to exercise these rights.</p>
+            <p>FettleMed primarily serves users in India. If you access our Services from another jurisdiction, you may have additional rights under your local data protection laws. Contact us at privacy@fettlemed.com to exercise those rights and we will respond in accordance with applicable law.</p>
 
             {/* Section 13 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">13. Your Rights and Choices</h2>
@@ -267,7 +267,7 @@ export default function PrivacyPolicy() {
                 GUINDY, CHENNAI – 600032
               </address>
               <p className="mt-6">
-                <strong>Websites:</strong> <a href="https://www.fettlemed.com" className="text-pine-600 hover:text-pine-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a> | <a href="https://www.fettlemed.com" className="text-pine-600 hover:text-pine-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a>
+                <strong>Website:</strong> <a href="https://www.fettlemed.com" className="text-pine-600 hover:text-pine-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a>
               </p>
             </div>
 

@@ -24,7 +24,7 @@ const sidebarLinks: { id: SectionId; label: string }[] = [
 const trustSignals = [
   { icon: Key,         label: "AES-256",          sub: "Encryption at rest" },
   { icon: Lock,        label: "TLS 1.2+",          sub: "Encryption in transit" },
-  { icon: Server,      label: "India only",        sub: "Data residency" },
+  { icon: Server,      label: "Hosted in India",    sub: "Patient data residency" },
   { icon: Eye,         label: "Patient-controlled",sub: "Access model" },
   { icon: FileCheck2,  label: "Audit logging",      sub: "Access activity is recorded" },
   { icon: ShieldCheck, label: "Zero ad revenue",   sub: "Data never sold" },
@@ -92,7 +92,7 @@ export default function Security() {
     <>
       <SEO
         title="Security"
-        description="Your health data is encrypted, patient-controlled, and stored entirely in India. Here is exactly how FettleMed protects your health records."
+        description="Your health data is encrypted, patient-controlled, and stored on infrastructure in India. Here is exactly how FettleMed protects your health records."
       />
       <WaitlistModal open={modalOpen} onClose={() => setModalOpen(false)} />
       <div className="flex flex-col w-full bg-surface-50 min-h-screen">
@@ -393,7 +393,7 @@ export default function Security() {
                               },
                               {
                                 title: "Data residency",
-                                body: "All patient data is stored on servers located in India. No data is transferred outside the country.",
+                                body: "Patient health records are stored on servers located in India. Certain supporting services may process operational data outside India, subject to contractual data protection obligations.",
                               },
                             ].map(({ title, body }) => (
                               <div key={title} className="bg-pine-50/60 border border-pine-100 rounded-2xl p-5">
@@ -445,11 +445,11 @@ export default function Security() {
                       </div>
                       <div className="flex-1">
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Your Data in India</h2>
-                        <p className="text-dim font-medium mb-8">Your health records stay in India. They are never sold, never used for advertising, and never shared with third parties.</p>
+                        <p className="text-dim font-medium mb-8">Your health records are stored on infrastructure in India. They are never sold, never used for advertising, and never shared with third parties for commercial purposes.</p>
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Where your data lives</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">All FettleMed data is stored on servers located in India. No patient data is transferred outside the country for any reason. For specific questions about our hosting architecture, write to hello@fettlemed.com.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed">Patient health records are stored on servers located in India. Certain supporting services, such as security monitoring or communications tools, may process operational data outside India under contractual data protection obligations. For specific questions about our hosting architecture, write to hello@fettlemed.com.</p>
                           </div>
                           <div className="bg-pine-900 rounded-2xl p-6">
                             <h3 className="text-white font-medium mb-4">What your data is never used for</h3>

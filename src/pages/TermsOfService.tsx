@@ -136,7 +136,7 @@ export default function TermsOfService() {
             <p>We grant you a non-exclusive, non-transferable, revocable license to use the Services solely as permitted by these Terms. You agree not to reverse engineer, decompile, or attempt to derive the source code or underlying algorithms of the Services.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">8.3 User-Generated Content</h3>
-            <p>Health information and other data you input into the Services remains your property. However, you grant FettleMed a limited license to use such information to operate and improve the Services, including for de-identified research and analytics purposes, subject to the limitations outlined in our Privacy Policy.</p>
+            <p>Health information and other data you input into the Services remains your property. You grant FettleMed a limited license to use such information solely to operate and provide the Services to you, subject to the limitations outlined in our Privacy Policy. We do not use your identifiable health information for research, analytics, or any purpose beyond delivering the Services.</p>
 
             {/* Section 9 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">9. Indemnification</h2>
@@ -146,13 +146,13 @@ export default function TermsOfService() {
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">10. Limitation of Liability</h2>
             
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">10.1 Disclaimer</h3>
-            <p className="uppercase text-sm tracking-wider">THE SERVICES ARE PROVIDED ON AN "AS-IS" AND "AS-AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. NAMNALAM DISCLAIMS ALL WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE.</p>
+            <p className="uppercase text-sm tracking-wider">THE SERVICES ARE PROVIDED ON AN "AS-IS" AND "AS-AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. FETTLEMED DISCLAIMS ALL WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">10.2 Limitation of Damages</h3>
-            <p className="uppercase text-sm tracking-wider">TO THE MAXIMUM EXTENT PERMITTED BY LAW, NAMNALAM SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR LOSS OF PROFITS, DATA, OR USE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+            <p className="uppercase text-sm tracking-wider">TO THE MAXIMUM EXTENT PERMITTED BY LAW, FETTLEMED SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR LOSS OF PROFITS, DATA, OR USE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">10.3 Cap on Liability</h3>
-            <p className="uppercase text-sm tracking-wider">IN NO EVENT SHALL NAMNALAM'S TOTAL LIABILITY TO YOU EXCEED THE AMOUNTS PAID BY YOU TO NAMNALAM IN THE 12 MONTHS PRECEDING THE CLAIM, OR ONE HUNDRED THOUSAND RUPEES (₹100,000), WHICHEVER IS GREATER.</p>
+            <p className="uppercase text-sm tracking-wider">IN NO EVENT SHALL FETTLEMED'S TOTAL LIABILITY TO YOU EXCEED THE AMOUNTS PAID BY YOU TO FETTLEMED IN THE 12 MONTHS PRECEDING THE CLAIM, OR ONE HUNDRED THOUSAND RUPEES (₹100,000), WHICHEVER IS GREATER.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">10.4 Clinical Disclaimer</h3>
             <p>The Services are not a substitute for professional medical advice, diagnosis, or treatment. Information provided through the Services should not be relied upon as a substitute for consultation with a qualified healthcare professional. FettleMed does not provide medical advice, and all information is for informational purposes only.</p>
@@ -198,7 +198,7 @@ export default function TermsOfService() {
                 GUINDY, CHENNAI – 600032
               </address>
               <p className="mt-6">
-                <strong>Websites:</strong> <a href="https://www.fettlemed.com" className="text-pine-600 hover:text-pine-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a> | <a href="https://www.fettlemed.com" className="text-pine-600 hover:text-pine-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a>
+                <strong>Website:</strong> <a href="https://www.fettlemed.com" className="text-pine-600 hover:text-pine-700" target="_blank" rel="noopener noreferrer">www.fettlemed.com</a>
               </p>
             </div>
             <p className="mt-6 text-sm text-stone-500 italic">We will respond to inquiries within 7 business days.</p>

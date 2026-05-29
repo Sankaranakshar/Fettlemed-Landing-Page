@@ -45,9 +45,9 @@ export function PatientDataRules() {
                 <div className="shrink-0">
                    <Server className="w-7 h-7 text-pine-600 mb-4" />
                    <p className="text-7xl font-bold text-pine-900 tracking-tight leading-none">IN</p>
-                   <p className="text-pine-600 font-medium text-xl mt-1">India Only</p>
+                   <p className="text-pine-600 font-medium text-xl mt-1">India Hosted</p>
                 </div>
-                <p className="text-dim-2 font-medium text-base leading-relaxed">Health data is stored and processed within India. We do not transfer your health records outside the country.</p>
+                <p className="text-dim-2 font-medium text-base leading-relaxed">Patient health records are stored on infrastructure in India. They are never sold and never shared for commercial purposes.</p>
              </FadeIn>
 
           </div>
