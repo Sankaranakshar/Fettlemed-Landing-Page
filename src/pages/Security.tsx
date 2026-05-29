@@ -24,7 +24,7 @@ const sidebarLinks: { id: SectionId; label: string }[] = [
 const trustSignals = [
   { icon: Lock,        label: "TLS 1.2+",           sub: "Encryption in transit — live" },
   { icon: Key,         label: "AES-256",             sub: "At-rest encryption — pre-launch" },  // ⚠️ VERIFY BEFORE DEPLOYMENT: Gurubalaji to confirm AES-256 at-rest is live
-  { icon: Server,      label: "AWS — India region",  sub: "Hosted on AWS ap-south-1 (Mumbai)" }, // ⚠️ VERIFY BEFORE DEPLOYMENT: confirm ap-south-1 is the selected region
+  { icon: Server,      label: "Hosted in India",      sub: "Primary data centre in India" }, // ⚠️ VERIFY BEFORE DEPLOYMENT: confirm primary hosting region before launch
   { icon: Eye,         label: "Patient-controlled",  sub: "Access model" },
   { icon: FileCheck2,  label: "Audit logging",       sub: "Ready at launch" },
   { icon: ShieldCheck, label: "No data sales",       sub: "Personal health data never sold" },
@@ -437,10 +437,10 @@ export default function Security() {
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Your Data in India</h2>
                         <p className="text-dim font-medium mb-8">Your health records are stored on infrastructure in India. They are never sold, never used for advertising, and never shared with third parties for commercial purposes.</p>
                         <div className="space-y-6">
-                          {/* ⚠️ VERIFY BEFORE DEPLOYMENT: confirm AWS ap-south-1 (Mumbai) is the selected primary region before launch */}
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
+                          {/* ⚠️ VERIFY BEFORE DEPLOYMENT: confirm primary hosting region and provider before launch */}
+<div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Where your data lives</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Patient health records are hosted on Amazon Web Services (AWS), with the primary data centre in India (Mumbai region, ap-south-1). AWS backup and disaster recovery infrastructure may include servers in other regions, subject to contractual data protection obligations. For specific questions about our hosting architecture, write to <a href="mailto:hello@fettlemed.com" className="text-pine-600 hover:text-pine-700">hello@fettlemed.com</a>.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed">Patient health records are hosted on cloud infrastructure with the primary data centre in India. Backup and disaster recovery infrastructure may include servers in other regions, subject to contractual data protection obligations. For specific questions about our hosting architecture, write to <a href="mailto:hello@fettlemed.com" className="text-pine-600 hover:text-pine-700">hello@fettlemed.com</a>.</p>
                           </div>
                           <div className="bg-pine-900 rounded-2xl p-6">
                             <h3 className="text-white font-medium mb-4">What your data is never used for</h3>

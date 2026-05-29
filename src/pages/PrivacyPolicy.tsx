@@ -206,7 +206,7 @@ export default function PrivacyPolicy() {
 
             {/* Section 9 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">9. International Data Transfers</h2>
-            <p>FettleMed is headquartered in India. Patient health records are hosted on Amazon Web Services (AWS), with the primary data centre in India (Mumbai region). AWS backup and disaster recovery infrastructure may include servers in other AWS regions outside India. Additionally, certain supporting service providers — such as Google Analytics, security monitoring tools, or communications platforms — may process operational or anonymised usage data outside India. In all cases, we apply contractual safeguards to ensure your information is handled responsibly and in accordance with applicable data protection laws including DPDPA 2023.</p>
+            <p>FettleMed is headquartered in India. Patient health records are hosted on cloud infrastructure with the primary data centre in India. Backup and disaster recovery infrastructure may include servers in other regions outside India. Additionally, certain supporting service providers — such as Google Analytics, security monitoring tools, or communications platforms — may process operational or anonymised usage data outside India. In all cases, we apply contractual safeguards to ensure your information is handled responsibly and in accordance with applicable data protection laws including DPDPA 2023.</p>
 
             {/* Section 10 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">10. Children's Privacy</h2>
