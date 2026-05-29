@@ -136,8 +136,8 @@ export function PatientMobileMockup() {
                 </div>
 
                 {/* Tab content — flex-1 fills whatever space remains */}
-                <div className="overflow-hidden flex-1 bg-surface-50">
-                  <AnimatePresence mode="wait">
+                <div className="overflow-hidden flex-1 bg-surface-50 relative">
+                  <AnimatePresence mode="sync">
                     {active === "Home" && (
                       <motion.div
                         key="home"
@@ -145,7 +145,7 @@ export function PatientMobileMockup() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -12 }}
                         transition={{ duration: 0.25 }}
-                        className="h-full flex flex-col"
+                        className="absolute inset-0 flex flex-col"
                       >
                         <div className="bg-pine-600 px-4 pb-5 pt-3">
                           <p className="text-pine-100 text-[10px] font-medium">Good morning</p>
@@ -192,7 +192,7 @@ export function PatientMobileMockup() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -12 }}
                         transition={{ duration: 0.25 }}
-                        className="h-full bg-surface-50"
+                        className="absolute inset-0 bg-surface-50"
                       >
                         <div className="bg-pine-600 px-4 py-3">
                           <p className="text-white text-xs font-medium">Health Records</p>
@@ -233,7 +233,7 @@ export function PatientMobileMockup() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -12 }}
                         transition={{ duration: 0.25 }}
-                        className="h-full bg-surface-50"
+                        className="absolute inset-0 bg-surface-50"
                       >
                         <div className="bg-pine-600 px-4 py-3">
                           <p className="text-white text-xs font-medium">Share Records</p>
@@ -271,7 +271,7 @@ export function PatientMobileMockup() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -12 }}
                         transition={{ duration: 0.25 }}
-                        className="h-full bg-surface-50"
+                        className="absolute inset-0 bg-surface-50"
                       >
                         <div className="bg-pine-600 px-4 py-3 flex items-center gap-3">
                           <div className="w-10 h-10 rounded-full bg-pine-400 flex items-center justify-center font-medium text-white text-sm">R</div>
