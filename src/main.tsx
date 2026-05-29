@@ -9,9 +9,7 @@ import '@fontsource/ibm-plex-sans/700.css';
 // IBM Plex Mono — clinical data, codes, dosages
 import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/ibm-plex-mono/500.css';
-import { initAnalytics } from './lib/analytics';
-
-initAnalytics();
+// Analytics are initialized by CookieConsent after user opts in
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

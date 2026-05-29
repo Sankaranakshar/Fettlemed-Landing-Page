@@ -64,7 +64,7 @@ export default function PrivacyPolicy() {
               <li><strong>Device Information:</strong> Device type, operating system, browser type, mobile device identifier, and device settings</li>
               <li><strong>Usage Information:</strong> Features accessed, pages viewed, time spent on the platform, search queries, and interaction patterns</li>
               <li><strong>IP Address and Location:</strong> IP address and approximate geographic location based on IP address (not precise GPS location without your consent)</li>
-              <li><strong>Cookies and Tracking Technologies:</strong> Information collected through cookies, web beacons, and similar technologies to enhance your experience</li>
+              <li><strong>Cookies and Analytics:</strong> We use <strong>Google Analytics</strong> (a service provided by Google LLC) to collect anonymised usage information including pages visited, time spent, and device type. Google Analytics uses cookies and may transfer data to Google servers. No personal health data is included in analytics. You can decline analytics tracking via our cookie consent banner, or opt out via <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-pine-600 hover:text-pine-700 underline">Google's opt-out tool</a>.</li>
             </ul>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">3.4 Information from Healthcare Providers</h3>
@@ -119,7 +119,7 @@ export default function PrivacyPolicy() {
             </ul>
 
             <div className="bg-pine-50 border-l-4 border-pine-500 p-6 rounded-r-xl my-8">
-              <p className="text-pine-900 font-medium m-0 italic">We do not use your personal health information for commercial purposes, targeted advertising, or profit-driven activities. Your health records are not a product.</p>
+              <p className="text-pine-900 font-medium m-0 italic">Your personal health data is never sold — not to insurers, pharmaceutical companies, employers, or any other third party. Anonymised, aggregated usage data may be used to improve our services and may inform product analytics. No personally identifiable health information is ever included in such analysis.</p>
             </div>
 
             {/* Section 5 */}
@@ -164,8 +164,8 @@ export default function PrivacyPolicy() {
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">6.4 Communication Preferences</h3>
             <p>You control how we communicate with you. You can opt out of marketing communications, adjust notification preferences, and select your preferred language and contact method at any time.</p>
 
-            <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">6.5 Cookie and Tracking Choices</h3>
-            <p>You can control cookies through your browser settings or through our in-app privacy controls. We provide clear explanations of what each cookie does and allow you to disable non-essential tracking.</p>
+            <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">6.5 Cookie and Analytics Choices</h3>
+            <p>When you first visit FettleMed, a cookie consent banner allows you to accept or decline Google Analytics tracking. If you decline, no analytics data is collected. Your choice is stored in your browser and you can change it at any time by clearing your browser's local storage. You can also opt out of Google Analytics at any time using <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-pine-600 hover:text-pine-700 underline">Google's browser opt-out tool</a>.</p>
 
             {/* Section 7 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">7. Data Security and Protection</h2>
@@ -206,7 +206,7 @@ export default function PrivacyPolicy() {
 
             {/* Section 9 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">9. International Data Transfers</h2>
-            <p>FettleMed is headquartered in India and we store patient health records on infrastructure within India. Some supporting service providers, such as security monitoring tools or communications platforms, may process certain operational data outside India. In such cases, we apply contractual safeguards to ensure your information is handled responsibly and in accordance with applicable data protection laws.</p>
+            <p>FettleMed is headquartered in India and we store patient health records on primary infrastructure within India. Backup and disaster recovery infrastructure may include servers located outside India. Additionally, certain supporting service providers — such as Google Analytics, security monitoring tools, or communications platforms — may process operational or anonymised usage data outside India. In all cases, we apply contractual safeguards to ensure your information is handled responsibly and in accordance with applicable data protection laws including DPDPA 2023.</p>
 
             {/* Section 10 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">10. Children's Privacy</h2>

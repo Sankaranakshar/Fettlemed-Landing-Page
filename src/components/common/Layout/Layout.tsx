@@ -5,6 +5,7 @@ import { cn } from "@/utils/cn";
 import { Menu, X } from "lucide-react";
 import { preloadRoutes } from "@/preloadRoutes";
 import { useWaitlist } from "@/contexts/WaitlistContext";
+import { CookieConsent } from "@/components/common/CookieConsent/CookieConsent";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -137,6 +138,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
              </nav>
           </div>
 
+          {/* Medical disclaimer — visible, not buried in ToS */}
+          <div className="border-t border-pine-800 pt-6 mb-8 text-center">
+            <p className="text-pine-400 text-xs font-medium leading-relaxed max-w-3xl mx-auto">
+              FettleMed is a health record management platform. It is <strong className="text-pine-300">not a substitute</strong> for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional for medical decisions.
+            </p>
+          </div>
+
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-pine-200/60 text-xs font-medium">
             <div className="flex items-center">
               <span className="text-lg tracking-tight leading-none select-none">
@@ -152,6 +160,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </footer>
+
+      <CookieConsent />
     </div>
   );
 }

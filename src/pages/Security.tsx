@@ -22,12 +22,12 @@ const sidebarLinks: { id: SectionId; label: string }[] = [
 ];
 
 const trustSignals = [
-  { icon: Key,         label: "AES-256",          sub: "Encryption at rest" },
-  { icon: Lock,        label: "TLS 1.2+",          sub: "Encryption in transit" },
-  { icon: Server,      label: "Hosted in India",    sub: "Patient data residency" },
-  { icon: Eye,         label: "Patient-controlled",sub: "Access model" },
-  { icon: FileCheck2,  label: "Audit logging",      sub: "Access activity is recorded" },
-  { icon: ShieldCheck, label: "Zero ad revenue",   sub: "Data never sold" },
+  { icon: Lock,        label: "TLS 1.2+",           sub: "Encryption in transit — live" },
+  { icon: Key,         label: "AES-256",             sub: "At-rest encryption — pre-launch" },  // ⚠️ VERIFY BEFORE DEPLOYMENT
+  { icon: Server,      label: "India-first hosting", sub: "Primary servers in India" },          // ⚠️ VERIFY BEFORE DEPLOYMENT: confirm backup infra
+  { icon: Eye,         label: "Patient-controlled",  sub: "Access model" },
+  { icon: FileCheck2,  label: "Audit logging",       sub: "Full implementation pre-launch" },    // ⚠️ VERIFY BEFORE DEPLOYMENT
+  { icon: ShieldCheck, label: "No data sales",       sub: "Personal health data never sold" },
 ];
 
 const faqData = [
@@ -271,9 +271,10 @@ export default function Security() {
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Encryption</h2>
                         <p className="text-dim font-medium mb-8">Your health records are encrypted at every stage — at rest, in transit, and in the event of a breach.</p>
                         <div className="space-y-6">
+                          {/* ⚠️ VERIFY BEFORE DEPLOYMENT: confirm AES-256 at-rest is fully implemented */}
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">At rest</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">All data is encrypted using AES-256, the international standard for protecting sensitive data at rest. Patient health records are encrypted with strong per-record keys.</p>
+                            <h3 className="text-pine-900 font-medium mb-2 flex items-center gap-2">At rest <span className="text-[11px] font-medium text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">Being finalized pre-launch</span></h3>
+                            <p className="text-dim-2 font-medium leading-relaxed">At-rest encryption using AES-256 is being finalized as part of our pre-launch security implementation. All data in transit is already protected by TLS 1.2+.</p>
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">In transit</h3>
@@ -349,9 +350,10 @@ export default function Security() {
                             <h3 className="text-pine-900 font-medium mb-2">Session management</h3>
                             <p className="text-dim-2 font-medium leading-relaxed">Inactive sessions expire automatically. Sensitive actions require re-authentication. All access attempts, successful and failed, are logged with timestamps and user identifiers.</p>
                           </div>
+                          {/* ⚠️ VERIFY BEFORE DEPLOYMENT: confirm audit logging is fully live */}
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">Audit logging</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Every access event is recorded. Clinic owners can see who accessed what and when. This is available as a standard feature, not a premium add-on.</p>
+                            <h3 className="text-pine-900 font-medium mb-2 flex items-center gap-2">Audit logging <span className="text-[11px] font-medium text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">Full rollout pre-launch</span></h3>
+                            <p className="text-dim-2 font-medium leading-relaxed">Access audit logging is partially implemented and will be fully live before launch. Clinic owners will be able to see who accessed what and when, as a standard feature.</p>
                           </div>
                         </div>
                       </div>
@@ -403,30 +405,20 @@ export default function Security() {
                           </div>
                         </div>
 
-                        {/* In progress */}
-                        <div className="mb-8">
-                          <div className="flex items-center gap-2 mb-4">
-                            <Clock className="w-5 h-5 text-amber-600" />
-                            <p className="text-sm font-medium text-amber-700 uppercase tracking-wider">In progress</p>
-                          </div>
-                          <div className="pl-7">
-                            <div className="bg-amber-50/60 border border-amber-100 rounded-2xl p-5">
-                              <h3 className="text-pine-900 font-medium mb-1">ISO 27001 certification in progress</h3>
-                              <p className="text-dim-2 font-medium leading-relaxed">FettleMed is actively working toward ISO 27001, the international standard for information security management.</p>
-                            </div>
-                          </div>
-                        </div>
-
                         {/* Planned */}
                         <div>
                           <div className="flex items-center gap-2 mb-4">
                             <Calendar className="w-5 h-5 text-dim" />
-                            <p className="text-sm font-medium text-dim uppercase tracking-wider">Planned</p>
+                            <p className="text-sm font-medium text-dim uppercase tracking-wider">Planned post-launch</p>
                           </div>
-                          <div className="pl-7">
+                          <div className="pl-7 space-y-4">
                             <div className="bg-surface-50 border border-stone-200 rounded-2xl p-5">
                               <h3 className="text-pine-900 font-medium mb-1">ABDM formal certification</h3>
                               <p className="text-dim-2 font-medium leading-relaxed">Formal certification through the ABDM certification process is on the roadmap following pilot completion.</p>
+                            </div>
+                            <div className="bg-surface-50 border border-stone-200 rounded-2xl p-5">
+                              <h3 className="text-pine-900 font-medium mb-1">ISO 27001 certification</h3>
+                              <p className="text-dim-2 font-medium leading-relaxed">ISO 27001 certification is on our roadmap. Formal work toward certification will begin following product launch.</p>
                             </div>
                           </div>
                         </div>
@@ -446,16 +438,17 @@ export default function Security() {
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Your Data in India</h2>
                         <p className="text-dim font-medium mb-8">Your health records are stored on infrastructure in India. They are never sold, never used for advertising, and never shared with third parties for commercial purposes.</p>
                         <div className="space-y-6">
+                          {/* ⚠️ VERIFY BEFORE DEPLOYMENT: confirm primary servers are in India and document backup regions */}
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Where your data lives</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Patient health records are stored on servers located in India. Certain supporting services, such as security monitoring or communications tools, may process operational data outside India under contractual data protection obligations. For specific questions about our hosting architecture, write to hello@fettlemed.com.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed">Patient health records are stored on primary servers located in India. Backup and disaster recovery infrastructure may include servers outside India, subject to contractual data protection obligations. For specific questions about our hosting architecture, write to <a href="mailto:hello@fettlemed.com" className="text-pine-600 hover:text-pine-700">hello@fettlemed.com</a>.</p>
                           </div>
                           <div className="bg-pine-900 rounded-2xl p-6">
                             <h3 className="text-white font-medium mb-4">What your data is never used for</h3>
                             <ul className="space-y-3">
                               {[
-                                "Never used for advertising.",
-                                "Never sold to insurers, pharmaceutical companies, employers, or any third party.",
+                                "Your personal health data is never sold — not to insurers, pharmaceutical companies, employers, or any third party.",
+                                "Anonymised, aggregated usage data may inform product analytics and service improvement. No personally identifiable health information is included.",
                                 "Never used to train AI or machine learning models.",
                               ].map((item) => (
                                 <li key={item} className="flex items-start gap-3 text-pine-100 font-medium text-sm leading-relaxed">

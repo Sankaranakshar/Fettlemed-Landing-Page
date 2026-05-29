@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -361,6 +362,15 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
           <p className="text-xs text-red-500 font-medium">{errors.mathAnswer.message}</p>
         )}
       </div>
+
+      {/* Consent notice */}
+      <p className="text-xs text-dim font-medium leading-relaxed">
+        By submitting, you agree to our{' '}
+        <Link to="/terms-of-service" className="underline hover:text-pine-600 transition-colors">Terms of Service</Link>
+        {' '}and{' '}
+        <Link to="/privacy-policy" className="underline hover:text-pine-600 transition-colors">Privacy Policy</Link>.
+        We will not share your personal information with third parties.
+      </p>
 
       {/* Submit — loader overlays text so button width never shifts */}
       <Button
