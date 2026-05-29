@@ -18,11 +18,7 @@
   --color-dim: #2E3B36;        /* Secondary text on light backgrounds */
   --color-dim-2: #1A2620;      /* Near-ink secondary text */
 
-  /* Brand cream — the only approved warm background. Never pure white. */
-  --color-surface-50: #FBF8F1;
-  /* Override Tailwind's white token so bg-white/text-white resolve to cream.
-     Pure #FFFFFF is banned by brand guidelines (v7). */
-  --color-white: #FBF8F1;
+  --color-surface-50: #F7FAF9;
   --color-accent-50: #EDF4F0;
   --color-accent-100: #D7E7DF;
   --color-accent-200: #B8D4CA;
