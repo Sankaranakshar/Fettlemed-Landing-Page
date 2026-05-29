@@ -19,7 +19,7 @@ export function PatientFeatures() {
                 <ul className="space-y-2 text-dim-2 font-medium text-base">
                    <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Every prescription, lab report, scan, and consultation note — uploaded by you or sent from your doctor</li>
                    <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Available on your phone, anytime, anywhere</li>
-                   <li className="flex items-start gap-2 text-pine-600 font-medium"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Free for patients. Always.</li>
+                   <li className="flex items-start gap-2 text-pine-600 font-medium"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Core patient features are free. Always.</li>
                 </ul>
              </FadeIn>
 

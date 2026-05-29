@@ -27,7 +27,7 @@ export default function Waitlist() {
                       <CheckCircle2 className="w-4 h-4 text-pine-600"/> Early access
                     </span>
                     <span className="flex items-center gap-2 bg-white px-4 py-3 rounded-2xl shadow-sm border border-stone-200 w-fit">
-                      <CheckCircle2 className="w-4 h-4 text-pine-600"/> Founding member benefits
+                      <CheckCircle2 className="w-4 h-4 text-pine-600"/> Shape the product from day one
                     </span>
                     <span className="flex items-center gap-2 bg-white px-4 py-3 rounded-2xl shadow-sm border border-stone-200 w-fit">
                       <CheckCircle2 className="w-4 h-4 text-pine-600"/> Limited rollout

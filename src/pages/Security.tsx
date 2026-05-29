@@ -26,7 +26,7 @@ const trustSignals = [
   { icon: Lock,        label: "TLS 1.2+",          sub: "Encryption in transit" },
   { icon: Server,      label: "India only",        sub: "Data residency" },
   { icon: Eye,         label: "Patient-controlled",sub: "Access model" },
-  { icon: FileCheck2,  label: "Full audit log",    sub: "Every access, every time" },
+  { icon: FileCheck2,  label: "Audit logging",      sub: "Access activity is recorded" },
   { icon: ShieldCheck, label: "Zero ad revenue",   sub: "Data never sold" },
 ];
 
@@ -274,7 +274,7 @@ export default function Security() {
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">At rest</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">All data is encrypted using AES-256, the same standard used by financial institutions and government systems globally. Patient health records are encrypted with patient-specific keys.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed">All data is encrypted using AES-256, the international standard for protecting sensitive data at rest. Patient health records are encrypted with strong per-record keys.</p>
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">In transit</h3>
@@ -282,7 +282,7 @@ export default function Security() {
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">In the event of a breach</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Even if an attacker gains access to FettleMed's servers, encrypted patient records are unreadable without the patient-specific authorisation keys. The data itself is unreadable to anyone without the right credentials.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed">Even if FettleMed's servers were accessed without authorisation, encrypted patient records cannot be read without the appropriate credentials. The data at rest is unreadable without the right keys.</p>
                           </div>
                         </div>
                       </div>
@@ -299,7 +299,7 @@ export default function Security() {
                       </div>
                       <div className="flex-1">
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Consent &amp; Access</h2>
-                        <p className="text-dim font-medium mb-8">Patients decide who sees their health data, what they see, and for how long. No access happens without explicit consent.</p>
+                        <p className="text-dim font-medium mb-8">Patients decide who sees their health data, what they see, and for how long. Healthcare provider access requires patient consent.</p>
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Who controls access</h3>
@@ -315,7 +315,7 @@ export default function Security() {
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">The audit trail</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Every consent event is recorded in an immutable log: when it was granted, what it covered, who accessed it, and when it was revoked or expired. Patients can view the full history at any time.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed">Every consent event is recorded in a tamper-resistant audit log: when it was granted, what it covered, who accessed it, and when it was revoked or expired. Patients can view the full history at any time.</p>
                           </div>
                         </div>
                       </div>
@@ -457,7 +457,7 @@ export default function Security() {
                               {[
                                 "Never used for advertising.",
                                 "Never sold to insurers, pharmaceutical companies, employers, or any third party.",
-                                "Never used to train AI models or commercial algorithms without explicit, separate patient consent.",
+                                "Never used to train AI or machine learning models.",
                               ].map((item) => (
                                 <li key={item} className="flex items-start gap-3 text-pine-100 font-medium text-sm leading-relaxed">
                                   <CheckCircle2 className="w-4 h-4 text-pine-400 shrink-0 mt-0.5" />
@@ -469,7 +469,7 @@ export default function Security() {
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">The legal commitment</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed mb-4">This is not a policy preference that can be changed in a terms update. It is a contractual and architectural commitment, built into how FettleMed is designed.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed mb-4">Our commitment to never sell or misuse your health data is documented in our Privacy Policy and Terms of Service. It applies to every user, every time.</p>
                             <div className="flex gap-4 text-sm font-medium">
                               <Link to="/privacy" className="text-pine-600 hover:text-pine-700 transition-colors underline">Read our Privacy Policy</Link>
                               <Link to="/terms" className="text-pine-600 hover:text-pine-700 transition-colors underline">Read our Terms of Service</Link>

@@ -7,7 +7,7 @@ export function ClinicFeatures() {
     <section id="platform" className="py-16 md:py-20 bg-surface-50 border-b border-stone-100 scroll-mt-24">
        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <FadeIn className="text-center mb-10 max-w-3xl mx-auto">
-             <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight mb-6 text-balance">Your clinic's operations, seamlessly automated on day one.</h2>
+             <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight mb-6 text-balance">Your clinic's operations, in one place from day one.</h2>
           </FadeIn>
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 auto-rows-fr">
@@ -19,7 +19,7 @@ export function ClinicFeatures() {
                 <ul className="text-dim-2 leading-relaxed font-medium text-lg space-y-3 list-disc pl-5">
                    <li>Patients book online or through the front desk, your choice.</li>
                    <li>Automated reminders sent before every appointment, no-shows drop.</li>
-                   <li>Booking clashes are impossible, the system prevents them at the point of scheduling.</li>
+                   <li>Double-bookings are prevented at the point of scheduling — the system won't allow a conflict.</li>
                    <li>Real-time queue view from any screen. No one has to walk to the waiting room to check.</li>
                 </ul>
              </FadeIn>
@@ -44,7 +44,7 @@ export function ClinicFeatures() {
                 <h3 className="text-2xl font-medium text-pine-900 mb-4 tracking-tight text-balance">Billing &amp; Financial Visibility</h3>
                 <ul className="text-dim-2 leading-relaxed font-medium text-lg space-y-3 list-disc pl-5">
                    <li>Invoices generated at the point of consultation, not compiled at the end of the day.</li>
-                   <li>GST-compliant billing built in, no separate accounting step.</li>
+                   <li>GST-ready billing — invoices generated at the point of consultation with the fields your accountant needs.</li>
                    <li>Owner dashboard: daily collections, monthly summaries, revenue by doctor.</li>
                    <li>No spreadsheets. No end-of-month reconciliation surprises.</li>
                 </ul>

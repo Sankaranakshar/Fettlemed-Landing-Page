@@ -54,7 +54,7 @@ export function DoctorConsent() {
                    <p className="text-pine-200 leading-relaxed font-medium mb-4">When a patient shares their full profile, you see what every other doctor who treated them saw — no gaps, no guessing.</p>
                    <ul className="space-y-2 text-pine-200 font-medium">
                       <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>No asking what they were prescribed six months ago</li>
-                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>No guessing at drug interactions from another clinic</li>
+                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>Medication history in one place — no asking what they were prescribed elsewhere</li>
                       <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>No repeating a test from three weeks ago</li>
                    </ul>
                 </div>
@@ -72,7 +72,7 @@ export function DoctorConsent() {
                       <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>If a complaint arises, what you had access to is documented and verifiable</li>
                       <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>Visible to you and to the patient, always</li>
                    </ul>
-                   <p className="text-pine-100 font-medium">This is not just a privacy feature. It is professional protection.</p>
+                   <p className="text-pine-100 font-medium">Clear access and activity records — for every consultation.</p>
                 </div>
              </FadeIn>
           </div>

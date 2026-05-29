@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
         <FadeIn>
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-medium text-pine-900 mb-4 tracking-tight">PRIVACY POLICY</h1>
-            <h2 className="text-xl md:text-2xl font-medium text-pine-600 mb-2">FettleMed (FettleMed Health Tech Private Limited)</h2>
+            <h2 className="text-xl md:text-2xl font-medium text-pine-600 mb-2">NamNalam Health Tech Private Limited (trading as FettleMed)</h2>
             <p className="text-stone-500 font-medium italic mb-6">Your Health, Your Control</p>
             <p className="text-stone-500 font-medium inline-block bg-white px-4 py-2 border border-stone-200 rounded-full text-sm">
               Effective Date: April 20, 2026
@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
             {/* Section 1 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-8">1. Introduction and Commitment to Your Privacy</h2>
             <p>
-              FettleMed (FettleMed Health Tech Private Limited) ("we," "us," "our," or "FettleMed") is committed to building India's digital health backbone while placing your health data ownership at the absolute center of everything we do. This Privacy Policy explains how we collect, use, disclose, and otherwise process your personal and health information in connection with our integrated digital health platform, including our Patient App, Doctor Clinical Portal, Clinic Management System, and related services (collectively, the "Services").
+              NamNalam Health Tech Private Limited (trading as FettleMed) ("we," "us," "our," or "FettleMed") is committed to building India's digital health backbone while placing your health data ownership at the absolute center of everything we do. This Privacy Policy explains how we collect, use, disclose, and otherwise process your personal and health information in connection with our integrated digital health platform, including our Patient App, Doctor Clinical Portal, Clinic Management System, and related services (collectively, the "Services").
             </p>
             <p>
               Our core principle is <strong>Patient Data Sovereignty</strong>. You own your health data, and we are committed to transparency, trust, and security in how we handle it. We believe that empowering patients with complete control over their health information is not just ethically right—it is essential to building a more equitable and efficient healthcare ecosystem in India. Please read this Policy carefully to understand our privacy practices and your rights.
@@ -115,7 +115,7 @@ export default function PrivacyPolicy() {
             <ul className="list-disc list-inside space-y-1">
               <li>Detect, prevent, and address fraud, security breaches, and technical issues</li>
               <li>Maintain audit logs and access records for security and regulatory compliance</li>
-              <li>Comply with applicable laws, regulations, and legal processes (ABDM, HIPAA where applicable, data protection laws)</li>
+              <li>Comply with applicable laws, regulations, and legal processes (ABDM, DPDPA 2023, IT Act 2000, and applicable Indian data protection laws)</li>
             </ul>
 
             <div className="bg-pine-50 border-l-4 border-pine-500 p-6 rounded-r-xl my-8">
@@ -173,7 +173,7 @@ export default function PrivacyPolicy() {
             
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">7.1 Technical Safeguards</h3>
             <ul className="list-disc list-inside space-y-1">
-              <li><strong>End-to-End Encryption:</strong> Your health data is encrypted in transit (using TLS 1.2+) and at rest using AES-256 encryption</li>
+              <li><strong>Encryption in transit and at rest:</strong> Your health data is encrypted using TLS 1.2+ while transmitted and AES-256 encryption while stored</li>
               <li><strong>Access Control:</strong> Role-based access control ensures employees and systems can access only the data necessary for their functions</li>
               <li><strong>Audit Logging:</strong> All access to health data is logged and monitored for suspicious activity</li>
               <li><strong>Firewalls and Intrusion Detection:</strong> Enterprise-grade firewalls and intrusion detection systems protect our infrastructure</li>
@@ -276,7 +276,7 @@ export default function PrivacyPolicy() {
             </p>
 
             <div className="text-center mt-12 pt-8 border-t border-stone-200">
-              <p className="text-stone-400 font-medium">© 2026 FettleMed (FettleMed Health Tech Private Limited). All rights reserved.</p>
+              <p className="text-stone-400 font-medium">© 2026 NamNalam Health Tech Private Limited (trading as FettleMed). All rights reserved.</p>
               <p className="text-stone-400 italic">Your Health, Your Control</p>
             </div>
             

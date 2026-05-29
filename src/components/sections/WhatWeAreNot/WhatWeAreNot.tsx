@@ -41,7 +41,7 @@ export const WhatWeAreNot = () => {
               <ul className="space-y-3 text-dim-2 font-medium text-base flex-1">
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-2 shrink-0"></span>Built on the ABDM framework and ABHA ID infrastructure</li>
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-2 shrink-0"></span>The same national standards India's healthcare system is moving toward</li>
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-2 shrink-0"></span>Compliance is not an add-on. It is the architecture.</li>
+                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-2 shrink-0"></span>Compliance considerations are built into our design, not added on top.</li>
               </ul>
             </div>
           </FadeIn>

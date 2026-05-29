@@ -25,7 +25,7 @@ export function PatientCTA() {
                </Button>
 
                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm font-medium text-dim">
-                  <span>Free for patients, always</span>
+                  <span>Core patient features are free</span>
                   <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-200"></span>
                   <span>No credit card. No commitment.</span>
                   <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-200"></span>

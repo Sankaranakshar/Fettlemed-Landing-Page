@@ -10,7 +10,7 @@ export default function TermsOfService() {
         <FadeIn>
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-medium text-pine-900 mb-4 tracking-tight">TERMS OF SERVICE</h1>
-            <h2 className="text-xl md:text-2xl font-medium text-pine-600 mb-2">FettleMed (FettleMed Health Tech Private Limited)</h2>
+            <h2 className="text-xl md:text-2xl font-medium text-pine-600 mb-2">NamNalam Health Tech Private Limited (trading as FettleMed)</h2>
             <p className="text-stone-500 font-medium italic mb-6">Your Health, Your Control</p>
             <p className="text-stone-500 font-medium inline-block bg-white px-4 py-2 border border-stone-200 rounded-full text-sm">
               Effective Date: April 20, 2026
@@ -27,7 +27,7 @@ export default function TermsOfService() {
 
             {/* Section 2 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">2. Definitions</h2>
-            <p>"Services" refers to all platforms, applications, products, and services provided by FettleMed (FettleMed Health Tech Private Limited), including:</p>
+            <p>"Services" refers to all platforms, applications, products, and services provided by FettleMed (NamNalam Health Tech Private Limited (trading as FettleMed)), including:</p>
             <ul className="space-y-2 list-disc list-inside">
               <li><strong>Patient App</strong> - the mobile and web application for personal health record management</li>
               <li><strong>Doctor Clinical Management Portal</strong> - the provider-facing platform for clinical workflows</li>
@@ -140,7 +140,7 @@ export default function TermsOfService() {
 
             {/* Section 9 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">9. Indemnification</h2>
-            <p>You agree to indemnify, defend, and hold harmless FettleMed (FettleMed Health Tech Private Limited), its officers, directors, employees, and agents from any and all claims, damages, losses, and expenses (including reasonable attorneys' fees) arising from: (a) your use of the Services in violation of these Terms; (b) your violation of any applicable law or regulation; (c) your violation of the rights of any third party; or (d) your breach of these Terms. This indemnity does not apply to claims arising solely from FettleMed's negligence or willful misconduct.</p>
+            <p>You agree to indemnify, defend, and hold harmless FettleMed (NamNalam Health Tech Private Limited (trading as FettleMed)), its officers, directors, employees, and agents from any and all claims, damages, losses, and expenses (including reasonable attorneys' fees) arising from: (a) your use of the Services in violation of these Terms; (b) your violation of any applicable law or regulation; (c) your violation of the rights of any third party; or (d) your breach of these Terms. This indemnity does not apply to claims arising solely from FettleMed's negligence or willful misconduct.</p>
 
             {/* Section 10 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">10. Limitation of Liability</h2>
@@ -225,10 +225,10 @@ export default function TermsOfService() {
 
             {/* Section 18 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">18. Acknowledgment</h2>
-            <p>By using FettleMed Health Tech's Services, you acknowledge that you have read and understood these Terms of Service and agree to be bound by them. You further acknowledge that you understand the risks associated with digital health information management and accept those risks in exchange for the convenience and benefits the Services provide.</p>
+            <p>By using FettleMed's Services, you acknowledge that you have read and understood these Terms of Service and agree to be bound by them. You further acknowledge that you understand the risks associated with digital health information management and accept those risks in exchange for the convenience and benefits the Services provide.</p>
 
             <div className="text-center mt-12 pt-8 border-t border-stone-200">
-              <p className="text-stone-400 font-medium">© 2026 FettleMed (FettleMed Health Tech Private Limited). All rights reserved.</p>
+              <p className="text-stone-400 font-medium">© 2026 NamNalam Health Tech Private Limited (trading as FettleMed). All rights reserved.</p>
               <p className="text-stone-400 italic">Your Health, Your Control</p>
             </div>
             

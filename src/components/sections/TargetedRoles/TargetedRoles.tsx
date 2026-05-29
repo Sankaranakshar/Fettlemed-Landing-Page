@@ -197,7 +197,7 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
       icon: <Wallet className="w-6 h-6" />,
       heading: "Know what was billed, what was collected, and what's outstanding.",
       bullets: [
-        "GST-compliant invoices generated at point of consultation",
+        "Invoice generation with GST-related fields at point of consultation",
         "UPI, cards, and net banking, all accepted",
         "Owner dashboard: daily and monthly revenue, broken down by doctor",
       ],
@@ -219,7 +219,7 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
       icon: <TestTube className="w-6 h-6" />,
       heading: "Test orders, results, and records — without the paper trail.",
       bullets: [
-        "Digital lab catalogue, order tests directly from the platform",
+        "Lab results delivered electronically to patient and doctor",
         "Results delivered electronically to patient and doctor",
         "Full diagnostic history attached to the patient record automatically",
       ],

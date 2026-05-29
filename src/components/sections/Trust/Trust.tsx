@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { ShieldCheck, Lock, FileCheck2, ArrowRight, User } from "lucide-react";
+import { ShieldCheck, Stethoscope, FileCheck2, ArrowRight, User } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 
 export const Trust = () => {
@@ -26,11 +26,11 @@ export const Trust = () => {
                <div className="bg-white border border-stone-200 p-7 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow h-full">
                  <div className="flex items-center gap-3">
                    <div className="w-11 h-11 bg-pine-50 rounded-xl flex items-center justify-center shrink-0 border border-pine-100">
-                     <Lock className="w-5 h-5 text-pine-700" />
+                     <Stethoscope className="w-5 h-5 text-pine-700" />
                    </div>
-                   <h3 className="text-lg font-medium text-pine-900">Built Inside Real Clinics</h3>
+                   <h3 className="text-lg font-medium text-pine-900">Co-developed with Clinicians</h3>
                  </div>
-                 <p className="text-dim-2 leading-relaxed font-medium text-base flex-1">Built inside real clinics, watching how doctors actually work. Every feature passes one test: does this reduce a step for the doctor, or add one?</p>
+                 <p className="text-dim-2 leading-relaxed font-medium text-base flex-1">Developed alongside clinicians watching how doctors actually work. Every feature passes one test: does this reduce a step for the doctor, or add one?</p>
                </div>
                <div className="bg-white border border-stone-200 p-7 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow h-full">
                  <div className="flex items-center gap-3">
@@ -39,7 +39,7 @@ export const Trust = () => {
                    </div>
                    <h3 className="text-lg font-medium text-pine-900">Your data is yours. Always.</h3>
                  </div>
-                 <p className="text-dim-2 leading-relaxed font-medium text-base flex-1">FettleMed never sells your data. No ads, no third-party sharing. Your records are encrypted, stored in India, and accessible only to people you explicitly authorise.</p>
+                 <p className="text-dim-2 leading-relaxed font-medium text-base flex-1">We do not sell your health data. No advertising. Your records are encrypted and stored in India. Access is controlled through the consent you give.</p>
                </div>
             </div>
           </FadeIn>

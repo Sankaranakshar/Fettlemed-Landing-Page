@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { ShieldCheck, FolderSync, EyeOff, Server } from "lucide-react";
+import { ShieldCheck, FolderSync, EyeOff, Server, Lock } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 
 export function PatientDataRules() {
@@ -14,12 +14,11 @@ export function PatientDataRules() {
           {/* Bento grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-             {/* Hero card — 0 Third Parties */}
+             {/* Hero card — Built around patient consent */}
              <FadeIn delay={0.1} className="md:col-span-2 bg-pine-900 rounded-3xl p-8 flex flex-col">
-                <ShieldCheck className="w-7 h-7 text-pine-400 mb-6" />
-                <p className="text-7xl font-bold text-white tracking-tight leading-none mb-2">0</p>
-                <p className="text-pine-200 font-medium text-2xl mb-5">Third Parties</p>
-                <p className="text-pine-400 font-medium text-base leading-relaxed mt-auto">Never sold. Never used for ads. Never shared with insurers, employers, or anyone else. Architecturally enforced, not just policy.</p>
+                <Lock className="w-7 h-7 text-pine-400 mb-6" />
+                <p className="text-3xl font-medium text-white tracking-tight leading-tight mb-3">Built around patient consent.</p>
+                <p className="text-pine-400 font-medium text-base leading-relaxed mt-auto">Your health records are never sold and never used for advertising. Records are shared only with the people you explicitly authorise — no one else.</p>
              </FadeIn>
 
              {/* 2 taps / 1 tap */}
@@ -48,7 +47,7 @@ export function PatientDataRules() {
                    <p className="text-7xl font-bold text-pine-900 tracking-tight leading-none">IN</p>
                    <p className="text-pine-600 font-medium text-xl mt-1">India Only</p>
                 </div>
-                <p className="text-dim-2 font-medium text-base leading-relaxed">Stored on secure servers within India. Your data cannot leave Indian infrastructure. This is not just a policy — it is the architecture.</p>
+                <p className="text-dim-2 font-medium text-base leading-relaxed">Health data is stored and processed within India. We do not transfer your health records outside the country.</p>
              </FadeIn>
 
           </div>

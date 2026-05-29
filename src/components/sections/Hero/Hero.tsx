@@ -19,7 +19,7 @@ export const Hero = () => {
           <div className="w-full md:w-1/2 text-center md:text-left">
             <FadeIn noYOffset eager>
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium leading-[1.08] tracking-tight mb-4 md:mb-5 lg:mb-4 text-ink drop-shadow-sm">
-                Own Your Health Records. <span className="text-pine-600">Share them with any doctor, instantly.</span>
+                Own Your Health Records. <span className="text-pine-600">Share them with any FettleMed doctor, instantly.</span>
               </h1>
               <p className="text-lg md:text-xl text-dim mb-5 md:mb-5 lg:mb-4 max-w-xl mx-auto md:mx-0 leading-relaxed font-medium text-balance">
                 FettleMed connects patients, doctors, and clinics on one unified, secure platform.
@@ -27,7 +27,7 @@ export const Hero = () => {
 
               <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-4 md:mb-5 lg:mb-4">
                 <span className="flex items-center gap-1.5 text-xs lg:text-sm font-medium text-dim bg-white px-3 py-1.5 lg:px-4 lg:py-2 rounded-full border border-pine-100 shadow-sm"><ShieldCheck className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-pine-600"/> Consent-first access</span>
-                <span className="flex items-center gap-1.5 text-xs lg:text-sm font-medium text-dim bg-white px-3 py-1.5 lg:px-4 lg:py-2 rounded-full border border-pine-100 shadow-sm"><Lock className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-pine-600"/> End-to-end encrypted</span>
+                <span className="flex items-center gap-1.5 text-xs lg:text-sm font-medium text-dim bg-white px-3 py-1.5 lg:px-4 lg:py-2 rounded-full border border-pine-100 shadow-sm"><Lock className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-pine-600"/> Encrypted at rest and in transit</span>
                 <span className="flex items-center gap-1.5 text-xs lg:text-sm font-medium text-dim bg-white px-3 py-1.5 lg:px-4 lg:py-2 rounded-full border border-pine-100 shadow-sm"><BadgeCheck className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-pine-600"/> ABDM-aligned</span>
               </div>
 
