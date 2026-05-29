@@ -112,11 +112,11 @@ export function PatientMobileMockup() {
               }}
             >
               {/* OLED screen */}
-              <div className="rounded-[2.7rem] overflow-hidden bg-pine-900 flex flex-col" style={{ height: 560 }}>
+              <div className="rounded-[2.7rem] overflow-hidden bg-surface-50 flex flex-col" style={{ height: 560 }}>
 
                 {/* Status bar with Dynamic Island */}
                 <div
-                  className="relative flex items-center justify-between px-5 bg-pine-900"
+                  className="relative flex items-center justify-between px-5 bg-pine-600"
                   style={{ height: 50, paddingTop: 10 }}
                 >
                   <span className="text-white text-[11px] font-bold tracking-tight z-10">9:41</span>
@@ -147,8 +147,8 @@ export function PatientMobileMockup() {
                         transition={{ duration: 0.25 }}
                         className="h-full flex flex-col"
                       >
-                        <div className="bg-pine-900 px-4 pb-5 pt-3">
-                          <p className="text-pine-300 text-[10px] font-medium">Good morning</p>
+                        <div className="bg-pine-600 px-4 pb-5 pt-3">
+                          <p className="text-pine-100 text-[10px] font-medium">Good morning</p>
                           <p className="text-white text-sm font-medium">Rajan Subramaniam</p>
                         </div>
                         <div className="flex-1 bg-surface-50 px-3 py-3 space-y-2.5 overflow-hidden -mt-3 rounded-t-2xl">
@@ -194,9 +194,9 @@ export function PatientMobileMockup() {
                         transition={{ duration: 0.25 }}
                         className="h-full bg-surface-50"
                       >
-                        <div className="bg-pine-900 px-4 py-3">
+                        <div className="bg-pine-600 px-4 py-3">
                           <p className="text-white text-xs font-medium">Health Records</p>
-                          <p className="text-pine-300 text-[10px]">7 records across 3 doctors</p>
+                          <p className="text-pine-100 text-[10px]">7 records across 3 doctors</p>
                         </div>
                         <div className="px-3 py-3 space-y-2 overflow-hidden">
                           {[
@@ -235,9 +235,9 @@ export function PatientMobileMockup() {
                         transition={{ duration: 0.25 }}
                         className="h-full bg-surface-50"
                       >
-                        <div className="bg-pine-900 px-4 py-3">
+                        <div className="bg-pine-600 px-4 py-3">
                           <p className="text-white text-xs font-medium">Share Records</p>
-                          <p className="text-pine-300 text-[10px]">You control who sees what</p>
+                          <p className="text-pine-100 text-[10px]">You control who sees what</p>
                         </div>
                         <div className="px-3 py-3 space-y-3">
                           <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.1 }} className="bg-white rounded-2xl p-4 border border-stone-100 shadow-sm text-center">
@@ -245,7 +245,7 @@ export function PatientMobileMockup() {
                             <p className="text-xs font-medium text-pine-900">Share with Dr. Pradeep</p>
                             <p className="text-[10px] text-stone-400 mt-1 mb-3">Grant access to your full health history</p>
                             <div className="flex gap-2">
-                              <button className="flex-1 py-2 bg-pine-900 text-white text-[10px] font-medium rounded-xl">Grant Access</button>
+                              <button className="flex-1 py-2 bg-pine-600 text-white text-[10px] font-medium rounded-xl">Grant Access</button>
                               <button className="flex-1 py-2 border border-stone-200 text-stone-600 text-[10px] font-medium rounded-xl">Specific only</button>
                             </div>
                           </motion.div>
@@ -273,11 +273,11 @@ export function PatientMobileMockup() {
                         transition={{ duration: 0.25 }}
                         className="h-full bg-surface-50"
                       >
-                        <div className="bg-pine-900 px-4 py-3 flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-pine-700 flex items-center justify-center font-medium text-white text-sm">R</div>
+                        <div className="bg-pine-600 px-4 py-3 flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-pine-400 flex items-center justify-center font-medium text-white text-sm">R</div>
                           <div>
                             <p className="text-white text-xs font-medium">Rajan Subramaniam</p>
-                            <p className="text-pine-300 text-[10px]">52 · Male · Blood: O+</p>
+                            <p className="text-pine-100 text-[10px]">52 · Male · Blood: O+</p>
                           </div>
                         </div>
                         <div className="px-3 py-3 space-y-2">
