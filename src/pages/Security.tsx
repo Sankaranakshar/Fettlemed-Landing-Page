@@ -23,10 +23,10 @@ const sidebarLinks: { id: SectionId; label: string }[] = [
 
 const trustSignals = [
   { icon: Lock,        label: "TLS 1.2+",           sub: "Encryption in transit — live" },
-  { icon: Key,         label: "AES-256",             sub: "At-rest encryption — pre-launch" },  // ⚠️ VERIFY BEFORE DEPLOYMENT
-  { icon: Server,      label: "India-first hosting", sub: "Primary servers in India" },          // ⚠️ VERIFY BEFORE DEPLOYMENT: confirm backup infra
+  { icon: Key,         label: "AES-256",             sub: "At-rest encryption — pre-launch" },  // ⚠️ VERIFY BEFORE DEPLOYMENT: Gurubalaji to confirm AES-256 at-rest is live
+  { icon: Server,      label: "AWS — India region",  sub: "Hosted on AWS ap-south-1 (Mumbai)" }, // ⚠️ VERIFY BEFORE DEPLOYMENT: confirm ap-south-1 is the selected region
   { icon: Eye,         label: "Patient-controlled",  sub: "Access model" },
-  { icon: FileCheck2,  label: "Audit logging",       sub: "Full implementation pre-launch" },    // ⚠️ VERIFY BEFORE DEPLOYMENT
+  { icon: FileCheck2,  label: "Audit logging",       sub: "Ready at launch" },
   { icon: ShieldCheck, label: "No data sales",       sub: "Personal health data never sold" },
 ];
 
@@ -350,10 +350,9 @@ export default function Security() {
                             <h3 className="text-pine-900 font-medium mb-2">Session management</h3>
                             <p className="text-dim-2 font-medium leading-relaxed">Inactive sessions expire automatically. Sensitive actions require re-authentication. All access attempts, successful and failed, are logged with timestamps and user identifiers.</p>
                           </div>
-                          {/* ⚠️ VERIFY BEFORE DEPLOYMENT: confirm audit logging is fully live */}
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2 flex items-center gap-2">Audit logging <span className="text-[11px] font-medium text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">Full rollout pre-launch</span></h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Access audit logging is partially implemented and will be fully live before launch. Clinic owners will be able to see who accessed what and when, as a standard feature.</p>
+                            <h3 className="text-pine-900 font-medium mb-2">Audit logging</h3>
+                            <p className="text-dim-2 font-medium leading-relaxed">Access audit logging is being implemented and will be fully live at launch. Clinic owners will be able to see who accessed what and when, as a standard feature.</p>
                           </div>
                         </div>
                       </div>
@@ -438,10 +437,10 @@ export default function Security() {
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Your Data in India</h2>
                         <p className="text-dim font-medium mb-8">Your health records are stored on infrastructure in India. They are never sold, never used for advertising, and never shared with third parties for commercial purposes.</p>
                         <div className="space-y-6">
-                          {/* ⚠️ VERIFY BEFORE DEPLOYMENT: confirm primary servers are in India and document backup regions */}
+                          {/* ⚠️ VERIFY BEFORE DEPLOYMENT: confirm AWS ap-south-1 (Mumbai) is the selected primary region before launch */}
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Where your data lives</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Patient health records are stored on primary servers located in India. Backup and disaster recovery infrastructure may include servers outside India, subject to contractual data protection obligations. For specific questions about our hosting architecture, write to <a href="mailto:hello@fettlemed.com" className="text-pine-600 hover:text-pine-700">hello@fettlemed.com</a>.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed">Patient health records are hosted on Amazon Web Services (AWS), with the primary data centre in India (Mumbai region, ap-south-1). AWS backup and disaster recovery infrastructure may include servers in other regions, subject to contractual data protection obligations. For specific questions about our hosting architecture, write to <a href="mailto:hello@fettlemed.com" className="text-pine-600 hover:text-pine-700">hello@fettlemed.com</a>.</p>
                           </div>
                           <div className="bg-pine-900 rounded-2xl p-6">
                             <h3 className="text-white font-medium mb-4">What your data is never used for</h3>
