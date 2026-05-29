@@ -16,7 +16,7 @@ export const CTA = () => {
                Join the waitlist for early access. Your feedback directly shapes which features are built first.
              </p>
              <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="h-14 px-12 text-lg bg-white hover:bg-pine-50 text-pine-900 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900">
-               Join Waitlist
+               Join the Waitlist
              </Button>
              <p className="mt-6 text-sm text-pine-400 font-medium">By joining, you agree to our <a href="/privacy" className="underline hover:text-pine-200">Privacy Policy</a>. We will not share your details with third parties.</p>
           </FadeIn>

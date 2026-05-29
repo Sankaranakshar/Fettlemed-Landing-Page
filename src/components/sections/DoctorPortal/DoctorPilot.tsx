@@ -26,7 +26,7 @@ export function DoctorPilot() {
 
              <div className="flex flex-col items-center gap-3">
                 <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="bg-white hover:bg-stone-50 text-pine-900 h-14 px-12 text-lg rounded-xl font-medium shadow-lg">
-                  Join the Limited Pilot
+                  Join the Clinical Pilot
                 </Button>
                 <p className="text-pine-300 text-sm font-medium">For your practice. Limited spots available.</p>
                 <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm font-medium text-pine-300 mt-3">

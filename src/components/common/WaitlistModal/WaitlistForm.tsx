@@ -257,8 +257,8 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
 
       {/* Role selector */}
       <div className="flex flex-col space-y-3 pb-1">
-        <label className="text-sm font-medium text-stone-700">I am a:</label>
-        <div className="grid grid-cols-3 gap-3">
+        <label id="role-group-label" className="text-sm font-medium text-stone-700">I am a:</label>
+        <div role="radiogroup" aria-labelledby="role-group-label" className="grid grid-cols-3 gap-3">
           {["Individual", "Doctor", "Clinic"].map((r) => (
             <button
               key={r}

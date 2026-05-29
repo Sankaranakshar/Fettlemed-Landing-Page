@@ -20,7 +20,7 @@ export default function PrivacyPolicy() {
           <div className="bg-white border border-stone-200 rounded-3xl p-8 md:p-12 shadow-sm prose prose-lg max-w-none text-stone-600">
             
             {/* Section 1 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-8">1. Introduction and Commitment to Your Privacy</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-8">1. Introduction and Commitment to Your Privacy</h2>
             <p>
               Fettlemed (Fettlemed Health Tech Private Limited) ("we," "us," "our," or "Fettlemed") is committed to building India's digital health backbone while placing your health data ownership at the absolute center of everything we do. This Privacy Policy explains how we collect, use, disclose, and otherwise process your personal and health information in connection with our integrated digital health platform, including our Patient App, Doctor Clinical Portal, Clinic Management System, and related services (collectively, the "Services").
             </p>
@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
             </p>
 
             {/* Section 2 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">2. Our Privacy Principles</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">2. Our Privacy Principles</h2>
             <p>At Fettlemed, we are guided by the following fundamental privacy principles that inform every decision we make:</p>
             <ul className="space-y-2 list-disc list-inside">
               <li><strong>Patient-Centricity:</strong> You are at the core of everything we do. Your rights, preferences, and well-being drive our product development and operational decisions.</li>
@@ -41,7 +41,7 @@ export default function PrivacyPolicy() {
             </ul>
 
             {/* Section 3 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">3. Information We Collect</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">3. Information We Collect</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">3.1 Health Information You Provide</h4>
             <ul className="list-disc list-inside space-y-1">
@@ -80,7 +80,7 @@ export default function PrivacyPolicy() {
             </ul>
 
             {/* Section 4 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">4. How We Use Your Information</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">4. How We Use Your Information</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">4.1 To Deliver and Improve Our Services</h4>
             <ul className="list-disc list-inside space-y-1">
@@ -123,7 +123,7 @@ export default function PrivacyPolicy() {
             </div>
 
             {/* Section 5 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">5. How We Share Your Information</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">5. How We Share Your Information</h2>
             <p>We believe in transparent data sharing practices. Your health information is shared only with your explicit, documented consent and always for purposes that directly benefit your healthcare journey.</p>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">5.1 With Healthcare Providers (With Your Consent)</h4>
@@ -145,7 +145,7 @@ export default function PrivacyPolicy() {
             <p>If Fettlemed is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. Any successor organization will be required to maintain the same commitments to your privacy and data sovereignty. We will notify you of any material changes.</p>
 
             {/* Section 6 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">6. Your Consent and Control: The Heart of Our Privacy Model</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">6. Your Consent and Control: The Heart of Our Privacy Model</h2>
             <p>Patient Data Sovereignty is not just a concept at Fettlemed—it is operational reality embedded in our platform architecture. You maintain granular, auditable control over your health information at all times.</p>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">6.1 Granular Consent Management</h4>
@@ -168,7 +168,7 @@ export default function PrivacyPolicy() {
             <p>You can control cookies through your browser settings or through our in-app privacy controls. We provide clear explanations of what each cookie does and allow you to disable non-essential tracking.</p>
 
             {/* Section 7 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">7. Data Security and Protection</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">7. Data Security and Protection</h2>
             <p>We implement comprehensive technical and organizational security measures appropriate for sensitive health information. Security is not an afterthought but is architected into every layer of our platform.</p>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">7.1 Technical Safeguards</h4>
@@ -194,7 +194,7 @@ export default function PrivacyPolicy() {
             <p className="italic text-sm">Note: While we employ robust security measures, no online system is 100% secure. We are transparent about this reality and continuously work to minimize risks. We recommend using strong passwords, enabling two-factor authentication, and not sharing your account credentials.</p>
 
             {/* Section 8 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">8. Data Retention</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">8. Data Retention</h2>
             <p>We retain your personal and health information for as long as necessary to provide our Services, comply with legal obligations, and resolve disputes. The retention period varies depending on the type of information and the context of processing:</p>
             <ul className="list-disc list-inside space-y-1">
               <li><strong>Health Records:</strong> Retained indefinitely at your direction. You own this data and can request deletion at any time</li>
@@ -205,19 +205,19 @@ export default function PrivacyPolicy() {
             </ul>
 
             {/* Section 9 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">9. International Data Transfers</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">9. International Data Transfers</h2>
             <p>While Fettlemed is headquartered in India and primarily operates within India, some of our service providers (e.g., cloud infrastructure, security partners) may be located in other countries. Any international transfer of your information will be subject to appropriate legal safeguards, including Standard Contractual Clauses or other mechanisms recognized by applicable data protection laws. We ensure that your information receives adequate protection consistent with the standards in India.</p>
 
             {/* Section 10 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">10. Children's Privacy</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">10. Children's Privacy</h2>
             <p>Our Services are not intended for individuals under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe we have collected information from a child under 13, please contact us immediately at privacy@fettlemed.com. Parents and guardians can manage their children's health records through their own accounts with appropriate parental controls.</p>
 
             {/* Section 11 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">11. Third-Party Links and Services</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">11. Third-Party Links and Services</h2>
             <p>Our Services may contain links to third-party websites, applications, and services that are not operated by Fettlemed. This Privacy Policy does not apply to third-party services, and we are not responsible for their privacy practices. We encourage you to review the privacy policies of any third-party services before providing your information or using those services. We are not liable for the privacy practices or content of third-party services.</p>
 
             {/* Section 12 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">12. Compliance with Data Protection Regulations</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">12. Compliance with Data Protection Regulations</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">12.1 ABDM (Ayushman Bharat Digital Mission) Compliance</h4>
             <p>Fettlemed is designed to align with the Ayushman Bharat Digital Mission (ABDM) framework established by the Government of India. We implement the consent and data exchange standards mandated by ABDM, ensuring interoperability with the broader Indian healthcare ecosystem while maintaining your data sovereignty principles.</p>
@@ -229,7 +229,7 @@ export default function PrivacyPolicy() {
             <p>If you are located in the European Union, United Kingdom, or other jurisdictions with comprehensive data protection laws, you may have additional rights including rights of access, rectification, erasure, restriction, portability, and objection. We will honor these rights in accordance with applicable law. Please contact us to exercise these rights.</p>
 
             {/* Section 13 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">13. Your Rights and Choices</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">13. Your Rights and Choices</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">13.1 Right to Access</h4>
             <p>You have the right to request access to the personal and health information we hold about you. You can view most of your information directly through your Fettlemed account. For comprehensive data export, contact our privacy team.</p>
@@ -247,11 +247,11 @@ export default function PrivacyPolicy() {
             <p>You have the right to object to certain uses of your information, including marketing communications, profiling, or certain automated decision-making. You can update your preferences in your account settings at any time.</p>
 
             {/* Section 14 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">14. Changes to This Privacy Policy</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">14. Changes to This Privacy Policy</h2>
             <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. We will notify you of material changes by posting the updated Policy on our website and through our app, or by sending you email notification if we have your email address. Your continued use of our Services after such notice constitutes your acceptance of the updated Privacy Policy.</p>
 
             {/* Section 15 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">15. Contact Us</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">15. Contact Us</h2>
             <p>If you have questions, concerns, requests regarding this Privacy Policy, or if you wish to exercise any of your privacy rights, please contact us:</p>
             
             <div className="bg-stone-50 border border-stone-200 p-6 rounded-2xl mt-6">

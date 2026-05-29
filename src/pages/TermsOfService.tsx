@@ -20,13 +20,13 @@ export default function TermsOfService() {
           <div className="bg-white border border-stone-200 rounded-3xl p-8 md:p-12 shadow-sm prose prose-lg max-w-none text-stone-600">
             
             {/* Section 1 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-8">1. Acceptance of Terms</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-8">1. Acceptance of Terms</h2>
             <p>
               By accessing and using the Fettlemed Health Tech platform (including the Patient App, Doctor Clinical Portal, Clinic Management System, and related services) (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use the Services. These Terms apply to all users, whether you are an individual patient ("B2C User"), a healthcare provider such as a doctor or clinic ("B2B User"), or any other entity accessing our Services.
             </p>
 
             {/* Section 2 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">2. Definitions</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">2. Definitions</h2>
             <p>"Services" refers to all platforms, applications, products, and services provided by Fettlemed (Fettlemed Health Tech Private Limited), including:</p>
             <ul className="space-y-2 list-disc list-inside">
               <li><strong>Patient App</strong> - the mobile and web application for personal health record management</li>
@@ -38,7 +38,7 @@ export default function TermsOfService() {
             <p>"Confidential Information" means information disclosed by either party that is marked as confidential or would reasonably be understood to be confidential.</p>
 
             {/* Section 3 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">3. Eligibility and Account Registration</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">3. Eligibility and Account Registration</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">3.1 Eligibility</h4>
             <p>By using the Services, you represent and warrant that: (a) you are at least 18 years of age or, if under 18, are using the Services under the supervision of a parent or legal guardian; (b) you have the authority to enter into these Terms; and (c) your use of the Services does not violate any applicable laws or regulations.</p>
@@ -50,7 +50,7 @@ export default function TermsOfService() {
             <p>You are solely responsible for all activities conducted through your Account. If you are a B2B User (healthcare provider or clinic), you are responsible for all use of the Services by your staff and representatives. You agree to ensure that all users of your Account comply with these Terms.</p>
 
             {/* Section 4 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">4. Use of Services</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">4. Use of Services</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">4.1 Permitted Use</h4>
             <p>You are granted a limited, non-exclusive, non-transferable license to use the Services for the purposes described in these Terms. Specifically:</p>
@@ -73,7 +73,7 @@ export default function TermsOfService() {
             </ul>
 
             {/* Section 5 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">5. B2B Terms for Healthcare Providers and Clinics</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">5. B2B Terms for Healthcare Providers and Clinics</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">5.1 Professional Responsibilities</h4>
             <p>As a B2B User, you represent and warrant that you are a licensed healthcare professional or are authorised to operate a medical clinic in India. You agree to use the Services in compliance with all applicable healthcare laws, regulations, and ethical standards, including but not limited to:</p>
@@ -97,7 +97,7 @@ export default function TermsOfService() {
             <p>Fettlemed will use commercially reasonable efforts to maintain the Services with 99% uptime. However, we do not guarantee uninterrupted availability. Fettlemed shall not be liable for any downtime or unavailability. You are responsible for implementing backup procedures for critical data.</p>
 
             {/* Section 6 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">6. B2C Terms for Patient Users</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">6. B2C Terms for Patient Users</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">6.1 Data Ownership and Control</h4>
             <p>You own all health information you upload or provide to the Patient App. Fettlemed acts solely as a custodian of this information. You have the right to access, download, delete, and control sharing of your health data at any time. You may revoke access to any healthcare provider with immediate effect using our consent management features.</p>
@@ -115,7 +115,7 @@ export default function TermsOfService() {
             <p>The core features of the Patient App (personal health record management, consent controls, health data consolidation) are provided free of charge. Future premium features may be offered on a paid basis, and you will be notified before any charges apply to your Account.</p>
 
             {/* Section 7 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">7. Health Information and Privacy</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">7. Health Information and Privacy</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">7.1 Sensitive Health Data</h4>
             <p>You acknowledge that the Services handle sensitive health information. Fettlemed implements robust security measures to protect this information. However, no system is completely secure. You are responsible for understanding and accepting the risks associated with digital health information storage and sharing.</p>
@@ -127,7 +127,7 @@ export default function TermsOfService() {
             <p>Health information you enter into the Services may be transmitted to healthcare providers (doctors, clinics, diagnostic labs) with your explicit consent. Fettlemed is not responsible for how these third parties handle your information once you have consented to sharing, though we have contractual obligations requiring them to maintain confidentiality.</p>
 
             {/* Section 8 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">8. Intellectual Property Rights</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">8. Intellectual Property Rights</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">8.1 Ownership</h4>
             <p>Fettlemed retains all intellectual property rights in the Services, including the Patient App, Doctor Portal, Clinic Management System, and all related software, features, functionality, and content. You do not acquire any ownership rights in the Services through your use.</p>
@@ -139,11 +139,11 @@ export default function TermsOfService() {
             <p>Health information and other data you input into the Services remains your property. However, you grant Fettlemed a limited license to use such information to operate and improve the Services, including for de-identified research and analytics purposes, subject to the limitations outlined in our Privacy Policy.</p>
 
             {/* Section 9 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">9. Indemnification</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">9. Indemnification</h2>
             <p>You agree to indemnify, defend, and hold harmless Fettlemed (Fettlemed Health Tech Private Limited), its officers, directors, employees, and agents from any and all claims, damages, losses, and expenses (including reasonable attorneys' fees) arising from: (a) your use of the Services in violation of these Terms; (b) your violation of any applicable law or regulation; (c) your violation of the rights of any third party; or (d) your breach of these Terms. This indemnity does not apply to claims arising solely from Fettlemed's negligence or willful misconduct.</p>
 
             {/* Section 10 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">10. Limitation of Liability</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">10. Limitation of Liability</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">10.1 Disclaimer</h4>
             <p className="uppercase text-sm tracking-wider">THE SERVICES ARE PROVIDED ON AN "AS-IS" AND "AS-AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. NAMNALAM DISCLAIMS ALL WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE.</p>
@@ -158,7 +158,7 @@ export default function TermsOfService() {
             <p>The Services are not a substitute for professional medical advice, diagnosis, or treatment. Information provided through the Services should not be relied upon as a substitute for consultation with a qualified healthcare professional. Fettlemed does not provide medical advice, and all information is for informational purposes only.</p>
 
             {/* Section 11 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">11. Termination</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">11. Termination</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">11.1 Termination by User</h4>
             <p>You may terminate your Account and use of the Services at any time by providing written notice to Fettlemed. Upon termination, you will lose access to your Account, although you may request a data export before deletion.</p>
@@ -170,7 +170,7 @@ export default function TermsOfService() {
             <p>Upon termination, your Account will be deactivated. You may request a data export within 30 days of termination. After 30 days, your data may be deleted in accordance with our data retention policy. Fettlemed is not liable for loss of data after termination.</p>
 
             {/* Section 12 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">12. Governing Law and Dispute Resolution</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">12. Governing Law and Dispute Resolution</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">12.1 Governing Law</h4>
             <p>These Terms are governed by and construed in accordance with the laws of India, without regard to its conflict of law provisions. The exclusive jurisdiction for any legal disputes shall be the courts located in Chennai, Tamil Nadu, India.</p>
@@ -179,11 +179,11 @@ export default function TermsOfService() {
             <p>Before pursuing legal action, the parties agree to attempt to resolve disputes through good-faith negotiation. If a dispute cannot be resolved through negotiation within 30 days, the parties may pursue mediation or arbitration. Any legal proceedings shall be conducted in English.</p>
 
             {/* Section 13 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">13. Changes to Terms</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">13. Changes to Terms</h2>
             <p>Fettlemed may update these Terms from time to time. We will notify you of material changes by posting the updated Terms on our website and through the Services. Your continued use of the Services following notice of updates constitutes acceptance of the revised Terms. For significant changes, we may provide additional notice (such as email notification) and a grace period before the new terms take effect.</p>
 
             {/* Section 14 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">14. Contact Information</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">14. Contact Information</h2>
             <p>If you have questions about these Terms or the Services, please contact us at:</p>
 
             <div className="bg-stone-50 border border-stone-200 p-6 rounded-2xl mt-6">
@@ -204,15 +204,15 @@ export default function TermsOfService() {
             <p className="mt-6 text-sm text-stone-500 italic">We will respond to inquiries within 7 business days.</p>
 
             {/* Section 15 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">15. Severability</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">15. Severability</h2>
             <p>If any provision of these Terms is found to be invalid or unenforceable, that provision will be modified to the minimum extent necessary to make it enforceable, and the remaining provisions will continue in full force and effect.</p>
 
             {/* Section 16 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">16. Entire Agreement</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">16. Entire Agreement</h2>
             <p>These Terms, together with our Privacy Policy and any service agreements, constitute the entire agreement between you and Fettlemed regarding your use of the Services. These Terms supersede all prior agreements, understandings, and representations, whether oral or written.</p>
 
             {/* Section 17 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">17. Additional B2B Terms for Healthcare Providers</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">17. Additional B2B Terms for Healthcare Providers</h2>
             
             <h4 className="text-lg font-medium text-pine-800 mt-6 mb-3">17.1 Confidential Information</h4>
             <p>B2B Users acknowledge that they will access and handle patient health information and other confidential data. Such information shall be kept confidential and used only for the purposes outlined in these Terms. Unauthorised disclosure of confidential information may result in immediate termination of service and legal action.</p>
@@ -224,7 +224,7 @@ export default function TermsOfService() {
             <p>B2B Users agree not to use the Services in any way that constitutes medical malpractice, ethical violations, or unlicensed practice of medicine. Fettlemed reserves the right to suspend service to any healthcare provider suspected of such violations.</p>
 
             {/* Section 18 */}
-            <h3 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">18. Acknowledgment</h3>
+            <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">18. Acknowledgment</h2>
             <p>By using Fettlemed Health Tech's Services, you acknowledge that you have read and understood these Terms of Service and agree to be bound by them. You further acknowledge that you understand the risks associated with digital health information management and accept those risks in exchange for the convenience and benefits the Services provide.</p>
 
             <div className="text-center mt-12 pt-8 border-t border-stone-200">

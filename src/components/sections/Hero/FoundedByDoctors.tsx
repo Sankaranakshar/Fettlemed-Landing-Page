@@ -34,7 +34,7 @@ export const FoundedByDoctors = () => {
             </div>
             
             <div className="text-left">
-              <h3 className="font-medium text-pine-950 text-xl leading-tight mb-1">Built by Physicians.</h3>
+              <p className="font-medium text-pine-950 text-xl leading-tight mb-1">Built by Physicians.</p>
               <p className="text-dim font-medium">Designed for clinical excellence.</p>
             </div>
           </div>
@@ -44,7 +44,7 @@ export const FoundedByDoctors = () => {
           {/* Trust Markers - Staggered */}
           <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center md:justify-end gap-x-6 gap-y-3 md:gap-x-8 lg:gap-x-10 md:gap-y-4 lg:gap-y-6">
             {[
-              { icon: ShieldCheck, text: "ABDM Compliant",  tip: "India's national health data standard" },
+              { icon: ShieldCheck, text: "ABDM-aligned",    tip: "India's national health data standard" },
               { icon: Lock,        text: "HIPAA Aligned",   tip: "US health data privacy standard" },
               { icon: CheckCircle2,text: "Zero-Knowledge",  tip: "Only you can access your data" },
               { icon: ShieldCheck, text: "DPDP Act Ready",  tip: "India's digital personal data protection law" },

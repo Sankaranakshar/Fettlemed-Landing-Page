@@ -21,7 +21,7 @@ export function PatientCTA() {
 
              <div className="flex flex-col items-center justify-center gap-6">
                <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="bg-pine-900 hover:bg-pine-800 text-white h-14 px-12 text-lg rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2">
-                 Join the patient waitlist
+                 Join the Waitlist
                </Button>
 
                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm font-medium text-dim">
