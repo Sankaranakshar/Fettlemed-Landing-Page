@@ -40,8 +40,8 @@ export function CookieConsent() {
     >
       <div className="container mx-auto max-w-6xl flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
         <p className="text-pine-200 text-sm font-medium leading-relaxed max-w-2xl">
-          We use <strong className="text-white">Google Analytics</strong> to understand how visitors use this site.
-          No personal health data is collected through analytics. You can decline and still use all features.{' '}
+          We use cookies to understand how visitors use this site and to improve your experience.
+          No personal health data is collected. You can decline and still use all features.{' '}
           <Link to="/privacy-policy" className="underline hover:text-white transition-colors">
             Privacy Policy
           </Link>
