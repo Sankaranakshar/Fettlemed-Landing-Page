@@ -4,7 +4,7 @@ import { FadeIn } from "@/components/common/FadeIn";
 
 export function ClinicFeatures() {
   return (
-    <section id="platform" className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
+    <section id="platform" className="py-16 md:py-20 bg-surface-50 border-b border-stone-100 scroll-mt-24">
        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <FadeIn className="text-center mb-10 max-w-3xl mx-auto">
              <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight mb-6 text-balance">Your clinic's operations, seamlessly automated on day one.</h2>

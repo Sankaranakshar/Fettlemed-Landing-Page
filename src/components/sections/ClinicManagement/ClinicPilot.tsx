@@ -13,7 +13,7 @@ export function ClinicPilot() {
        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-50 transform translate-x-1/3 -translate-y-1/3"></div>
        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center relative z-10">
           <FadeIn>
-             <h2 className="text-3xl md:text-4xl font-medium text-white tracking-tight leading-tight mb-8">
+             <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight leading-tight mb-8">
                 What the pilot means for your clinic
              </h2>
 
@@ -31,7 +31,7 @@ export function ClinicPilot() {
 
              <div className="flex flex-col items-center gap-3">
                 <Button variant="animated" size="lg" onClick={() => setModalOpen(true)} className="bg-white hover:bg-stone-50 text-pine-900 h-14 px-12 text-lg rounded-xl font-medium shadow-lg">
-                  Join the clinic pilot
+                  Join the Clinic Pilot
                 </Button>
 
                 <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm font-medium text-pine-300 mt-3">
@@ -47,6 +47,11 @@ export function ClinicPilot() {
                    <Link to="/privacy" className="underline hover:text-pine-200 transition-colors">Privacy Policy</Link>.
                    {" "}Clinic and user data is encrypted and never shared with third parties.
                 </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm font-medium text-pine-400 mt-8 pt-6 border-t border-pine-800">
+                   <span>Are you a doctor? <Link to="/doctor-portal" className="text-pine-200 hover:text-white transition-colors">See the doctor portal →</Link></span>
+                   <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-700"></span>
+                   <span>Looking for the patient app? <Link to="/patient-app" className="text-pine-200 hover:text-white transition-colors">See FettleMed for patients →</Link></span>
+                </div>
              </div>
           </FadeIn>
        </div>

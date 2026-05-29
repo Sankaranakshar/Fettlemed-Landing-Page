@@ -18,11 +18,11 @@ export function PatientHero() {
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-pine-200 bg-pine-50 shadow-sm text-xs font-medium text-pine-700 uppercase tracking-widest mb-8">
                 For Patients &amp; Families
               </div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium text-ink leading-[1.05] mb-6 tracking-tight text-balance">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium text-pine-900 leading-[1.05] mb-6 tracking-tight text-balance">
                 Your health history, <span className="text-pine-600">always with you.</span>
               </h1>
               <p className="text-xl md:text-2xl text-dim mb-10 font-medium leading-relaxed max-w-2xl text-balance">
-                Your complete clinical history in one secure timeline. Instant access to prescriptions and lab results — with granular consent controls you manage.
+                Your complete clinical history in one secure timeline. Prescriptions and lab results at your fingertips, with full control over who sees them and for how long.
               </p>
               <div className="flex flex-col items-center lg:items-start gap-4">
                 <Button

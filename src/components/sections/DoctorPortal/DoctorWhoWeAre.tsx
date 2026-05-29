@@ -6,7 +6,7 @@ export function DoctorWhoWeAre() {
     <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center">
           <FadeIn>
-             <h2 className="text-3xl font-medium text-pine-900 tracking-tight mb-8">Who we are</h2>
+             <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight mb-8">Who we are</h2>
              <div className="space-y-6 text-lg text-dim-2 font-medium leading-relaxed text-left md:text-center">
                 <p>FettleMed is built by a team that has worked in Indian clinical environments — not a team that read about them.</p>
                 <p>Every feature goes through clinical validation with Dr. Bhavani Sriram and Dr. Sriram Shankar before it ships. Not a checkbox — an active check against how a real consultation runs.</p>
