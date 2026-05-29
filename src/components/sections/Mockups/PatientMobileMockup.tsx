@@ -108,7 +108,7 @@ export function PatientMobileMockup() {
               style={{
                 backgroundColor: "#07100d",
                 boxShadow: "0 32px 64px rgba(5,14,11,0.5), 0 8px 24px rgba(5,14,11,0.3), inset 0 1px 0 rgba(255,255,255,0.07)",
-                padding: 3,
+                padding: 7,
               }}
             >
               {/* OLED screen */}
