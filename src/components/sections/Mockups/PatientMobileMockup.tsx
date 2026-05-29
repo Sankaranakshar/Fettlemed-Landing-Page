@@ -83,6 +83,7 @@ export function PatientMobileMockup() {
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          style={{ willChange: "transform" }}
         >
           {/* ── iPhone shell ── */}
           <div className="relative" style={{ width: 280 }}>
@@ -112,7 +113,7 @@ export function PatientMobileMockup() {
               }}
             >
               {/* OLED screen */}
-              <div className="rounded-[2.7rem] overflow-hidden bg-surface-50 flex flex-col" style={{ height: 560 }}>
+              <div className="rounded-[2.7rem] overflow-hidden bg-pine-600 flex flex-col" style={{ height: 560 }}>
 
                 {/* Status bar with Dynamic Island */}
                 <div
