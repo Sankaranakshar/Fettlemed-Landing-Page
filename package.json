@@ -6,9 +6,12 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build",
+    "build": "vite build && BUILD_SSR=1 vite build && node scripts/prerender.mjs && rm -rf dist-ssr",
+    "build:client": "vite build",
+    "build:ssr": "BUILD_SSR=1 vite build",
+    "prerender": "node scripts/prerender.mjs",
     "preview": "vite preview",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist dist-ssr",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

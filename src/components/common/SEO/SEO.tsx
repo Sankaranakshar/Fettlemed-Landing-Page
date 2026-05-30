@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 
 interface SEOProps {
   title: string;
@@ -15,6 +16,7 @@ export function SEO({
   type = "website",
   image = "/brand/lockup.svg"
 }: SEOProps) {
+  const { pathname } = useLocation();
   const isHome = title === 'Home';
   const fullTitle = isHome
     ? `${name}: Your Complete Health Record`
@@ -41,14 +43,14 @@ export function SEO({
       {/* Standard metadata tags */}
       <title>{fullTitle}</title>
       <meta name='description' content={description} />
-      <link rel="canonical" href={`https://fettlemed.com${typeof window !== 'undefined' ? window.location.pathname : '/'}`} />
-      
+      <link rel="canonical" href={`https://fettlemed.com${pathname}`} />
+
       {/* OpenGraph tags */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:url" content={typeof window !== 'undefined' ? window.location.href : ''} />
+      <meta property="og:url" content={`https://fettlemed.com${pathname}`} />
       
       {/* Twitter tags */}
       <meta name="twitter:creator" content="@fettlemed" />
