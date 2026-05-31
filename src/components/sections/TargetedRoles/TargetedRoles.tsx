@@ -97,14 +97,23 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
         "No searching. No starting from scratch.",
       ],
       visual: (
-        <div className="w-full max-w-[280px] flex flex-col gap-4 relative">
-          <div className="absolute left-[19px] top-4 bottom-4 w-[2px] bg-pine-600/40"></div>
-          {[{ Icon: CalendarClock, color: 'bg-pine-600' }, { Icon: Activity, color: 'bg-rose-500/60' }, { Icon: TestTube, color: 'bg-indigo-500/60' }].map(({ Icon, color }, i) => (
-            <motion.div key={i} initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: i * 0.2 + 0.1 }} className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-pine-700 border-2 border-pine-800 flex items-center justify-center text-white z-10 shrink-0"><Icon className="w-5 h-5" /></div>
-              <div className="bg-pine-700/60 p-3 rounded-xl border border-pine-600 w-full">
-                <div className={`h-2 w-1/3 ${color} rounded-full mb-2`}></div>
-                <div className="h-1.5 w-2/3 bg-pine-600/40 rounded-full"></div>
+        <div className="w-full max-w-[280px] flex flex-col gap-3 relative">
+          <div className="absolute left-[19px] top-5 bottom-5 w-[2px] bg-pine-400/30"></div>
+          {[
+            { Icon: CalendarClock, label: "Hypertension", sub: "Diagnosed — Jan 2024", dot: "bg-pine-300" },
+            { Icon: Activity,      label: "BP: 138/88",   sub: "Review — Mar 2024",   dot: "bg-rose-300" },
+            { Icon: TestTube,      label: "CBC Normal",   sub: "Lab result — May 2024", dot: "bg-indigo-300" },
+          ].map(({ Icon, label, sub, dot }, i) => (
+            <motion.div key={i} initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: i * 0.2 + 0.1 }} className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-pine-700 border-2 border-pine-500 flex items-center justify-center text-pine-200 z-10 shrink-0">
+                <Icon className="w-4 h-4" />
+              </div>
+              <div className="bg-pine-700 p-3 rounded-xl border border-pine-500/60 w-full flex items-center gap-3">
+                <div className={`w-2 h-2 rounded-full ${dot} shrink-0`} />
+                <div>
+                  <p className="text-white text-xs font-medium leading-tight">{label}</p>
+                  <p className="text-pine-300 text-[10px] leading-tight mt-0.5">{sub}</p>
+                </div>
               </div>
             </motion.div>
           ))}
