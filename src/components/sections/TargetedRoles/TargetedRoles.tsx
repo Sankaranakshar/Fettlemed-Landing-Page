@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import {
   Smartphone, Stethoscope, Building2,
   ShieldCheck, Activity, Pill, HeartPulse, Users, FileText,
-  CalendarClock, TestTube, FileSignature, CheckCircle2,
-  ArrowUpRight, Lock, Wallet, FileCheck2, Folders
+  CalendarClock, TestTube, CheckCircle2,
+  ArrowUpRight, Wallet, FileCheck2
 } from "lucide-react";
 import { motion } from "motion/react";
 import { FadeIn } from "@/components/common/FadeIn";
@@ -25,13 +25,21 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
         "Yours to keep, yours to share, yours to revoke",
       ],
       visual: (
-        <div className="relative w-48 h-48 border-2 border-dashed border-pine-200 rounded-full flex items-center justify-center">
-          <motion.div animate={{ scale: [1, 1.05, 1] }} transition={{ repeat: Infinity, duration: 3 }} className="z-10 bg-white p-4 rounded-2xl shadow-lg border border-pine-100">
-            <Smartphone className="w-8 h-8 text-pine-600" />
-          </motion.div>
-          <motion.div initial={{ x: -100, y: -60, opacity: 0 }} animate={{ x: -20, y: -20, opacity: 1 }} transition={{ delay: 0.2, duration: 0.8 }} className="absolute bg-white p-2.5 rounded-xl shadow-md border border-pine-100"><FileText className="w-5 h-5 text-pine-600" /></motion.div>
-          <motion.div initial={{ x: 100, y: -40, opacity: 0 }} animate={{ x: 25, y: -15, opacity: 1 }} transition={{ delay: 0.4, duration: 0.8 }} className="absolute bg-white p-2.5 rounded-xl shadow-md border border-pine-100"><Activity className="w-5 h-5 text-pine-500" /></motion.div>
-          <motion.div initial={{ x: -50, y: 100, opacity: 0 }} animate={{ x: -10, y: 30, opacity: 1 }} transition={{ delay: 0.6, duration: 0.8 }} className="absolute bg-white p-2.5 rounded-xl shadow-md border border-pine-100"><Pill className="w-5 h-5 text-pine-400" /></motion.div>
+        <div className="w-full max-w-[260px] flex flex-col gap-2">
+          {[
+            { icon: <FileText className="w-4 h-4 text-pine-600" />, label: "CBC Report", sub: "2 days ago", bg: "bg-pine-50 border-pine-100" },
+            { icon: <Pill className="w-4 h-4 text-rose-500" />, label: "Amlodipine 5mg", sub: "Active prescription", bg: "bg-rose-50 border-rose-100" },
+            { icon: <Activity className="w-4 h-4 text-indigo-500" />, label: "Consultation Note", sub: "Dr. Mehta — 1 week ago", bg: "bg-indigo-50 border-indigo-100" },
+            { icon: <HeartPulse className="w-4 h-4 text-pine-500" />, label: "ECG Result", sub: "Last month", bg: "bg-pine-50 border-pine-100" },
+          ].map(({ icon, label, sub, bg }, i) => (
+            <motion.div key={i} initial={{ x: -30, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: i * 0.15 + 0.1, type: "spring", stiffness: 180 }} className="bg-white p-3 rounded-xl shadow-sm border border-stone-100 flex items-center gap-3">
+              <div className={`w-8 h-8 rounded-lg flex items-center justify-center border shrink-0 ${bg}`}>{icon}</div>
+              <div>
+                <p className="text-sm font-medium text-pine-900">{label}</p>
+                <p className="text-xs text-pine-400">{sub}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       ),
     },
@@ -130,20 +138,26 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
         "Referral letters drafted in moments",
       ],
       visual: (
-        <div className="w-full max-w-[200px] bg-white rounded-lg shadow-xl overflow-hidden transform rotate-2">
-          <div className="bg-pine-100 p-2 text-center text-xs font-medium text-pine-800 border-b border-pine-200">Rx Prescription</div>
+        <div className="w-full max-w-[230px] bg-white rounded-2xl shadow-xl border border-pine-100 overflow-hidden">
+          <div className="bg-pine-800 px-4 py-2.5 flex items-center justify-between">
+            <span className="text-pine-100 text-xs font-medium uppercase tracking-wider">Prescription</span>
+            <span className="text-pine-400 text-xs">Today</span>
+          </div>
           <div className="p-4 flex flex-col gap-3">
-            <motion.div initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ delay: 0.2 }} className="h-1.5 bg-pine-100 rounded"></motion.div>
-            <div className="flex gap-2">
-              <motion.div initial={{ width: 0 }} animate={{ width: '20%' }} transition={{ delay: 0.3 }} className="h-1.5 bg-pine-600 rounded"></motion.div>
-              <motion.div initial={{ width: 0 }} animate={{ width: '60%' }} transition={{ delay: 0.4 }} className="h-1.5 bg-pine-100 rounded"></motion.div>
-            </div>
-            <div className="flex gap-2">
-              <motion.div initial={{ width: 0 }} animate={{ width: '20%' }} transition={{ delay: 0.5 }} className="h-1.5 bg-pine-600 rounded"></motion.div>
-              <motion.div initial={{ width: 0 }} animate={{ width: '50%' }} transition={{ delay: 0.6 }} className="h-1.5 bg-pine-100 rounded"></motion.div>
-            </div>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="mt-2 self-end">
-              <FileSignature className="w-6 h-6 text-pine-600" />
+            <p className="text-xs text-pine-400 font-medium">Patient: Rahul V.</p>
+            {[
+              { drug: "Amlodipine 5mg", dose: "1 tab — morning", delay: 0.2 },
+              { drug: "Metformin 500mg", dose: "2 tabs — after meals", delay: 0.4 },
+              { drug: "Vitamin D3 60K", dose: "1 cap — weekly", delay: 0.6 },
+            ].map(({ drug, dose, delay }, i) => (
+              <motion.div key={i} initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay }} className="bg-pine-50 border border-pine-100 rounded-lg px-3 py-2">
+                <p className="text-sm font-medium text-pine-900">{drug}</p>
+                <p className="text-xs text-pine-500 mt-0.5">{dose}</p>
+              </motion.div>
+            ))}
+            <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }} className="flex items-center gap-2 justify-end mt-1">
+              <span className="text-xs text-pine-500 font-medium">Sent to patient</span>
+              <CheckCircle2 className="w-4 h-4 text-pine-600" />
             </motion.div>
           </div>
         </div>
@@ -159,16 +173,21 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
         "Every access logged. Full audit trail for you and the patient.",
       ],
       visual: (
-        <div className="relative flex items-center justify-center w-32 h-32">
-          <motion.div className="bg-pine-700 p-4 rounded-2xl border border-pine-600 shadow-xl flex items-center justify-center w-full h-full" initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ type: "spring", bounce: 0.5 }}>
-            <Lock className="w-10 h-10 text-pine-200" />
-          </motion.div>
-          <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 1.2 }} className="absolute -right-4 -bottom-4 bg-pine-600 text-white text-[10px] font-medium px-2 py-1 rounded-full shadow-lg flex items-center gap-1">
-            <CheckCircle2 className="w-3 h-3" /> Approved
-          </motion.div>
-          <motion.div animate={{ rotate: [0, 8, -8, 0] }} transition={{ repeat: Infinity, duration: 4 }}>
-            <Folders className="w-12 h-12 text-pine-400/40 absolute -left-8 -top-8" />
-          </motion.div>
+        <div className="w-full max-w-[260px] flex flex-col gap-2.5">
+          <p className="text-xs font-medium text-pine-400 uppercase tracking-wider px-1">Access Log</p>
+          {[
+            { icon: <Stethoscope className="w-3.5 h-3.5" />, label: "You viewed full history", sub: "Today, 9:15 AM", iconColor: "text-pine-300", delay: 0.1 },
+            { icon: <CheckCircle2 className="w-3.5 h-3.5" />, label: "Prescription synced to app", sub: "Yesterday, 6:40 PM", iconColor: "text-pine-400", delay: 0.3 },
+            { icon: <FileText className="w-3.5 h-3.5" />, label: "CBC result uploaded by patient", sub: "2 days ago", iconColor: "text-indigo-400", delay: 0.5 },
+          ].map(({ icon, label, sub, iconColor, delay }, i) => (
+            <motion.div key={i} initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay }} className="bg-pine-800 border border-pine-700 rounded-xl p-3 flex items-start gap-3">
+              <div className={`mt-0.5 shrink-0 ${iconColor}`}>{icon}</div>
+              <div>
+                <p className="text-white text-xs font-medium leading-snug">{label}</p>
+                <p className="text-pine-400 text-[10px] mt-0.5">{sub}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       ),
     },
