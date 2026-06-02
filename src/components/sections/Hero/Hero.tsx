@@ -1,5 +1,4 @@
 import React from 'react';
-import { Lock, ShieldCheck, BadgeCheck } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { Button } from "@/components/common/Button";
 import { HomeFlowMockup } from "@/components/sections/Mockups";
@@ -24,13 +23,7 @@ export const Hero = () => {
                 FettleMed connects patients, doctors, and clinics on one unified, secure platform.
               </p>
 
-              <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-4 md:mb-5 lg:mb-4">
-                <span className="flex items-center gap-1.5 text-xs lg:text-sm font-medium text-dim bg-white px-3 py-1.5 lg:px-4 lg:py-2 rounded-full border border-pine-100 shadow-sm"><ShieldCheck className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-pine-600"/> Consent-first access</span>
-                <span className="flex items-center gap-1.5 text-xs lg:text-sm font-medium text-dim bg-white px-3 py-1.5 lg:px-4 lg:py-2 rounded-full border border-pine-100 shadow-sm"><Lock className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-pine-600"/> Encrypted at rest and in transit</span>
-                <span className="flex items-center gap-1.5 text-xs lg:text-sm font-medium text-dim bg-white px-3 py-1.5 lg:px-4 lg:py-2 rounded-full border border-pine-100 shadow-sm"><BadgeCheck className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-pine-600"/> ABDM-aligned</span>
-              </div>
-
-              <div className="flex flex-col items-center md:items-start gap-4 justify-center md:justify-start">
+<div className="flex flex-col items-center md:items-start gap-4 justify-center md:justify-start">
                 <Button
                   variant="animated"
                   size="lg"
