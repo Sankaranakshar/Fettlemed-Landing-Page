@@ -288,8 +288,8 @@ function FullHistoryVisual() {
   );
 }
 
-/* 5a · E-Prescriptions helper — floating "Saved to Patient Record" sync badge */
-function SyncBadge({ onDone }: { onDone: () => void; key?: React.Key }) {
+/* 5a · Doctor Portal — inline sync status row (lives inside the Rx workspace) */
+function SyncStatusRow({ onDone }: { onDone: () => void; key?: React.Key }) {
   const [scope, animate] = useAnimate();
   const [showCheck, setShowCheck] = useState(false);
   const [showPulse, setShowPulse] = useState(false);
@@ -297,32 +297,18 @@ function SyncBadge({ onDone }: { onDone: () => void; key?: React.Key }) {
   useEffect(() => {
     let alive = true;
     async function run() {
-      // 1. Badge rises gently into view
+      if (!scope.current) return;
       await animate(
         scope.current,
-        { y: 0, opacity: 1 },
-        { delay: 0.42, type: 'spring', stiffness: 180, damping: 22 }
+        { opacity: 1, y: 0 },
+        { delay: 0.08, type: 'spring', stiffness: 200, damping: 22 }
       );
       if (!alive) return;
-
-      // 2. Checkmark springs in
       setShowCheck(true);
       await new Promise<void>(r => setTimeout(r, 160));
       if (!alive) return;
-
-      // 3. Single green pulse radiates outward (non-blocking)
       setShowPulse(true);
-
-      // 4. Hold — let the user read the message
-      await new Promise<void>(r => setTimeout(r, 860));
-      if (!alive) return;
-
-      // 5. Badge gently rises out and fades
-      await animate(
-        scope.current,
-        { y: -10, opacity: 0 },
-        { duration: 0.36, ease: [0.4, 0, 1, 1] }
-      );
+      await new Promise<void>(r => setTimeout(r, 920));
       if (!alive) return;
       onDone();
     }
@@ -333,16 +319,15 @@ function SyncBadge({ onDone }: { onDone: () => void; key?: React.Key }) {
   return (
     <motion.div
       ref={scope}
-      initial={{ y: 14, opacity: 0 }}
-      className="absolute bottom-3 right-3 z-10 flex items-center gap-2.5 bg-white border border-stone-200 rounded-2xl shadow-lg px-3 py-2.5"
+      initial={{ opacity: 0, y: 5 }}
+      className="flex items-center gap-2 bg-emerald-900/30 border border-emerald-700/40 rounded-lg px-2 py-1.5"
     >
-      {/* Checkmark with outward pulse ring */}
-      <div className="relative w-5 h-5 flex items-center justify-center shrink-0">
+      <div className="relative w-3.5 h-3.5 flex items-center justify-center shrink-0">
         {showPulse && (
           <motion.span
-            initial={{ scale: 1, opacity: 0.6 }}
-            animate={{ scale: 2.8, opacity: 0 }}
-            transition={{ duration: 0.52, ease: 'easeOut' }}
+            initial={{ scale: 1, opacity: 0.65 }}
+            animate={{ scale: 3, opacity: 0 }}
+            transition={{ duration: 0.48, ease: 'easeOut' }}
             className="absolute inset-0 rounded-full bg-emerald-400"
           />
         )}
@@ -350,81 +335,243 @@ function SyncBadge({ onDone }: { onDone: () => void; key?: React.Key }) {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: showCheck ? 1 : 0, opacity: showCheck ? 1 : 0 }}
           transition={{ type: 'spring', stiffness: 380, damping: 14 }}
-          className="relative z-10 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"
+          className="relative z-10 w-3.5 h-3.5 rounded-full bg-emerald-500 flex items-center justify-center"
         >
-          <CheckCircle2 className="w-3 h-3 text-white" />
+          <CheckCircle2 className="w-2 h-2 text-white" />
         </motion.div>
       </div>
-      <span className="text-xs font-medium text-pine-900 whitespace-nowrap">
+      <span className="text-[9px] font-medium text-emerald-300 whitespace-nowrap">
         Saved to Patient Record
       </span>
     </motion.div>
   );
 }
 
-/* 5b · E-Prescriptions (Doctor) — static Rx + animated sync badge */
+/* 5b · E-Prescriptions (Doctor) — widescreen Doctor Portal EMR interface */
 function EPrescriptionsVisual() {
   const rm = useReducedMotion();
   const [loopKey, setLoopKey] = useState(0);
-  const [showSynced, setShowSynced] = useState(rm ? true : false);
+  const [showPatient, setShowPatient] = useState(rm ? true : false);
+  const [showRx,      setShowRx]      = useState(rm ? true : false);
+  const [showBadge,   setShowBadge]   = useState(false);
+  const [showSynced,  setShowSynced]  = useState(rm ? true : false);
 
   useEffect(() => {
     if (rm) return;
-    // After the badge finishes (~2s), wait ~7.5s then replay the whole sequence
-    const loop = setTimeout(() => {
+    let alive = true;
+    async function run() {
+      // Patient panel loads
+      await new Promise<void>(r => setTimeout(r, 260));
+      if (!alive) return;
+      setShowPatient(true);
+      // Prescription workspace activates
+      await new Promise<void>(r => setTimeout(r, 440));
+      if (!alive) return;
+      setShowRx(true);
+      // Sync row appears
+      await new Promise<void>(r => setTimeout(r, 840));
+      if (!alive) return;
+      setShowBadge(true);
+      // Loop restart
+      await new Promise<void>(r => setTimeout(r, 9200));
+      if (!alive) return;
+      setShowPatient(false);
+      setShowRx(false);
+      setShowBadge(false);
       setShowSynced(false);
+      await new Promise<void>(r => setTimeout(r, 220));
+      if (!alive) return;
       setLoopKey(k => k + 1);
-    }, 9600);
-    return () => clearTimeout(loop);
+    }
+    run();
+    return () => { alive = false; };
   }, [loopKey, rm]);
 
-  const rx = [
-    { drug: 'Amlodipine 5mg',  dose: '1 tab — morning'     },
-    { drug: 'Metformin 500mg', dose: '2 tabs — after meals' },
-    { drug: 'Vitamin D3 60K',  dose: '1 cap — weekly'       },
+  const handleSyncDone = () => { setShowBadge(false); setShowSynced(true); };
+
+  const conditions = [
+    { label: 'Hypertension', dot: 'bg-rose-400'  },
+    { label: 'Type 2 DM',   dot: 'bg-amber-400' },
+  ];
+  const labs = [
+    { label: 'CBC',   value: 'Normal', dot: 'bg-pine-400'  },
+    { label: 'BP',    value: '138/88', dot: 'bg-rose-400'  },
+    { label: 'HbA1c', value: '7.2%',  dot: 'bg-amber-400' },
+  ];
+  const rxItems = [
+    { drug: 'Amlodipine 5mg',  dose: '1 tab — morning',     tag: 'Antihypertensive' },
+    { drug: 'Metformin 500mg', dose: '2 tabs — after meals', tag: 'Antidiabetic'     },
+    { drug: 'Vitamin D3 60K',  dose: '1 cap — weekly',       tag: 'Supplement'       },
   ];
 
   return (
-    <div className="relative w-full max-w-[230px]">
-      {/* Prescription card — complete and visible from the start */}
-      <motion.div
-        initial={{ opacity: 0, y: 6 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.12, type: 'spring', stiffness: 200, damping: 22 }}
-        className="bg-white rounded-2xl shadow-xl border border-pine-100"
+    <div className="w-full px-1">
+      {/* ── Monitor frame ── */}
+      <div
+        className="w-full rounded-xl overflow-hidden border border-pine-600/40 shadow-2xl"
+        style={{ background: '#06130d' }}
       >
-        <div className="bg-pine-800 px-4 py-2.5 rounded-t-2xl flex items-center justify-between">
-          <span className="text-pine-100 text-xs font-medium uppercase tracking-wider">Prescription</span>
-          <span className="text-pine-400 text-xs">Today</span>
+
+        {/* ── Top nav bar ── */}
+        <div className="h-7 bg-pine-800/90 border-b border-pine-700/50 flex items-center px-3 gap-2 shrink-0">
+          <div className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-pine-400 shrink-0" />
+            <span className="text-[9px] font-bold text-pine-200 uppercase tracking-widest">FettleMed</span>
+          </div>
+          <span className="text-pine-600 text-[10px] select-none">·</span>
+          <span className="text-[9px] text-pine-400 font-medium">Doctor Portal</span>
+          <div className="ml-auto flex items-center gap-1.5 bg-pine-700/50 border border-pine-600/40 rounded-full px-2 py-0.5">
+            <span className="text-[9px] text-pine-300">Rahul V.</span>
+            <motion.span
+              animate={rm ? {} : { opacity: [1, 0.3, 1] }}
+              transition={{ duration: 1.8, repeat: Infinity }}
+              className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"
+            />
+          </div>
         </div>
-        <div className="p-4 pb-10 flex flex-col gap-2.5">
-          <p className="text-xs text-pine-400 font-medium">Patient: Rahul V.</p>
-          {rx.map(({ drug, dose }, i) => (
-            <div key={i} className="bg-pine-50 border border-pine-100 rounded-lg px-3 py-2">
-              <p className="text-sm font-medium text-pine-900">{drug}</p>
-              <p className="text-xs text-pine-500 mt-0.5">{dose}</p>
+
+        {/* ── Content ── */}
+        <div className="flex" style={{ height: 188 }}>
+
+          {/* ── Left: Patient sidebar ── */}
+          <div className="w-[106px] shrink-0 border-r border-pine-700/40 p-2.5 flex flex-col gap-2 overflow-hidden"
+               style={{ background: 'rgba(10,28,18,0.7)' }}>
+            {showPatient ? (
+              <motion.div
+                initial={{ opacity: 0, x: -6 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 22 }}
+                className="flex flex-col gap-2 h-full"
+              >
+                {/* Avatar + name */}
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-full bg-pine-600/80 border border-pine-500/60 flex items-center justify-center shrink-0">
+                    <span className="text-[9px] font-bold text-pine-100">RV</span>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[10px] font-semibold text-white leading-none">Rahul V.</p>
+                    <p className="text-[9px] text-pine-500 mt-0.5">42 yrs · Male</p>
+                  </div>
+                </div>
+
+                {/* Conditions */}
+                <div className="flex flex-col gap-1">
+                  {conditions.map(({ label, dot }) => (
+                    <div key={label} className="flex items-center gap-1.5 bg-pine-700/30 border border-pine-600/20 rounded px-1.5 py-1">
+                      <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dot}`} />
+                      <span className="text-[9px] text-pine-300 leading-none truncate">{label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Divider */}
+                <div className="border-t border-pine-700/30" />
+
+                {/* Labs */}
+                <div>
+                  <p className="text-[8px] font-semibold text-pine-500 uppercase tracking-wider mb-1.5">Recent Labs</p>
+                  {labs.map(({ label, value, dot }) => (
+                    <div key={label} className="flex items-center justify-between mb-1">
+                      <div className="flex items-center gap-1 min-w-0">
+                        <span className={`w-1 h-1 rounded-full shrink-0 ${dot}`} />
+                        <span className="text-[9px] text-pine-500 truncate">{label}</span>
+                      </div>
+                      <span className="text-[9px] font-medium text-pine-300 tabular-nums">{value}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Last visit */}
+                <div className="mt-auto bg-pine-800/50 border border-pine-700/30 rounded px-1.5 py-1">
+                  <p className="text-[8px] text-pine-600">Last visit</p>
+                  <p className="text-[9px] font-medium text-pine-400">2 weeks ago</p>
+                </div>
+              </motion.div>
+            ) : (
+              /* Skeleton while patient loads */
+              <div className="flex flex-col gap-2 flex-1">
+                {[40, 28, 28, 20, 20, 20].map((w, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{ opacity: [0.15, 0.35, 0.15] }}
+                    transition={{ duration: 1.4, repeat: Infinity, delay: i * 0.08 }}
+                    className="h-5 rounded bg-pine-700/40"
+                    style={{ width: `${w}%` }}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* ── Right: Prescription workspace ── */}
+          <div className="flex-1 p-2.5 flex flex-col gap-2 min-w-0 overflow-hidden">
+
+            {/* Workspace header */}
+            <div className="flex items-center justify-between shrink-0">
+              <div className="flex items-center gap-1.5">
+                <div className="w-4 h-4 rounded bg-pine-700/70 border border-pine-600/40 flex items-center justify-center shrink-0">
+                  <span className="text-[8px] font-bold text-pine-300">Rx</span>
+                </div>
+                <span className="text-[10px] font-semibold text-pine-200">New Prescription</span>
+              </div>
+              <span className="text-[9px] text-pine-600">09:15 AM</span>
             </div>
-          ))}
+
+            {/* Rx rows */}
+            {showRx ? (
+              <div className="flex flex-col gap-1.5 flex-1 min-h-0">
+                {rxItems.map(({ drug, dose, tag }, i) => (
+                  <motion.div
+                    key={drug}
+                    initial={{ opacity: 0, x: 8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1, type: 'spring', stiffness: 220, damping: 22 }}
+                    className="flex items-center gap-2 bg-pine-700/25 border border-pine-600/25 rounded-lg px-2.5 py-1.5"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[10px] font-semibold text-white leading-none">{drug}</p>
+                      <p className="text-[9px] text-pine-500 mt-0.5 leading-none">{dose}</p>
+                    </div>
+                    <span className="text-[8px] font-medium text-pine-500 bg-pine-800/70 border border-pine-700/40 rounded-full px-1.5 py-0.5 shrink-0 whitespace-nowrap">
+                      {tag}
+                    </span>
+                  </motion.div>
+                ))}
+
+                {/* Sync row — inline, not overlaid */}
+                {showBadge && !showSynced && (
+                  <SyncStatusRow key={loopKey} onDone={handleSyncDone} />
+                )}
+
+                {/* Persistent synced state */}
+                {showSynced && !showBadge && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="flex items-center gap-1.5 mt-auto"
+                  >
+                    <CheckCircle2 className="w-3 h-3 text-pine-600 shrink-0" />
+                    <span className="text-[9px] font-medium text-pine-600">Synced to patient record</span>
+                  </motion.div>
+                )}
+              </div>
+            ) : (
+              /* Skeleton while Rx workspace loads */
+              <div className="flex flex-col gap-1.5 flex-1">
+                {[0, 1, 2].map(i => (
+                  <motion.div
+                    key={i}
+                    animate={{ opacity: [0.15, 0.35, 0.15] }}
+                    transition={{ duration: 1.4, repeat: Infinity, delay: i * 0.12 }}
+                    className="h-8 rounded-lg bg-pine-700/30"
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
-      </motion.div>
-
-      {/* Animated sync badge — remounts each loop to replay */}
-      {!showSynced && !rm && (
-        <SyncBadge key={loopKey} onDone={() => setShowSynced(true)} />
-      )}
-
-      {/* Persistent "Synced" chip — remains after the badge fades */}
-      {showSynced && (
-        <motion.div
-          initial={{ scale: 0.86, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-          className="absolute bottom-3 right-3 flex items-center gap-1.5 bg-white border border-pine-200 shadow-sm rounded-full px-2.5 py-1.5"
-        >
-          <CheckCircle2 className="w-3.5 h-3.5 text-pine-500" />
-          <span className="text-xs font-medium text-pine-600">Synced</span>
-        </motion.div>
-      )}
+      </div>
     </div>
   );
 }
