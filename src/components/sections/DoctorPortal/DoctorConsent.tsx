@@ -2,81 +2,85 @@ import React from 'react';
 import { Lock, Fingerprint, Link2, ShieldCheck } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 
+const CARDS = [
+  {
+    Icon: Lock,
+    heading: "The records you create are yours.",
+    body: "Your notes, prescriptions, and observations belong to you — as they always have. Consistent with Indian Medical Council Regulations 2002.",
+    bullets: [
+      "FettleMed stores and structures your records, nothing more",
+      "You leave with everything you created, always",
+    ],
+  },
+  {
+    Icon: Fingerprint,
+    heading: "Patients decide what they share with you.",
+    body: "Patients control whether you see records from other doctors, previous clinics, or their full history.",
+    bullets: [
+      "Share for one consultation, a fixed period, or ongoing",
+      "You never have unauthorised access — that protects you as much as them",
+    ],
+  },
+  {
+    Icon: Link2,
+    heading: "Practicing without blind spots.",
+    body: "When a patient shares their full profile, you see what every other doctor who treated them saw — no gaps, no guessing.",
+    bullets: [
+      "Full medication history without asking",
+      "No repeating a test from three weeks ago",
+    ],
+  },
+  {
+    Icon: ShieldCheck,
+    heading: "Every access is logged. For both of you.",
+    body: "Every access is recorded with a timestamp and identifier. You can see the full audit trail. So can the patient.",
+    bullets: [
+      "If a complaint arises, what you had access to is documented",
+      "Visible to you and the patient, always",
+    ],
+  },
+];
+
 export function DoctorConsent() {
   return (
-    <section className="py-16 md:py-20 bg-pine-900 text-white relative overflow-hidden">
-       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-50 transform translate-x-1/3 -translate-y-1/3"></div>
-       <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
-          <FadeIn className="mb-6">
-             <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight text-balance">Who owns what, and why it matters for you.</h2>
-          </FadeIn>
-          <FadeIn className="mb-10">
-             <p className="text-pine-200 text-lg font-medium leading-relaxed max-w-3xl">You keep everything you create. Patients control what they share beyond that. Both of you can see every access, every time.</p>
-          </FadeIn>
+    <section className="h-[calc(100vh-80px)] min-h-[600px] flex flex-col bg-pine-900 overflow-hidden relative">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-40 translate-x-1/3 -translate-y-1/3" />
+      <div className="container mx-auto px-6 max-w-6xl flex flex-col flex-1 min-h-0 py-8 md:py-10 relative z-10 justify-center">
+        <FadeIn className="mb-6">
+          <h2 className="text-3xl md:text-4xl font-medium text-white tracking-tight text-balance">
+            Who owns what, and why it matters for you.
+          </h2>
+          <p className="text-pine-300 text-base font-medium leading-relaxed mt-3 max-w-2xl">
+            You keep everything you create. Patients control what they share beyond that. Both of you can see every access, every time.
+          </p>
+        </FadeIn>
 
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-             <FadeIn delay={0.1} className="flex flex-col gap-6 p-8 rounded-3xl bg-pine-800/50 border border-pine-700 backdrop-blur-sm">
-                <div className="w-12 h-12 bg-pine-700/80 rounded-full flex items-center justify-center">
-                   <Lock className="w-5 h-5 text-pine-200" />
+        <div className="grid md:grid-cols-2 gap-4 flex-1 min-h-0 content-start">
+          {CARDS.map(({ Icon, heading, body, bullets }, i) => (
+            <FadeIn
+              key={heading}
+              delay={i * 0.1}
+              className="flex flex-col gap-3 p-5 rounded-2xl bg-pine-800/50 border border-pine-700 backdrop-blur-sm"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-pine-700/80 rounded-xl flex items-center justify-center shrink-0">
+                  <Icon className="w-4 h-4 text-pine-200" />
                 </div>
-                <div>
-                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">1. The records you create are yours.</h3>
-                   <p className="text-pine-200 leading-relaxed font-medium mb-4">Your notes, prescriptions, and observations belong to you — as they always have. Consistent with Indian Medical Council Regulations 2002.</p>
-                   <ul className="space-y-2 text-pine-200 font-medium">
-                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>FettleMed stores and structures your records, nothing more</li>
-                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>Nothing changes about who your documentation belongs to</li>
-                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>You leave with everything you created, always</li>
-                   </ul>
-                </div>
-             </FadeIn>
-
-             <FadeIn delay={0.2} className="flex flex-col gap-6 p-8 rounded-3xl bg-pine-800/50 border border-pine-700 backdrop-blur-sm">
-                <div className="w-12 h-12 bg-pine-700/80 rounded-full flex items-center justify-center">
-                   <Fingerprint className="w-5 h-5 text-pine-200" />
-                </div>
-                <div>
-                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">2. Patients decide what they share with you.</h3>
-                   <p className="text-pine-200 leading-relaxed font-medium mb-4">Patients control whether you see records from other doctors, previous clinics, or their full history.</p>
-                   <ul className="space-y-2 text-pine-200 font-medium">
-                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>Share for one consultation, a fixed period, or ongoing</li>
-                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>They can revoke at any time — you'll be notified immediately</li>
-                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>You never have unauthorised access. That protects you as much as them.</li>
-                   </ul>
-                </div>
-             </FadeIn>
-
-             <FadeIn delay={0.3} className="flex flex-col gap-6 p-8 rounded-3xl bg-pine-800/50 border border-pine-700 backdrop-blur-sm">
-                <div className="w-12 h-12 bg-pine-700/80 rounded-full flex items-center justify-center">
-                   <Link2 className="w-5 h-5 text-pine-200" />
-                </div>
-                <div>
-                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">3. Unified clinical context: practicing without blind spots.</h3>
-                   <p className="text-pine-200 leading-relaxed font-medium mb-4">When a patient shares their full profile, you see what every other doctor who treated them saw — no gaps, no guessing.</p>
-                   <ul className="space-y-2 text-pine-200 font-medium">
-                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>No asking what they were prescribed six months ago</li>
-                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>Medication history in one place — no asking what they were prescribed elsewhere</li>
-                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>No repeating a test from three weeks ago</li>
-                   </ul>
-                </div>
-             </FadeIn>
-
-             <FadeIn delay={0.4} className="flex flex-col gap-6 p-8 rounded-3xl bg-pine-800/50 border border-pine-700 backdrop-blur-sm">
-                <div className="w-12 h-12 bg-pine-700/80 rounded-full flex items-center justify-center">
-                   <ShieldCheck className="w-5 h-5 text-pine-200" />
-                </div>
-                <div>
-                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight">4. Every access is logged. For both of you.</h3>
-                   <p className="text-pine-200 leading-relaxed font-medium mb-4">Every access is recorded with a timestamp and user identifier. You can see the full audit trail. So can the patient.</p>
-                   <ul className="space-y-2 text-pine-200 font-medium mb-4">
-                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>Logged each time records are accessed, by anyone</li>
-                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>If a complaint arises, what you had access to is documented and verifiable</li>
-                      <li className="flex items-start gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-2 shrink-0"></span>Visible to you and to the patient, always</li>
-                   </ul>
-                   <p className="text-pine-100 font-medium">Clear access and activity records — for every consultation.</p>
-                </div>
-             </FadeIn>
-          </div>
-       </div>
+                <h3 className="text-base font-semibold text-white tracking-tight leading-snug">{heading}</h3>
+              </div>
+              <p className="text-pine-300 text-sm font-medium leading-relaxed">{body}</p>
+              <ul className="space-y-1.5">
+                {bullets.map((b) => (
+                  <li key={b} className="flex items-start gap-2 text-pine-300 text-sm font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-1.5 shrink-0" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
