@@ -4,18 +4,21 @@ import { FadeIn } from "@/components/common/FadeIn";
 const COLUMNS = [
   {
     borderCls: "border-pine-200",
-    body: "A patient sits down. You know the face, not the history. You start from scratch, ask the same questions, hope they remember what they were last prescribed — and build your diagnosis on fragments.",
-    close: "This is not an edge case. This is Tuesday.",
+    heading: "Incomplete Information",
+    body: "A patient sits down. The history is incomplete, scattered, or missing entirely. Previous prescriptions, investigations, and diagnoses are locked in paper files, WhatsApp messages, or another clinic's records.",
+    close: "Clinical decisions are often made without the full picture.",
   },
   {
     borderCls: "border-pine-400",
-    body: "Between consultations: prescriptions by hand, notes in a register, referral letters drafted from memory. None of it is medical work. All of it is time that belongs to the next patient.",
-    close: "By end of day, paperwork has outrun your degree.",
+    heading: "Administrative Burden",
+    body: "Every consultation generates more administration. Prescriptions, notes, referrals, certificates, and follow-ups all compete for the same limited time.",
+    close: "The workload around the patient is growing faster than the time available to treat them.",
   },
   {
     borderCls: "border-pine-900",
-    body: "The patient's history, in front of you before they sit down. The prescription, on their phone the moment you generate it. Follow-up results, without scheduling another visit.",
-    close: "FettleMed is not a workaround. It's how the consultation should have been designed from the start.",
+    heading: "Disconnected Care",
+    body: "Patients move between clinics, hospitals, laboratories, and pharmacies, but their information rarely moves with them. Important details are repeated, forgotten, or lost between visits.",
+    close: "Healthcare remains fragmented long after the consultation ends.",
   },
 ];
 
@@ -26,13 +29,14 @@ export function DoctorProblem() {
 
         <FadeIn className="mb-10">
           <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">
-            This is what practice looks like today.
+            The consultation was supposed to be about the patient.
           </h2>
         </FadeIn>
 
         <div className="grid md:grid-cols-3 gap-8 lg:gap-14">
-          {COLUMNS.map(({ borderCls, body, close }, i) => (
+          {COLUMNS.map(({ borderCls, heading, body, close }, i) => (
             <FadeIn key={i} delay={i * 0.1} className={`flex flex-col border-t-2 ${borderCls} pt-6`}>
+              <p className="text-xs font-semibold text-pine-500 uppercase tracking-widest mb-4">{heading}</p>
               <p className="text-lg text-dim-2 font-medium leading-relaxed mb-4 flex-1">
                 {body}
               </p>
