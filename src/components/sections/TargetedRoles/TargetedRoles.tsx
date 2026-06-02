@@ -6,7 +6,7 @@ import {
   CalendarClock, TestTube, CheckCircle2,
   ArrowUpRight, Wallet, FileCheck2
 } from "lucide-react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useAnimate, useReducedMotion } from "motion/react";
 import { FadeIn } from "@/components/common/FadeIn";
 
 type Role = 'patient' | 'doctor' | 'clinic';
@@ -288,69 +288,143 @@ function FullHistoryVisual() {
   );
 }
 
-/* 5 · E-Prescriptions (Doctor) — typewriter generation, then send confirmation */
-function EPrescriptionsVisual() {
-  const rm = useReducedMotion();
-  const items = [
-    { drug: "Amlodipine 5mg", dose: "1 tab — morning" },
-    { drug: "Metformin 500mg", dose: "2 tabs — after meals" },
-    { drug: "Vitamin D3 60K", dose: "1 cap — weekly" },
-  ];
+/* 5a · E-Prescriptions helper — floating "Saved to Patient Record" sync badge */
+function SyncBadge({ onDone }: { onDone: () => void; key?: React.Key }) {
+  const [scope, animate] = useAnimate();
+  const [showCheck, setShowCheck] = useState(false);
+  const [showPulse, setShowPulse] = useState(false);
+
+  useEffect(() => {
+    let alive = true;
+    async function run() {
+      // 1. Badge rises gently into view
+      await animate(
+        scope.current,
+        { y: 0, opacity: 1 },
+        { delay: 0.42, type: 'spring', stiffness: 180, damping: 22 }
+      );
+      if (!alive) return;
+
+      // 2. Checkmark springs in
+      setShowCheck(true);
+      await new Promise<void>(r => setTimeout(r, 160));
+      if (!alive) return;
+
+      // 3. Single green pulse radiates outward (non-blocking)
+      setShowPulse(true);
+
+      // 4. Hold — let the user read the message
+      await new Promise<void>(r => setTimeout(r, 860));
+      if (!alive) return;
+
+      // 5. Badge gently rises out and fades
+      await animate(
+        scope.current,
+        { y: -10, opacity: 0 },
+        { duration: 0.36, ease: [0.4, 0, 1, 1] }
+      );
+      if (!alive) return;
+      onDone();
+    }
+    run();
+    return () => { alive = false; };
+  }, []);
+
   return (
-    <div className="w-full max-w-[230px] bg-white rounded-2xl shadow-xl border border-pine-100 overflow-hidden">
-      <div className="bg-pine-800 px-4 py-2.5 flex items-center justify-between">
-        <span className="text-pine-100 text-xs font-medium uppercase tracking-wider">Prescription</span>
-        <span className="text-pine-400 text-xs">Today</span>
-      </div>
-      <div className="p-4 flex flex-col gap-2.5">
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.1 }}
-          className="text-xs text-pine-400 font-medium"
-        >Patient: Rahul V.</motion.p>
-
-        {items.map(({ drug, dose }, i) => (
-          <motion.div
-            key={i}
-            initial={rm ? { opacity: 0 } : { opacity: 0, x: 10, scaleX: 0.94 }}
-            animate={{ opacity: 1, x: 0, scaleX: 1 }}
-            transition={{ delay: i * 0.21 + 0.28, type: "spring", stiffness: 240, damping: 20 }}
-            style={{ transformOrigin: 'left' }}
-            className="relative bg-pine-50 border border-pine-100 rounded-lg px-3 py-2 overflow-hidden"
-          >
-            {/* Typewriter reveal overlay */}
-            {!rm && (
-              <motion.div
-                initial={{ scaleX: 1 }}
-                animate={{ scaleX: 0 }}
-                transition={{ delay: i * 0.21 + 0.3, duration: 0.28, ease: "easeOut" }}
-                style={{ transformOrigin: 'right' }}
-                className="absolute inset-0 bg-pine-100"
-              />
-            )}
-            <p className="text-sm font-medium text-pine-900 relative z-10">{drug}</p>
-            <p className="text-xs text-pine-500 mt-0.5 relative z-10">{dose}</p>
-          </motion.div>
-        ))}
-
-        {/* Send confirmation */}
+    <motion.div
+      ref={scope}
+      initial={{ y: 14, opacity: 0 }}
+      className="absolute bottom-3 right-3 z-10 flex items-center gap-2.5 bg-white border border-stone-200 rounded-2xl shadow-lg px-3 py-2.5"
+    >
+      {/* Checkmark with outward pulse ring */}
+      <div className="relative w-5 h-5 flex items-center justify-center shrink-0">
+        {showPulse && (
+          <motion.span
+            initial={{ scale: 1, opacity: 0.6 }}
+            animate={{ scale: 2.8, opacity: 0 }}
+            transition={{ duration: 0.52, ease: 'easeOut' }}
+            className="absolute inset-0 rounded-full bg-emerald-400"
+          />
+        )}
         <motion.div
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.02, type: "spring", stiffness: 200 }}
-          className="flex items-center gap-2 justify-end pt-1.5 border-t border-stone-100"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: showCheck ? 1 : 0, opacity: showCheck ? 1 : 0 }}
+          transition={{ type: 'spring', stiffness: 380, damping: 14 }}
+          className="relative z-10 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"
         >
-          <span className="text-xs text-pine-500 font-medium">Sent to patient</span>
-          <motion.div
-            initial={{ scale: 0, rotate: -25, opacity: 0 }}
-            animate={{ scale: 1, rotate: 0, opacity: 1 }}
-            transition={{ delay: 1.18, type: "spring", stiffness: 400, damping: 12 }}
-          >
-            <CheckCircle2 className="w-4 h-4 text-pine-600" />
-          </motion.div>
+          <CheckCircle2 className="w-3 h-3 text-white" />
         </motion.div>
       </div>
+      <span className="text-xs font-medium text-pine-900 whitespace-nowrap">
+        Saved to Patient Record
+      </span>
+    </motion.div>
+  );
+}
+
+/* 5b · E-Prescriptions (Doctor) — static Rx + animated sync badge */
+function EPrescriptionsVisual() {
+  const rm = useReducedMotion();
+  const [loopKey, setLoopKey] = useState(0);
+  const [showSynced, setShowSynced] = useState(rm ? true : false);
+
+  useEffect(() => {
+    if (rm) return;
+    // After the badge finishes (~2s), wait ~7.5s then replay the whole sequence
+    const loop = setTimeout(() => {
+      setShowSynced(false);
+      setLoopKey(k => k + 1);
+    }, 9600);
+    return () => clearTimeout(loop);
+  }, [loopKey, rm]);
+
+  const rx = [
+    { drug: 'Amlodipine 5mg',  dose: '1 tab — morning'     },
+    { drug: 'Metformin 500mg', dose: '2 tabs — after meals' },
+    { drug: 'Vitamin D3 60K',  dose: '1 cap — weekly'       },
+  ];
+
+  return (
+    <div className="relative w-full max-w-[230px]">
+      {/* Prescription card — complete and visible from the start */}
+      <motion.div
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.12, type: 'spring', stiffness: 200, damping: 22 }}
+        className="bg-white rounded-2xl shadow-xl border border-pine-100"
+      >
+        <div className="bg-pine-800 px-4 py-2.5 rounded-t-2xl flex items-center justify-between">
+          <span className="text-pine-100 text-xs font-medium uppercase tracking-wider">Prescription</span>
+          <span className="text-pine-400 text-xs">Today</span>
+        </div>
+        <div className="p-4 pb-10 flex flex-col gap-2.5">
+          <p className="text-xs text-pine-400 font-medium">Patient: Rahul V.</p>
+          {rx.map(({ drug, dose }, i) => (
+            <div key={i} className="bg-pine-50 border border-pine-100 rounded-lg px-3 py-2">
+              <p className="text-sm font-medium text-pine-900">{drug}</p>
+              <p className="text-xs text-pine-500 mt-0.5">{dose}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Animated sync badge — remounts each loop to replay */}
+      {!showSynced && !rm && (
+        <SyncBadge key={loopKey} onDone={() => setShowSynced(true)} />
+      )}
+
+      {/* Persistent "Synced" chip — remains after the badge fades */}
+      {showSynced && (
+        <motion.div
+          initial={{ scale: 0.86, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+          className="absolute bottom-3 right-3 flex items-center gap-1.5 bg-white border border-pine-200 shadow-sm rounded-full px-2.5 py-1.5"
+        >
+          <CheckCircle2 className="w-3.5 h-3.5 text-pine-500" />
+          <span className="text-xs font-medium text-pine-600">Synced</span>
+        </motion.div>
+      )}
     </div>
   );
 }
