@@ -37,7 +37,7 @@ const faqSections = [
     items: [
       {
         "question": "Where are my records stored?",
-        "answer": "Your records are stored securely on FettleMed's servers in India, not just on your phone. This means you can access them from any device at any time and never lose them if your phone is damaged or lost."
+        "answer": "Your records are stored securely on FettleMed's infrastructure with the primary data centre in India — not just on your phone. This means you can access them from any device at any time and never lose them if your phone is damaged or lost."
       },
       {
         "question": "What types of records can I store?",
@@ -45,7 +45,7 @@ const faqSections = [
       },
       {
         "question": "If I upload a PDF lab report, does the app just store it or does it understand what is in it?",
-        "answer": "FettleMed can read and structure the information inside your PDF lab reports — not just store the file. This means your results are organised, searchable, and presented in a way that is easy to understand rather than as a pile of documents."
+        "answer": "At launch, FettleMed will read and structure the information inside your PDF lab reports — not just store the file — so your results are organised and searchable. Plain-language explanations are on our near-term roadmap. FettleMed helps you understand your results; it does not replace your doctor's advice."
       },
       {
         "question": "Can I add records from before I started using FettleMed?",
@@ -112,7 +112,7 @@ const faqSections = [
       },
       {
         "question": "Is my data stored in India?",
-        "answer": "Yes. All your health data is stored on secure servers within India."
+        "answer": "Patient health records are stored on infrastructure with the primary data centre in India. Certain backup or supporting services may operate in other regions under contractual data-protection obligations. See our Security page for details."
       },
       {
         "question": "What happens to my records if I delete my account?",
@@ -158,10 +158,10 @@ export default function PatientApp() {
               <p className="text-pine-300 text-lg font-medium mb-8">FettleMed also serves the doctors and clinics you visit.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/doctor-portal" className="px-6 py-3 border border-pine-700 bg-pine-800 rounded-xl text-white text-sm font-medium hover:bg-pine-700 transition-colors">
-                  For Medical Professionals →
+                  For Doctors →
                 </Link>
                 <Link to="/clinic-management" className="px-6 py-3 border border-pine-700 bg-pine-800 rounded-xl text-white text-sm font-medium hover:bg-pine-700 transition-colors">
-                  For Clinic Administration →
+                  For Clinics →
                 </Link>
               </div>
             </div>

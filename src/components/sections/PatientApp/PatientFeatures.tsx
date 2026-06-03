@@ -4,13 +4,13 @@ import { FadeIn } from "@/components/common/FadeIn";
 
 export function PatientFeatures() {
   return (
-    <section className="h-[calc(100vh-80px)] min-h-[600px] flex flex-col bg-surface-50 border-b border-stone-100 overflow-hidden">
-      <div className="container mx-auto px-6 max-w-6xl flex flex-col flex-1 min-h-0 py-8 md:py-10 justify-center">
+    <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
+      <div className="container mx-auto px-6 max-w-6xl">
         <FadeIn className="text-center mb-6">
           <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">What changes when your records are finally in one place.</h2>
         </FadeIn>
 
-        <div className="grid md:grid-cols-3 gap-4 auto-rows-fr flex-1 min-h-0">
+        <div className="grid md:grid-cols-3 gap-4">
           <FadeIn delay={0.1} className="bg-white border border-stone-200 rounded-2xl p-5 lg:p-6 shadow-sm flex flex-col hover:shadow-md transition-shadow">
             <div className="w-10 h-10 bg-pine-50 rounded-xl flex items-center justify-center mb-4 border border-pine-100 shrink-0">
               <Combine className="w-5 h-5 text-pine-700" />

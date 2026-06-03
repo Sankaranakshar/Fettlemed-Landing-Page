@@ -20,7 +20,7 @@ export const Hero = () => {
                 Own Your Health Records. <span className="text-pine-600">Share them with your doctor, on your terms.</span>
               </h1>
               <p className="text-lg md:text-xl text-dim mb-5 md:mb-5 lg:mb-4 max-w-xl mx-auto md:mx-0 leading-relaxed font-medium text-balance">
-                FettleMed connects patients, doctors, and clinics on one unified, secure platform.
+                One medical history that follows you — and shows up the moment your doctor needs it.
               </p>
 
 <div className="flex flex-col items-center md:items-start gap-4 justify-center md:justify-start">

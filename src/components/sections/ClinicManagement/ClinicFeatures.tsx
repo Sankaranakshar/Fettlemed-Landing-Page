@@ -44,7 +44,7 @@ export function ClinicFeatures() {
                 <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight text-balance">Invoices at the point of care, not compiled at the end of the day.</h3>
                 <p className="text-dim text-base font-medium leading-relaxed mb-5">Billing happens during or right after the consultation. Collections are tracked in real time. No spreadsheets, no month-end surprises.</p>
                 <ul className="text-dim-2 font-medium text-base space-y-3">
-                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>GST-ready invoices with the fields your accountant needs</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>GST-compliant invoicing — arriving during the pilot</li>
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Billing versus collections in the same view</li>
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Daily and monthly revenue reports without any manual input</li>
                 </ul>

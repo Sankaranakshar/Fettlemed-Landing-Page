@@ -30,7 +30,7 @@ export const Problem = () => {
           </FadeIn>
 
           <FadeIn delay={0.2} className="bg-surface-50 p-8 md:p-10 rounded-2xl border border-stone-200 flex flex-col justify-center h-full">
-            <h2 className="text-2xl md:text-3xl font-medium text-ink mb-5">Disconnected data delays healthcare.</h2>
+            <h2 className="text-2xl md:text-3xl font-medium text-ink mb-5">When your history doesn't show up, your care starts from zero.</h2>
             <p className="text-lg text-dim-2 leading-relaxed mb-5 font-medium">Health data is scattered across hospitals, labs, and paper slips, invisible to the clinician who needs it most. FettleMed closes that gap.</p>
             <p className="text-lg text-dim-2 leading-relaxed font-medium">FettleMed connects everything into one continuous record that <span className="font-medium text-pine-600 border-b border-pine-600">follows you</span> wherever you go.</p>
           </FadeIn>

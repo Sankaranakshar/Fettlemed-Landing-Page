@@ -90,7 +90,7 @@ const faqSections = [
       },
       {
         "question": "Is my patient data stored in India?",
-        "answer": "Yes. All data is stored within India."
+        "answer": "Patient health records are stored on infrastructure with the primary data centre in India. Certain backup or supporting services may operate in other regions under contractual data-protection obligations. See our Security page for details."
       },
       {
         "question": "What happens to my data if FettleMed shuts down?",

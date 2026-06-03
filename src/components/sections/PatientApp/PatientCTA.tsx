@@ -19,7 +19,7 @@ export function PatientCTA() {
              </p>
 
              <div className="flex flex-col items-center justify-center gap-6">
-               <Button variant="animated" size="lg" onClick={() => openWaitlist()} className="bg-pine-900 hover:bg-pine-800 text-white h-14 px-12 text-lg rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2">
+               <Button variant="animated" size="lg" onClick={() => openWaitlist('Individual')} className="bg-pine-900 hover:bg-pine-800 text-white h-14 px-12 text-lg rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2">
                  Join the Waitlist
                </Button>
 

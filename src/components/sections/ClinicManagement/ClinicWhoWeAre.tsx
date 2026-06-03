@@ -26,7 +26,7 @@ export function ClinicWhoWeAre() {
                    </div>
                 </div>
                 <p className="text-dim-2 text-sm font-medium leading-relaxed">
-                  Senior Consultant Cardiothoracic Surgeon with nearly four decades of experience. Pioneer in minimally invasive cardiac surgery and instrumental in establishing paediatric heart surgery programmes across multiple hospitals in Southeast Asia.
+                  Senior Consultant Cardiothoracic Surgeon with nearly four decades of experience across leading hospitals in Singapore and Southeast Asia. Pioneer in minimally invasive cardiac surgery and instrumental in establishing paediatric heart surgery programmes.
                 </p>
              </FadeIn>
 

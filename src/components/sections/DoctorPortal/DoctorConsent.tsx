@@ -43,9 +43,9 @@ const CARDS = [
 
 export function DoctorConsent() {
   return (
-    <section className="h-[calc(100vh-80px)] min-h-[600px] flex flex-col bg-pine-900 overflow-hidden relative">
+    <section className="py-16 md:py-20 bg-pine-900 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-40 translate-x-1/3 -translate-y-1/3" />
-      <div className="container mx-auto px-6 max-w-6xl flex flex-col flex-1 min-h-0 py-8 md:py-10 relative z-10 justify-center">
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <FadeIn className="mb-6">
           <h2 className="text-3xl md:text-4xl font-medium text-white tracking-tight text-balance">
             Who owns what, and why it matters for you.
@@ -55,7 +55,7 @@ export function DoctorConsent() {
           </p>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-4 flex-1 min-h-0 content-start">
+        <div className="grid md:grid-cols-2 gap-4">
           {CARDS.map(({ Icon, heading, body, bullets }, i) => (
             <FadeIn
               key={heading}

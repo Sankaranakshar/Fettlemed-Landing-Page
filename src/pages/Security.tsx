@@ -23,11 +23,11 @@ const sidebarLinks: { id: SectionId; label: string }[] = [
 
 const trustSignals = [
   { icon: Lock,        label: "TLS 1.2+",           sub: "Encryption in transit — live" },
-  { icon: Key,         label: "AES-256",             sub: "At-rest encryption — pre-launch" },  // ⚠️ VERIFY BEFORE DEPLOYMENT: Gurubalaji to confirm AES-256 at-rest is live
-  { icon: Server,      label: "Hosted in India",      sub: "Primary data centre in India" }, // ⚠️ VERIFY BEFORE DEPLOYMENT: confirm primary hosting region before launch
-  { icon: Eye,         label: "Patient-controlled",  sub: "Access model" },
-  { icon: FileCheck2,  label: "Audit logging",       sub: "Ready at launch" },
-  { icon: ShieldCheck, label: "No data sales",       sub: "Personal health data never sold" },
+  { icon: Eye,         label: "Patient-controlled",  sub: "You grant and revoke access" },
+  { icon: FileCheck2,  label: "Audit logging",       sub: "Live at launch" },
+  { icon: Globe2,      label: "DPDPA-aligned",       sub: "Built on India's data law" },
+  { icon: Server,      label: "FHIR standard",       sub: "No proprietary lock-in" },
+  { icon: ShieldCheck, label: "No data sales",       sub: "Health data never sold" },
 ];
 
 const faqData = [
@@ -127,6 +127,24 @@ export default function Security() {
                   </div>
                 ))}
               </div>
+
+              {/* Hero CTA */}
+              <div className="flex flex-col sm:flex-row gap-3 justify-center mt-10">
+                <Button
+                  variant="animated"
+                  size="lg"
+                  onClick={() => openWaitlist()}
+                  className="h-12 px-8 text-base bg-white text-pine-900 hover:bg-pine-50 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
+                >
+                  Join the Waitlist
+                </Button>
+                <a
+                  href="mailto:hello@fettlemed.com"
+                  className="inline-flex items-center justify-center h-12 px-8 text-base border-2 border-pine-600 text-white hover:bg-pine-800 rounded-xl font-medium transition-colors"
+                >
+                  Ask a security question
+                </a>
+              </div>
             </FadeIn>
           </div>
         </section>
@@ -135,6 +153,7 @@ export default function Security() {
         <section className="py-5 bg-pine-50 border-b border-pine-100">
           <div className="container mx-auto px-4 md:px-8 max-w-5xl">
             <p className="text-center text-xs text-pine-600 font-medium">
+              FettleMed is pre-launch and piloting in Chennai. This page labels what is live today and what is being finalized before launch.{" "}
               Last reviewed: June 2026. For questions about our security posture, write to{" "}
               <a href="mailto:hello@fettlemed.com" className="underline hover:text-pine-800 transition-colors">hello@fettlemed.com</a>.
             </p>
@@ -271,7 +290,6 @@ export default function Security() {
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Encryption</h2>
                         <p className="text-dim font-medium mb-8">Your health records are encrypted at every stage — at rest, in transit, and in the event of a breach.</p>
                         <div className="space-y-6">
-                          {/* ⚠️ VERIFY BEFORE DEPLOYMENT: confirm AES-256 at-rest is fully implemented */}
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2 flex items-center gap-2">At rest <span className="text-[11px] font-medium text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">Being finalized pre-launch</span></h3>
                             <p className="text-dim-2 font-medium leading-relaxed">At-rest encryption using AES-256 is being finalized as part of our pre-launch security implementation. All data in transit is already protected by TLS 1.2+.</p>
@@ -437,8 +455,7 @@ export default function Security() {
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Your Data in India</h2>
                         <p className="text-dim font-medium mb-8">Your health records are stored on infrastructure in India. They are never sold, never used for advertising, and never shared with third parties for commercial purposes.</p>
                         <div className="space-y-6">
-                          {/* ⚠️ VERIFY BEFORE DEPLOYMENT: confirm primary hosting region and provider before launch */}
-<div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
+                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Where your data lives</h3>
                             <p className="text-dim-2 font-medium leading-relaxed">Patient health records are hosted on cloud infrastructure with the primary data centre in India. Backup and disaster recovery infrastructure may include servers in other regions, subject to contractual data protection obligations. For specific questions about our hosting architecture, write to <a href="mailto:hello@fettlemed.com" className="text-pine-600 hover:text-pine-700">hello@fettlemed.com</a>.</p>
                           </div>

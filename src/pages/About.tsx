@@ -73,7 +73,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* ── S4: Founders & Leadership ────────────────────────────────── */}
+        {/* ── S3: Founders & Leadership ────────────────────────────────── */}
         <section id="team" className="py-16 md:py-20 bg-white border-b border-stone-100">
           <div className="container mx-auto px-4 md:px-8 max-w-5xl">
             <FadeIn className="mb-10">
@@ -96,7 +96,7 @@ export default function About() {
                   <h3 className="text-2xl font-medium text-pine-900 mb-1">Dr. Sriram Shankar</h3>
                   <p className="text-pine-600 font-medium mb-1">Co-founder &amp; Chief Medical Officer</p>
                   <p className="text-dim text-sm font-medium mb-5">MBBS · FRCS (England) · FAMS (Singapore)</p>
-                  <p className="text-dim-2 font-medium leading-relaxed">Nearly four decades as a Senior Consultant Cardiothoracic Surgeon at KK Women's and Children's Hospital, Singapore. His career defined one observation: the quality of care is inseparable from the quality of information at the moment of decision. His role in FettleMed is not advisory — every clinical feature has been through his hands.</p>
+                  <p className="text-dim-2 font-medium leading-relaxed">Senior Consultant Cardiothoracic Surgeon with nearly four decades of practice across leading hospitals in Singapore and Southeast Asia, including KK Women's and Children's Hospital. A pioneer in minimally invasive cardiac surgery and in establishing paediatric heart-surgery programmes. His role in FettleMed is not advisory — every clinical feature has been through his hands.</p>
                 </div>
 
                 {/* Dr. Bhavani Sriram */}
@@ -144,7 +144,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* ── S5: Where we are today ───────────────────────────────────── */}
+        {/* ── S4: Where we are today ───────────────────────────────────── */}
         <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
           <div className="container mx-auto px-6 max-w-3xl text-center">
             <FadeIn>
@@ -180,7 +180,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* ── S6: Get in touch ─────────────────────────────────────────── */}
+        {/* ── S5: Get in touch ─────────────────────────────────────────── */}
         <section id="contact" className="py-16 md:py-20 bg-white border-b border-stone-100">
           <FadeIn>
             <div className="container mx-auto px-4 md:px-8 max-w-4xl">
@@ -232,7 +232,7 @@ export default function About() {
                     Guindy, Chennai - 600032<br />
                     Tamil Nadu, India
                   </address>
-                  <p className="text-dim text-sm font-medium mt-4">Registered in India. All patient data stored on Indian servers.</p>
+                  <p className="text-dim text-sm font-medium mt-4">Registered in India. Patient health records are stored on infrastructure with the primary data centre in India.</p>
                 </div>
               </div>
 

@@ -5,14 +5,14 @@ import { FadeIn } from "@/components/common/FadeIn";
 
 export function PatientDataRules() {
   return (
-    <section className="h-[calc(100vh-80px)] min-h-[600px] flex flex-col bg-white border-b border-stone-100 overflow-hidden">
-      <div className="container mx-auto px-6 max-w-5xl flex flex-col flex-1 min-h-0 py-8 md:py-10 justify-center">
+    <section className="py-12 md:py-16 bg-white border-b border-stone-100">
+      <div className="container mx-auto px-6 max-w-5xl">
         <FadeIn className="text-center mb-6">
           <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">Your data, your rules</h2>
         </FadeIn>
 
         {/* Bento grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1 min-h-0 content-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
           {/* Hero card — Built around patient consent */}
           <FadeIn delay={0.1} className="md:col-span-2 bg-pine-900 rounded-2xl p-6 flex flex-col">
@@ -47,7 +47,7 @@ export function PatientDataRules() {
               <p className="text-6xl font-bold text-pine-900 tracking-tight leading-none">IN</p>
               <p className="text-pine-600 font-medium text-lg mt-1">India Hosted</p>
             </div>
-            <p className="text-dim-2 font-medium text-sm leading-relaxed">Patient health records are stored on infrastructure in India. They are never sold and never shared for commercial purposes.</p>
+            <p className="text-dim-2 font-medium text-sm leading-relaxed">Patient health records are stored on infrastructure with the primary data centre in India. They are never sold and never shared for commercial purposes.</p>
           </FadeIn>
 
         </div>
