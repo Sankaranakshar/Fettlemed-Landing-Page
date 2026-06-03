@@ -9,7 +9,7 @@ export default function PrivacyPolicy() {
       <div className="container mx-auto px-4 max-w-4xl relative">
         <FadeIn>
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-medium text-pine-900 mb-4 tracking-tight">PRIVACY POLICY</h1>
+            <h1 className="text-4xl md:text-5xl font-medium text-pine-900 mb-4 tracking-tight">Privacy Policy</h1>
             <h2 className="text-xl md:text-2xl font-medium text-pine-600 mb-2">NamNalam Health Tech Private Limited (trading as FettleMed)</h2>
             <p className="text-dim font-medium italic mb-6">Your Health, Your Control</p>
             <p className="text-dim font-medium inline-block bg-white px-4 py-2 border border-stone-200 rounded-full text-sm">

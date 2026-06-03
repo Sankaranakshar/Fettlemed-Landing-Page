@@ -1,46 +1,48 @@
 import React from 'react';
-import { Network } from "lucide-react";
+import { FileText, Upload, User } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
+
+const scenarios = [
+  {
+    icon: FileText,
+    heading: "A doctor generates a prescription. It reaches the patient's phone before they leave the building.",
+    body: "No printout. No front-desk queries. The pharmacy gets a legible digital record instead of handwriting they have to interpret.",
+  },
+  {
+    icon: Upload,
+    heading: "A patient uploads their follow-up result from home. The doctor sees it the same day.",
+    body: "No visit scheduled just to hand over a report. The result is attached to the consultation record it belongs to.",
+  },
+  {
+    icon: User,
+    heading: "A first-time patient who's already on FettleMed. Registration takes seconds.",
+    body: "Diagnoses, medications, allergies — available with their consent. The doctor walks in knowing who they're treating. Not a blank form.",
+  },
+];
 
 export function ClinicConnectedLayer() {
   return (
     <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
        <div className="container mx-auto px-4 md:px-8 max-w-5xl">
+          <FadeIn className="text-center mb-4">
+             <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">FettleMed is not a digital version of your paper system.</h2>
+          </FadeIn>
           <FadeIn className="text-center mb-10">
-             <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">When everyone is connected, this is what changes.</h2>
+             <p className="text-lg text-dim font-medium leading-relaxed max-w-2xl mx-auto">It's a connected layer between your clinic, your doctors, and your patients. Here's what that looks like in practice.</p>
           </FadeIn>
 
-          <div className="grid gap-6">
-             <FadeIn delay={0.1} className="p-8 md:p-10 rounded-3xl bg-white border border-stone-100 shadow-sm flex flex-col md:flex-row gap-8 items-start text-left">
-                <div className="w-16 h-16 bg-pine-50 shrink-0 rounded-2xl border border-pine-100 flex items-center justify-center">
-                   <Network className="w-8 h-8 text-pine-600" />
-                </div>
-                <div className="space-y-8 text-lg text-dim-2 font-medium leading-relaxed">
-                   {/* Scenario 1 */}
-                   <div className="space-y-3">
-                      <p>A doctor generates a prescription. It reaches the patient's phone before they leave the building.</p>
-                      <p>The patient doesn't need a printout. The front desk doesn't field prescription queries. The pharmacy gets a clear, legible digital record instead of handwriting they have to interpret.</p>
+          <div className="grid md:grid-cols-3 gap-6">
+             {scenarios.map(({ icon: Icon, heading, body }, i) => (
+                <FadeIn key={i} delay={i * 0.1} className="p-8 rounded-3xl bg-white border border-stone-100 shadow-sm flex flex-col gap-5 hover:shadow-md transition-shadow">
+                   <div className="w-12 h-12 bg-pine-50 rounded-2xl border border-pine-100 flex items-center justify-center shrink-0">
+                      <Icon className="w-6 h-6 text-pine-600" />
                    </div>
-
-                   {/* Scenario 2 */}
-                   <div className="space-y-3 pt-4 border-t border-stone-100">
-                      <p>A patient uploads their follow-up test result from home. The doctor sees it the same day.</p>
-                      <p>No visit scheduled just to hand over a report. The doctor has the result in context, attached to the consultation record it belongs to.</p>
+                   <div>
+                      <p className="text-pine-900 text-base font-semibold mb-3 leading-snug">{heading}</p>
+                      <p className="text-dim-2 text-base font-medium leading-relaxed">{body}</p>
                    </div>
-
-                   {/* Scenario 3 */}
-                   <div className="space-y-3 pt-4 border-t border-stone-100">
-                      <p>A patient arrives for the first time. They're already on FettleMed.</p>
-                      <p>Their registration takes seconds. Their history, diagnoses, medications, allergies, previous consultations, is available with their consent. The doctor walks in knowing who they're treating.</p>
-                      <p>Not a blank form. Not fifteen minutes of intake questions. A patient whose story is already there.</p>
-                   </div>
-
-                   {/* Closing */}
-                   <div className="pt-4 border-t border-stone-100 text-pine-900 font-medium">
-                      <p>Every one of these moments used to mean a phone call, a printout, a question to the front desk, or a visit that didn't need to happen. The platform is not a digital version of your paper system. It is a connected layer between the clinic, the doctors, and the patients.</p>
-                   </div>
-                </div>
-             </FadeIn>
+                </FadeIn>
+             ))}
           </div>
        </div>
     </section>

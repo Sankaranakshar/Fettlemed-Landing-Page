@@ -1,5 +1,5 @@
 import React from 'react';
-import { Combine, Activity, Share2, Users } from "lucide-react";
+import { Combine, Activity, Share2 } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 
 export function PatientFeatures() {
@@ -10,7 +10,7 @@ export function PatientFeatures() {
           <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">What changes when your records are finally in one place.</h2>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-4 auto-rows-fr flex-1 min-h-0">
+        <div className="grid md:grid-cols-3 gap-4 auto-rows-fr flex-1 min-h-0">
           <FadeIn delay={0.1} className="bg-white border border-stone-200 rounded-2xl p-5 lg:p-6 shadow-sm flex flex-col hover:shadow-md transition-shadow">
             <div className="w-10 h-10 bg-pine-50 rounded-xl flex items-center justify-center mb-4 border border-pine-100 shrink-0">
               <Combine className="w-5 h-5 text-pine-700" />
@@ -45,18 +45,6 @@ export function PatientFeatures() {
               <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Set access to expire after one consultation, or keep it open for ongoing care</li>
               <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Revoke it in one tap, anytime, from your phone</li>
               <li className="flex items-start gap-2 text-pine-700 font-medium"><span className="text-pine-500 mt-0.5 shrink-0">•</span>You are notified every time someone views your records</li>
-            </ul>
-          </FadeIn>
-
-          <FadeIn delay={0.4} className="bg-white border border-stone-200 rounded-2xl p-5 lg:p-6 shadow-sm flex flex-col hover:shadow-md transition-shadow">
-            <div className="w-10 h-10 bg-pine-50 rounded-xl flex items-center justify-center mb-4 border border-pine-100 shrink-0">
-              <Users className="w-5 h-5 text-pine-700" />
-            </div>
-            <h3 className="text-lg font-medium text-pine-900 mb-2 tracking-tight">One login. Your whole family's health.</h3>
-            <ul className="space-y-1.5 text-dim-2 font-medium text-sm">
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Manage your whole family's health under one login</li>
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Each family member's records kept separately and securely</li>
-              <li className="flex items-start gap-2 text-pine-700 font-medium"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Their records stay private to them. You manage access, not content.</li>
             </ul>
           </FadeIn>
         </div>

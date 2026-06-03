@@ -127,9 +127,9 @@ export default function ClinicManagement() {
         <ClinicHero />
         <ClinicProblem />
         <ClinicFeatures />
+        <ClinicConnectedLayer />
         <ClinicFrontDesk />
         <ClinicOwnerView />
-        <ClinicConnectedLayer />
         <ClinicSwitching />
         <ClinicWhoWeAre />
         <ClinicPilot />

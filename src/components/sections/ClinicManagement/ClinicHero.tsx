@@ -21,7 +21,7 @@ export function ClinicHero() {
                 You handle the patients. <span className="text-dim">We handle everything else.</span>
               </h1>
               <p className="text-xl md:text-2xl text-dim mb-10 font-medium leading-relaxed max-w-2xl text-balance">
-                Appointments, billing, queues, and staff — all in one place. No IT department needed.
+                Appointments, billing, patient records, and staff management in one platform.
               </p>
               <div className="flex flex-col items-center lg:items-start gap-3">
                 <Button

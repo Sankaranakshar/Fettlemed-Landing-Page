@@ -44,7 +44,7 @@ export function DoctorHero() {
           </div>
 
           {/* Mockup column */}
-          <div className="w-full lg:w-1/2 hidden lg:block">
+          <div className="w-full lg:w-1/2 hidden md:block">
             <FadeIn delay={0.2}>
               <DoctorConsultationMockup />
             </FadeIn>

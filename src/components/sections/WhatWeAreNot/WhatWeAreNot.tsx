@@ -9,10 +9,10 @@ export const WhatWeAreNot = () => {
         <FadeIn>
           <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-pine-900 mb-4">
-              Three layers. <span className="text-pine-600">One connected system.</span>
+              Not another EMR. Not another health app. <span className="text-pine-600">The layer that connects them.</span>
             </h2>
             <p className="text-lg text-dim-2 max-w-2xl mx-auto font-medium">
-              Every piece of FettleMed is designed to work together, so nothing gets lost between the patient, the doctor, and the clinic.
+              FettleMed is the shared layer between patient, doctor, and clinic — so a prescription written in the room appears on the patient's phone before they leave the building.
             </p>
           </div>
         </FadeIn>

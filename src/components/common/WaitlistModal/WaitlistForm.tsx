@@ -246,7 +246,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
           You're on the list.
         </h2>
         <p className="text-dim leading-relaxed font-medium max-w-sm">
-          Thank you for your interest in Fettlemed. We will be in touch shortly with next steps.
+          Thank you for your interest in FettleMed. We will be in touch shortly with next steps.
         </p>
       </div>
     );

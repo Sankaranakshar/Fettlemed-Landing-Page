@@ -135,7 +135,7 @@ export default function Security() {
         <section className="py-5 bg-pine-50 border-b border-pine-100">
           <div className="container mx-auto px-4 md:px-8 max-w-5xl">
             <p className="text-center text-xs text-pine-600 font-medium">
-              Last reviewed: 2026. For questions about our security posture, write to{" "}
+              Last reviewed: June 2026. For questions about our security posture, write to{" "}
               <a href="mailto:hello@fettlemed.com" className="underline hover:text-pine-800 transition-colors">hello@fettlemed.com</a>.
             </p>
           </div>

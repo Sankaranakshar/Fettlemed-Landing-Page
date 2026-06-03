@@ -6,8 +6,11 @@ export function ClinicFrontDesk() {
   return (
     <section className="py-16 md:py-20 bg-white border-b border-stone-100">
        <div className="container mx-auto px-4 md:px-8 max-w-5xl">
+          <FadeIn className="text-center mb-4">
+             <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">If they can use a smartphone, they can use FettleMed.</h2>
+          </FadeIn>
           <FadeIn className="text-center mb-10">
-             <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">Ready on day one. No software experience needed.</h2>
+             <p className="text-lg text-dim font-medium leading-relaxed max-w-2xl mx-auto">Built for staff who have never used clinic software. The most common front-desk tasks take fewer steps than the paper process they already know.</p>
           </FadeIn>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -16,8 +19,8 @@ export function ClinicFrontDesk() {
                    <Laptop2 className="w-6 h-6 text-pine-600" />
                 </div>
                 <div>
-                   <p className="text-xs font-medium text-pine-600 uppercase tracking-widest mb-2">No tech background required</p>
-                   <p className="text-dim-2 text-base font-medium leading-relaxed">Built for staff who have never used clinic software. The most common front desk tasks take fewer steps than the paper process they're already using.</p>
+                   <p className="text-pine-900 text-base font-semibold mb-2">Ready the same day setup finishes.</p>
+                   <p className="text-dim-2 text-base font-medium leading-relaxed">Most front-desk operations can be learned in one session. We stay until your staff is comfortable — not just until the software is installed.</p>
                 </div>
              </FadeIn>
 
@@ -26,8 +29,8 @@ export function ClinicFrontDesk() {
                    <ShieldOff className="w-6 h-6 text-pine-600" />
                 </div>
                 <div>
-                   <p className="text-xs font-medium text-pine-600 uppercase tracking-widest mb-2">Zero hardware dependency</p>
-                   <p className="text-dim-2 text-base font-medium leading-relaxed">Works on the tablet or computer already at the front desk. No new devices, no technician, no day off for setup.</p>
+                   <p className="text-pine-900 text-base font-semibold mb-2">No new hardware. Not a single device.</p>
+                   <p className="text-dim-2 text-base font-medium leading-relaxed">Works on the tablet or laptop already at the front desk. No technician, no day off for setup, no new purchase required.</p>
                 </div>
              </FadeIn>
 
@@ -36,15 +39,11 @@ export function ClinicFrontDesk() {
                    <RotateCcw className="w-6 h-6 text-pine-600" />
                 </div>
                 <div>
-                   <p className="text-xs font-medium text-pine-600 uppercase tracking-widest mb-2">Mistakes are easy to correct</p>
-                   <p className="text-dim-2 text-base font-medium leading-relaxed">Nothing is irreversible. Errors can be fixed, records updated. No one is one wrong click away from a permanent problem.</p>
+                   <p className="text-pine-900 text-base font-semibold mb-2">Nothing is permanent until you decide it is.</p>
+                   <p className="text-dim-2 text-base font-medium leading-relaxed">Errors can be corrected, records updated. No one is one wrong click away from an irreversible problem.</p>
                 </div>
              </FadeIn>
           </div>
-
-          <FadeIn delay={0.4} className="mt-6">
-             <p className="text-center text-dim text-base font-medium">Works for a clinic with one front desk person. Works for a clinic with five.</p>
-          </FadeIn>
        </div>
     </section>
   );

@@ -16,10 +16,13 @@ export function ClinicPilot() {
                 What the pilot means for your clinic
              </h2>
 
-             <div className="space-y-5 text-lg text-pine-100 font-medium leading-relaxed text-left md:text-center mb-10 max-w-2xl mx-auto">
-                <p>Joining gives you early access, hands-on onboarding support, and a direct line to the team building the product.</p>
-                <p>This is not a mass sign-up. We assess every clinic before onboarding begins, to make sure FettleMed is genuinely the right fit, and to understand your specific workflow before your first session.</p>
-                <p>What you tell us in the pilot shapes what ships next. Clinics in the first cohort have more influence over the product than any cohort that follows.</p>
+             <div className="text-lg text-pine-100 font-medium leading-relaxed text-left md:text-center mb-10 max-w-2xl mx-auto">
+                <p className="mb-6">Joining means direct access to the people building this — not a feedback form.</p>
+                <ul className="space-y-3 text-left max-w-sm mx-auto">
+                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Hands-on onboarding — we stay until your clinic is running, not just set up</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Pilot clinics speak directly with the founding team</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>What you tell us shapes what ships next — first cohort has more influence than any that follows</li>
+                </ul>
              </div>
 
              <p className="text-pine-200 text-base font-medium mb-10 max-w-2xl mx-auto">

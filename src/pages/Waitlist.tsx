@@ -17,7 +17,7 @@ export default function Waitlist() {
                 {/* Left: intro copy */}
                 <div className="w-full lg:w-1/2 lg:sticky lg:top-32">
                   <h1 className="text-4xl md:text-5xl font-medium text-pine-900 leading-[1.1] mb-6 tracking-tight text-balance">
-                    Be the first to experience connected healthcare.
+                    Get early access to your complete health record.
                   </h1>
                   <p className="text-lg md:text-xl text-dim font-medium leading-relaxed mb-8">
                     Join our waitlist for early access to the patient app, doctor portal, or clinic management system.

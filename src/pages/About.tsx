@@ -240,37 +240,6 @@ export default function About() {
           </FadeIn>
         </section>
 
-        {/* ── S7: Final CTA ────────────────────────────────────────────── */}
-        <section className="py-16 md:py-20 bg-pine-900 text-white">
-          <div className="container mx-auto px-6 max-w-3xl text-center">
-            <FadeIn>
-              <h2 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
-                Ready to see FettleMed in action?
-              </h2>
-              <p className="text-pine-200 font-medium text-lg mb-10 max-w-xl mx-auto">
-                We're piloting with a select group of doctors, clinics, and patients. Apply to join.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  variant="animated"
-                  size="lg"
-                  onClick={() => openWaitlist('Doctor')}
-                  className="h-12 px-8 text-base bg-white hover:bg-pine-50 text-pine-900 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900"
-                >
-                  Join the Pilot
-                </Button>
-                <Button
-                  variant="animated"
-                  size="lg"
-                  onClick={() => openWaitlist('Individual')}
-                  className="h-12 px-8 text-base border border-pine-600 text-pine-200 hover:bg-pine-800 rounded-xl font-medium focus-visible:ring-2 focus-visible:ring-pine-400 focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900"
-                >
-                  Join the Waitlist
-                </Button>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
 
       </div>
     </>

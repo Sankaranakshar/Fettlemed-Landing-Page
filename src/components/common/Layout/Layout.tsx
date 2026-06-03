@@ -32,7 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       {/* Navbar */}
       <header className="sticky top-0 z-50 w-full h-20 border-b border-stone-200/50 bg-surface-50/80 backdrop-blur-xl transition-[background-color,border-color] duration-150">
         <div className="container mx-auto px-4 md:px-8 h-full flex items-center justify-between max-w-none">
-          <Link to="/" className="flex items-center h-full" onClick={() => setIsMobileMenuOpen(false)} aria-label="Fettlemed Home">
+          <Link to="/" className="flex items-center h-full" onClick={() => setIsMobileMenuOpen(false)} aria-label="FettleMed Home">
             <span className="text-xl tracking-tight leading-none select-none">
               <span className="font-bold text-ink">Fettle</span><span className="font-bold text-pine-600">Med</span>
             </span>
@@ -107,7 +107,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
              {/* Column 1: Product */}
              <nav className="flex flex-col gap-4" aria-label="Product Links">
                 <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Product</h3>
-                <Link to="/patient-app" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Everyone</Link>
+                <Link to="/patient-app" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Patients</Link>
                 <Link to="/doctor-portal" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Doctors</Link>
                 <Link to="/clinic-management" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Clinics</Link>
                 <Link to="/security" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Security</Link>
@@ -148,7 +148,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-pine-200/60 text-xs font-medium">
             <div className="flex items-center">
               <span className="text-lg tracking-tight leading-none select-none">
-                <span className="font-bold text-white">Fettle</span><span className="font-bold text-white">Med</span>
+                <span className="font-bold text-white">Fettle</span><span className="font-bold text-pine-400">Med</span>
               </span>
             </div>
 
