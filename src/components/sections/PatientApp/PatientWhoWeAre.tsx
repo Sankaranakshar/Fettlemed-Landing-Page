@@ -2,17 +2,17 @@ import React from 'react';
 import { User } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 
-export function DoctorWhoWeAre() {
+export function PatientWhoWeAre() {
   return (
     <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
       <div className="container mx-auto px-6 max-w-5xl">
         <FadeIn className="mb-8 text-center">
           <p className="text-xs font-semibold text-pine-500 uppercase tracking-widest mb-3">The team behind FettleMed</p>
           <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">
-            Built by doctors. For doctors.
+            Built by people who've sat on both sides of the consultation.
           </h2>
           <p className="text-dim text-base font-medium mt-3 max-w-xl mx-auto leading-relaxed">
-            Both founders have spent decades in clinical practice across India, the UK, and Singapore. They built FettleMed because they lived the problem — not because they read a market report about it.
+            The founders have spent decades as clinicians — which means they've spent decades watching patients arrive clutching paper bags of old reports, recalling medications from memory, and starting over at every new clinic. They built FettleMed for that patient.
           </p>
         </FadeIn>
 
@@ -28,7 +28,7 @@ export function DoctorWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              Nearly four decades as a Cardiothoracic Surgeon. Every incomplete patient file that arrived — every test repeated because the last result was lost — is a problem he dealt with personally. FettleMed is the platform he wished existed when he was seeing 40 patients a day.
+              After nearly four decades seeing patients, the same pattern never changed: critical history lost in transit, tests repeated unnecessarily, decisions made without the full picture. FettleMed is built so that every patient who walks into a consultation arrives with everything they need — not just what they could remember.
             </p>
           </FadeIn>
 
@@ -43,17 +43,17 @@ export function DoctorWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              A career in paediatrics and specialised care for patients with complex, multi-system needs. When your patient needs five different specialists, fragmented records don't just cause inconvenience — they cause harm. She built FettleMed's consent model around the patients who most need care to be continuous.
+              A career caring for patients with complex, long-term conditions showed her exactly what happens when records don't travel with the patient — history scattered across hospitals, WhatsApp screenshots, and paper folders. She built FettleMed's patient record model around the family managing care for someone who needs it most.
             </p>
           </FadeIn>
         </div>
 
         <FadeIn delay={0.3} className="bg-pine-900 rounded-2xl px-7 py-5 text-center">
           <p className="text-pine-100 font-medium text-base md:text-lg leading-relaxed">
-            "We did not build this from the outside looking in. We built it because we were standing in the consultation room watching it fail."
+            "Every feature in the patient app came from a real moment in a consultation where the patient didn't have what they needed — and shouldn't have had to."
           </p>
           <p className="text-pine-400 text-sm font-medium mt-3">
-            Both founders are available to speak with pilot doctors directly.
+            We are available to speak with patients and families directly. Write to us at hello@fettlemed.com.
           </p>
         </FadeIn>
       </div>

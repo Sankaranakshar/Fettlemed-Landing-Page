@@ -8,6 +8,7 @@ import { PatientFeatures } from "@/components/sections/PatientApp/PatientFeature
 import { PatientForWho } from "@/components/sections/PatientApp/PatientForWho";
 import { PatientHowItWorks } from "@/components/sections/PatientApp/PatientHowItWorks";
 import { PatientDataRules } from "@/components/sections/PatientApp/PatientDataRules";
+import { PatientWhoWeAre } from "@/components/sections/PatientApp/PatientWhoWeAre";
 import { PatientCTA } from "@/components/sections/PatientApp/PatientCTA";
 
 const faqSections = [
@@ -142,6 +143,7 @@ export default function PatientApp() {
         <PatientForWho />
         <PatientHowItWorks />
         <PatientDataRules />
+        <PatientWhoWeAre />
         <PatientCTA />
 
         <div className="container mx-auto px-4 lg:px-8 py-16 md:py-20 max-w-4xl">
