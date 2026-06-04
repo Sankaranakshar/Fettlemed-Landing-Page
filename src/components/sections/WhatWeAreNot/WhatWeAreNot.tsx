@@ -44,7 +44,10 @@ export const WhatWeAreNot = () => {
                     <span className="text-xs font-semibold tracking-widest uppercase text-stone-400">Health App</span>
                   </th>
                   <th className="text-center pb-4 px-3 w-[22%]">
-                    <span className="text-xs font-semibold tracking-widest uppercase text-pine-700 sm:bg-pine-50 sm:border sm:border-pine-200 sm:px-3 sm:py-1 sm:rounded-full">FettleMed</span>
+                    <span className="text-xs font-semibold tracking-widest uppercase text-pine-700 sm:bg-pine-50 sm:border sm:border-pine-200 sm:px-3 sm:py-1 sm:rounded-full leading-tight">
+                      <span className="sm:hidden">Fettle<br/>Med</span>
+                      <span className="hidden sm:inline">FettleMed</span>
+                    </span>
                   </th>
                 </tr>
               </thead>
