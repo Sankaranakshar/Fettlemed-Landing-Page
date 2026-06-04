@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { SEO } from '@/components/common/SEO';
 import { Hero } from '@/components/sections/Hero';
 import { Problem } from '@/components/sections/Problem';
@@ -9,10 +9,6 @@ import { Trust } from '@/components/sections/Trust';
 import { CTA } from '@/components/sections/CTA';
 
 export default function Home() {
-  useEffect(() => {
-    document.documentElement.classList.add('home-snap');
-    return () => document.documentElement.classList.remove('home-snap');
-  }, []);
 
   return (
     <>
