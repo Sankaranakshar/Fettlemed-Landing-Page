@@ -1,6 +1,6 @@
 import React from "react";
 import { SEO } from '@/components/common/SEO';
-import { CheckCircle2 } from "lucide-react";
+import { User, Stethoscope, Building2 } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { WaitlistForm } from "@/components/common/WaitlistModal";
 
@@ -22,16 +22,34 @@ export default function Waitlist() {
                   <p className="text-lg md:text-xl text-dim font-medium leading-relaxed mb-8">
                     Join our waitlist for early access to the patient app, doctor portal, or clinic management system.
                   </p>
-                  <div className="flex flex-col gap-3 text-sm font-medium text-dim">
-                    <span className="flex items-center gap-2 bg-white px-4 py-3 rounded-2xl shadow-sm border border-stone-200 w-fit">
-                      <CheckCircle2 className="w-4 h-4 text-pine-600"/> Early access
-                    </span>
-                    <span className="flex items-center gap-2 bg-white px-4 py-3 rounded-2xl shadow-sm border border-stone-200 w-fit">
-                      <CheckCircle2 className="w-4 h-4 text-pine-600"/> Shape the product from day one
-                    </span>
-                    <span className="flex items-center gap-2 bg-white px-4 py-3 rounded-2xl shadow-sm border border-stone-200 w-fit">
-                      <CheckCircle2 className="w-4 h-4 text-pine-600"/> Limited rollout
-                    </span>
+                  <div className="flex flex-col gap-3">
+                    {[
+                      {
+                        Icon: User,
+                        role: "For Patients & Families",
+                        desc: "Own your complete health timeline. Share records with any doctor — control who sees what and for how long.",
+                      },
+                      {
+                        Icon: Stethoscope,
+                        role: "For Doctors",
+                        desc: "See a patient's full history the moment they walk in. No chasing records, no repeat tests.",
+                      },
+                      {
+                        Icon: Building2,
+                        role: "For Clinics",
+                        desc: "Appointments, billing, records, and staff — one platform, zero IT overhead.",
+                      },
+                    ].map(({ Icon, role, desc }) => (
+                      <div key={role} className="bg-white px-5 py-4 rounded-2xl shadow-sm border border-stone-200 flex items-start gap-4">
+                        <div className="w-9 h-9 bg-pine-50 rounded-xl flex items-center justify-center shrink-0 border border-pine-100 mt-0.5">
+                          <Icon className="w-4 h-4 text-pine-600" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-pine-900">{role}</p>
+                          <p className="text-sm font-medium text-dim mt-0.5 leading-relaxed">{desc}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
 

@@ -1,15 +1,30 @@
 import React from 'react';
 import { FadeIn } from "@/components/common/FadeIn";
-import { BookOpen, Layers, Network } from "lucide-react";
+import { Check, Minus, X } from "lucide-react";
+
+const rows = [
+  { label: "Records follow the patient",   emr: false,  app: null,  fm: true  },
+  { label: "Doctor access with consent",   emr: null,   app: false, fm: true  },
+  { label: "Works for clinics too",        emr: null,   app: false, fm: true  },
+  { label: "No IT department needed",      emr: false,  app: true,  fm: true  },
+  { label: "Patient controls sharing",     emr: false,  app: null,  fm: true  },
+];
+
+function StatusIcon({ value }: { value: boolean | null }) {
+  if (value === true)  return <Check  className="w-4 h-4 text-pine-600" />;
+  if (value === false) return <X      className="w-4 h-4 text-stone-400" />;
+  return                      <Minus  className="w-4 h-4 text-amber-400" />;
+}
 
 export const WhatWeAreNot = () => {
   return (
-    <section className="h-[calc(100vh-80px)] min-h-[600px] flex flex-col bg-surface-50 border-t border-stone-100 overflow-hidden">
-      <div className="container mx-auto px-6 max-w-6xl flex flex-col flex-1 min-h-0 py-12 md:py-16">
+    <section className="py-16 md:py-20 bg-surface-50 border-t border-stone-100 overflow-hidden">
+      <div className="container mx-auto px-6 max-w-5xl">
         <FadeIn>
-          <div className="text-center mb-8">
+          <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-pine-900 mb-4">
-              Not another EMR. Not another health app. <span className="text-pine-600">The layer that connects them.</span>
+              Not another EMR. Not another health app.{" "}
+              <span className="text-pine-600">The layer that connects them.</span>
             </h2>
             <p className="text-lg text-dim-2 max-w-2xl mx-auto font-medium">
               FettleMed is the shared layer between patient, doctor, and clinic — so a prescription written in the room appears on the patient's phone before they leave the building.
@@ -17,48 +32,51 @@ export const WhatWeAreNot = () => {
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 flex-1 min-h-0 content-stretch">
-          <FadeIn delay={0.1} className="h-full">
-            <div className="bg-white p-7 rounded-2xl border border-stone-200 h-full shadow-sm hover:shadow-md transition-shadow flex flex-col">
-              <div className="w-10 h-10 bg-pine-50 text-pine-700 rounded-xl flex items-center justify-center mb-5 border border-pine-100">
-                <BookOpen className="w-5 h-5" />
-              </div>
-              <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Living Health Timeline</h3>
-              <ul className="space-y-3 text-dim-2 font-medium text-base flex-1">
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-2 shrink-0"></span>No digging through WhatsApp forwards, paper folders, or memory</li>
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-2 shrink-0"></span>Every result, diagnosis, and prescription in one place, in order</li>
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-2 shrink-0"></span>Walk into any consultation with your full history already there</li>
-              </ul>
-            </div>
-          </FadeIn>
+        <FadeIn delay={0.1}>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[560px] border-separate border-spacing-0">
+              <thead>
+                <tr>
+                  <th className="text-left text-sm font-medium text-dim pb-4 pr-4 w-[38%]" />
+                  <th className="text-center pb-4 px-3 w-[20%]">
+                    <span className="text-xs font-semibold tracking-widest uppercase text-stone-400">EMR / HIS</span>
+                  </th>
+                  <th className="text-center pb-4 px-3 w-[20%]">
+                    <span className="text-xs font-semibold tracking-widest uppercase text-stone-400">Health App</span>
+                  </th>
+                  <th className="text-center pb-4 px-3 w-[22%]">
+                    <span className="text-xs font-semibold tracking-widest uppercase text-pine-700 bg-pine-50 border border-pine-200 px-3 py-1 rounded-full">FettleMed</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map(({ label, emr, app, fm }, i) => (
+                  <tr key={label} className={i % 2 === 0 ? "bg-white" : "bg-surface-50"}>
+                    <td className={`text-sm font-medium text-ink px-4 py-3.5 ${i === 0 ? "rounded-tl-xl" : ""} ${i === rows.length - 1 ? "rounded-bl-xl" : ""}`}>
+                      {label}
+                    </td>
+                    <td className="text-center px-3 py-3.5">
+                      <span className="inline-flex justify-center"><StatusIcon value={emr} /></span>
+                    </td>
+                    <td className="text-center px-3 py-3.5">
+                      <span className="inline-flex justify-center"><StatusIcon value={app} /></span>
+                    </td>
+                    <td className={`text-center px-3 py-3.5 bg-pine-50/60 border-l border-r border-pine-100 ${i === 0 ? "border-t rounded-tr-xl" : ""} ${i === rows.length - 1 ? "border-b rounded-br-xl" : ""}`}>
+                      <span className="inline-flex justify-center"><StatusIcon value={fm} /></span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
 
-          <FadeIn delay={0.2} className="h-full">
-            <div className="bg-white p-7 rounded-2xl border border-stone-200 h-full shadow-sm hover:shadow-md transition-shadow flex flex-col">
-              <div className="w-10 h-10 bg-pine-50 text-pine-700 rounded-xl flex items-center justify-center mb-5 border border-pine-100">
-                <Layers className="w-5 h-5" />
-              </div>
-              <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Built on National Standards</h3>
-              <ul className="space-y-3 text-dim-2 font-medium text-base flex-1">
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-2 shrink-0"></span>Built on the ABDM framework and ABHA ID infrastructure</li>
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-2 shrink-0"></span>The same national standards India's healthcare system is moving toward</li>
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-2 shrink-0"></span>Compliance considerations are built into our design, not added on top.</li>
-              </ul>
+            {/* Legend */}
+            <div className="flex items-center gap-5 mt-4 justify-end text-xs font-medium text-dim">
+              <span className="flex items-center gap-1.5"><Check className="w-3 h-3 text-pine-600" /> Yes</span>
+              <span className="flex items-center gap-1.5"><Minus className="w-3 h-3 text-amber-400" /> Partial</span>
+              <span className="flex items-center gap-1.5"><X className="w-3 h-3 text-stone-400" /> No</span>
             </div>
-          </FadeIn>
-
-          <FadeIn delay={0.3} className="h-full md:col-span-2 lg:col-span-1">
-            <div className="bg-white p-7 rounded-2xl border border-stone-200 h-full shadow-sm hover:shadow-md transition-shadow flex flex-col">
-              <div className="w-10 h-10 bg-pine-50 text-pine-700 rounded-xl flex items-center justify-center mb-5 border border-pine-100">
-                <Network className="w-5 h-5" />
-              </div>
-              <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight">Connected at Every Step</h3>
-              <ul className="space-y-3 text-dim-2 font-medium text-base flex-1">
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-2 shrink-0"></span>One record that travels with the patient — not locked to a single clinic or system</li>
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-2 shrink-0"></span>The same consent and access model whether the patient is in Chennai or Singapore</li>
-              </ul>
-            </div>
-          </FadeIn>
-        </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

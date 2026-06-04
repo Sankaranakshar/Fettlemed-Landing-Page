@@ -387,7 +387,35 @@ export default function Security() {
                       </div>
                       <div className="flex-1">
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Compliance Status</h2>
-                        <p className="text-dim font-medium mb-8">We are transparent about where we are in our compliance journey: what is implemented today, what is in progress, and what is planned.</p>
+                        <p className="text-dim font-medium mb-6">We are transparent about where we are in our compliance journey: what is implemented today, what is in progress, and what is planned.</p>
+
+                        {/* Badge strip */}
+                        <div className="flex flex-wrap gap-2 mb-8">
+                          {[
+                            { label: "ABDM-aligned",   live: true  },
+                            { label: "DPDPA-aligned",  live: true  },
+                            { label: "FHIR standard",  live: true  },
+                            { label: "Data in India",  live: true  },
+                            { label: "ABDM certified", live: false },
+                            { label: "ISO 27001",      live: false },
+                          ].map(({ label, live }) => (
+                            <span
+                              key={label}
+                              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border ${
+                                live
+                                  ? "bg-pine-50 border-pine-200 text-pine-700"
+                                  : "bg-stone-50 border-stone-200 text-dim"
+                              }`}
+                            >
+                              {live
+                                ? <CheckCircle2 className="w-3 h-3 text-pine-500" />
+                                : <Clock className="w-3 h-3 text-stone-400" />
+                              }
+                              {label}
+                              {!live && <span className="text-stone-400 font-medium">· planned</span>}
+                            </span>
+                          ))}
+                        </div>
 
                         {/* Current */}
                         <div className="mb-8">

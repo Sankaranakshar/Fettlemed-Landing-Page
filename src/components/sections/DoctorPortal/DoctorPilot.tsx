@@ -16,12 +16,30 @@ export function DoctorPilot() {
                 What the pilot means for you
              </h2>
 
-             <div className="text-lg text-pine-100 font-medium leading-relaxed text-left md:text-center mb-10 max-w-2xl mx-auto">
-                <p className="mb-6">Joining means direct access to the people building this, not a feedback form.</p>
-                <ul className="space-y-3 text-left max-w-sm mx-auto">
-                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Pilot doctors speak directly with the founding team</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>We're looking for doctors who want to build this right, not just use it when it's done</li>
-                </ul>
+             <p className="text-lg text-pine-100 font-medium leading-relaxed mb-10 max-w-2xl mx-auto text-center">
+               Joining means direct access to the people building this, not a feedback form.
+             </p>
+
+             {/* Timeline */}
+             <div className="relative mb-10 max-w-3xl mx-auto">
+               {/* Connecting line — desktop only */}
+               <div className="hidden md:block absolute top-5 left-[12.5%] right-[12.5%] h-px bg-pine-700" />
+               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                 {[
+                   { step: "1", title: "Apply",         desc: "2-minute form, no paperwork" },
+                   { step: "2", title: "Meet the team", desc: "Call with the founders directly" },
+                   { step: "3", title: "Go live",       desc: "Setup in a single session" },
+                   { step: "4", title: "Build with us", desc: "Shape the product from inside" },
+                 ].map(({ step, title, desc }) => (
+                   <div key={step} className="flex flex-col items-center text-center relative">
+                     <div className="w-10 h-10 rounded-full bg-pine-700 border-2 border-pine-500 flex items-center justify-center mb-3 text-white font-semibold text-sm z-10 relative">
+                       {step}
+                     </div>
+                     <p className="text-white font-semibold text-sm mb-1">{title}</p>
+                     <p className="text-pine-300 text-xs font-medium leading-relaxed">{desc}</p>
+                   </div>
+                 ))}
+               </div>
              </div>
 
              <div className="flex flex-col items-center gap-3">
