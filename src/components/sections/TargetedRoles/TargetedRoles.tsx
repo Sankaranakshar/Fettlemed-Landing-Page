@@ -1167,7 +1167,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
                 className={`min-w-full snap-start flex flex-col ${s.cardBg} border ${s.cardBorder} shadow-sm`}
               >
                 {/* Visual FIRST — animation above text */}
-                <div className={`h-[220px] w-full flex items-center justify-center ${s.visualBg} border-b ${s.visualBorder} overflow-hidden shrink-0`}>
+                <div className={`w-full flex items-center justify-center py-6 ${s.visualBg} border-b ${s.visualBorder} overflow-hidden shrink-0`}>
                   {card.visual}
                 </div>
                 {/* Text SECOND */}
