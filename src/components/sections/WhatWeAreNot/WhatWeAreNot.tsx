@@ -35,26 +35,23 @@ export const WhatWeAreNot = () => {
         <div className="overflow-x-auto">
             <table className="w-full min-w-full sm:min-w-[560px] border-separate border-spacing-0 table-fixed sm:table-auto">
               <thead>
-                <tr>
-                  <th className="text-left text-sm font-medium text-dim pb-4 pr-4 w-[38%]" />
-                  <th className="text-center pb-4 px-3 w-[20%]">
-                    <span className="text-xs font-semibold tracking-widest uppercase text-stone-400">EMR / HIS</span>
+                <tr className="bg-white">
+                  <th className="text-left py-3 pl-4 pr-4 w-[34%] rounded-tl-xl border-b border-stone-100" />
+                  <th className="text-center py-3 w-[22%] border-b border-stone-100">
+                    <span className="text-[10px] font-semibold tracking-normal uppercase text-stone-400 whitespace-nowrap">EMR / HIS</span>
                   </th>
-                  <th className="text-center pb-4 px-3 w-[20%]">
-                    <span className="text-xs font-semibold tracking-widest uppercase text-stone-400">Health App</span>
+                  <th className="text-center py-3 w-[22%] border-b border-stone-100">
+                    <span className="text-[10px] font-semibold tracking-normal uppercase text-stone-400 whitespace-nowrap">Health App</span>
                   </th>
-                  <th className="text-center pb-4 px-3 w-[22%]">
-                    <span className="text-xs font-semibold tracking-widest uppercase text-pine-700 sm:bg-pine-50 sm:border sm:border-pine-200 sm:px-3 sm:py-1 sm:rounded-full leading-tight">
-                      <span className="sm:hidden">Fettle<br/>Med</span>
-                      <span className="hidden sm:inline">FettleMed</span>
-                    </span>
+                  <th className="text-center py-3 w-[22%] bg-pine-50/60 border-l border-r border-t border-b border-pine-100 rounded-tr-xl">
+                    <span className="text-[10px] font-semibold tracking-normal uppercase text-pine-700 whitespace-nowrap">FettleMed</span>
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {rows.map(({ label, emr, app, fm }, i) => (
                   <tr key={label} className={i % 2 === 0 ? "bg-white" : "bg-surface-50"}>
-                    <td className={`text-sm font-medium text-ink px-4 py-3.5 ${i === 0 ? "rounded-tl-xl" : ""} ${i === rows.length - 1 ? "rounded-bl-xl" : ""}`}>
+                    <td className={`text-sm font-medium text-ink px-4 py-3.5 ${i === rows.length - 1 ? "rounded-bl-xl" : ""}`}>
                       {label}
                     </td>
                     <td className="text-center px-3 py-3.5">
@@ -63,7 +60,7 @@ export const WhatWeAreNot = () => {
                     <td className="text-center px-3 py-3.5">
                       <span className="inline-flex justify-center"><StatusIcon value={app} /></span>
                     </td>
-                    <td className={`text-center px-3 py-3.5 bg-pine-50/60 border-l border-r border-pine-100 ${i === 0 ? "border-t rounded-tr-xl" : ""} ${i === rows.length - 1 ? "border-b rounded-br-xl" : ""}`}>
+                    <td className={`text-center px-3 py-3.5 bg-pine-50/60 border-l border-r border-pine-100 ${i === rows.length - 1 ? "border-b rounded-br-xl" : ""}`}>
                       <span className="inline-flex justify-center"><StatusIcon value={fm} /></span>
                     </td>
                   </tr>

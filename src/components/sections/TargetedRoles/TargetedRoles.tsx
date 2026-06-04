@@ -26,7 +26,7 @@ function HealthRecordsVisual() {
     { icon: <HeartPulse className="w-4 h-4" />, label: "ECG Result", sub: "Last month", cls: "text-pine-500", bg: "bg-pine-50 border-pine-100", from: { x: 30, y: 0 } },
   ];
   return (
-    <div className="w-full md:max-w-[260px] flex flex-col gap-1.5">
+    <div className="w-full max-w-[260px] flex flex-col gap-1.5">
       {records.map(({ icon, label, sub, cls, bg, from }, i) => (
         <motion.div
           key={i}
@@ -60,7 +60,7 @@ function HealthRecordsVisual() {
 function ConsentVisual() {
   const rm = useReducedMotion();
   return (
-    <div className="flex flex-col items-center gap-2 w-full md:max-w-[256px]">
+    <div className="flex flex-col items-center gap-2 w-full max-w-[256px]">
       {/* Doctor request card */}
       <motion.div
         initial={rm ? { opacity: 0 } : { y: -10, opacity: 0 }}
@@ -148,7 +148,7 @@ function ConsentVisual() {
 function HealthTrackingVisual() {
   const rm = useReducedMotion();
   return (
-    <div className="w-full md:max-w-[240px] flex flex-col gap-2.5">
+    <div className="w-full max-w-[240px] flex flex-col gap-2.5">
       {/* Blood pressure with heartbeat pulse */}
       <motion.div
         initial={rm ? { opacity: 0 } : { x: 20, opacity: 0 }}
@@ -244,7 +244,7 @@ function FullHistoryVisual() {
     { Icon: TestTube,      label: "CBC Normal",   sub: "Lab result — May 2024", dot: "bg-indigo-300" },
   ];
   return (
-    <div className="w-full md:max-w-[280px] flex flex-col gap-3 relative">
+    <div className="w-full max-w-[280px] flex flex-col gap-3 relative">
       {/* Timeline spine — draws itself top to bottom */}
       <motion.div
         initial={{ scaleY: 0 }}
@@ -585,7 +585,7 @@ function AuditTrailVisual() {
     { icon: <FileText className="w-3.5 h-3.5" />,     label: "CBC result uploaded by patient", sub: "2 days ago",        cls: "text-indigo-400" },
   ];
   return (
-    <div className="w-full md:max-w-[260px] flex flex-col gap-2">
+    <div className="w-full max-w-[260px] flex flex-col gap-2">
       <div className="flex items-center justify-between mb-1 px-1">
         <p className="text-xs font-medium text-pine-400 uppercase tracking-wider">Access Log</p>
         <motion.div
@@ -651,7 +651,7 @@ function PatientRegistrationVisual() {
   };
 
   return (
-    <div className="flex flex-col gap-2.5 w-full md:max-w-[260px]">
+    <div className="flex flex-col gap-2.5 w-full max-w-[260px]">
       {/* Primary patient — status transitions */}
       <motion.div
         initial={rm ? { opacity: 0 } : { x: -22, opacity: 0 }}
@@ -732,7 +732,7 @@ function BillingRevenueVisual() {
   ];
 
   return (
-    <div className="w-full md:max-w-[240px] bg-white rounded-2xl shadow-lg border border-pine-100 p-5">
+    <div className="w-full max-w-[240px] bg-white rounded-2xl shadow-lg border border-pine-100 p-5">
       <div className="flex items-start justify-between mb-5">
         <div>
           <p className="text-xs text-pine-400 font-medium uppercase tracking-wider">Today's Revenue</p>
@@ -771,7 +771,7 @@ function BillingRevenueVisual() {
 function LabDiagnosticsVisual() {
   const rm = useReducedMotion();
   return (
-    <div className="w-full md:max-w-[270px] flex flex-col gap-4">
+    <div className="w-full max-w-[270px] flex flex-col gap-4">
       {/* 3-step flow */}
       <div className="flex items-center gap-2">
         {/* Step 1 — Ordered */}
@@ -1139,11 +1139,11 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
   );
 
   return (
-    <section id="roles" className="py-12 md:py-16 bg-surface-50">
+    <section id="roles" className="py-8 md:py-16 bg-surface-50">
       <div className="container mx-auto px-6 max-w-6xl">
         <FadeIn>
-          <div className="text-center mb-5">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-pine-900 mb-2 text-balance">
+          <div className="text-center mb-3 md:mb-5">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium tracking-tight text-pine-900 mb-2 text-balance">
               See what FettleMed changes for you.
             </h2>
             <p className="text-sm font-medium text-dim mb-4">Select your role.</p>
@@ -1156,30 +1156,47 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
           key={`mobile-${activeRole}`}
           className="md:hidden flex flex-col animate-in fade-in duration-200"
         >
+          {/* ── Card chip nav — equal-width buttons in a single row, sits ABOVE carousel ── */}
+          <div className="flex gap-1.5 mt-4">
+            {cards.map((card, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleChipClick(idx)}
+                aria-pressed={activeCardIndex === idx}
+                className={`flex-1 py-1.5 min-h-[36px] rounded-full text-xs font-medium text-center whitespace-nowrap transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 ${
+                  activeCardIndex === idx ? s.navActive : s.navInactive
+                }`}
+              >
+                {card.navLabel}
+              </button>
+            ))}
+          </div>
+
+          {/* ── Swipeable snap carousel ── */}
           <div
             ref={carouselRef}
-            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-3xl"
+            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-2xl mt-3"
             aria-live="polite"
           >
             {cards.map((card, idx) => (
               <div
                 key={idx}
-                className={`min-w-full snap-start flex flex-col ${s.cardBg} border ${s.cardBorder} shadow-sm`}
+                className={`min-w-full snap-start flex flex-col ${s.cardBg} border ${s.cardBorder} shadow-sm rounded-2xl overflow-hidden`}
               >
-                {/* Visual FIRST — animation above text */}
-                <div className={`w-full flex items-center justify-center py-6 ${s.visualBg} border-b ${s.visualBorder} overflow-hidden shrink-0`}>
+                {/* ── Animation viewport — sized to guarantee the full animation is visible on first paint ── */}
+                <div className={`w-full flex items-center justify-center min-h-[260px] overflow-hidden p-4 ${s.visualBg} border-b ${s.visualBorder}`}>
                   {card.visual}
                 </div>
-                {/* Text SECOND */}
-                <div className="flex flex-col p-5">
+                {/* ── Text region — compact spacing on mobile ── */}
+                <div className="flex flex-col p-4">
                   <div className={`w-10 h-10 ${s.iconBg} ${s.iconColor} rounded-xl flex items-center justify-center mb-3 shrink-0`}>
                     {card.icon}
                   </div>
-                  <h3 className={`text-xl font-medium ${s.heading} mb-3 tracking-tight`}>{card.heading}</h3>
-                  <ul className="space-y-2.5">
+                  <h3 className={`text-lg font-medium ${s.heading} mb-2.5 tracking-tight`}>{card.heading}</h3>
+                  <ul className="space-y-2">
                     {card.bullets.map((b, bi) => (
-                      <li key={bi} className={`flex items-start gap-2.5 ${s.bullets} font-medium text-base`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${s.bulletDot} mt-2 shrink-0`} />
+                      <li key={bi} className={`flex items-start gap-2.5 ${s.bullets} font-medium text-sm`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${s.bulletDot} mt-1.5 shrink-0`} />
                         {b}
                       </li>
                     ))}
@@ -1188,7 +1205,23 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
               </div>
             ))}
           </div>
-          {chipNav(handleChipClick)}
+
+          {/* ── Dot pager — shows swipe position, tappable ── */}
+          <div className="flex items-center justify-center gap-2 mt-3">
+            {cards.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleChipClick(idx)}
+                aria-label={`Go to ${cards[idx].navLabel}`}
+                className={`rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 ${
+                  activeCardIndex === idx
+                    ? `w-5 h-2 ${s.bulletDot}`
+                    : 'w-2 h-2 bg-stone-300'
+                }`}
+              />
+            ))}
+          </div>
+
           {ctaLink}
         </div>
 
