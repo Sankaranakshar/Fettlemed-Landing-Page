@@ -13,10 +13,10 @@ export const Problem = () => {
             </h2>
             <div className="space-y-6">
               <p className="text-lg text-dim leading-relaxed font-medium">
-                The patient is sitting in front of you. Their records aren't. The first ten minutes go to questions you shouldn't need to ask.
+                The doctor asks. The patient tries to remember. The report is at a different clinic, a folder at home, or gone entirely. The first ten minutes go to rebuilding a history that already exists. Somewhere.
               </p>
               <p className="text-lg text-dim leading-relaxed font-medium">
-                Most patients walk into a new consultation carrying nothing but memory and a bag of paper. Critical history gets lost. The same tests get ordered again. Care starts from zero.
+                A doctor can't treat what they don't know. A patient can't explain what they can't recall. The information is out there, prescriptions, lab reports, consultation notes, scattered across every provider they've ever seen.
               </p>
             </div>
           </FadeIn>

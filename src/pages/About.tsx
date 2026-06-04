@@ -151,12 +151,12 @@ export default function About() {
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-medium text-pine-900 mb-8 tracking-tight">Where we are today</h2>
               <div className="space-y-5 text-lg text-dim-2 font-medium leading-relaxed text-left md:text-center mb-10">
-                <p>FettleMed is in active development, piloting with doctors and clinics now. The patient app opens in the same cohort window.</p>
-                <p>We are a small team. We are not trying to be in every city by year end. We are trying to get it right in Chennai first.</p>
+                <p>We are piloting with doctors and clinics now. The patient app follows in the same cohort window.</p>
+                <p>The problem we are here to solve is large. The solution has to actually work before it can be widespread. Every doctor in this pilot shapes what comes next. Every gap we close here exists in clinics across the country.</p>
               </div>
 
               <p className="text-dim font-medium mb-8">
-                If you're a doctor, clinic owner, or patient who believes health data should work this way, the pilot is where that starts.
+                If you are a doctor, a clinic owner, or a patient, this is where it starts. We reach out personally when your spot opens.
               </p>
 
               <Button
