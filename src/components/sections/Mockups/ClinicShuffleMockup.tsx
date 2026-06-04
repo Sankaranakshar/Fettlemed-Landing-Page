@@ -26,7 +26,7 @@ export function ClinicShuffleMockup() {
   return (
     <div
       ref={containerRef}
-      className="w-full max-w-[540px] mx-auto select-none"
+      className="w-full max-w-full sm:max-w-[480px] md:max-w-[540px] mx-auto select-none"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -40,9 +40,9 @@ export function ClinicShuffleMockup() {
         </div>
 
         {/* Sidebar + main layout */}
-        <div className="flex min-h-[270px]">
+        <div className="flex flex-col sm:flex-row min-h-0 sm:min-h-[270px]">
           {/* Sidebar */}
-          <div className="w-36 border-r border-stone-100 bg-stone-50 flex flex-col py-3 gap-1 shrink-0">
+          <div className="w-full sm:w-36 border-b sm:border-b-0 sm:border-r border-stone-100 bg-stone-50 flex flex-row sm:flex-col py-2 sm:py-3 gap-1 shrink-0 overflow-x-auto">
             {views.map((v) => {
               const Icon = v === "Appointments" ? CalendarDays : v === "Billing" ? WalletCards : BarChart2;
               return (
@@ -58,7 +58,7 @@ export function ClinicShuffleMockup() {
                 </button>
               );
             })}
-            <div className="mt-auto px-4 pb-2">
+            <div className="hidden sm:flex sm:mt-auto px-4 pb-2">
               <div className="flex items-center gap-1.5">
                 <Users className="w-3 h-3 text-stone-400" />
                 <span className="text-[9px] text-stone-400 font-medium">12 patients today</span>

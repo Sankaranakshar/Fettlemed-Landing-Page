@@ -26,7 +26,7 @@ export function DoctorConsultationMockup() {
   return (
     <div
       ref={containerRef}
-      className="w-full max-w-[540px] mx-auto select-none"
+      className="w-full max-w-full sm:max-w-[480px] md:max-w-[540px] mx-auto select-none"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

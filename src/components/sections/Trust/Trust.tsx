@@ -63,11 +63,11 @@ export const Trust = () => {
             </div>
           </div>
 
-          <div className="flex justify-center items-center gap-6 mt-5">
-            <Link to="/security" className="inline-flex items-center gap-2 font-medium text-pine-700 hover:text-pine-900 text-sm border border-pine-200 bg-white hover:bg-pine-50 px-5 py-3 rounded-xl transition-colors shadow-sm">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-6 mt-5">
+            <Link to="/security" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-medium text-pine-700 hover:text-pine-900 text-sm border border-pine-200 bg-white hover:bg-pine-50 px-4 sm:px-5 py-3 rounded-xl transition-colors shadow-sm">
               How we protect your data <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link to="/about" className="inline-flex items-center gap-2 font-medium text-pine-700 hover:text-pine-900 text-sm border border-pine-200 bg-white hover:bg-pine-50 px-5 py-3 rounded-xl transition-colors shadow-sm">
+            <Link to="/about" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-medium text-pine-700 hover:text-pine-900 text-sm border border-pine-200 bg-white hover:bg-pine-50 px-4 sm:px-5 py-3 rounded-xl transition-colors shadow-sm">
               Meet the founders <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

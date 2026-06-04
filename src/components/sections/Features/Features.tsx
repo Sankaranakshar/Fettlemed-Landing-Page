@@ -48,11 +48,11 @@ export const Features = () => {
                </div>
             </div>
 
-            <div className="flex justify-center items-center gap-8 mt-8">
-              <Button variant="animated" size="lg" onClick={() => openWaitlist()} className="h-12 px-10 text-base bg-white hover:bg-pine-50 text-pine-900 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mt-8">
+              <Button variant="animated" size="lg" onClick={() => openWaitlist()} className="w-full sm:w-auto h-12 px-10 text-base bg-white hover:bg-pine-50 text-pine-900 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900">
                 Join the Waitlist
               </Button>
-              <button onClick={() => { document.getElementById('roles')?.scrollIntoView({ behavior: 'smooth' }) }} className="inline-flex items-center gap-2 p-3 -m-3 text-base font-medium text-pine-300 hover:text-white transition-colors">
+              <button onClick={() => { document.getElementById('roles')?.scrollIntoView({ behavior: 'smooth' }) }} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 p-3 -m-3 text-base font-medium text-pine-300 hover:text-white transition-colors">
                 See how it works for your role <ArrowRight className="w-4 h-4" />
               </button>
             </div>

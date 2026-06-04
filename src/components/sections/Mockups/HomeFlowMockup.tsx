@@ -318,7 +318,7 @@ function DoctorPanel() {
   }, []);
 
   return (
-    <div className="pt-2 space-y-2.5 min-h-[360px]">
+    <div className="pt-2 space-y-2.5 min-h-[260px] sm:min-h-[300px] md:min-h-[360px]">
       {/* Patient context card — visible immediately */}
       <div className="bg-stone-50 border border-stone-200 rounded-xl p-2.5 space-y-2">
 
@@ -637,7 +637,7 @@ export function HomeFlowMockup() {
   return (
     <div
       ref={containerRef}
-      className="w-full max-w-[540px] mx-auto select-none"
+      className="w-full max-w-full sm:max-w-[480px] md:max-w-[540px] mx-auto select-none"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -677,7 +677,7 @@ export function HomeFlowMockup() {
         </div>
 
         {/* Content area */}
-        <div className="px-5 pb-5 min-h-[360px] relative">
+        <div className="px-5 pb-5 min-h-[260px] sm:min-h-[300px] md:min-h-[360px] relative">
           <AnimatePresence mode="wait">
             {active === "Clinic" && (
               <motion.div

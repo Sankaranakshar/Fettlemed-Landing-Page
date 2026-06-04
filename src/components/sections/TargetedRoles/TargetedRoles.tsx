@@ -26,7 +26,7 @@ function HealthRecordsVisual() {
     { icon: <HeartPulse className="w-4 h-4" />, label: "ECG Result", sub: "Last month", cls: "text-pine-500", bg: "bg-pine-50 border-pine-100", from: { x: 30, y: 0 } },
   ];
   return (
-    <div className="w-full max-w-[260px] flex flex-col gap-1.5">
+    <div className="w-full md:max-w-[260px] flex flex-col gap-1.5">
       {records.map(({ icon, label, sub, cls, bg, from }, i) => (
         <motion.div
           key={i}
@@ -60,7 +60,7 @@ function HealthRecordsVisual() {
 function ConsentVisual() {
   const rm = useReducedMotion();
   return (
-    <div className="flex flex-col items-center gap-2 w-full max-w-[256px]">
+    <div className="flex flex-col items-center gap-2 w-full md:max-w-[256px]">
       {/* Doctor request card */}
       <motion.div
         initial={rm ? { opacity: 0 } : { y: -10, opacity: 0 }}
@@ -148,7 +148,7 @@ function ConsentVisual() {
 function HealthTrackingVisual() {
   const rm = useReducedMotion();
   return (
-    <div className="w-full max-w-[240px] flex flex-col gap-2.5">
+    <div className="w-full md:max-w-[240px] flex flex-col gap-2.5">
       {/* Blood pressure with heartbeat pulse */}
       <motion.div
         initial={rm ? { opacity: 0 } : { x: 20, opacity: 0 }}
@@ -244,7 +244,7 @@ function FullHistoryVisual() {
     { Icon: TestTube,      label: "CBC Normal",   sub: "Lab result — May 2024", dot: "bg-indigo-300" },
   ];
   return (
-    <div className="w-full max-w-[280px] flex flex-col gap-3 relative">
+    <div className="w-full md:max-w-[280px] flex flex-col gap-3 relative">
       {/* Timeline spine — draws itself top to bottom */}
       <motion.div
         initial={{ scaleY: 0 }}
@@ -585,7 +585,7 @@ function AuditTrailVisual() {
     { icon: <FileText className="w-3.5 h-3.5" />,     label: "CBC result uploaded by patient", sub: "2 days ago",        cls: "text-indigo-400" },
   ];
   return (
-    <div className="w-full max-w-[260px] flex flex-col gap-2">
+    <div className="w-full md:max-w-[260px] flex flex-col gap-2">
       <div className="flex items-center justify-between mb-1 px-1">
         <p className="text-xs font-medium text-pine-400 uppercase tracking-wider">Access Log</p>
         <motion.div
@@ -651,7 +651,7 @@ function PatientRegistrationVisual() {
   };
 
   return (
-    <div className="flex flex-col gap-2.5 w-full max-w-[260px]">
+    <div className="flex flex-col gap-2.5 w-full md:max-w-[260px]">
       {/* Primary patient — status transitions */}
       <motion.div
         initial={rm ? { opacity: 0 } : { x: -22, opacity: 0 }}
@@ -732,7 +732,7 @@ function BillingRevenueVisual() {
   ];
 
   return (
-    <div className="w-full max-w-[240px] bg-white rounded-2xl shadow-lg border border-pine-100 p-5">
+    <div className="w-full md:max-w-[240px] bg-white rounded-2xl shadow-lg border border-pine-100 p-5">
       <div className="flex items-start justify-between mb-5">
         <div>
           <p className="text-xs text-pine-400 font-medium uppercase tracking-wider">Today's Revenue</p>
@@ -771,7 +771,7 @@ function BillingRevenueVisual() {
 function LabDiagnosticsVisual() {
   const rm = useReducedMotion();
   return (
-    <div className="w-full max-w-[270px] flex flex-col gap-4">
+    <div className="w-full md:max-w-[270px] flex flex-col gap-4">
       {/* 3-step flow */}
       <div className="flex items-center gap-2">
         {/* Step 1 — Ordered */}
@@ -1071,7 +1071,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
             <p className="text-sm font-medium text-dim mb-4">Select your role.</p>
 
             {/* Tab selector */}
-            <div role="tablist" className="inline-flex flex-row bg-white rounded-full p-1.5 border border-stone-200 shadow-sm gap-1">
+            <div role="tablist" className="flex w-full sm:inline-flex sm:w-auto bg-white rounded-full p-1.5 border border-stone-200 shadow-sm gap-1">
               {([
                 { role: 'patient', Icon: Smartphone,  label: 'Patients' },
                 { role: 'doctor',  Icon: Stethoscope, label: 'Doctors'  },
@@ -1082,7 +1082,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
                   role="tab"
                   aria-selected={activeRole === role}
                   onClick={() => handleRoleChange(role)}
-                  className={`flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-[background-color,color,box-shadow] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 focus-visible:ring-offset-1 ${
+                  className={`flex-1 sm:flex-none flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-5 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-[background-color,color,box-shadow] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 focus-visible:ring-offset-1 ${
                     activeRole === role ? ROLE_STYLES[role].tab : 'text-dim hover:text-pine-900 hover:bg-pine-50'
                   }`}
                 >
@@ -1104,7 +1104,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
                 key={idx}
                 whileHover={activeCardIndex === idx ? { boxShadow: s.hoverShadow } : {}}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                className={`absolute inset-0 ${s.cardBg} border ${s.cardBorder} p-6 rounded-3xl flex flex-col md:flex-row gap-6 transition-[transform,opacity] duration-200 ease-out shadow-sm ${
+                className={`absolute inset-0 ${s.cardBg} border ${s.cardBorder} p-4 sm:p-5 md:p-6 rounded-3xl flex flex-col md:flex-row gap-4 md:gap-6 transition-[transform,opacity] duration-200 ease-out shadow-sm ${
                   activeCardIndex === idx ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'
                 }`}
               >

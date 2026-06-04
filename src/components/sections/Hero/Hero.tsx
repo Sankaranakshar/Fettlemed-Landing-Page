@@ -9,7 +9,7 @@ export const Hero = () => {
   const { openWaitlist } = useWaitlist();
 
   return (
-    <section className="relative overflow-hidden flex flex-col bg-surface-50 h-[calc(100vh-80px)] min-h-[600px]">
+    <section className="relative overflow-hidden flex flex-col bg-surface-50 h-[calc(100vh-80px)] sm:min-h-[600px]">
       {/* Main content — grows to fill space above the strip, centered vertically */}
       <div className="flex-1 min-h-0 flex items-center px-6 pt-12 pb-4 md:pt-14 lg:pt-6 md:pb-4 relative z-10">
         <div className="container mx-auto max-w-7xl w-full">

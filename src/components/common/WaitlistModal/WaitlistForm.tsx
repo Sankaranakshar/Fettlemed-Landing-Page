@@ -268,13 +268,13 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
       {/* Role selector */}
       <div className="flex flex-col space-y-3 pb-1">
         <label id="role-group-label" className="text-sm font-medium text-dim-2">I am a:</label>
-        <div role="radiogroup" aria-labelledby="role-group-label" className="grid grid-cols-3 gap-3">
+        <div role="radiogroup" aria-labelledby="role-group-label" className="grid grid-cols-3 gap-2">
           {["Individual", "Doctor", "Clinic"].map((r) => (
             <button
               key={r}
               type="button"
               onClick={() => setRole(r)}
-              className={`py-3 px-2 rounded-xl border text-sm font-medium transition-[background-color,border-color,color,box-shadow] duration-150 ease-out active:scale-[0.97] ${
+              className={`py-2 sm:py-3 px-1 sm:px-2 rounded-xl border text-xs sm:text-sm font-medium transition-[background-color,border-color,color,box-shadow] duration-150 ease-out active:scale-[0.97] ${
                 role === r
                   ? "bg-pine-900 border-pine-900 text-white shadow-md"
                   : "bg-white border-pine-100 text-dim hover:border-pine-300 hover:bg-pine-50"

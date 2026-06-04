@@ -32,9 +32,8 @@ export const WhatWeAreNot = () => {
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.1}>
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[560px] border-separate border-spacing-0">
+        <div className="overflow-x-auto">
+            <table className="w-full min-w-full sm:min-w-[560px] border-separate border-spacing-0 table-fixed sm:table-auto">
               <thead>
                 <tr>
                   <th className="text-left text-sm font-medium text-dim pb-4 pr-4 w-[38%]" />
@@ -76,7 +75,6 @@ export const WhatWeAreNot = () => {
               <span className="flex items-center gap-1.5"><X className="w-3 h-3 text-stone-400" /> No</span>
             </div>
           </div>
-        </FadeIn>
       </div>
     </section>
   );
