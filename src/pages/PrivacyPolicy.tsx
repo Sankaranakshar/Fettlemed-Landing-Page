@@ -139,7 +139,7 @@ export default function PrivacyPolicy() {
             <p>We may disclose your information if required by law, court order, or government regulation. In such cases, we will notify you promptly (unless legally prohibited) and work to limit disclosure to only what is legally required. We will cooperate with your efforts to seek protective orders.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">5.5 De-Identified Research (With Ethical Oversight)</h3>
-            <p>We may use aggregated, de-identified health data for research that improves digital health in India. Such data cannot be used to identify you. You can opt out of contributing to aggregated analysis at any time by contacting us at privacy@fettlemed.com.</p>
+            <p>We may use aggregated, de-identified health data for research that improves digital health in India. Such data cannot be used to identify you. You can opt out of contributing to aggregated analysis at any time by contacting us at dpo@namnalamhealth.com.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">5.6 Business Transfers</h3>
             <p>If FettleMed is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. Any successor organization will be required to maintain the same commitments to your privacy and data sovereignty. We will notify you of any material changes.</p>
@@ -210,7 +210,7 @@ export default function PrivacyPolicy() {
 
             {/* Section 10 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">10. Children's Privacy</h2>
-            <p>Our Services are not intended for individuals under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe we have collected information from a child under 13, please contact us immediately at privacy@fettlemed.com. Parents and guardians can manage their children's health records through their own accounts with appropriate parental controls.</p>
+            <p>Our Services are not intended for individuals under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe we have collected information from a child under 13, please contact us immediately at dpo@namnalamhealth.com. Parents and guardians can manage their children's health records through their own accounts with appropriate parental controls.</p>
 
             {/* Section 11 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">11. Third-Party Links and Services</h2>
@@ -226,7 +226,7 @@ export default function PrivacyPolicy() {
             <p>We comply with applicable Indian data protection laws, including provisions related to health data handling. We recognize the sensitive nature of health information and implement protections that exceed minimum legal requirements.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">12.3 Additional Rights for Certain Jurisdictions</h3>
-            <p>FettleMed primarily serves users in India. If you access our Services from another jurisdiction, you may have additional rights under your local data protection laws. Contact us at privacy@fettlemed.com to exercise those rights and we will respond in accordance with applicable law.</p>
+            <p>FettleMed primarily serves users in India. If you access our Services from another jurisdiction, you may have additional rights under your local data protection laws. Contact us at dpo@namnalamhealth.com to exercise those rights and we will respond in accordance with applicable law.</p>
 
             {/* Section 13 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">13. Your Rights and Choices</h2>
@@ -256,7 +256,7 @@ export default function PrivacyPolicy() {
             
             <div className="bg-stone-50 border border-stone-200 p-6 rounded-2xl mt-6">
               <p className="mb-2"><strong>Email:</strong> <a href="mailto:hello@fettlemed.com" className="text-pine-600 hover:text-pine-700">hello@fettlemed.com</a></p>
-              <p className="mb-2"><strong>Data Protection Officer:</strong> <a href="mailto:dpo@fettlemed.com" className="text-pine-600 hover:text-pine-700">dpo@fettlemed.com</a></p>
+              <p className="mb-2"><strong>Data Protection Officer:</strong> <a href="mailto:dpo@namnalamhealth.com" className="text-pine-600 hover:text-pine-700">dpo@namnalamhealth.com</a></p>
               <p className="mt-4 mb-1"><strong>Mailing Address:</strong></p>
               <address className="not-italic text-dim">
                 NAMNALAM HEALTH TECH PVT LTD<br />
