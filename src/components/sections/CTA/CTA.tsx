@@ -10,9 +10,9 @@ export const CTA = () => {
     <section className="py-20 md:py-28 bg-pine-900">
        <div className="container mx-auto px-6 max-w-4xl text-center">
           <FadeIn>
-             <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-white tracking-tight mb-6 text-balance">Get early access. Help us build what matters.</h2>
+             <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-white tracking-tight mb-6 text-balance">Join the pilot. Talk to the founders.</h2>
              <p className="text-lg md:text-xl font-medium text-pine-200 mb-10 max-w-2xl mx-auto">
-               Join the waitlist for early access. Your feedback directly shapes which features are built first.
+               We reach out personally when your spot opens. Not a newsletter. A conversation.
              </p>
              <Button variant="animated" size="lg" onClick={() => openWaitlist()} className="h-14 px-12 text-lg bg-white hover:bg-pine-50 text-pine-900 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900">
                Join the Waitlist

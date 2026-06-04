@@ -27,7 +27,7 @@ export default function Waitlist() {
                       {
                         Icon: User,
                         role: "For Patients & Families",
-                        desc: "Own your complete health timeline. Share records with any doctor — control who sees what and for how long.",
+                        desc: "Own your complete health timeline. Share records with any doctor and control who sees what and for how long.",
                       },
                       {
                         Icon: Stethoscope,
@@ -37,7 +37,7 @@ export default function Waitlist() {
                       {
                         Icon: Building2,
                         role: "For Clinics",
-                        desc: "Appointments, billing, records, and staff — one platform, zero IT overhead.",
+                        desc: "Appointments, billing, records, and staff. One platform, zero IT overhead.",
                       },
                     ].map(({ Icon, role, desc }) => (
                       <div key={role} className="bg-white px-5 py-4 rounded-2xl shadow-sm border border-stone-200 flex items-start gap-4">

@@ -13,22 +13,22 @@ export function ClinicPilot() {
        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center relative z-10">
           <FadeIn>
              <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight leading-tight mb-8">
-                What the pilot means for your clinic
+                First clinics shape the product. Not just use it.
              </h2>
 
              <div className="text-lg text-pine-100 font-medium leading-relaxed text-left md:text-center mb-10 max-w-2xl mx-auto">
-                <p className="mb-6">Joining means direct access to the people building this — not a feedback form.</p>
+                <p className="mb-6">You call us. We come. We don't leave until your clinic is running.</p>
                 <ul className="space-y-3 text-left max-w-sm mx-auto">
-                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Hands-on onboarding — we stay until your clinic is running, not just set up</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Pilot clinics speak directly with the founding team</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>What you tell us shapes what ships next — first cohort has more influence than any that follows</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Hands-on onboarding. We stay until your clinic is running, not just set up.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Pilot clinics speak directly with the founding team.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>What you tell us shapes what ships next. The first cohort has more influence than any that follows.</li>
                 </ul>
              </div>
 
              <p className="text-pine-200 text-base font-medium mb-10 max-w-2xl mx-auto">
                 Want to talk through whether FettleMed suits your clinic before applying? Write to{" "}
                 <a href="mailto:hello@fettlemed.com" className="underline hover:text-white transition-colors">hello@fettlemed.com</a>
-                {" "}— someone from the team will respond personally.
+                {" "}and someone from the team will respond personally.
              </p>
 
              <div className="flex flex-col items-center gap-3">

@@ -22,7 +22,7 @@ const sidebarLinks: { id: SectionId; label: string }[] = [
 ];
 
 const trustSignals = [
-  { icon: Lock,        label: "TLS 1.2+",           sub: "Encryption in transit — live" },
+  { icon: Lock,        label: "TLS 1.2+",           sub: "Encryption in transit, live" },
   { icon: Eye,         label: "Patient-controlled",  sub: "You grant and revoke access" },
   { icon: FileCheck2,  label: "Audit logging",       sub: "Live at launch" },
   { icon: Globe2,      label: "DPDPA-aligned",       sub: "Built on India's data law" },
@@ -106,10 +106,10 @@ export default function Security() {
                   <ShieldCheck className="w-3.5 h-3.5" /> Security Architecture
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-6 tracking-tight text-balance">
-                  Security is not a feature.<br className="hidden md:block" /> It's the foundation.
+                  Every decision started with one question.<br className="hidden md:block" /> What keeps the patient safe?
                 </h1>
                 <p className="text-xl text-pine-200 font-medium leading-relaxed max-w-2xl mx-auto">
-                  Every architectural decision in FettleMed was made with one question first: is this safe for the patient? Below is exactly what that means in practice.
+                  Architecture, consent model, data residency. Every choice was made with patient safety as the starting point, not a compliance checkbox.
                 </p>
               </div>
 
@@ -288,7 +288,7 @@ export default function Security() {
                       </div>
                       <div className="flex-1">
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Encryption</h2>
-                        <p className="text-dim font-medium mb-8">Your health records are encrypted at every stage — at rest, in transit, and in the event of a breach.</p>
+                        <p className="text-dim font-medium mb-8">Your records are encrypted whether they are sitting on our servers, moving between devices, or being accessed by a doctor you have authorised.</p>
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2 flex items-center gap-2">At rest <span className="text-[11px] font-medium text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">Being finalized pre-launch</span></h3>
@@ -357,7 +357,7 @@ export default function Security() {
                             <p className="text-dim-2 font-medium leading-relaxed">Front desk staff see appointment schedules and patient registration. Billing staff see invoices and payment records. Doctors see clinical records and consultation notes. Clinic owners see everything, across all staff, all doctors, all days. No role can access what belongs to another.</p>
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">Minimum necessary access</h3>
+                            <h3 className="text-pine-900 font-medium mb-2">Nobody sees more than their role requires</h3>
                             <p className="text-dim-2 font-medium leading-relaxed">Every account is configured with the minimum access required for its function. Permissions are not inherited. They are assigned specifically, by role, by clinic, and where relevant, by time period.</p>
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
@@ -491,7 +491,7 @@ export default function Security() {
                             <h3 className="text-white font-medium mb-4">What your data is never used for</h3>
                             <ul className="space-y-3">
                               {[
-                                "Your personal health data is never sold — not to insurers, pharmaceutical companies, employers, or any third party.",
+                                "Your personal health data is never sold. Not to insurers, pharmaceutical companies, employers, or any third party.",
                                 "Anonymised, aggregated usage data may inform product analytics and service improvement. No personally identifiable health information is included.",
                                 "Never used to train AI or machine learning models.",
                               ].map((item) => (

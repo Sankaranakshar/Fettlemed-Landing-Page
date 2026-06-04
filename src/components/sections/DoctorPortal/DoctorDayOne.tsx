@@ -23,7 +23,7 @@ export function DoctorDayOne() {
                 <h3 className="text-2xl font-medium text-pine-900 mb-4 tracking-tight text-balance">The full picture. Before they sit down.</h3>
                 <ul className="text-dim-2 leading-relaxed font-medium text-lg space-y-3">
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Diagnoses, prescriptions, lab results, without asking, without searching.</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Consented records from other doctors, available in the same view.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Records shared by other doctors, with the patient's permission, in the same view.</li>
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Allergies, current medications, and chronic conditions, displayed prominently before the consultation begins.</li>
                 </ul>
              </FadeIn>

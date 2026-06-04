@@ -15,10 +15,10 @@ export function PatientFeatures() {
             <div className="w-10 h-10 bg-pine-50 rounded-xl flex items-center justify-center mb-4 border border-pine-100 shrink-0">
               <Combine className="w-5 h-5 text-pine-700" />
             </div>
-            <h3 className="text-lg font-medium text-pine-900 mb-2 tracking-tight">Everything in one place</h3>
+            <h3 className="text-lg font-medium text-pine-900 mb-2 tracking-tight">Your full history, not just the last visit</h3>
             <ul className="space-y-1.5 text-dim-2 font-medium text-sm">
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Every prescription, lab report, scan, and consultation note — uploaded by you or sent from your doctor</li>
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Available on your phone, anytime, anywhere</li>
+              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Every prescription, lab report, scan, and consultation note. Uploaded by you or sent from your doctor.</li>
+              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>On your phone. No paper folders to carry to the appointment.</li>
               <li className="flex items-start gap-2 text-pine-600 font-medium"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Core patient features are free. Always.</li>
             </ul>
           </FadeIn>

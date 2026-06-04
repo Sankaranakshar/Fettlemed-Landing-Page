@@ -12,24 +12,24 @@ export const Features = () => {
        <div className="absolute top-0 right-0 w-96 h-96 bg-pine-800 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
        <div className="container mx-auto px-6 max-w-6xl relative z-10">
           <FadeIn>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight mb-8 text-balance text-center">One place for your complete health record.</h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight mb-8 text-balance text-center">Your patient's full history. Before they sit down.</h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                {/* For Patients */}
                <div className="bg-white/5 border border-white/10 rounded-2xl p-7 relative overflow-hidden lg:col-span-1 md:col-span-2 flex flex-col">
                   <div className="absolute top-0 left-0 w-full h-1 bg-pine-500"></div>
-                  <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Smartphone className="w-5 h-5 text-pine-300" /> Patient Empowerment</h3>
+                  <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Smartphone className="w-5 h-5 text-pine-300" /> For Patients</h3>
                   <ul className="space-y-4 font-medium text-pine-100 flex-1">
                     <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-400 shrink-0 mt-0.5" /> <span><span className="text-white font-medium">You control</span> who sees your data</span></li>
                     <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-400 shrink-0 mt-0.5" /> <span>Own your complete medical history</span></li>
-                    <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-400 shrink-0 mt-0.5" /> <span>Understand your health, not just the jargon</span></li>
+                    <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-400 shrink-0 mt-0.5" /> <span>Plain-language summaries of every result</span></li>
                   </ul>
                </div>
 
                {/* For Doctors */}
                <div className="bg-white/5 border border-white/10 rounded-2xl p-7 relative overflow-hidden flex flex-col">
                   <div className="absolute top-0 left-0 w-full h-1 bg-pine-600"></div>
-                  <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Stethoscope className="w-5 h-5 text-pine-400" /> Clinical Efficiency</h3>
+                  <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Stethoscope className="w-5 h-5 text-pine-400" /> For Doctors</h3>
                   <ul className="space-y-4 font-medium text-pine-100 flex-1">
                     <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-500 shrink-0 mt-0.5" /> <span>Complete patient history before the consultation starts</span></li>
                     <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-500 shrink-0 mt-0.5" /> <span>Digital prescriptions generated in seconds</span></li>
@@ -40,7 +40,7 @@ export const Features = () => {
                {/* For Clinics */}
                <div className="bg-white/5 border border-white/10 rounded-2xl p-7 relative overflow-hidden flex flex-col">
                   <div className="absolute top-0 left-0 w-full h-1 bg-pine-700"></div>
-                  <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Building2 className="w-5 h-5 text-pine-400" /> Practice Management</h3>
+                  <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Building2 className="w-5 h-5 text-pine-400" /> For Clinics</h3>
                   <ul className="space-y-4 font-medium text-pine-100 flex-1">
                     <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-600 shrink-0 mt-0.5" /> <span>ABHA ID verification and patient registration <span className="text-[11px] font-medium text-pine-300 bg-pine-800/50 px-1.5 py-0.5 rounded ml-1 align-middle">coming soon</span></span></li>
                     <li className="flex gap-3 items-start"><CheckCircle2 className="w-5 h-5 text-pine-600 shrink-0 mt-0.5" /> <span>Appointments, billing, and queues managed from one screen</span></li>

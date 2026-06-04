@@ -31,7 +31,7 @@ export default function About() {
                   <p className="text-xs font-medium tracking-widest uppercase text-pine-400 mb-4">The problem</p>
                   <div className="space-y-3 text-pine-100 font-medium leading-relaxed">
                     <p>In India today, a patient's health history is scattered across hospitals, labs, clinics, and paper folders, invisible to the next doctor who needs it. Vital information is lost between every handoff. A patient visiting a specialist carries a bag of reports. A doctor sees a new patient and starts from zero.</p>
-                    <p className="text-white font-medium">FettleMed closes that gap.</p>
+                    <p className="text-white font-medium">FettleMed connects them.</p>
                   </div>
                 </div>
 
@@ -57,13 +57,14 @@ export default function About() {
             <FadeIn>
               <h2 className="text-sm font-medium tracking-widest uppercase text-pine-600 mb-10">Why we built this</h2>
               <div className="space-y-7 text-lg text-dim-2 font-medium leading-relaxed">
-                <p>Patients in India carry their own medical history from clinic to clinic in a bag of paper reports. Tests get repeated. Care is reactive. The information that would make it preventive never arrives. This is not a failure of doctors — it is a failure of information infrastructure.</p>
+                <p>Patients in India carry their own medical history from clinic to clinic in a bag of paper reports. Tests get repeated. Care is reactive. The information that would make it preventive never arrives. This is not a failure of doctors. It is a failure of information infrastructure.</p>
 
-                <blockquote className="border-l-4 border-pine-500 pl-6 my-10 text-2xl font-medium text-pine-900 leading-snug">
-                  "The problem isn't money or access to doctors. It's the fragmentation of information."
+                <blockquote className="border-l-4 border-pine-500 pl-6 my-10">
+                  <p className="text-2xl font-medium text-pine-900 leading-snug">"The problem isn't money or access to doctors. It's the fragmentation of information."</p>
+                  <p className="text-pine-600 text-sm font-medium mt-3">Dr. Sriram Shankar, Co-founder</p>
                 </blockquote>
 
-                <p>India has the mobile infrastructure to solve this today. FettleMed is the layer that connects patients, doctors, and clinics — so a doctor sees the full picture, a patient is never a blank form, and a clinic's hours go to people, not paperwork.</p>
+                <p>India has the mobile infrastructure to solve this today. FettleMed is the layer that connects patients, doctors, and clinics. A doctor sees the full picture, a patient is never a blank form, and a clinic's hours go to people, not paperwork.</p>
 
                 <div className="bg-pine-50 rounded-2xl p-8 border border-pine-100">
                   <p className="text-pine-900 font-medium leading-relaxed">Every person's health history, on their own device, structured, searchable, and shareable with any doctor in seconds.</p>
@@ -79,7 +80,7 @@ export default function About() {
             <FadeIn className="mb-10">
               <h2 className="text-3xl md:text-5xl font-medium text-pine-900 mb-4 tracking-tight">Founders &amp; Leadership</h2>
               <p className="text-lg text-dim font-medium max-w-2xl">
-                Built by physicians who have spent decades in clinical practice, and technologists who have spent time inside Indian clinics.
+                Built by two surgeons with nearly 70 combined years of clinical practice, and the technologists working alongside them.
               </p>
             </FadeIn>
 
@@ -96,7 +97,7 @@ export default function About() {
                   <h3 className="text-2xl font-medium text-pine-900 mb-1">Dr. Sriram Shankar</h3>
                   <p className="text-pine-600 font-medium mb-1">Co-founder &amp; Chief Medical Officer</p>
                   <p className="text-dim text-sm font-medium mb-5">MBBS · FRCS (England) · FAMS (Singapore)</p>
-                  <p className="text-dim-2 font-medium leading-relaxed">Senior Consultant Cardiothoracic Surgeon with nearly four decades of practice across leading hospitals in Singapore and Southeast Asia, including KK Women's and Children's Hospital. A pioneer in minimally invasive cardiac surgery and in establishing paediatric heart-surgery programmes. His role in FettleMed is not advisory — every clinical feature has been through his hands.</p>
+                  <p className="text-dim-2 font-medium leading-relaxed">Senior Consultant Cardiothoracic Surgeon with nearly four decades of practice across leading hospitals in Singapore and Southeast Asia, including KK Women's and Children's Hospital. A pioneer in minimally invasive cardiac surgery and in establishing paediatric heart-surgery programmes. His role in FettleMed is not advisory. Every clinical feature has been through his hands.</p>
                 </div>
 
                 {/* Dr. Bhavani Sriram */}
@@ -107,7 +108,7 @@ export default function About() {
                   <h3 className="text-2xl font-medium text-pine-900 mb-1">Dr. Bhavani Sriram</h3>
                   <p className="text-pine-600 font-medium mb-1">Co-founder &amp; Chief Clinical Officer</p>
                   <p className="text-dim text-sm font-medium mb-5">MBBS · MRCP (UK), Paediatrics</p>
-                  <p className="text-dim-2 font-medium leading-relaxed">Recognised as a Singapore Silent Hero for her work pioneering care for adults with intellectual disabilities. Patient empowerment is not a brand value for her — it is two decades of practice. She ensures FettleMed's consent model and patient-facing design work for every patient, not just the digitally confident.</p>
+                  <p className="text-dim-2 font-medium leading-relaxed">Recognised as a Singapore Silent Hero for her work pioneering care for adults with intellectual disabilities. Patient empowerment is not a brand value for her. It is two decades of practice. She ensures FettleMed's consent model and patient-facing design work for every patient, not just the digitally confident.</p>
                 </div>
               </div>
             </FadeIn>
@@ -124,7 +125,7 @@ export default function About() {
                   <div>
                     <h3 className="text-base font-medium text-pine-900">Akshar Sankaran Jaikumar</h3>
                     <p className="text-pine-600 text-sm font-medium mb-1">Co-founder &amp; CEO</p>
-                    <p className="text-dim text-sm font-medium leading-relaxed">Business and technology strategy. Translates clinical requirements into architecture.</p>
+                    <p className="text-dim text-sm font-medium leading-relaxed">Akshar runs the product and business. He translates what the clinical founders see in the consultation room into what gets built.</p>
                   </div>
                 </div>
 
@@ -135,7 +136,7 @@ export default function About() {
                   <div>
                     <h3 className="text-base font-medium text-pine-900">Gurubalaji</h3>
                     <p className="text-pine-600 text-sm font-medium mb-1">Lead Developer</p>
-                    <p className="text-dim text-sm font-medium leading-relaxed">Platform architecture, security implementation, and technical build.</p>
+                    <p className="text-dim text-sm font-medium leading-relaxed">Gurubalaji built the platform. Architecture, security, and the code running in production.</p>
                   </div>
                 </div>
 
@@ -151,7 +152,7 @@ export default function About() {
               <h2 className="text-3xl md:text-4xl font-medium text-pine-900 mb-8 tracking-tight">Where we are today</h2>
               <div className="space-y-5 text-lg text-dim-2 font-medium leading-relaxed text-left md:text-center mb-10">
                 <p>FettleMed is in active development, piloting with doctors and clinics now. The patient app opens in the same cohort window.</p>
-                <p>We are a small team, building carefully and validating with real clinical users before we expand. Currently piloting in Chennai.</p>
+                <p>We are a small team. We are not trying to be in every city by year end. We are trying to get it right in Chennai first.</p>
               </div>
 
               <p className="text-dim font-medium mb-8">
@@ -186,7 +187,6 @@ export default function About() {
             <div className="container mx-auto px-4 md:px-8 max-w-4xl">
               <div className="mb-12 text-center">
                 <h2 className="text-3xl md:text-5xl font-medium text-pine-900 mb-4 tracking-tight">Get in touch</h2>
-                <p className="text-lg text-dim font-medium">For partnerships, press inquiries, investor conversations, and general questions about FettleMed.</p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">

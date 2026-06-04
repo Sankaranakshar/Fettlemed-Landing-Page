@@ -20,7 +20,7 @@ export function ClinicFrontDesk() {
                 </div>
                 <div>
                    <p className="text-pine-900 text-base font-semibold mb-2">Ready the same day setup finishes.</p>
-                   <p className="text-dim-2 text-base font-medium leading-relaxed">Most front-desk operations can be learned in one session. We stay until your staff is comfortable — not just until the software is installed.</p>
+                   <p className="text-dim-2 text-base font-medium leading-relaxed">Most front-desk operations can be learned in one session. We stay until your staff is comfortable, not just until the software is installed.</p>
                 </div>
              </FadeIn>
 

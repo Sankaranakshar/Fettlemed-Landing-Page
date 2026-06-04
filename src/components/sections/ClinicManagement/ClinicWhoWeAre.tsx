@@ -8,11 +8,9 @@ export function ClinicWhoWeAre() {
       <div className="container mx-auto px-4 md:px-8 max-w-5xl">
         <FadeIn className="mb-8 text-center">
           <p className="text-xs font-semibold text-pine-500 uppercase tracking-widest mb-3">The team behind FettleMed</p>
-          <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">
-            Built by people who know what a clinic actually runs on.
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Built by people who know what a clinic actually runs on.</h2>
           <p className="text-dim text-base font-medium mt-3 max-w-xl mx-auto leading-relaxed">
-            Both founders have spent careers across high-volume clinical environments. They know that a clinic's biggest operational problem isn't technology — it's time. Every feature we ship has to earn its place in a day where there is no spare minute.
+            Both founders have spent careers across high-volume clinical environments. They know that a clinic's biggest operational problem is not technology. It is time. Every feature we ship has to earn its place in a day where there is no spare minute.
           </p>
         </FadeIn>
 
@@ -28,7 +26,7 @@ export function ClinicWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              Running a cardiothoracic surgery practice at scale means managing patient flows, staff coordination, and administrative load alongside clinical work. He has watched firsthand how much of a senior clinician's time disappears into tasks that should have been automated years ago — and built FettleMed to give that time back.
+              Running a cardiothoracic surgery practice at scale means managing patient flows, staff coordination, and administrative load alongside clinical work. He has watched firsthand how much of a senior clinician's time disappears into tasks that should have been automated years ago. FettleMed is built to give that time back.
             </p>
           </FadeIn>
 
@@ -43,14 +41,14 @@ export function ClinicWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              Working across institutions that serve complex, high-need patients means relying on clinic staff who are already stretched. She built FettleMed's clinic features around the person managing the front desk, the phone queue, and walk-in registrations — all at the same time.
+              Working across institutions that serve complex, high-need patients means relying on clinic staff who are already stretched. She built FettleMed's clinic features around the person managing the front desk, the phone queue, and walk-in registrations. All at the same time.
             </p>
           </FadeIn>
         </div>
 
         <FadeIn delay={0.3} className="bg-pine-900 rounded-2xl px-7 py-5 text-center">
           <p className="text-pine-100 font-medium text-base md:text-lg leading-relaxed">
-            "A clinic runs on people, not software. Our job is to make the software invisible — so your staff can focus on the patients."
+            "A clinic runs on people, not software. Our job is to make the software invisible. So your staff can focus on the patients."
           </p>
           <p className="text-pine-400 text-sm font-medium mt-3">
             Both founders are available to speak with pilot clinics directly.

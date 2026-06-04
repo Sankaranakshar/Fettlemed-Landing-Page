@@ -5,7 +5,7 @@ const points = [
   {
     n: "1",
     heading: "You don't have to switch everything at once.",
-    body: "Start with appointments. Add billing when you're ready. Each module works independently — expand at your own pace.",
+    body: "Start with appointments. Add billing when you're ready. Each module works independently. Expand at your own pace.",
   },
   {
     n: "2",
@@ -15,12 +15,12 @@ const points = [
   {
     n: "3",
     heading: "Your staff won't have a bad week.",
-    body: "Questions on day three, problems on day seven — we're there. Onboarding doesn't end when we close the laptop.",
+    body: "Questions on day three, problems on day seven. We're there. Onboarding doesn't end when we close the laptop.",
   },
   {
     n: "4",
     heading: "If FettleMed isn't right for your clinic, you leave with everything.",
-    body: "All patient records, billing history, and clinical data are exportable in full at any time. We would rather you leave with your data than stay without confidence in the platform.",
+    body: "Your records, billing history, and patient data are exportable in full, any time. We built it this way on purpose.",
   },
   {
     n: "5",

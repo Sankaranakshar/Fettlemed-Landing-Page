@@ -17,7 +17,7 @@ export function PatientProblem() {
                 <div className="w-14 h-14 bg-pine-700/60 border border-pine-600 rounded-2xl flex items-center justify-center mb-6 shrink-0">
                    <FolderSync className="w-7 h-7 text-pine-300" />
                 </div>
-                <h3 className="text-2xl font-medium text-white mb-4 tracking-tight">The Memory Burden</h3>
+                <h3 className="text-2xl font-medium text-white mb-4 tracking-tight">You can't remember everything</h3>
                 <p className="text-pine-50 text-base font-medium leading-relaxed mb-6 flex-1">Reports pile up in folders, in WhatsApp forwards, in the memory of whoever tracks these things. Something always goes missing.</p>
                 <ul className="space-y-2.5">
                    <li className="flex items-center gap-3 text-pine-50 font-medium text-sm">
@@ -44,7 +44,7 @@ export function PatientProblem() {
                 <div className="w-14 h-14 bg-pine-700/60 border border-pine-600 rounded-2xl flex items-center justify-center mb-6 shrink-0">
                    <EyeOff className="w-7 h-7 text-pine-300" />
                 </div>
-                <h3 className="text-2xl font-medium text-white mb-4 tracking-tight">The Comprehension Gap</h3>
+                <h3 className="text-2xl font-medium text-white mb-4 tracking-tight">The report arrived. You still don't know what it means.</h3>
                 <p className="text-pine-50 text-base font-medium leading-relaxed mb-6 flex-1">A blood report arrives. It says your haemoglobin is 10.2 g/dL. Is that normal? Should you be worried? What did the doctor say to watch for?</p>
                 <ul className="space-y-2.5">
                    <li className="flex items-center gap-3 text-pine-50 font-medium text-sm">

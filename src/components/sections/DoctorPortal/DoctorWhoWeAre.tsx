@@ -12,7 +12,7 @@ export function DoctorWhoWeAre() {
             Built by doctors. For doctors.
           </h2>
           <p className="text-dim text-base font-medium mt-3 max-w-xl mx-auto leading-relaxed">
-            Both founders have spent decades in clinical practice across India, the UK, and Singapore. They built FettleMed because they lived the problem — not because they read a market report about it.
+            Both founders have spent decades in clinical practice across India, the UK, and Singapore. They built FettleMed because they lived the problem. Not because they read a market report about it.
           </p>
         </FadeIn>
 
@@ -28,7 +28,7 @@ export function DoctorWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              Nearly four decades as a Cardiothoracic Surgeon. Every incomplete patient file that arrived — every test repeated because the last result was lost — is a problem he dealt with personally. FettleMed is the platform he wished existed when he was seeing 40 patients a day.
+              Nearly four decades as a Cardiothoracic Surgeon. Every incomplete patient file that arrived, every test repeated because the last result was lost, is a problem he dealt with personally. FettleMed is the platform he wished existed when he was seeing 40 patients a day.
             </p>
           </FadeIn>
 
@@ -43,14 +43,14 @@ export function DoctorWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              A career in paediatrics and specialised care for patients with complex, multi-system needs. When your patient needs five different specialists, fragmented records don't just cause inconvenience — they cause harm. She built FettleMed's consent model around the patients who most need care to be continuous.
+              A career in paediatrics and specialised care for patients with complex, multi-system needs. When your patient needs five different specialists, fragmented records don't just cause inconvenience. They cause harm. She built FettleMed's consent model around the patients who most need care to be continuous.
             </p>
           </FadeIn>
         </div>
 
         <FadeIn delay={0.3} className="bg-pine-900 rounded-2xl px-7 py-5 text-center">
           <p className="text-pine-100 font-medium text-base md:text-lg leading-relaxed">
-            "We did not build this from the outside looking in. We built it because we were standing in the consultation room watching it fail."
+            "We built this from inside the consultation room. We were there, watching it fail."
           </p>
           <p className="text-pine-400 text-sm font-medium mt-3">
             Both founders are available to speak with pilot doctors directly.

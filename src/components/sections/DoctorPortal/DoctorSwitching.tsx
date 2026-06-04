@@ -52,7 +52,7 @@ export function DoctorSwitching() {
         </div>
 
         <FadeIn className="mt-8 bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 text-amber-900 text-sm font-medium">
-          <strong>Language note:</strong> FettleMed currently operates in English. Regional language support is on the roadmap — doctors who join the pilot will have direct input into which languages are prioritised first.
+          <strong>Language note:</strong> FettleMed currently operates in English. Regional language support is on the roadmap. Doctors who join the pilot will have direct input into which languages are prioritised first.
         </FadeIn>
       </div>
     </section>

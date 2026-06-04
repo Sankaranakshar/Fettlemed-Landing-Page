@@ -34,8 +34,7 @@ export const FoundedByDoctors = () => {
             </div>
             
             <div className="text-left">
-              <p className="font-medium text-pine-950 text-xl leading-tight mb-1">Built by Physicians.</p>
-              <p className="text-dim font-medium">Designed for clinical excellence.</p>
+              <p className="font-medium text-pine-950 text-xl leading-tight">Built by Physicians.</p>
             </div>
           </div>
           

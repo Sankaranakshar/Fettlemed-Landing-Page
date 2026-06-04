@@ -9,7 +9,7 @@ export const Trust = () => {
       <div className="container mx-auto px-6 max-w-5xl">
         <FadeIn>
           <div className="mb-7 text-center">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-pine-900 tracking-tight">Built for trust, from the ground up.</h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-pine-900 tracking-tight">Your health data stays yours.</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-5 text-left">
              <div className="bg-white border border-stone-200 p-7 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
@@ -26,9 +26,9 @@ export const Trust = () => {
                  <div className="w-11 h-11 bg-pine-50 rounded-xl flex items-center justify-center shrink-0 border border-pine-100">
                    <Stethoscope className="w-5 h-5 text-pine-700" />
                  </div>
-                 <h3 className="text-lg font-medium text-pine-900">Co-developed with Clinicians</h3>
+                 <h3 className="text-lg font-medium text-pine-900">Built with working doctors</h3>
                </div>
-               <p className="text-dim-2 leading-relaxed font-medium text-base">Developed alongside clinicians watching how doctors actually work. Every feature passes one test: does this reduce a step for the doctor, or add one?</p>
+               <p className="text-dim-2 leading-relaxed font-medium text-base">Built with doctors who are still in practice. Every feature passes one test: does this save the doctor a step, or add one?</p>
              </div>
              <div className="bg-white border border-stone-200 p-7 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
                <div className="flex items-center gap-3">
@@ -37,7 +37,7 @@ export const Trust = () => {
                  </div>
                  <h3 className="text-lg font-medium text-pine-900">Your data is yours. Always.</h3>
                </div>
-               <p className="text-dim-2 leading-relaxed font-medium text-base">We do not sell your health data. No advertising. Your data is protected with encryption in transit, stored on infrastructure with the primary data centre in India, and access is controlled through the consent you give.</p>
+               <p className="text-dim-2 leading-relaxed font-medium text-base">We do not sell your health data. No advertising. Encrypted in transit. Stored in India. Access controlled entirely by you.</p>
              </div>
           </div>
 

@@ -4,21 +4,21 @@ import { FadeIn } from "@/components/common/FadeIn";
 const COLUMNS = [
   {
     borderCls: "border-pine-200",
-    heading: "Incomplete Information",
-    body: "A patient sits down. The history is incomplete, scattered, or missing entirely. Previous prescriptions, investigations, and diagnoses are locked in paper files, WhatsApp messages, or another clinic's records.",
-    close: "Clinical decisions are often made without the full picture.",
+    heading: "You don't have the full picture",
+    body: "A patient sits down. Their history is incomplete, scattered, or missing. Prescriptions, investigations, diagnoses. Locked in paper files, WhatsApp messages, or another clinic's records.",
+    close: "You're making decisions on half the information.",
   },
   {
     borderCls: "border-pine-400",
-    heading: "Administrative Burden",
-    body: "Every consultation generates more administration. Prescriptions, notes, referrals, certificates, and follow-ups all compete for the same limited time.",
-    close: "The workload around the patient is growing faster than the time available to treat them.",
+    heading: "The paperwork doesn't end when the patient leaves",
+    body: "Every consultation generates more to do. Prescriptions, notes, referrals, certificates, follow-ups. All competing for the same window of time.",
+    close: "Forty patients. Six hours. One register.",
   },
   {
     borderCls: "border-pine-900",
-    heading: "Disconnected Care",
-    body: "Patients move between clinics, hospitals, laboratories, and pharmacies, but their information rarely moves with them. Important details are repeated, forgotten, or lost between visits.",
-    close: "Healthcare remains fragmented long after the consultation ends.",
+    heading: "Their records don't follow them",
+    body: "Patients move between clinics, hospitals, labs, and pharmacies. Their information rarely moves with them. Details get repeated, forgotten, or lost between visits.",
+    close: "The patient leaves. The information stays where it was.",
   },
 ];
 

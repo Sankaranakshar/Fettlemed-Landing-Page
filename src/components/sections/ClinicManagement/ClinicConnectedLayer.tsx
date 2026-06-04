@@ -16,7 +16,7 @@ const scenarios = [
   {
     icon: User,
     heading: "A first-time patient who's already on FettleMed. Registration takes seconds.",
-    body: "Diagnoses, medications, allergies — available with their consent. The doctor walks in knowing who they're treating. Not a blank form.",
+    body: "Diagnoses, medications, allergies. Available with the patient's consent. The doctor walks in knowing who they're treating, not starting from a blank form.",
   },
 ];
 

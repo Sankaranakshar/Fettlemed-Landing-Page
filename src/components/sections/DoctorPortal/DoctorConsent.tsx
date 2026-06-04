@@ -6,7 +6,7 @@ const CARDS = [
   {
     Icon: Lock,
     heading: "The records you create are yours.",
-    body: "Your notes, prescriptions, and observations belong to you — as they always have. Consistent with Indian Medical Council Regulations 2002.",
+    body: "Your notes, prescriptions, and observations belong to you, as they always have. Consistent with Indian Medical Council Regulations 2002.",
     bullets: [
       "FettleMed stores and structures your records, nothing more",
       "You leave with everything you created, always",
@@ -18,13 +18,13 @@ const CARDS = [
     body: "Patients control whether you see records from other doctors, previous clinics, or their full history.",
     bullets: [
       "Share for one consultation, a fixed period, or ongoing",
-      "You never have unauthorised access — that protects you as much as them",
+      "You never have unauthorised access. That protects you as much as it protects them.",
     ],
   },
   {
     Icon: Link2,
     heading: "Practicing without blind spots.",
-    body: "When a patient shares their full profile, you see what every other doctor who treated them saw — no gaps, no guessing.",
+    body: "When a patient shares their full profile, you see what every other doctor who treated them saw. No gaps, no guessing.",
     bullets: [
       "Full medication history without asking",
       "No repeating a test from three weeks ago",
@@ -47,10 +47,10 @@ export function DoctorConsent() {
       <div className="container mx-auto px-6 max-w-6xl">
         <FadeIn className="mb-8">
           <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">
-            Who owns what, and why it matters for you.
+            Who owns what.
           </h2>
           <p className="text-dim text-base font-medium leading-relaxed mt-3 max-w-2xl">
-            You keep everything you create. Patients control what they share beyond that. Both of you can see every access, every time.
+            You keep everything you create. Patients control what they share beyond that. Every access is visible to both of you.
           </p>
         </FadeIn>
 

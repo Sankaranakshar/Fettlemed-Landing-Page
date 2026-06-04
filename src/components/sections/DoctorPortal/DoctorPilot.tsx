@@ -13,11 +13,11 @@ export function DoctorPilot() {
        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center relative z-10">
           <FadeIn>
              <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight leading-tight mb-8">
-                What the pilot means for you
+                You'll talk to the founders. Not a support team.
              </h2>
 
              <p className="text-lg text-pine-100 font-medium leading-relaxed mb-10 max-w-2xl mx-auto text-center">
-               Joining means direct access to the people building this, not a feedback form.
+               Joining means a conversation with the people writing the code, not a feedback form.
              </p>
 
              {/* Timeline */}
@@ -26,10 +26,10 @@ export function DoctorPilot() {
                <div className="hidden md:block absolute top-5 left-[12.5%] right-[12.5%] h-px bg-pine-700" />
                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                  {[
-                   { step: "1", title: "Apply",            desc: "2-minute form, no paperwork",                        selected: false },
-                   { step: "2", title: "We review",        desc: "Each application is reviewed by the founding team",    selected: true  },
-                   { step: "3", title: "Go live",          desc: "Selected doctors set up in one session",              selected: false },
-                   { step: "4", title: "Build with us",    desc: "Direct line to shape the product",                   selected: false },
+                   { step: "1", title: "Apply",            desc: "2-minute form, no paperwork",                               selected: false },
+                   { step: "2", title: "We review",        desc: "Each application is reviewed by the founding team",          selected: true  },
+                   { step: "3", title: "Go live",          desc: "Selected doctors set up in one session",                    selected: false },
+                   { step: "4", title: "Build with us",    desc: "Your feedback goes to the people writing the code.",        selected: false },
                  ].map(({ step, title, desc, selected }) => (
                    <div key={step} className="flex flex-col items-center text-center relative">
                      <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-3 text-sm z-10 relative border-2 font-semibold ${
@@ -39,7 +39,7 @@ export function DoctorPilot() {
                      }`}>
                        {step}
                      </div>
-                     <p className={`font-semibold text-sm mb-1 ${selected ? "text-white" : "text-white"}`}>{title}</p>
+                     <p className="font-semibold text-sm mb-1 text-white">{title}</p>
                      <p className={`text-xs font-medium leading-relaxed ${selected ? "text-pine-200" : "text-pine-300"}`}>{desc}</p>
                    </div>
                  ))}

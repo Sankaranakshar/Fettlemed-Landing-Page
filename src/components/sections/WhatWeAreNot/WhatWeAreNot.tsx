@@ -27,7 +27,7 @@ export const WhatWeAreNot = () => {
               <span className="text-pine-600">The layer that connects them.</span>
             </h2>
             <p className="text-lg text-dim-2 max-w-2xl mx-auto font-medium">
-              FettleMed is the shared layer between patient, doctor, and clinic — so a prescription written in the room appears on the patient's phone before they leave the building.
+              FettleMed is the shared layer between patient, doctor, and clinic. A prescription written in the room appears on the patient's phone before they leave the building.
             </p>
           </div>
         </FadeIn>

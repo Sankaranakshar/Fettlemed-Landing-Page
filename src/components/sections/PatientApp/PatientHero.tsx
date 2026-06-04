@@ -18,15 +18,11 @@ export function PatientHero() {
                 For Patients &amp; Families
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium text-pine-900 leading-[1.05] mb-6 tracking-tight text-balance">
-                Your health history, <span className="text-pine-600">always with you.</span>
+                Every prescription. Every result. <span className="text-pine-600">One place.</span>
               </h1>
               <p className="text-xl md:text-2xl text-dim mb-10 font-medium leading-relaxed max-w-2xl text-balance">
-                Your complete clinical history in one secure timeline. Prescriptions and lab results at your fingertips, with full control over who sees them and for how long.
+                Every prescription, lab result, and consultation note in one place. Uploaded by you or sent from your doctor. You decide who sees it and you can take it back.
               </p>
-              <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm font-medium mb-2">
-                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse flex-shrink-0" />
-                The app is coming soon — join the waitlist and we'll notify you when it's ready.
-              </div>
               <div className="flex flex-col items-center lg:items-start gap-4">
                 <Button
                   variant="animated"
@@ -34,9 +30,13 @@ export function PatientHero() {
                   onClick={() => openWaitlist('Individual')}
                   className="bg-pine-900 hover:bg-pine-800 text-white h-14 px-10 text-lg rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
-                  Join the Waitlist — It's Free
+                  Join the Waitlist. It's Free.
                 </Button>
                 <p className="text-dim text-sm font-medium max-w-sm lg:max-w-none text-center lg:text-left">Limited spots available. We'll reach out when yours opens.</p>
+                <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm font-medium">
+                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse flex-shrink-0" />
+                  The patient app is coming soon. Join the waitlist and we'll reach out when it's ready.
+                </div>
               </div>
             </FadeIn>
           </div>

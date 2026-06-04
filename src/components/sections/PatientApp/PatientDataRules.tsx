@@ -18,7 +18,7 @@ export function PatientDataRules() {
           <FadeIn delay={0.1} className="md:col-span-2 bg-pine-900 rounded-2xl p-6 flex flex-col">
             <Lock className="w-6 h-6 text-pine-400 mb-4" />
             <p className="text-2xl font-medium text-white tracking-tight leading-tight mb-2">Built around patient consent.</p>
-            <p className="text-pine-400 font-medium text-sm leading-relaxed mt-auto">Your health records are never sold and never used for advertising. Records are shared only with the people you explicitly authorise — no one else.</p>
+            <p className="text-pine-400 font-medium text-sm leading-relaxed mt-auto">Your health records are never sold and never used for advertising. Records are shared only with the people you explicitly authorise. No one else.</p>
           </FadeIn>
 
           {/* 2 taps / 1 tap */}
@@ -36,8 +36,8 @@ export function PatientDataRules() {
           {/* Full Audit Trail */}
           <FadeIn delay={0.3} className="bg-surface-50 border border-stone-100 rounded-2xl p-6 flex flex-col">
             <EyeOff className="w-6 h-6 text-pine-600 mb-4" />
-            <p className="text-3xl font-bold text-pine-900 tracking-tight leading-tight mb-4">Full<br/>Audit<br/>Trail</p>
-            <p className="text-dim-2 font-medium text-xs leading-relaxed mt-auto">Every access logged — who viewed your records, when, and for how long. Always visible to you in the app.</p>
+            <p className="text-3xl font-bold text-pine-900 tracking-tight leading-tight mb-4">Full audit trail</p>
+            <p className="text-dim-2 font-medium text-xs leading-relaxed mt-auto">Every access logged: who viewed your records, when, and for how long. Always visible to you in the app.</p>
           </FadeIn>
 
           {/* India Only */}

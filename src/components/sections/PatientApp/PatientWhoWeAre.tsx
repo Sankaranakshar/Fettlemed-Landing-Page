@@ -12,7 +12,7 @@ export function PatientWhoWeAre() {
             Built by people who've sat on both sides of the consultation.
           </h2>
           <p className="text-dim text-base font-medium mt-3 max-w-xl mx-auto leading-relaxed">
-            The founders have spent decades as clinicians — which means they've spent decades watching patients arrive clutching paper bags of old reports, recalling medications from memory, and starting over at every new clinic. They built FettleMed for that patient.
+            The founders have spent decades as clinicians. Which means they've spent decades watching patients arrive clutching paper bags of old reports, recalling medications from memory, and starting over at every new clinic. They built FettleMed for that patient.
           </p>
         </FadeIn>
 
@@ -28,7 +28,7 @@ export function PatientWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              After nearly four decades seeing patients, the same pattern never changed: critical history lost in transit, tests repeated unnecessarily, decisions made without the full picture. FettleMed is built so that every patient who walks into a consultation arrives with everything they need — not just what they could remember.
+              After nearly four decades seeing patients, the same pattern never changed: critical history lost in transit, tests repeated unnecessarily, decisions made without the full picture. FettleMed is built so that every patient who walks into a consultation arrives with everything they need. Not just what they could remember.
             </p>
           </FadeIn>
 
@@ -43,14 +43,14 @@ export function PatientWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              A career caring for patients with complex, long-term conditions showed her exactly what happens when records don't travel with the patient — history scattered across hospitals, WhatsApp screenshots, and paper folders. She built FettleMed's patient record model around the family managing care for someone who needs it most.
+              A career caring for patients with complex, long-term conditions showed her exactly what happens when records don't travel with the patient. History scattered across hospitals, WhatsApp screenshots, and paper folders. She built FettleMed's patient record model around the family managing care for someone who needs it most.
             </p>
           </FadeIn>
         </div>
 
         <FadeIn delay={0.3} className="bg-pine-900 rounded-2xl px-7 py-5 text-center">
           <p className="text-pine-100 font-medium text-base md:text-lg leading-relaxed">
-            "Every feature in the patient app came from a real moment in a consultation where the patient didn't have what they needed — and shouldn't have had to."
+            "Every feature in the patient app came from a real moment in a consultation where the patient didn't have what they needed. And shouldn't have had to."
           </p>
           <p className="text-pine-400 text-sm font-medium mt-3">
             We are available to speak with patients and families directly. Write to us at hello@fettlemed.com.

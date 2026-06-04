@@ -11,12 +11,12 @@ const CARDS = [
   {
     icon: FolderOpen,
     heading: "Organised by person, private by default.",
-    body: "Each family member's records are kept separately. You manage who can access what. Their health information stays private to them — you handle logistics, not their content.",
+    body: "Each family member's records are kept separately. You manage who can access what. Their health information stays private to them. You handle the logistics.",
   },
   {
     icon: Zap,
-    heading: "Ready the moment you need it.",
-    body: "Emergency appointment, new specialist, last-minute referral — their full record is already in your pocket. No searching through WhatsApp chats or old paper folders.",
+    heading: "Emergency appointment. New specialist. Their record is already in your pocket.",
+    body: "No searching through WhatsApp chats or paper folders. Their full history is there before you've said a word to the new doctor.",
   },
 ];
 

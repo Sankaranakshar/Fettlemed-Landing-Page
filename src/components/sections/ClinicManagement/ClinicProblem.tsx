@@ -4,21 +4,21 @@ import { FadeIn } from "@/components/common/FadeIn";
 const COLUMNS = [
   {
     borderCls: "border-pine-200",
-    heading: "Operational Chaos",
-    body: "Appointments, walk-ins, phone calls, billing questions, and last-minute schedule changes all compete for attention at the same time.",
-    close: "The day often falls behind before the first consultation begins.",
+    heading: "No one can see the full day at once",
+    body: "Appointments, walk-ins, phone calls, billing questions, and last-minute changes all land at the same time, on different people, in different places.",
+    close: "The day falls behind before the first consultation begins.",
   },
   {
     borderCls: "border-pine-400",
-    heading: "Limited Visibility",
-    body: "Patient volumes, collections, outstanding payments, cancellations, and clinic performance are spread across registers, spreadsheets, and disconnected systems.",
-    close: "By the time you have the numbers, it's too late to act on them.",
+    heading: "The numbers only make sense at month end",
+    body: "Patient volumes, collections, outstanding payments, and cancellations spread across registers, spreadsheets, and disconnected systems. By the time you have the full picture, it is too late to act on it.",
+    close: "You're running the clinic from memory.",
   },
   {
     borderCls: "border-pine-900",
-    heading: "Broken Workflows",
-    body: "Returning patients are registered again. Records take time to locate. Information has to be re-entered across multiple touchpoints.",
-    close: "Small delays compound into lost time across the entire clinic.",
+    heading: "The same patient registered twice. Again.",
+    body: "Returning patients get registered from scratch. Records take time to find. Information gets re-entered across multiple touchpoints.",
+    close: "One mistake at registration adds ten minutes to every patient behind them.",
   },
 ];
 

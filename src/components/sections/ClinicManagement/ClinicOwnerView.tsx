@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/common/FadeIn";
 const items = [
   {
     heading: "Daily collections",
-    body: "what came in today, broken down by doctor — without asking anyone.",
+    body: "what came in today, broken down by doctor. Without asking anyone.",
   },
   {
     heading: "Billing versus collections",
@@ -13,7 +13,7 @@ const items = [
   },
   {
     heading: "Appointment utilisation",
-    body: "which hours fill consistently, which don't — so you can make scheduling decisions from your own data.",
+    body: "which hours fill consistently, which don't. So you can make scheduling decisions from your own data.",
   },
   {
     heading: "Patient volume",
@@ -34,7 +34,7 @@ export function ClinicOwnerView() {
              <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight text-balance">Right now, you're running the clinic from memory.</h2>
           </FadeIn>
           <FadeIn className="text-center mb-12">
-             <p className="text-pine-200 text-lg font-medium leading-relaxed max-w-2xl mx-auto">You know roughly what's happening because you're there. FettleMed makes that visibility permanent — from any device, updated in real time.</p>
+             <p className="text-pine-200 text-lg font-medium leading-relaxed max-w-2xl mx-auto">You know roughly what's happening because you're there. FettleMed puts the whole picture on your phone. Updated as the day moves.</p>
           </FadeIn>
 
           <div className="bg-pine-800/50 border border-pine-700/50 rounded-3xl p-8 md:p-12 backdrop-blur-sm">
@@ -42,7 +42,7 @@ export function ClinicOwnerView() {
                 {items.map(({ heading, body }, i) => (
                    <li key={i} className="flex gap-4">
                       <CheckCircle2 className="w-6 h-6 text-pine-400 shrink-0 mt-0.5" />
-                      <span><span className="text-white">{heading} —</span> <span className="text-pine-100">{body}</span></span>
+                      <span><span className="text-white">{heading}:</span> <span className="text-pine-100">{body}</span></span>
                    </li>
                 ))}
              </ul>
