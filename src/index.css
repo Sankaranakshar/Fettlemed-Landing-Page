@@ -76,6 +76,9 @@ h1, h2, h3 {
   .text-balance {
     text-wrap: balance;
   }
+  /* Hide scrollbar on swipe carousels */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
 /* Snap scroll — applied only on Home page via .home-snap class on <html> */

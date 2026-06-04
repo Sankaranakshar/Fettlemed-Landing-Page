@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from "react-router-dom";
 import {
   Smartphone, Stethoscope, Building2,
@@ -1051,14 +1051,92 @@ const ROLE_STYLES: Record<Role, {
 export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role }) => {
   const [activeRole, setActiveRole] = useState<Role>(initialRole);
   const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  // Sync swipe → active card index
+  const handleCarouselScroll = useCallback(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const idx = Math.round(el.scrollLeft / el.offsetWidth);
+    setActiveCardIndex(prev => (idx !== prev ? idx : prev));
+  }, []);
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    el.addEventListener('scroll', handleCarouselScroll, { passive: true });
+    return () => el.removeEventListener('scroll', handleCarouselScroll);
+  }, [handleCarouselScroll]);
+
+  // Reset carousel to first card when role changes
+  useEffect(() => {
+    carouselRef.current?.scrollTo({ left: 0, behavior: 'instant' });
+  }, [activeRole]);
 
   const handleRoleChange = (role: Role) => {
     setActiveRole(role);
     setActiveCardIndex(0);
   };
 
+  // Chip click — update state + scroll carousel on mobile
+  const handleChipClick = (idx: number) => {
+    setActiveCardIndex(idx);
+    const el = carouselRef.current;
+    if (el) el.scrollTo({ left: idx * el.offsetWidth, behavior: 'smooth' });
+  };
+
   const s = ROLE_STYLES[activeRole];
   const cards = CARDS[activeRole];
+
+  const tabRow = (
+    <div role="tablist" className="flex w-full sm:inline-flex sm:w-auto bg-white rounded-full p-1.5 border border-stone-200 shadow-sm gap-1">
+      {([
+        { role: 'patient', Icon: Smartphone,  label: 'Patients' },
+        { role: 'doctor',  Icon: Stethoscope, label: 'Doctors'  },
+        { role: 'clinic',  Icon: Building2,   label: 'Clinics'  },
+      ] as { role: Role; Icon: React.ElementType; label: string }[]).map(({ role, Icon, label }) => (
+        <button
+          key={role}
+          role="tab"
+          aria-selected={activeRole === role}
+          onClick={() => handleRoleChange(role)}
+          className={`flex-1 sm:flex-none flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-5 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-[background-color,color,box-shadow] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 focus-visible:ring-offset-1 ${
+            activeRole === role ? ROLE_STYLES[role].tab : 'text-dim hover:text-pine-900 hover:bg-pine-50'
+          }`}
+        >
+          <Icon className="w-4 h-4" /> {label}
+        </button>
+      ))}
+    </div>
+  );
+
+  const chipNav = (onChipClick: (idx: number) => void) => (
+    <div className="flex gap-2 mt-4 justify-center flex-wrap">
+      {cards.map((card, idx) => (
+        <button
+          key={idx}
+          onClick={() => onChipClick(idx)}
+          aria-pressed={activeCardIndex === idx}
+          className={`px-4 py-3 min-h-[44px] rounded-full text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 ${
+            activeCardIndex === idx ? s.navActive : s.navInactive
+          }`}
+        >
+          {card.navLabel}
+        </button>
+      ))}
+    </div>
+  );
+
+  const ctaLink = (
+    <div className="mt-3 text-center flex justify-center">
+      <Link
+        to={s.ctaTo}
+        className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl ${s.ctaClass} text-white font-medium text-base transition-colors shadow-sm`}
+      >
+        {s.ctaLabel} <ArrowUpRight className="w-4 h-4" />
+      </Link>
+    </div>
+  );
 
   return (
     <section id="roles" className="py-12 md:py-16 bg-surface-50">
@@ -1069,42 +1147,63 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
               See what FettleMed changes for you.
             </h2>
             <p className="text-sm font-medium text-dim mb-4">Select your role.</p>
-
-            {/* Tab selector */}
-            <div role="tablist" className="flex w-full sm:inline-flex sm:w-auto bg-white rounded-full p-1.5 border border-stone-200 shadow-sm gap-1">
-              {([
-                { role: 'patient', Icon: Smartphone,  label: 'Patients' },
-                { role: 'doctor',  Icon: Stethoscope, label: 'Doctors'  },
-                { role: 'clinic',  Icon: Building2,   label: 'Clinics'  },
-              ] as { role: Role; Icon: React.ElementType; label: string }[]).map(({ role, Icon, label }) => (
-                <button
-                  key={role}
-                  role="tab"
-                  aria-selected={activeRole === role}
-                  onClick={() => handleRoleChange(role)}
-                  className={`flex-1 sm:flex-none flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-5 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-[background-color,color,box-shadow] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 focus-visible:ring-offset-1 ${
-                    activeRole === role ? ROLE_STYLES[role].tab : 'text-dim hover:text-pine-900 hover:bg-pine-50'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" /> {label}
-                </button>
-              ))}
-            </div>
+            {tabRow}
           </div>
         </FadeIn>
 
-        {/* Card panel */}
+        {/* ── MOBILE CAROUSEL (hidden on md+) ───────────────────────────── */}
         <div
-          key={activeRole}
-          className="flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-200"
+          key={`mobile-${activeRole}`}
+          className="md:hidden flex flex-col animate-in fade-in duration-200"
         >
-          <div className="w-full relative min-h-[520px] sm:min-h-[440px] md:min-h-[380px]" aria-live="polite" aria-atomic="true">
+          <div
+            ref={carouselRef}
+            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-3xl"
+            aria-live="polite"
+          >
+            {cards.map((card, idx) => (
+              <div
+                key={idx}
+                className={`min-w-full snap-start flex flex-col ${s.cardBg} border ${s.cardBorder} shadow-sm`}
+              >
+                {/* Visual FIRST — animation above text */}
+                <div className={`h-[220px] w-full flex items-center justify-center ${s.visualBg} border-b ${s.visualBorder} overflow-hidden shrink-0`}>
+                  {card.visual}
+                </div>
+                {/* Text SECOND */}
+                <div className="flex flex-col p-5">
+                  <div className={`w-10 h-10 ${s.iconBg} ${s.iconColor} rounded-xl flex items-center justify-center mb-3 shrink-0`}>
+                    {card.icon}
+                  </div>
+                  <h3 className={`text-xl font-medium ${s.heading} mb-3 tracking-tight`}>{card.heading}</h3>
+                  <ul className="space-y-2.5">
+                    {card.bullets.map((b, bi) => (
+                      <li key={bi} className={`flex items-start gap-2.5 ${s.bullets} font-medium text-base`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${s.bulletDot} mt-2 shrink-0`} />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+          {chipNav(handleChipClick)}
+          {ctaLink}
+        </div>
+
+        {/* ── DESKTOP CROSS-FADE (hidden below md) ─────────────────────── */}
+        <div
+          key={`desktop-${activeRole}`}
+          className="hidden md:flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-200"
+        >
+          <div className="w-full relative min-h-[380px]" aria-live="polite" aria-atomic="true">
             {cards.map((card, idx) => (
               <motion.div
                 key={idx}
                 whileHover={activeCardIndex === idx ? { boxShadow: s.hoverShadow } : {}}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                className={`absolute inset-0 ${s.cardBg} border ${s.cardBorder} p-4 sm:p-5 md:p-6 rounded-3xl flex flex-col md:flex-row gap-4 md:gap-6 transition-[transform,opacity] duration-200 ease-out shadow-sm ${
+                className={`absolute inset-0 ${s.cardBg} border ${s.cardBorder} p-5 md:p-6 rounded-3xl flex flex-row gap-6 transition-[transform,opacity] duration-200 ease-out shadow-sm ${
                   activeCardIndex === idx ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'
                 }`}
               >
@@ -1127,7 +1226,6 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
                     ))}
                   </ul>
                 </div>
-
                 {/* Right: visual */}
                 <div className={`flex-1 w-full flex items-center justify-center ${s.visualBg} rounded-2xl border ${s.visualBorder} overflow-hidden min-h-[180px]`}>
                   {activeCardIndex === idx && card.visual}
@@ -1135,33 +1233,10 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
               </motion.div>
             ))}
           </div>
-
-          {/* Nav chips */}
-          <div className="flex gap-2 mt-4 justify-center flex-wrap">
-            {cards.map((card, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveCardIndex(idx)}
-                aria-pressed={activeCardIndex === idx}
-                className={`px-4 py-3 min-h-[44px] rounded-full text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 ${
-                  activeCardIndex === idx ? s.navActive : s.navInactive
-                }`}
-              >
-                {card.navLabel}
-              </button>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="mt-3 text-center flex justify-center">
-            <Link
-              to={s.ctaTo}
-              className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl ${s.ctaClass} text-white font-medium text-base transition-colors shadow-sm`}
-            >
-              {s.ctaLabel} <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
+          {chipNav(idx => setActiveCardIndex(idx))}
+          {ctaLink}
         </div>
+
       </div>
     </section>
   );
