@@ -27,7 +27,7 @@ export function DoctorPilot() {
                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                  {[
                    { step: "1", title: "Apply",            desc: "2-minute form, no paperwork",                        selected: false },
-                   { step: "2", title: "We review",        desc: "Each application reviewed — not all are accepted",    selected: true  },
+                   { step: "2", title: "We review",        desc: "Each application is reviewed by the founding team",    selected: true  },
                    { step: "3", title: "Go live",          desc: "Selected doctors set up in one session",              selected: false },
                    { step: "4", title: "Build with us",    desc: "Direct line to shape the product",                   selected: false },
                  ].map(({ step, title, desc, selected }) => (
