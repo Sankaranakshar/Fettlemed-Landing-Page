@@ -3,7 +3,7 @@ import { FadeIn } from "@/components/common/FadeIn";
 
 export const Problem = () => {
   return (
-    <section id="insight" className="bg-white text-pine-900 border-y border-stone-100 overflow-hidden">
+    <section id="insight" className="bg-white text-pine-900 border-y border-stone-100">
       <div className="container mx-auto px-6 max-w-5xl py-16 md:py-20">
         <div className="grid lg:grid-cols-2 gap-8 items-start">
 

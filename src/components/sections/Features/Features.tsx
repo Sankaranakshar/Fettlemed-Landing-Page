@@ -9,8 +9,7 @@ export const Features = () => {
 
   return (
     <section className="py-16 md:py-20 bg-pine-900 text-white relative">
-       <div className="absolute top-0 right-0 w-96 h-96 bg-pine-800 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-       <div className="container mx-auto px-6 max-w-6xl relative z-10">
+<div className="container mx-auto px-6 max-w-6xl relative z-10">
           <FadeIn>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight mb-8 text-balance text-center">Your patient's full history. Before they sit down.</h2>
 
