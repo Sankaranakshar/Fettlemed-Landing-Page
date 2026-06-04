@@ -97,7 +97,7 @@ export default function Security() {
       <div className="flex flex-col w-full bg-surface-50 min-h-screen">
 
         {/* ── S1: Hero ─────────────────────────────────────────────────── */}
-        <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-pine-900 text-white overflow-hidden">
+        <section className="relative pt-16 pb-12 md:pt-20 md:pb-16 bg-pine-900 text-white overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-pine-800/50 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
           <div className="container mx-auto px-4 md:px-8 max-w-4xl relative z-10">
             <FadeIn eager>
