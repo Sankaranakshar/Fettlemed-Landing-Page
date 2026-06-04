@@ -43,14 +43,13 @@ const CARDS = [
 
 export function DoctorConsent() {
   return (
-    <section className="py-16 md:py-20 bg-pine-900 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-40 translate-x-1/3 -translate-y-1/3" />
-      <div className="container mx-auto px-6 max-w-6xl relative z-10">
-        <FadeIn className="mb-6">
-          <h2 className="text-3xl md:text-4xl font-medium text-white tracking-tight text-balance">
+    <section className="py-16 md:py-20 bg-white border-y border-stone-100">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <FadeIn className="mb-8">
+          <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">
             Who owns what, and why it matters for you.
           </h2>
-          <p className="text-pine-300 text-base font-medium leading-relaxed mt-3 max-w-2xl">
+          <p className="text-dim text-base font-medium leading-relaxed mt-3 max-w-2xl">
             You keep everything you create. Patients control what they share beyond that. Both of you can see every access, every time.
           </p>
         </FadeIn>
@@ -60,19 +59,19 @@ export function DoctorConsent() {
             <FadeIn
               key={heading}
               delay={i * 0.1}
-              className="flex flex-col gap-3 p-5 rounded-2xl bg-pine-800/50 border border-pine-700 backdrop-blur-sm"
+              className="flex flex-col gap-3 p-6 rounded-2xl bg-surface-50 border border-stone-200 shadow-sm"
             >
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-pine-700/80 rounded-xl flex items-center justify-center shrink-0">
-                  <Icon className="w-4 h-4 text-pine-200" />
+                <div className="w-8 h-8 bg-pine-50 rounded-xl flex items-center justify-center shrink-0 border border-pine-100">
+                  <Icon className="w-4 h-4 text-pine-600" />
                 </div>
-                <h3 className="text-base font-semibold text-white tracking-tight leading-snug">{heading}</h3>
+                <h3 className="text-base font-semibold text-pine-900 tracking-tight leading-snug">{heading}</h3>
               </div>
-              <p className="text-pine-300 text-sm font-medium leading-relaxed">{body}</p>
+              <p className="text-dim text-sm font-medium leading-relaxed">{body}</p>
               <ul className="space-y-1.5">
                 {bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-pine-300 text-sm font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-pine-400 mt-1.5 shrink-0" />
+                  <li key={b} className="flex items-start gap-2 text-dim-2 text-sm font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-pine-500 mt-1.5 shrink-0" />
                     {b}
                   </li>
                 ))}
