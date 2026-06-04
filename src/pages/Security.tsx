@@ -240,17 +240,17 @@ export default function Security() {
               <div className="sticky top-32 space-y-1">
                 <p className="text-xs font-medium tracking-widest uppercase text-dim mb-5">On this page</p>
                 {sidebarLinks.map(({ id, label }) => (
-                  <a
+                  <button
                     key={id}
-                    href={`#${id}`}
-                    className={`block text-sm font-medium py-2 px-3 rounded-lg transition-colors ${
+                    onClick={(e) => { e.preventDefault(); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }}
+                    className={`block w-full text-left text-sm font-medium py-2 px-3 rounded-lg transition-colors ${
                       activeSection === id
                         ? "bg-pine-50 text-pine-700"
                         : "text-dim hover:text-pine-600"
                     }`}
                   >
                     {label}
-                  </a>
+                  </button>
                 ))}
               </div>
             </nav>
@@ -262,9 +262,9 @@ export default function Security() {
               <nav aria-label="Security sections" className="lg:hidden overflow-x-auto pb-4 mb-10 -mx-4 px-4">
                 <div className="flex gap-2 w-max">
                   {sidebarLinks.map(({ id, label }) => (
-                    <a
+                    <button
                       key={id}
-                      href={`#${id}`}
+                      onClick={(e) => { e.preventDefault(); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }}
                       className={`px-4 py-3 min-h-[44px] inline-flex items-center rounded-full text-sm font-medium whitespace-nowrap border transition-colors ${
                         activeSection === id
                           ? "bg-pine-700 text-white border-pine-700"
@@ -272,7 +272,7 @@ export default function Security() {
                       }`}
                     >
                       {label}
-                    </a>
+                    </button>
                   ))}
                 </div>
               </nav>
