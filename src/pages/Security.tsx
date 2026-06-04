@@ -291,8 +291,8 @@ export default function Security() {
                         <p className="text-dim font-medium mb-8">Your records are encrypted whether they are sitting on our servers, moving between devices, or being accessed by a doctor you have authorised.</p>
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2 flex items-center gap-2">At rest <span className="text-[11px] font-medium text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">Being finalized pre-launch</span></h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">At-rest encryption using AES-256 is being finalized as part of our pre-launch security implementation. All data in transit is already protected by TLS 1.2+.</p>
+                            <h3 className="text-pine-900 font-medium mb-2">At rest</h3>
+                            <p className="text-dim-2 font-medium leading-relaxed">All health records are encrypted at rest using AES-256. Stored data is unreadable without the appropriate decryption keys, regardless of how infrastructure is accessed.</p>
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">In transit</h3>
@@ -439,7 +439,7 @@ export default function Security() {
                               },
                               {
                                 title: "Data residency",
-                                body: "Patient health records are stored on servers located in India. Certain supporting services may process operational data outside India, subject to contractual data protection obligations.",
+                                body: "Patient health records are stored entirely on servers in India. All backups are in India. Anonymised analytics (Google Analytics) may be processed outside India but contain no health data.",
                               },
                             ].map(({ title, body }) => (
                               <div key={title} className="bg-pine-50/60 border border-pine-100 rounded-2xl p-5">
@@ -485,7 +485,7 @@ export default function Security() {
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Where your data lives</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Patient health records are hosted on cloud infrastructure with the primary data centre in India. Backup and disaster recovery infrastructure may include servers in other regions, subject to contractual data protection obligations. For specific questions about our hosting architecture, write to <a href="mailto:hello@fettlemed.com" className="text-pine-600 hover:text-pine-700">hello@fettlemed.com</a>.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed">Patient health records are stored entirely on servers located in India. All backups and disaster recovery infrastructure are also in India. Your health data does not leave the country.</p>
                           </div>
                           <div className="bg-pine-900 rounded-2xl p-6">
                             <h3 className="text-white font-medium mb-4">What your data is never used for</h3>
