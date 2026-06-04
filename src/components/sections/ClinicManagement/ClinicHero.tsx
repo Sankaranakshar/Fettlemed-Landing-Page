@@ -8,19 +8,19 @@ export function ClinicHero() {
   const { openWaitlist } = useWaitlist();
 
   return (
-    <section className="relative pt-14 pb-12 md:pt-16 md:pb-16 border-b border-stone-100 bg-surface-50 overflow-hidden">
+    <section className="relative pt-14 pb-12 md:pt-16 md:pb-14 border-b border-stone-100 bg-surface-50 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Text column */}
           <div className="w-full lg:w-1/2 text-center lg:text-left">
             <FadeIn eager>
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-pine-200 bg-pine-50 shadow-sm text-xs font-medium text-pine-700 uppercase tracking-widest mb-8">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-pine-200 bg-pine-50 shadow-sm text-xs font-medium text-pine-700 uppercase tracking-widest mb-6">
                 For Clinics
               </div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium text-pine-900 leading-[1.05] mb-6 tracking-tight text-balance">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-pine-900 leading-[1.05] mb-5 tracking-tight text-balance">
                 You handle the patients. <span className="text-dim">We handle everything else.</span>
               </h1>
-              <p className="text-xl md:text-2xl text-dim mb-10 font-medium leading-relaxed max-w-2xl text-balance">
+              <p className="text-lg md:text-xl text-dim mb-8 font-medium leading-relaxed max-w-2xl text-balance">
                 The front desk handles the queue. Billing closes at the end of each visit. The owner sees everything, from any device.
               </p>
               <div className="flex flex-col items-center lg:items-start gap-3">
@@ -28,7 +28,7 @@ export function ClinicHero() {
                   variant="animated"
                   size="lg"
                   onClick={() => openWaitlist('Clinic')}
-                  className="bg-pine-900 hover:bg-pine-800 text-white h-14 px-12 text-lg rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
+                  className="bg-pine-900 hover:bg-pine-800 text-white h-13 px-12 text-base rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
                   Join the Clinic Pilot
                 </Button>
@@ -44,7 +44,7 @@ export function ClinicHero() {
           </div>
 
           {/* Mockup column */}
-          <div className="w-full lg:w-1/2">
+          <div className="hidden lg:block w-full lg:w-1/2">
             <FadeIn delay={0.2}>
               <ClinicShuffleMockup />
             </FadeIn>
