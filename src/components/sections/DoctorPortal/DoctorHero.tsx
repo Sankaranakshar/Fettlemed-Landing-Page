@@ -8,7 +8,7 @@ export function DoctorHero() {
   const { openWaitlist } = useWaitlist();
 
   return (
-    <section className="h-[calc(100vh-80px)] sm:min-h-[600px] flex flex-col bg-surface-50 border-b border-stone-100 overflow-hidden">
+    <section className="md:h-[calc(100vh-80px)] md:min-h-[600px] flex flex-col bg-surface-50 border-b border-stone-100 overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl flex flex-col flex-1 min-h-0 justify-center py-8 md:py-10">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-12">
           {/* Text column */}
@@ -44,7 +44,7 @@ export function DoctorHero() {
           </div>
 
           {/* Mockup column */}
-          <div className="w-full lg:w-1/2 hidden md:block">
+          <div className="w-full lg:w-1/2 mt-6 lg:mt-0">
             <FadeIn delay={0.2}>
               <DoctorConsultationMockup />
             </FadeIn>

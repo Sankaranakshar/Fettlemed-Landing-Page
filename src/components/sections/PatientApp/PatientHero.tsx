@@ -42,7 +42,7 @@ export function PatientHero() {
           </div>
 
           {/* Mockup column */}
-          <div className="hidden lg:flex w-full lg:w-1/2 justify-center">
+          <div className="flex w-full lg:w-1/2 justify-center mt-6 lg:mt-0">
             <FadeIn delay={0.2}>
               <PatientMobileMockup />
             </FadeIn>

@@ -1098,7 +1098,7 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
           key={activeRole}
           className="flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-200"
         >
-          <div className="w-full relative min-h-[320px] md:min-h-[380px]" aria-live="polite" aria-atomic="true">
+          <div className="w-full relative min-h-[520px] sm:min-h-[440px] md:min-h-[380px]" aria-live="polite" aria-atomic="true">
             {cards.map((card, idx) => (
               <motion.div
                 key={idx}

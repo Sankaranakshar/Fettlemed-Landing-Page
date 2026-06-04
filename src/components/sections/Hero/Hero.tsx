@@ -9,9 +9,9 @@ export const Hero = () => {
   const { openWaitlist } = useWaitlist();
 
   return (
-    <section className="relative overflow-hidden flex flex-col bg-surface-50 h-[calc(100vh-80px)] sm:min-h-[600px]">
+    <section className="relative overflow-hidden flex flex-col bg-surface-50 md:h-[calc(100vh-80px)] md:min-h-[600px]">
       {/* Main content — grows to fill space above the strip, centered vertically */}
-      <div className="flex-1 min-h-0 flex items-center px-6 pt-12 pb-4 md:pt-14 lg:pt-6 md:pb-4 relative z-10">
+      <div className="flex-1 min-h-0 flex md:items-center px-6 pt-12 pb-4 md:pt-14 lg:pt-6 md:pb-4 relative z-10">
         <div className="container mx-auto max-w-7xl w-full">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-8 lg:gap-10">
           <div className="w-full md:w-1/2 text-center md:text-left">
@@ -36,7 +36,7 @@ export const Hero = () => {
             </FadeIn>
           </div>
 
-          <div className="w-full md:w-1/2 hidden md:block">
+          <div className="w-full md:w-1/2 mt-6 md:mt-0">
             <FadeIn delay={0.2}>
               <HomeFlowMockup />
             </FadeIn>
