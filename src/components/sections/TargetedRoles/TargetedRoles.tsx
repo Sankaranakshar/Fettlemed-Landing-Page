@@ -1061,8 +1061,8 @@ export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role 
   const cards = CARDS[activeRole];
 
   return (
-    <section id="roles" className="h-[calc(100vh-80px)] min-h-[600px] flex flex-col bg-surface-50 overflow-hidden">
-      <div className="container mx-auto px-6 max-w-6xl flex flex-col flex-1 min-h-0 py-8 md:py-10">
+    <section id="roles" className="py-12 md:py-16 bg-surface-50">
+      <div className="container mx-auto px-6 max-w-6xl">
         <FadeIn>
           <div className="text-center mb-5">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-pine-900 mb-2 text-balance">

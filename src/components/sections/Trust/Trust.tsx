@@ -5,8 +5,8 @@ import { FadeIn } from "@/components/common/FadeIn";
 
 export const Trust = () => {
   return (
-    <section className="h-[calc(100vh-80px)] min-h-[600px] flex flex-col bg-surface-50 border-t border-stone-100 overflow-hidden">
-      <div className="container mx-auto px-6 max-w-5xl flex flex-col flex-1 min-h-0 py-10 md:py-12 justify-center">
+    <section className="py-16 md:py-20 bg-surface-50 border-t border-stone-100">
+      <div className="container mx-auto px-6 max-w-5xl">
         <FadeIn>
           <div className="mb-7 text-center">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-pine-900 tracking-tight">Built for trust, from the ground up.</h2>

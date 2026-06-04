@@ -8,15 +8,15 @@ export const Features = () => {
   const { openWaitlist } = useWaitlist();
 
   return (
-    <section className="h-[calc(100vh-80px)] min-h-[600px] flex flex-col bg-pine-900 text-white overflow-hidden relative">
+    <section className="py-16 md:py-20 bg-pine-900 text-white relative">
        <div className="absolute top-0 right-0 w-96 h-96 bg-pine-800 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-       <div className="container mx-auto px-6 max-w-6xl relative z-10 flex flex-col flex-1 min-h-0 py-12 md:py-16">
-          <FadeIn className="flex flex-col flex-1 min-h-0">
+       <div className="container mx-auto px-6 max-w-6xl relative z-10">
+          <FadeIn>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight mb-8 text-balance text-center">One place for your complete health record.</h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 flex-1 min-h-0 content-stretch">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                {/* For Patients */}
-               <div className="bg-white/5 border border-white/10 rounded-2xl p-7 relative overflow-hidden lg:col-span-1 md:col-span-2 flex flex-col h-full">
+               <div className="bg-white/5 border border-white/10 rounded-2xl p-7 relative overflow-hidden lg:col-span-1 md:col-span-2 flex flex-col">
                   <div className="absolute top-0 left-0 w-full h-1 bg-pine-500"></div>
                   <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Smartphone className="w-5 h-5 text-pine-300" /> Patient Empowerment</h3>
                   <ul className="space-y-4 font-medium text-pine-100 flex-1">
@@ -27,7 +27,7 @@ export const Features = () => {
                </div>
 
                {/* For Doctors */}
-               <div className="bg-white/5 border border-white/10 rounded-2xl p-7 relative overflow-hidden flex flex-col h-full">
+               <div className="bg-white/5 border border-white/10 rounded-2xl p-7 relative overflow-hidden flex flex-col">
                   <div className="absolute top-0 left-0 w-full h-1 bg-pine-600"></div>
                   <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Stethoscope className="w-5 h-5 text-pine-400" /> Clinical Efficiency</h3>
                   <ul className="space-y-4 font-medium text-pine-100 flex-1">
@@ -38,7 +38,7 @@ export const Features = () => {
                </div>
 
                {/* For Clinics */}
-               <div className="bg-white/5 border border-white/10 rounded-2xl p-7 relative overflow-hidden flex flex-col h-full">
+               <div className="bg-white/5 border border-white/10 rounded-2xl p-7 relative overflow-hidden flex flex-col">
                   <div className="absolute top-0 left-0 w-full h-1 bg-pine-700"></div>
                   <h3 className="text-xl font-medium mb-5 flex items-center gap-2"><Building2 className="w-5 h-5 text-pine-400" /> Practice Management</h3>
                   <ul className="space-y-4 font-medium text-pine-100 flex-1">
