@@ -26,17 +26,21 @@ export function DoctorPilot() {
                <div className="hidden md:block absolute top-5 left-[12.5%] right-[12.5%] h-px bg-pine-700" />
                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                  {[
-                   { step: "1", title: "Apply",         desc: "2-minute form, no paperwork" },
-                   { step: "2", title: "Meet the team", desc: "Call with the founders directly" },
-                   { step: "3", title: "Go live",       desc: "Setup in a single session" },
-                   { step: "4", title: "Build with us", desc: "Shape the product from inside" },
-                 ].map(({ step, title, desc }) => (
+                   { step: "1", title: "Apply",            desc: "2-minute form, no paperwork",                        selected: false },
+                   { step: "2", title: "We review",        desc: "Each application reviewed — not all are accepted",    selected: true  },
+                   { step: "3", title: "Go live",          desc: "Selected doctors set up in one session",              selected: false },
+                   { step: "4", title: "Build with us",    desc: "Direct line to shape the product",                   selected: false },
+                 ].map(({ step, title, desc, selected }) => (
                    <div key={step} className="flex flex-col items-center text-center relative">
-                     <div className="w-10 h-10 rounded-full bg-pine-700 border-2 border-pine-500 flex items-center justify-center mb-3 text-white font-semibold text-sm z-10 relative">
+                     <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-3 text-sm z-10 relative border-2 font-semibold ${
+                       selected
+                         ? "bg-white text-pine-900 border-white"
+                         : "bg-pine-700 text-white border-pine-500"
+                     }`}>
                        {step}
                      </div>
-                     <p className="text-white font-semibold text-sm mb-1">{title}</p>
-                     <p className="text-pine-300 text-xs font-medium leading-relaxed">{desc}</p>
+                     <p className={`font-semibold text-sm mb-1 ${selected ? "text-white" : "text-white"}`}>{title}</p>
+                     <p className={`text-xs font-medium leading-relaxed ${selected ? "text-pine-200" : "text-pine-300"}`}>{desc}</p>
                    </div>
                  ))}
                </div>
