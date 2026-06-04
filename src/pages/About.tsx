@@ -159,22 +159,30 @@ export default function About() {
                 If you're a doctor, clinic owner, or patient who believes health data should work this way, the pilot is where that starts.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button
                   variant="animated"
                   size="lg"
                   onClick={() => openWaitlist('Individual')}
-                  className="h-12 px-8 text-base bg-pine-900 hover:bg-pine-800 text-white rounded-xl font-medium focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
+                  className="h-12 px-6 text-sm bg-pine-900 hover:bg-pine-800 text-white rounded-xl font-medium focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
-                  Join the Waitlist
+                  I'm a Patient
                 </Button>
                 <Button
                   variant="animated"
                   size="lg"
                   onClick={() => openWaitlist('Doctor')}
-                  className="h-12 px-8 text-base border-2 border-pine-900 text-pine-900 hover:bg-pine-50 rounded-xl font-medium focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
+                  className="h-12 px-6 text-sm border-2 border-pine-900 text-pine-900 hover:bg-pine-50 rounded-xl font-medium focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
-                  Join the Pilot
+                  I'm a Doctor
+                </Button>
+                <Button
+                  variant="animated"
+                  size="lg"
+                  onClick={() => openWaitlist('Clinic')}
+                  className="h-12 px-6 text-sm border-2 border-pine-900 text-pine-900 hover:bg-pine-50 rounded-xl font-medium focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
+                >
+                  I run a Clinic
                 </Button>
               </div>
             </FadeIn>
