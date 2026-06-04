@@ -3,9 +3,9 @@ import { FadeIn } from "@/components/common/FadeIn";
 
 export const Problem = () => {
   return (
-    <section id="insight" className="h-[calc(100vh-80px)] min-h-[600px] flex flex-col bg-white text-pine-900 border-y border-stone-100 overflow-hidden">
-      <div className="container mx-auto px-6 max-w-5xl flex flex-col flex-1 min-h-0 py-12 md:py-16">
-        <div className="grid lg:grid-cols-2 gap-8 items-stretch flex-1 min-h-0">
+    <section id="insight" className="bg-white text-pine-900 border-y border-stone-100">
+      <div className="container mx-auto px-6 max-w-5xl py-16 md:py-20">
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
 
           <FadeIn className="flex flex-col justify-center">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.08] mb-8">
@@ -29,7 +29,7 @@ export const Problem = () => {
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.2} className="bg-surface-50 p-8 md:p-10 rounded-2xl border border-stone-200 flex flex-col justify-center h-full">
+          <FadeIn delay={0.2} className="bg-surface-50 p-8 md:p-10 rounded-2xl border border-stone-200 flex flex-col justify-center">
             <h2 className="text-2xl md:text-3xl font-medium text-ink mb-5">When your history doesn't show up, your care starts from zero.</h2>
             <p className="text-lg text-dim-2 leading-relaxed mb-5 font-medium">Health data is scattered across hospitals, labs, and paper slips, invisible to the clinician who needs it most. FettleMed closes that gap.</p>
             <p className="text-lg text-dim-2 leading-relaxed font-medium">FettleMed connects everything into one continuous record that <span className="font-medium text-pine-600 border-b border-pine-600">follows you</span> wherever you go.</p>
