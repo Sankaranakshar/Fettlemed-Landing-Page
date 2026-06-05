@@ -43,9 +43,10 @@ export const FoundedByDoctors = () => {
           {/* Trust Markers - Staggered */}
           <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center md:justify-end gap-x-6 gap-y-3 md:gap-x-8 lg:gap-x-10 md:gap-y-4 lg:gap-y-6">
             {[
-              { icon: ShieldCheck, text: "ABDM-aligned",     tip: "India's national health data standard" },
-              { icon: ShieldCheck, text: "DPDPA-aligned",   tip: "Designed with India's data protection law in mind" },
-              { icon: CheckCircle2,text: "Consent-first",   tip: "You control who sees your records, and for how long" },
+              { icon: ShieldCheck, text: "ABDM-aligned",          tip: "India's national health data standard" },
+              { icon: ShieldCheck, text: "DPDPA-aligned",        tip: "Designed with India's data protection law in mind" },
+              { icon: CheckCircle2,text: "Consent-first",        tip: "You control who sees your records, and for how long" },
+              { icon: Lock,        text: "End-to-end encrypted", tip: "Your records are encrypted in transit and at rest" },
             ].map((item, i) => (
               <motion.div
                 key={item.text}
