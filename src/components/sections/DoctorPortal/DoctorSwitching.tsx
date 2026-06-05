@@ -5,22 +5,22 @@ const POINTS = [
   {
     n: "1",
     heading: "You don't migrate anything.",
-    body: "FettleMed starts from your next consultation, not from your filing cabinet. Historical records stay where they are. New records build from today.",
+    body: "FettleMed starts at your next consultation. Nothing to migrate.",
   },
   {
     n: "2",
     heading: "Your patients don't need to download anything, at first.",
-    body: "You can create digital records for any patient on FettleMed, whether or not they have the app. When they do join, their records are already waiting for them.",
+    body: "Create records for patients with or without the app.",
   },
   {
     n: "3",
     heading: "Setup takes one session.",
-    body: "You can see your first patient on FettleMed on the same day you sign up. No IT onboarding, no training week. If you can use WhatsApp, you can use FettleMed.",
+    body: "First patient on FettleMed the same day. If you can use WhatsApp, you can use this.",
   },
   {
     n: "4",
     heading: "If FettleMed isn't right for you, you leave with everything.",
-    body: "All records you've created are exportable in full. Nothing is locked to our platform. We would rather you leave with your data than stay without confidence in the product.",
+    body: "Leave anytime with a full export. Nothing locked in.",
   },
 ];
 
@@ -33,7 +33,7 @@ export function DoctorSwitching() {
             Switching from paper
           </h2>
           <p className="text-lg text-dim mt-3 font-medium leading-relaxed max-w-2xl">
-            FettleMed is built for doctors on paper or Excel. Every concern about switching has a specific answer below.
+            Built for paper and Excel. Every switching worry, answered.
           </p>
         </FadeIn>
 

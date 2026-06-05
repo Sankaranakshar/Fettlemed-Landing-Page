@@ -6,17 +6,17 @@ const CARDS = [
   {
     icon: Users,
     heading: "One login. Every family member.",
-    body: "Your mother's blood pressure. Your father's medications. Your child's next vaccine. All tracked under one account, each person with their own separate record.",
+    body: "All under one login, each record separate.",
   },
   {
     icon: FolderOpen,
     heading: "Organised by person, private by default.",
-    body: "Each family member's records are kept separately. You manage who can access what. Their health information stays private to them. You handle the logistics.",
+    body: "Private by default. You manage access.",
   },
   {
     icon: Zap,
     heading: "Emergency appointment. New specialist. Their record is already in your pocket.",
-    body: "No searching through WhatsApp chats or paper folders. Their full history is there before you've said a word to the new doctor.",
+    body: "Their full history, already in your pocket.",
   },
 ];
 
@@ -25,10 +25,10 @@ export function PatientForWho() {
     <section className="py-12 md:py-16 bg-white border-b border-stone-100">
       <div className="container mx-auto px-6 max-w-6xl">
         <FadeIn className="mb-2">
-          <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">You don't have to be a patient to need this.</h2>
+          <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">One person tracks everyone's health. That's you.</h2>
         </FadeIn>
         <FadeIn className="mb-10">
-          <p className="text-dim text-lg font-medium mt-3 max-w-2xl">In most families, one person tracks everyone's health. You didn't sign up to be the family health administrator. But since you are, you deserve a proper tool.</p>
+          <p className="text-dim text-lg font-medium mt-3 max-w-2xl">You didn't sign up for it. You deserve a proper tool anyway.</p>
         </FadeIn>
 
         <div className="grid md:grid-cols-3 gap-5">

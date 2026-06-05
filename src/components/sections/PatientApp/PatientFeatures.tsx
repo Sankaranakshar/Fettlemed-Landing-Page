@@ -7,7 +7,7 @@ export function PatientFeatures() {
     <section className="py-12 md:py-16 bg-surface-50 border-b border-stone-100">
       <div className="container mx-auto px-6 max-w-6xl">
         <FadeIn className="text-center mb-6">
-          <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">What changes when your records are finally in one place.</h2>
+          <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">What changes in one place.</h2>
         </FadeIn>
 
         <div className="grid md:grid-cols-3 gap-4">
@@ -17,9 +17,9 @@ export function PatientFeatures() {
             </div>
             <h3 className="text-lg font-medium text-pine-900 mb-2 tracking-tight">Your full history, not just the last visit</h3>
             <ul className="space-y-1.5 text-dim-2 font-medium text-sm">
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Every prescription, lab report, scan, and consultation note. Uploaded by you or sent from your doctor.</li>
+              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Every prescription, lab, scan, and note — yours or your doctor's.</li>
               <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>On your phone. No paper folders to carry to the appointment.</li>
-              <li className="flex items-start gap-2 text-pine-600 font-medium"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Core patient features are free. Always.</li>
+              <li className="flex items-start gap-2 text-pine-600 font-medium"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Free for patients during the pilot.</li>
             </ul>
           </FadeIn>
 
@@ -29,9 +29,9 @@ export function PatientFeatures() {
             </div>
             <h3 className="text-lg font-medium text-pine-900 mb-2 tracking-tight">Your health, across time</h3>
             <ul className="space-y-1.5 text-dim-2 font-medium text-sm">
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Track how a condition changes across multiple consultations</li>
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Walk into every appointment knowing what your last doctor explained</li>
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>See patterns that individual reports can't show</li>
+              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Watch a condition change across visits</li>
+              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Walk in knowing what your last doctor said</li>
+              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>See patterns single reports hide</li>
             </ul>
           </FadeIn>
 
@@ -41,10 +41,10 @@ export function PatientFeatures() {
             </div>
             <h3 className="text-lg font-medium text-pine-900 mb-2 tracking-tight">Two taps to share, one tap to revoke</h3>
             <ul className="space-y-1.5 text-dim-2 font-medium text-sm">
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Share your full history with any FettleMed doctor in two taps</li>
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Set access to expire after one consultation, or keep it open for ongoing care</li>
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Revoke it in one tap, anytime, from your phone</li>
-              <li className="flex items-start gap-2 text-pine-700 font-medium"><span className="text-pine-500 mt-0.5 shrink-0">•</span>You are notified every time someone views your records</li>
+              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Share full history in two taps</li>
+              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Set it to expire or stay open</li>
+              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Revoke in one tap</li>
+              <li className="flex items-start gap-2 text-pine-700 font-medium"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Get notified on every view</li>
             </ul>
           </FadeIn>
         </div>

@@ -10,7 +10,7 @@ export function ClinicWhoWeAre() {
           <p className="text-xs font-semibold text-pine-500 uppercase tracking-widest mb-3">The team behind FettleMed</p>
           <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Built by people who know what a clinic actually runs on.</h2>
           <p className="text-dim text-base font-medium mt-3 max-w-xl mx-auto leading-relaxed">
-            Both founders have spent careers across high-volume clinical environments. They know that a clinic's biggest operational problem is not technology. It is time. Every feature we ship has to earn its place in a day where there is no spare minute.
+            Careers across high-volume clinical environments. Every feature has to earn its place in a day with no spare minute.
           </p>
         </FadeIn>
 
@@ -26,7 +26,7 @@ export function ClinicWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              Running a cardiothoracic surgery practice at scale means managing patient flows, staff coordination, and administrative load alongside clinical work. He has watched firsthand how much of a senior clinician's time disappears into tasks that should have been automated years ago. FettleMed is built to give that time back.
+              Nearly four decades as a Cardiothoracic Surgeon. He watched how much clinical time disappears into tasks that should have been automated. FettleMed is built to give that time back.
             </p>
           </FadeIn>
 
@@ -41,7 +41,7 @@ export function ClinicWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              Working across institutions that serve complex, high-need patients means relying on clinic staff who are already stretched. She built FettleMed's clinic features around the person managing the front desk, the phone queue, and walk-in registrations. All at the same time.
+              A career in complex, high-need care. She built FettleMed's clinic features around the person managing the front desk, the phone queue, and walk-in registrations — all at the same time.
             </p>
           </FadeIn>
         </div>

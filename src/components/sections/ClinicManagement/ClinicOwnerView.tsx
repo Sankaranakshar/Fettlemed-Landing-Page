@@ -34,7 +34,7 @@ export function ClinicOwnerView() {
              <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight text-balance">Right now, you're running the clinic from memory.</h2>
           </FadeIn>
           <FadeIn className="text-center mb-12">
-             <p className="text-pine-200 text-lg font-medium leading-relaxed max-w-2xl mx-auto">You know roughly what's happening because you're there. FettleMed puts the whole picture on your phone. Updated as the day moves.</p>
+             <p className="text-pine-200 text-lg font-medium leading-relaxed max-w-2xl mx-auto">The whole picture, on your phone. Updated as the day moves.</p>
           </FadeIn>
 
           <div className="bg-pine-800/50 border border-pine-700/50 rounded-3xl p-8 md:p-12 backdrop-blur-sm">

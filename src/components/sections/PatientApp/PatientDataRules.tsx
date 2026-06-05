@@ -18,7 +18,7 @@ export function PatientDataRules() {
           <FadeIn delay={0.1} className="md:col-span-2 bg-pine-900 rounded-2xl p-6 flex flex-col">
             <Lock className="w-6 h-6 text-pine-400 mb-4" />
             <p className="text-2xl font-medium text-white tracking-tight leading-tight mb-2">Built around patient consent.</p>
-            <p className="text-pine-400 font-medium text-sm leading-relaxed mt-auto">Your health records are never sold and never used for advertising. Records are shared only with the people you explicitly authorise. No one else.</p>
+            <p className="text-pine-400 font-medium text-sm leading-relaxed mt-auto">Never sold. Never advertised. Shared only with who you authorise.</p>
           </FadeIn>
 
           {/* 2 taps / 1 tap */}

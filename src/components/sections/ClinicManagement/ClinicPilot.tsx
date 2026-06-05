@@ -19,16 +19,16 @@ export function ClinicPilot() {
              <div className="text-lg text-pine-100 font-medium leading-relaxed text-left md:text-center mb-10 max-w-2xl mx-auto">
                 <p className="mb-6">You call us. We come. We don't leave until your clinic is running.</p>
                 <ul className="space-y-3 text-left max-w-sm mx-auto">
-                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Hands-on onboarding. We stay until your clinic is running, not just set up.</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Pilot clinics speak directly with the founding team.</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>What you tell us shapes what ships next. The first cohort has more influence than any that follows.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Hands-on onboarding until you're running.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Talk directly to the founding team.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Your feedback ships first.</li>
                 </ul>
              </div>
 
              <p className="text-pine-200 text-base font-medium mb-10 max-w-2xl mx-auto">
-                Want to talk through whether FettleMed suits your clinic before applying? Write to{" "}
+                Not sure it fits? Write to{" "}
                 <a href="mailto:hello@fettlemed.com" className="underline hover:text-white transition-colors">hello@fettlemed.com</a>
-                {" "}and someone from the team will respond personally.
+                {" "}— a real person replies.
              </p>
 
              <div className="flex flex-col items-center gap-3">

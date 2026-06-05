@@ -15,8 +15,8 @@ export function ClinicFeatures() {
                 <div className="w-14 h-14 bg-pine-50 rounded-2xl flex items-center justify-center mb-6 border border-pine-100">
                    <CalendarDays className="w-7 h-7 text-pine-700" />
                 </div>
-                <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight text-balance">No double-bookings. No queue confusion. No phone calls to confirm.</h3>
-                <p className="text-dim text-base font-medium leading-relaxed mb-5">Appointments are managed in one place. Front desk walk-ins and online bookings land in the same queue, with no conflicts.</p>
+                <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight text-balance">No double-bookings.</h3>
+                <p className="text-dim text-base font-medium leading-relaxed mb-5">Walk-ins and online bookings, one queue, zero conflicts.</p>
                 <ul className="text-dim-2 font-medium text-base space-y-3">
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Online booking or front-desk scheduling, the slot is confirmed either way</li>
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Automated reminders sent before every appointment</li>
@@ -28,8 +28,8 @@ export function ClinicFeatures() {
                 <div className="w-14 h-14 bg-pine-50 rounded-2xl flex items-center justify-center mb-6 border border-pine-100">
                    <Users2 className="w-7 h-7 text-pine-700" />
                 </div>
-                <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight text-balance">Every patient registered once. Their full history attached, not scattered.</h3>
-                <p className="text-dim text-base font-medium leading-relaxed mb-5">Returning patients are pulled up in seconds: name, history, last visit, current medications. No re-entering. No starting from scratch.</p>
+                <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight text-balance">Registered once.</h3>
+                <p className="text-dim text-base font-medium leading-relaxed mb-5">Returning patients pulled up in seconds — history attached.</p>
                 <ul className="text-dim-2 font-medium text-base space-y-3">
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Digital registration with full patient profile from the first visit</li>
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Diagnoses, medications, allergies. Visible before the consultation begins.</li>
@@ -41,8 +41,8 @@ export function ClinicFeatures() {
                 <div className="w-14 h-14 bg-pine-50 rounded-2xl flex items-center justify-center mb-6 border border-pine-100">
                    <WalletCards className="w-7 h-7 text-pine-700" />
                 </div>
-                <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight text-balance">Invoices at the point of care, not compiled at the end of the day.</h3>
-                <p className="text-dim text-base font-medium leading-relaxed mb-5">Billing happens during or right after the consultation. Collections are tracked in real time. No spreadsheets, no month-end surprises.</p>
+                <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight text-balance">Billing at the point of care.</h3>
+                <p className="text-dim text-base font-medium leading-relaxed mb-5">Invoiced and collected during the visit. No month-end surprises.</p>
                 <ul className="text-dim-2 font-medium text-base space-y-3">
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>GST-compliant invoicing, arriving during the pilot</li>
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Billing versus collections in the same view</li>
@@ -54,8 +54,8 @@ export function ClinicFeatures() {
                 <div className="w-14 h-14 bg-pine-50 rounded-2xl flex items-center justify-center mb-6 border border-pine-100">
                    <ShieldCheck className="w-7 h-7 text-pine-700" />
                 </div>
-                <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight text-balance">Everyone sees exactly what they should. Nothing more.</h3>
-                <p className="text-dim text-base font-medium leading-relaxed mb-5">Clinical notes are visible only to doctors. Billing staff see financial records. The owner sees everything across all staff and all days.</p>
+                <h3 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight text-balance">Everyone sees their lane.</h3>
+                <p className="text-dim text-base font-medium leading-relaxed mb-5">Front desk, billing, doctor, owner — each sees only their view.</p>
                 <ul className="text-dim-2 font-medium text-base space-y-3">
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Role-based access: front desk, billing, doctor, and owner each see their own view</li>
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Adjust permissions on the fly as your team changes</li>
