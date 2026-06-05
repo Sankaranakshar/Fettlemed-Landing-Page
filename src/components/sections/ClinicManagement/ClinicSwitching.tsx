@@ -5,27 +5,27 @@ const points = [
   {
     n: "1",
     heading: "You don't have to switch everything at once.",
-    body: "Start with appointments. Add billing when you're ready. Each module works independently. Expand at your own pace.",
+    body: "Start with appointments, add billing when ready. Each module works independently.",
   },
   {
     n: "2",
     heading: "Your existing patients aren't disrupted.",
-    body: "FettleMed starts from your next patient, not your filing cabinet. No migration required. Existing patients are added as they walk in.",
+    body: "FettleMed starts from your next patient. No migration required.",
   },
   {
     n: "3",
     heading: "Your staff won't have a bad week.",
-    body: "Questions on day three, problems on day seven. We're there. Onboarding doesn't end when we close the laptop.",
+    body: "Questions on day three, problems on day seven. We're there.",
   },
   {
     n: "4",
     heading: "If FettleMed isn't right for your clinic, you leave with everything.",
-    body: "Your records, billing history, and patient data are exportable in full, any time. We built it this way on purpose.",
+    body: "Records, billing history, patient data — exportable in full, any time.",
   },
   {
     n: "5",
     heading: "Multiple branches - planned for a future release.",
-    body: "Multi-location management is on our roadmap and will be available in a future release after the pilot. If you run more than one branch, let us know - your input shapes what we build.",
+    body: "Multi-location is on the roadmap. Join the pilot to shape what ships first.",
   },
 ];
 
@@ -37,7 +37,7 @@ export function ClinicSwitching() {
              <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">Switching from paper</h2>
           </FadeIn>
           <FadeIn className="mb-10">
-             <p className="text-lg text-dim font-medium leading-relaxed">Every concern a clinic owner has about switching has a specific answer here.</p>
+             <p className="text-lg text-dim font-medium leading-relaxed">Every switching worry a clinic owner has, answered.</p>
           </FadeIn>
 
           <div className="space-y-6">

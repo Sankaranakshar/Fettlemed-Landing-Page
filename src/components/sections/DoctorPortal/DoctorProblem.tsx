@@ -5,19 +5,19 @@ const COLUMNS = [
   {
     borderCls: "border-pine-200",
     heading: "You don't have the full picture",
-    body: "A patient sits down. Their history is incomplete, scattered, or missing. Prescriptions, investigations, diagnoses. Locked in paper files, WhatsApp messages, or another clinic's records.",
+    body: "History incomplete, scattered, or locked in another clinic's files.",
     close: "You're making decisions on half the information.",
   },
   {
     borderCls: "border-pine-400",
     heading: "The paperwork doesn't end when the patient leaves",
-    body: "Every consultation generates more to do. Prescriptions, notes, referrals, certificates, follow-ups. All competing for the same window of time.",
+    body: "Every visit spawns prescriptions, notes, referrals, certificates.",
     close: "Forty patients. Six hours. One register.",
   },
   {
     borderCls: "border-pine-900",
     heading: "Their records don't follow them",
-    body: "Patients move between clinics, hospitals, labs, and pharmacies. Their information rarely moves with them. Details get repeated, forgotten, or lost between visits.",
+    body: "Patients move between clinics and labs. Their information doesn't.",
     close: "The patient leaves. The information stays where it was.",
   },
 ];

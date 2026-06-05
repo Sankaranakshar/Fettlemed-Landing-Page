@@ -21,7 +21,7 @@ export function PatientHero() {
                 Every prescription. Every result. <span className="text-pine-600">One place.</span>
               </h1>
               <p className="text-lg md:text-xl text-dim mb-6 font-medium leading-relaxed max-w-2xl text-balance">
-                Every prescription, lab result, and consultation note in one place. Uploaded by you or sent from your doctor. You decide who sees it and you can take it back.
+                Every record in one place. You decide who sees it. Take it back anytime.
               </p>
               <div className="flex flex-col items-center lg:items-start gap-3">
                 <Button
@@ -32,10 +32,9 @@ export function PatientHero() {
                 >
                   Join the Waitlist. It's Free.
                 </Button>
-                <p className="text-dim text-sm font-medium max-w-sm lg:max-w-none text-center lg:text-left">Limited spots available. We'll reach out when yours opens.</p>
                 <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm font-medium">
                   <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse flex-shrink-0" />
-                  The patient app is coming soon. Join the waitlist and we'll reach out when it's ready.
+                  Coming soon. Limited early-access spots — we'll reach out when yours opens.
                 </div>
               </div>
             </FadeIn>

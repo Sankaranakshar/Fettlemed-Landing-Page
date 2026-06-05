@@ -6,7 +6,6 @@ const CARDS = [
   {
     Icon: Lock,
     heading: "The records you create are yours.",
-    body: "Your notes, prescriptions, and observations belong to you, as they always have. Consistent with Indian Medical Council Regulations 2002.",
     bullets: [
       "FettleMed stores and structures your records, nothing more",
       "You leave with everything you created, always",
@@ -15,7 +14,6 @@ const CARDS = [
   {
     Icon: Fingerprint,
     heading: "Patients decide what they share with you.",
-    body: "Patients control whether you see records from other doctors, previous clinics, or their full history.",
     bullets: [
       "Share for one consultation, a fixed period, or ongoing",
       "You never have unauthorised access. That protects you as much as it protects them.",
@@ -24,7 +22,6 @@ const CARDS = [
   {
     Icon: Link2,
     heading: "Practicing without blind spots.",
-    body: "When a patient shares their full profile, you see what every other doctor who treated them saw. No gaps, no guessing.",
     bullets: [
       "Full medication history without asking",
       "No repeating a test from three weeks ago",
@@ -33,7 +30,6 @@ const CARDS = [
   {
     Icon: ShieldCheck,
     heading: "Every access is logged. For both of you.",
-    body: "Every access is recorded with a timestamp and identifier. You can see the full audit trail. So can the patient.",
     bullets: [
       "If a complaint arises, what you had access to is documented",
       "Visible to you and the patient, always",
@@ -55,7 +51,7 @@ export function DoctorConsent() {
         </FadeIn>
 
         <div className="grid md:grid-cols-2 gap-4">
-          {CARDS.map(({ Icon, heading, body, bullets }, i) => (
+          {CARDS.map(({ Icon, heading, bullets }, i) => (
             <FadeIn
               key={heading}
               delay={i * 0.1}
@@ -67,7 +63,6 @@ export function DoctorConsent() {
                 </div>
                 <h3 className="text-base font-semibold text-pine-900 tracking-tight leading-snug">{heading}</h3>
               </div>
-              <p className="text-dim text-sm font-medium leading-relaxed">{body}</p>
               <ul className="space-y-1.5">
                 {bullets.map((b) => (
                   <li key={b} className="flex items-start gap-2 text-dim-2 text-sm font-medium">

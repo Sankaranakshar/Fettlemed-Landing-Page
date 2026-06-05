@@ -10,7 +10,7 @@ export function ClinicFrontDesk() {
              <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">If they can use a smartphone, they can use FettleMed.</h2>
           </FadeIn>
           <FadeIn className="text-center mb-10">
-             <p className="text-lg text-dim font-medium leading-relaxed max-w-2xl mx-auto">Built for staff who have never used clinic software. The most common front-desk tasks take fewer steps than the paper process they already know.</p>
+             <p className="text-lg text-dim font-medium leading-relaxed max-w-2xl mx-auto">Built for staff who've never touched clinic software. Fewer steps than paper.</p>
           </FadeIn>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -20,7 +20,7 @@ export function ClinicFrontDesk() {
                 </div>
                 <div>
                    <p className="text-pine-900 text-base font-semibold mb-2">Ready the same day setup finishes.</p>
-                   <p className="text-dim-2 text-base font-medium leading-relaxed">Most front-desk operations can be learned in one session. We stay until your staff is comfortable, not just until the software is installed.</p>
+                   <p className="text-dim-2 text-base font-medium leading-relaxed">Most front-desk tasks learned in one session. We stay until they're comfortable.</p>
                 </div>
              </FadeIn>
 
@@ -30,7 +30,7 @@ export function ClinicFrontDesk() {
                 </div>
                 <div>
                    <p className="text-pine-900 text-base font-semibold mb-2">No new hardware. Not a single device.</p>
-                   <p className="text-dim-2 text-base font-medium leading-relaxed">Works on the tablet or laptop already at the front desk. No technician, no day off for setup, no new purchase required.</p>
+                   <p className="text-dim-2 text-base font-medium leading-relaxed">Runs on the tablet or laptop you already have.</p>
                 </div>
              </FadeIn>
 
@@ -40,7 +40,7 @@ export function ClinicFrontDesk() {
                 </div>
                 <div>
                    <p className="text-pine-900 text-base font-semibold mb-2">Nothing is permanent until you decide it is.</p>
-                   <p className="text-dim-2 text-base font-medium leading-relaxed">Errors can be corrected, records updated. No one is one wrong click away from an irreversible problem.</p>
+                   <p className="text-dim-2 text-base font-medium leading-relaxed">Mistakes are fixable. Nothing is one click from disaster.</p>
                 </div>
              </FadeIn>
           </div>

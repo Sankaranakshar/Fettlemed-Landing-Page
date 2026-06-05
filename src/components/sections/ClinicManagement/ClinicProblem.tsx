@@ -5,19 +5,19 @@ const COLUMNS = [
   {
     borderCls: "border-pine-200",
     heading: "No one can see the full day at once",
-    body: "Appointments, walk-ins, phone calls, billing questions, and last-minute changes all land at the same time, on different people, in different places.",
+    body: "Appointments, walk-ins, calls, and billing all land at once, on different people.",
     close: "The day falls behind before the first consultation begins.",
   },
   {
     borderCls: "border-pine-400",
     heading: "The numbers only make sense at month end",
-    body: "Patient volumes, collections, outstanding payments, and cancellations spread across registers, spreadsheets, and disconnected systems. By the time you have the full picture, it is too late to act on it.",
+    body: "Volumes, collections, and cancellations spread across registers and spreadsheets.",
     close: "You're running the clinic from memory.",
   },
   {
     borderCls: "border-pine-900",
     heading: "The same patient registered twice. Again.",
-    body: "Returning patients get registered from scratch. Records take time to find. Information gets re-entered across multiple touchpoints.",
+    body: "Returning patients re-registered from scratch. Records take time to find.",
     close: "One mistake at registration adds ten minutes to every patient behind them.",
   },
 ];

@@ -12,7 +12,7 @@ export function PatientWhoWeAre() {
             Built by people who've sat on both sides of the consultation.
           </h2>
           <p className="text-dim text-base font-medium mt-3 max-w-xl mx-auto leading-relaxed">
-            The founders have spent decades as clinicians. Which means they've spent decades watching patients arrive clutching paper bags of old reports, recalling medications from memory, and starting over at every new clinic. They built FettleMed for that patient.
+            Decades in the consultation room. They built this for the patient who never had what they needed.
           </p>
         </FadeIn>
 
@@ -28,7 +28,7 @@ export function PatientWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              After nearly four decades seeing patients, the same pattern never changed: critical history lost in transit, tests repeated unnecessarily, decisions made without the full picture. FettleMed is built so that every patient who walks into a consultation arrives with everything they need. Not just what they could remember.
+              Nearly four decades as a Cardiothoracic Surgeon. Every incomplete file, every repeated test — FettleMed is the platform he wished existed when he was seeing 40 patients a day.
             </p>
           </FadeIn>
 
@@ -43,7 +43,7 @@ export function PatientWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              A career caring for patients with complex, long-term conditions showed her exactly what happens when records don't travel with the patient. History scattered across hospitals, WhatsApp screenshots, and paper folders. She built FettleMed's patient record model around the family managing care for someone who needs it most.
+              A career in complex, long-term care. She built FettleMed's patient record model around the family managing care for someone who needs it most.
             </p>
           </FadeIn>
         </div>

@@ -52,11 +52,9 @@ export function DoctorPilot() {
                 </Button>
                 <p className="text-pine-300 text-sm font-medium">For your practice. Limited spots available.</p>
                 <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm font-medium text-pine-300 mt-3">
-                   <span>No complex setup. Works on the device you already have.</span>
+                   <span>Works on the device you already have.</span>
                    <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-600"></span>
-                   <span>Your records are yours, exportable in full, anytime.</span>
-                   <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-600"></span>
-                   <span>We'll be hands on during onboarding, actively helping digitise your clinic.</span>
+                   <span>Records exportable in full, anytime.</span>
                 </div>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm font-medium text-pine-400 mt-8 pt-6 border-t border-pine-800">
                    <span>Do you run a clinic? <Link to="/clinic-management" className="text-pine-200 hover:text-white transition-colors">See the clinic platform →</Link></span>

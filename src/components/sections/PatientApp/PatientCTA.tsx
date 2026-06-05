@@ -15,7 +15,7 @@ export function PatientCTA() {
                 One place for everything.<br className="hidden md:block"/> Finally.
              </h2>
              <p className="text-xl text-dim mb-10 font-medium max-w-2xl mx-auto leading-relaxed">
-                Join now and we'll reach out with your onboarding date.
+                Join now. We'll reach out when your spot opens.
              </p>
 
              <div className="flex flex-col items-center justify-center gap-6">
@@ -27,8 +27,6 @@ export function PatientCTA() {
                   <span>Free for patients during the pilot</span>
                   <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-200"></span>
                   <span>No credit card. No commitment.</span>
-                  <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-200"></span>
-                  <span>We'll only contact you about your FettleMed access.</span>
                </div>
 
                <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm font-medium text-dim mt-4 pt-4 border-t border-stone-100 w-full justify-center">

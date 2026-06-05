@@ -12,7 +12,7 @@ export function DoctorWhoWeAre() {
             Built by doctors. For doctors.
           </h2>
           <p className="text-dim text-base font-medium mt-3 max-w-xl mx-auto leading-relaxed">
-            Both founders have spent decades in clinical practice across India, the UK, and Singapore. They built FettleMed because they lived the problem. Not because they read a market report about it.
+            Decades in practice across India, the UK, and Singapore. They lived the problem.
           </p>
         </FadeIn>
 
@@ -28,7 +28,7 @@ export function DoctorWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              Nearly four decades as a Cardiothoracic Surgeon. Every incomplete patient file that arrived, every test repeated because the last result was lost, is a problem he dealt with personally. FettleMed is the platform he wished existed when he was seeing 40 patients a day.
+              Nearly four decades as a Cardiothoracic Surgeon. Every incomplete file, every repeated test — FettleMed is the platform he wished existed when he was seeing 40 patients a day.
             </p>
           </FadeIn>
 
@@ -43,7 +43,7 @@ export function DoctorWhoWeAre() {
               </div>
             </div>
             <p className="text-dim-2 text-sm font-medium leading-relaxed">
-              A career in paediatrics and specialised care for patients with complex, multi-system needs. When your patient needs five different specialists, fragmented records don't just cause inconvenience. They cause harm. She built FettleMed's consent model around the patients who most need care to be continuous.
+              A career in paediatrics and specialised care. When records don't travel with the patient, care suffers. She built FettleMed's consent model around the patients who most need continuity.
             </p>
           </FadeIn>
         </div>
