@@ -27,7 +27,7 @@ const items = [
 
 export function ClinicOwnerView() {
   return (
-    <section className="py-16 md:py-20 bg-pine-900 text-white relative overflow-hidden flex flex-col items-center">
+    <section className="py-12 md:py-16 bg-pine-900 text-white relative overflow-hidden flex flex-col items-center">
        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-50 transform translate-x-1/3 -translate-y-1/3"></div>
        <div className="container mx-auto px-4 md:px-8 max-w-4xl relative z-10">
           <FadeIn className="text-center mb-4">

@@ -8,7 +8,7 @@ export function ClinicHero() {
   const { openWaitlist } = useWaitlist();
 
   return (
-    <section className="relative pt-14 pb-12 md:pt-16 md:pb-14 border-b border-stone-100 bg-surface-50 overflow-hidden">
+    <section className="relative pt-12 pb-10 md:pt-14 md:pb-12 border-b border-stone-100 bg-surface-50 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Text column */}

@@ -24,7 +24,7 @@ const COLUMNS = [
 
 export function ClinicProblem() {
   return (
-    <section className="py-16 md:py-20 bg-white border-b border-stone-100">
+    <section className="py-12 md:py-16 bg-white border-b border-stone-100">
       <div className="container mx-auto px-6 max-w-6xl">
 
         <FadeIn className="mb-10">

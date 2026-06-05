@@ -7,7 +7,7 @@ export const CTA = () => {
   const { openWaitlist } = useWaitlist();
 
   return (
-    <section className="py-20 md:py-28 bg-pine-900">
+    <section className="py-14 md:py-20 bg-pine-900">
        <div className="container mx-auto px-6 max-w-4xl text-center">
           <FadeIn>
              <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-white tracking-tight mb-6 text-balance">Join the pilot. Talk to the founders.</h2>

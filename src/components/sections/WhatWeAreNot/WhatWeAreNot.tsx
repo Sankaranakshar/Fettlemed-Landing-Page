@@ -18,7 +18,7 @@ function StatusIcon({ value }: { value: boolean | null }) {
 
 export const WhatWeAreNot = () => {
   return (
-    <section className="py-16 md:py-20 bg-surface-50 border-t border-stone-100 overflow-hidden">
+    <section className="py-12 md:py-16 bg-surface-50 border-t border-stone-100 overflow-hidden">
       <div className="container mx-auto px-6 max-w-5xl">
         <FadeIn>
           <div className="text-center mb-10">

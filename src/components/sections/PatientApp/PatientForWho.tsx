@@ -22,7 +22,7 @@ const CARDS = [
 
 export function PatientForWho() {
   return (
-    <section className="py-16 md:py-20 bg-white border-b border-stone-100">
+    <section className="py-12 md:py-16 bg-white border-b border-stone-100">
       <div className="container mx-auto px-6 max-w-6xl">
         <FadeIn className="mb-2">
           <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">You don't have to be a patient to need this.</h2>

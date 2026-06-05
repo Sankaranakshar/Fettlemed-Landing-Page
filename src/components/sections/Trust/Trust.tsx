@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/common/FadeIn";
 
 export const Trust = () => {
   return (
-    <section className="py-16 md:py-20 bg-surface-50 border-t border-stone-100">
+    <section className="py-12 md:py-16 bg-surface-50 border-t border-stone-100">
       <div className="container mx-auto px-6 max-w-5xl">
         <FadeIn>
           <div className="mb-7 text-center">

@@ -31,7 +31,7 @@ const points = [
 
 export function ClinicSwitching() {
   return (
-    <section className="py-16 md:py-20 bg-white border-b border-stone-100">
+    <section className="py-12 md:py-16 bg-white border-b border-stone-100">
        <div className="container mx-auto px-4 md:px-8 max-w-4xl">
           <FadeIn className="mb-4">
              <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">Switching from paper</h2>
