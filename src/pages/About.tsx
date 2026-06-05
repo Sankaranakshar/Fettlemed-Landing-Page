@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { SEO } from '@/components/common/SEO';
-import { Mail, MapPin, User } from "lucide-react";
+import { Mail, MapPin, User, Stethoscope, Code2, ArrowRight, Quote } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { Button } from "@/components/common/Button";
 import { useWaitlist } from "@/contexts/WaitlistContext";
@@ -12,82 +13,131 @@ export default function About() {
     <>
       <SEO
         title="About"
-        description="FettleMed was built on one belief: health data belongs to the patient. Meet the clinical founders, read our origin story, and learn how we're building India's connected health platform."
+        description="FettleMed was built on one belief: health data belongs to the patient. Meet the clinical founders, read our origin story, and learn how we're building India's connected health record layer."
       />
       <div className="flex flex-col w-full bg-surface-50">
 
-        {/* ── S1: Hero / Mission ───────────────────────────────────────── */}
-        <section className="relative pt-14 pb-12 md:pt-16 md:pb-16 bg-pine-900 border-b border-pine-800 text-white overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-pine-800/50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-          <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
+        {/* ── S1: Hero ──────────────────────────────────────────────────── */}
+        <section className="relative pt-16 pb-16 md:pt-24 md:pb-24 bg-pine-900 text-white overflow-hidden">
+          <div className="absolute top-0 right-0 w-[32rem] h-[32rem] bg-pine-800/50 rounded-full blur-[120px] -translate-y-1/3 translate-x-1/4 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-pine-700/30 rounded-full blur-[120px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+          <div className="container mx-auto px-4 md:px-8 max-w-4xl relative z-10">
             <FadeIn eager>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.05] mb-10 tracking-tight text-balance text-center">
-                Health data belongs to the patient.<br className="hidden md:block" />
-                <span className="text-pine-300"> We built everything around that.</span>
-              </h1>
-
-              <div className="grid md:grid-cols-2 gap-8 mb-12">
-                <div className="bg-pine-800/50 border border-pine-700 rounded-2xl p-8 backdrop-blur-sm">
-                  <p className="text-xs font-medium tracking-widest uppercase text-pine-400 mb-4">The problem</p>
-                  <div className="space-y-3 text-pine-100 font-medium leading-relaxed">
-                    <p>In India today, a patient's health history is scattered across hospitals, labs, clinics, and paper folders, invisible to the next doctor who needs it. Vital information is lost between every handoff. A patient visiting a specialist carries a bag of reports. A doctor sees a new patient and starts from zero.</p>
-                    <p className="text-white font-medium">FettleMed connects them.</p>
-                  </div>
-                </div>
-
-                <div className="bg-pine-800/50 border border-pine-700 rounded-2xl p-8 backdrop-blur-sm">
-                  <p className="text-xs font-medium tracking-widest uppercase text-pine-400 mb-4">What we believe</p>
-                  <div className="space-y-3 text-pine-100 font-medium leading-relaxed">
-                    <p>The patient is the primary owner of their health data. Not the hospital. Not the clinic. Not us.</p>
-                    <p>Every feature in FettleMed was designed around that principle. Every feature we chose not to build failed the same test.</p>
-                  </div>
-                </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-pine-700 bg-pine-800/50 text-xs font-medium text-pine-300 uppercase tracking-widest mb-8">
+                Doctors and builders, in one company
               </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.05] mb-8 tracking-tight text-balance">
+                We are building the missing health record layer for India.
+              </h1>
+              <p className="text-xl md:text-2xl text-pine-200 font-medium leading-relaxed max-w-3xl text-balance">
+                India has world-class doctors and a phone in almost every hand. What it does not have is a way for a patient's health history to follow them from one clinic to the next. FettleMed is the layer that connects it, with the patient holding the key.
+              </p>
 
-              <p className="text-center text-pine-300 text-sm font-medium">
-                Piloting with doctors and clinics now. Patient onboarding follows in the same cohort window.
+              <div className="flex flex-col sm:flex-row gap-3 mt-12">
+                <Button
+                  variant="animated"
+                  size="lg"
+                  onClick={() => openWaitlist()}
+                  className="h-12 px-8 text-base bg-white text-pine-900 hover:bg-pine-50 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
+                >
+                  Join the Waitlist
+                </Button>
+                <a
+                  href="#team"
+                  className="inline-flex items-center justify-center h-12 px-8 text-base border-2 border-pine-600 text-white hover:bg-pine-800 rounded-xl font-medium transition-colors"
+                >
+                  Meet the founders
+                </a>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* ── S2: The problem, felt from three sides ───────────────────── */}
+        <section className="py-16 md:py-24 bg-white border-b border-stone-100">
+          <div className="container mx-auto px-4 md:px-8 max-w-5xl">
+            <FadeIn className="mb-12 max-w-3xl">
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-4">Why this matters</p>
+              <h2 className="text-3xl md:text-4xl font-medium text-pine-900 mb-6 tracking-tight text-balance">
+                A patient's health history is scattered across the system that is meant to care for them.
+              </h2>
+              <p className="text-lg text-dim-2 font-medium leading-relaxed">
+                Records sit in hospitals, labs, clinics, apps, and paper folders that never speak to each other. The gaps are not abstract. They are felt, in the same moment, by three different people.
+              </p>
+            </FadeIn>
+
+            <div className="grid md:grid-cols-3 gap-5">
+              {[
+                {
+                  who: "For the patient",
+                  body: "You carry a bag of reports from clinic to clinic. Tests get repeated because the last result cannot be found. Your own history is the one thing you should never have to chase.",
+                },
+                {
+                  who: "For the doctor",
+                  body: "A new patient sits down and you start from zero. No prior labs, no past prescriptions, no context. You ask the patient to remember what their body has been through.",
+                },
+                {
+                  who: "For the clinic",
+                  body: "Hours that should go to patients go to paperwork, phone calls, and reconciling records by hand. The work is real, but almost none of it is care.",
+                },
+              ].map(({ who, body }) => (
+                <FadeIn key={who} delay={0.05}>
+                  <div className="h-full bg-surface-50 border border-stone-100 rounded-2xl p-7">
+                    <p className="text-sm font-medium text-pine-600 mb-3">{who}</p>
+                    <p className="text-dim-2 font-medium leading-relaxed">{body}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+
+            <FadeIn delay={0.1}>
+              <p className="text-lg text-dim-2 font-medium leading-relaxed mt-12 max-w-3xl">
+                This is not a failure of doctors or of patients. It is a failure of information infrastructure. The problem is not money or access to care.{" "}
+                <span className="text-pine-900">It is the fragmentation of information.</span> FettleMed exists to fix that one thing, properly.
               </p>
             </FadeIn>
           </div>
         </section>
 
-        {/* ── S2: Why we built this ────────────────────────────────────── */}
-        <section className="py-16 md:py-20 bg-white border-b border-stone-100">
-          <div className="container mx-auto px-4 md:px-8 max-w-3xl">
+        {/* ── S3: What we believe ──────────────────────────────────────── */}
+        <section className="py-16 md:py-24 bg-pine-900 text-white overflow-hidden relative">
+          <div className="absolute top-1/2 left-1/2 w-[40rem] h-[40rem] bg-pine-800/40 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+          <div className="container mx-auto px-4 md:px-8 max-w-3xl relative z-10">
             <FadeIn>
-              <h2 className="text-sm font-medium tracking-widest uppercase text-pine-600 mb-10">Why we built this</h2>
-              <div className="space-y-7 text-lg text-dim-2 font-medium leading-relaxed">
-                <p>Patients in India carry their own medical history from clinic to clinic in a bag of paper reports. Tests get repeated. Care is reactive. The information that would make it preventive never arrives. This is not a failure of doctors. It is a failure of information infrastructure.</p>
-
-                <blockquote className="border-l-4 border-pine-500 pl-6 my-10">
-                  <p className="text-2xl font-medium text-pine-900 leading-snug">"The problem isn't money or access to doctors. It's the fragmentation of information."</p>
-                  <p className="text-pine-600 text-sm font-medium mt-3">Dr. Sriram Shankar, Co-founder</p>
-                </blockquote>
-
-                <p>India has the mobile infrastructure to solve this today. FettleMed is the layer that connects patients, doctors, and clinics. A doctor sees the full picture, a patient is never a blank form, and a clinic's hours go to people, not paperwork.</p>
-
-                <div className="bg-pine-50 rounded-2xl p-8 border border-pine-100">
-                  <p className="text-pine-900 font-medium leading-relaxed">Every person's health history, on their own device, structured, searchable, and shareable with any doctor in seconds.</p>
-                </div>
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-400 mb-8">What we believe</p>
+              <p className="text-2xl md:text-3xl font-medium leading-snug tracking-tight text-balance mb-10">
+                Your health belongs to you. Not to a filing cabinet, not to the last clinic you visited, not to us.
+              </p>
+              <div className="space-y-6 text-lg text-pine-100 font-medium leading-relaxed">
+                <p>
+                  We exist because health decisions matter, for the patient managing a chronic condition, the parent tracking a child's vaccinations, the doctor who needs the full picture before they can truly help. When the right information reaches the right person at the right moment, care gets better. That is what we are here to enable.
+                </p>
+                <p>
+                  We hold ourselves to a simple standard: does this make someone's health journey easier, safer, or more dignified? If not, we don't build it. Every feature in FettleMed was designed around that question. Every feature we chose not to build failed it.
+                </p>
               </div>
             </FadeIn>
           </div>
         </section>
 
-        {/* ── S3: Founders & Leadership ────────────────────────────────── */}
-        <section id="team" className="py-12 md:py-16 bg-white border-b border-stone-100">
+        {/* ── S4: Founders & Leadership ────────────────────────────────── */}
+        <section id="team" className="py-16 md:py-24 bg-white border-b border-stone-100 scroll-mt-24">
           <div className="container mx-auto px-4 md:px-8 max-w-5xl">
-            <FadeIn className="mb-10">
-              <h2 className="text-3xl md:text-5xl font-medium text-pine-900 mb-4 tracking-tight">Founders &amp; Leadership</h2>
-              <p className="text-lg text-dim font-medium max-w-2xl">
-                Built by two surgeons with nearly 70 combined years of clinical practice, and the technologists working alongside them.
+            <FadeIn className="mb-12 max-w-3xl">
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-4">Who we are</p>
+              <h2 className="text-3xl md:text-5xl font-medium text-pine-900 mb-5 tracking-tight">Founded by clinicians and builders.</h2>
+              <p className="text-lg text-dim font-medium">
+                FettleMed is led by two surgeons with nearly seventy combined years of clinical practice, working alongside the engineers building the platform. The medicine and the code are decided in the same room.
               </p>
             </FadeIn>
 
             {/* Clinical Founders */}
             <FadeIn delay={0.1}>
-              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-8">Clinical Founders</p>
-              <div className="grid md:grid-cols-2 gap-10 mb-10">
+              <div className="flex items-center gap-2 mb-8">
+                <Stethoscope className="w-4 h-4 text-pine-600" />
+                <p className="text-xs font-medium tracking-widest uppercase text-pine-600">Clinical Founders</p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-10 mb-14">
 
                 {/* Dr. Sriram Shankar */}
                 <div className="flex flex-col">
@@ -113,9 +163,25 @@ export default function About() {
               </div>
             </FadeIn>
 
+            {/* Origin quote */}
+            <FadeIn delay={0.15}>
+              <figure className="bg-pine-50 border border-pine-100 rounded-3xl p-8 md:p-12 mb-14">
+                <Quote className="w-8 h-8 text-pine-300 mb-5" />
+                <blockquote className="text-2xl md:text-3xl font-medium text-pine-900 leading-snug tracking-tight text-balance mb-5">
+                  "The problem isn't money or access to doctors. It's the fragmentation of information."
+                </blockquote>
+                <figcaption className="text-pine-600 font-medium">
+                  Dr. Sriram Shankar, on why FettleMed exists
+                </figcaption>
+              </figure>
+            </FadeIn>
+
             {/* Core Team */}
             <FadeIn delay={0.2}>
-              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-6 mt-4">Core Team</p>
+              <div className="flex items-center gap-2 mb-6">
+                <Code2 className="w-4 h-4 text-pine-600" />
+                <p className="text-xs font-medium tracking-widest uppercase text-pine-600">The Builders</p>
+              </div>
               <div className="grid md:grid-cols-2 gap-4">
 
                 <div className="flex items-start gap-4 bg-surface-50 border border-stone-100 rounded-2xl p-5">
@@ -145,25 +211,151 @@ export default function About() {
           </div>
         </section>
 
-        {/* ── S4: Where we are today ───────────────────────────────────── */}
-        <section className="py-12 md:py-16 bg-surface-50 border-b border-stone-100">
-          <div className="container mx-auto px-6 max-w-3xl text-center">
-            <FadeIn>
-              <h2 className="text-3xl md:text-4xl font-medium text-pine-900 mb-8 tracking-tight">Where we are today</h2>
-              <div className="space-y-5 text-lg text-dim-2 font-medium leading-relaxed text-left md:text-center mb-10">
-                <p>We are piloting with doctors and clinics now. The patient app follows in the same cohort window.</p>
-                <p>The problem we are here to solve is large. The solution has to actually work before it can be widespread. Every doctor in this pilot shapes what comes next. Every gap we close here exists in clinics across the country.</p>
-              </div>
-
-              <p className="text-dim font-medium mb-8">
-                If you are a doctor, a clinic owner, or a patient, this is where it starts. We reach out personally when your spot opens.
+        {/* ── S5: What we are building ─────────────────────────────────── */}
+        <section className="py-16 md:py-24 bg-surface-50 border-b border-stone-100">
+          <div className="container mx-auto px-4 md:px-8 max-w-5xl">
+            <FadeIn className="mb-12 max-w-3xl">
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-4">What we are building</p>
+              <h2 className="text-3xl md:text-4xl font-medium text-pine-900 mb-6 tracking-tight text-balance">
+                One connected layer for patients, doctors, and clinics.
+              </h2>
+              <p className="text-lg text-dim-2 font-medium leading-relaxed">
+                FettleMed connects the people involved in care through consent-based access. The patient holds their record and decides who sees it. Nothing moves without their say-so.
               </p>
+            </FadeIn>
+
+            <div className="grid md:grid-cols-3 gap-5">
+              {[
+                {
+                  title: "Patients hold the record",
+                  body: "Every person's health history, on their own device: structured, searchable, and shareable with any doctor in seconds. No more carrying a folder of paper between clinics.",
+                },
+                {
+                  title: "Doctors see the full picture",
+                  body: "When a patient shares, the doctor sees prior labs, prescriptions, and history before the consultation begins. No blank form, no starting from memory.",
+                },
+                {
+                  title: "Clinics run on less paperwork",
+                  body: "Registration, records, and day-to-day operations connect into one system, so a clinic's hours go to people rather than reconciling files by hand.",
+                },
+              ].map(({ title, body }) => (
+                <FadeIn key={title} delay={0.05}>
+                  <div className="h-full bg-white border border-stone-100 rounded-2xl p-7">
+                    <h3 className="text-pine-900 font-medium text-lg mb-3">{title}</h3>
+                    <p className="text-dim-2 font-medium leading-relaxed">{body}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+
+            <FadeIn delay={0.1}>
+              <p className="text-dim font-medium mt-8 max-w-3xl">
+                Access is consent-based and time-bound throughout. How that works in detail, including encryption, audit trails, and data residency, is documented on our{" "}
+                <Link to="/security" className="text-pine-600 hover:text-pine-700 underline transition-colors">Security page</Link>.
+              </p>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* ── S6: Where we are today ───────────────────────────────────── */}
+        <section className="py-16 md:py-24 bg-white border-b border-stone-100">
+          <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+            <FadeIn className="mb-10">
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-4">Where we are today</p>
+              <h2 className="text-3xl md:text-4xl font-medium text-pine-900 mb-6 tracking-tight text-balance">
+                Pre-launch, and building with the people we are building for.
+              </h2>
+              <p className="text-lg text-dim-2 font-medium leading-relaxed">
+                The problem we are solving is large, so the solution has to actually work before it can be widespread. We are starting deliberately, with a clinical pilot, and growing from there.
+              </p>
+            </FadeIn>
+
+            <div className="grid sm:grid-cols-3 gap-5 mb-10">
+              {[
+                {
+                  stage: "Now",
+                  title: "Doctor & clinic pilot",
+                  body: "Piloting with doctors and clinics, refining the platform against real consultations and real clinic days.",
+                  tone: "live",
+                },
+                {
+                  stage: "Next",
+                  title: "Patient onboarding",
+                  body: "The patient app follows in the same cohort window, so patients and their doctors join a connected system rather than an empty one.",
+                  tone: "progress",
+                },
+                {
+                  stage: "Then",
+                  title: "Wider rollout",
+                  body: "Every gap we close in the pilot exists in clinics across the country. We widen access once the experience holds up under real use.",
+                  tone: "planned",
+                },
+              ].map(({ stage, title, body, tone }) => (
+                <FadeIn key={stage} delay={0.05}>
+                  <div className="h-full bg-surface-50 border border-stone-100 rounded-2xl p-6">
+                    <span
+                      className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold mb-4 border ${
+                        tone === "live"
+                          ? "bg-pine-50 border-pine-200 text-pine-700"
+                          : tone === "progress"
+                            ? "bg-amber-50 border-amber-200 text-amber-700"
+                            : "bg-stone-50 border-stone-200 text-dim"
+                      }`}
+                    >
+                      {stage}
+                    </span>
+                    <h3 className="text-pine-900 font-medium text-lg mb-2">{title}</h3>
+                    <p className="text-dim-2 text-sm font-medium leading-relaxed">{body}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+
+            <FadeIn delay={0.1}>
+              <p className="text-dim font-medium">
+                If you are a doctor, a clinic owner, or a patient, this is where it starts. Spots open in cohorts, and we reach out personally when yours is ready.
+              </p>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* ── S7: Call to action ───────────────────────────────────────── */}
+        <section className="py-16 md:py-24 bg-pine-900 text-white overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-pine-800/50 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+          <div className="container mx-auto px-4 md:px-8 max-w-4xl relative z-10">
+            <FadeIn>
+              <h2 className="text-3xl md:text-4xl font-medium leading-tight mb-4 tracking-tight text-balance">
+                Build the connected health record with us.
+              </h2>
+              <p className="text-lg text-pine-200 font-medium leading-relaxed max-w-2xl mb-10">
+                Whether you see patients, run a clinic, or want to take ownership of your own health history, there is a place for you in the pilot. Tell us who you are and we will be in touch.
+              </p>
+
+              <div className="grid sm:grid-cols-3 gap-4 mb-10">
+                {[
+                  { role: "Doctor" as const, label: "For doctors", body: "Join the clinical pilot and practice with the full picture in front of you." },
+                  { role: "Clinic" as const, label: "For clinics", body: "Bring registration, records, and operations into one connected system." },
+                  { role: "Patients & Caregivers" as const, label: "For patients & caregivers", body: "Own your health history and decide who gets to see it." },
+                ].map(({ role, label, body }) => (
+                  <button
+                    key={label}
+                    onClick={() => openWaitlist(role)}
+                    className="group text-left bg-pine-800/50 border border-pine-700 rounded-2xl p-6 hover:bg-pine-800 hover:border-pine-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-400 focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900"
+                  >
+                    <p className="text-white font-medium mb-2 flex items-center gap-1.5">
+                      {label}
+                      <ArrowRight className="w-4 h-4 text-pine-400 -translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all" />
+                    </p>
+                    <p className="text-pine-300 text-sm font-medium leading-relaxed">{body}</p>
+                  </button>
+                ))}
+              </div>
 
               <Button
                 variant="animated"
                 size="lg"
                 onClick={() => openWaitlist()}
-                className="h-12 px-10 text-base bg-pine-900 hover:bg-pine-800 text-white rounded-xl font-medium focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
+                className="h-12 px-10 text-base bg-white text-pine-900 hover:bg-pine-50 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900"
               >
                 Join the Waitlist
               </Button>
@@ -171,17 +363,18 @@ export default function About() {
           </div>
         </section>
 
-        {/* ── S5: Get in touch ─────────────────────────────────────────── */}
-        <section id="contact" className="py-12 md:py-16 bg-white border-b border-stone-100">
+        {/* ── S8: Get in touch ─────────────────────────────────────────── */}
+        <section id="contact" className="py-16 md:py-24 bg-surface-50 border-b border-stone-100">
           <FadeIn>
             <div className="container mx-auto px-4 md:px-8 max-w-4xl">
-              <div className="mb-12 text-center">
-                <h2 className="text-3xl md:text-5xl font-medium text-pine-900 mb-4 tracking-tight">Get in touch</h2>
+              <div className="mb-12">
+                <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-4">Get in touch</p>
+                <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Talk to a person, not a ticket system.</h2>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">
                 {/* Partnerships */}
-                <div className="bg-surface-50 border border-stone-100 rounded-2xl p-7 flex flex-col gap-6 h-full">
+                <div className="bg-white border border-stone-100 rounded-2xl p-7 flex flex-col gap-6 h-full">
                   <div className="w-12 h-12 rounded-xl bg-pine-50 border border-pine-100 flex items-center justify-center flex-shrink-0">
                     <Mail className="w-6 h-6 text-pine-600" />
                   </div>
@@ -194,7 +387,7 @@ export default function About() {
                 </div>
 
                 {/* General */}
-                <div className="bg-surface-50 border border-stone-100 rounded-2xl p-7 flex flex-col gap-6 h-full">
+                <div className="bg-white border border-stone-100 rounded-2xl p-7 flex flex-col gap-6 h-full">
                   <div className="w-12 h-12 rounded-xl bg-pine-50 border border-pine-100 flex items-center justify-center flex-shrink-0">
                     <Mail className="w-6 h-6 text-pine-600" />
                   </div>
@@ -209,7 +402,7 @@ export default function About() {
               </div>
 
               {/* Address */}
-              <div className="mt-8 bg-surface-50 border border-stone-100 rounded-2xl p-7 flex flex-col md:flex-row gap-6 items-start">
+              <div className="mt-8 bg-white border border-stone-100 rounded-2xl p-7 flex flex-col md:flex-row gap-6 items-start">
                 <div className="w-12 h-12 rounded-xl bg-pine-50 border border-pine-100 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-6 h-6 text-pine-600" />
                 </div>
