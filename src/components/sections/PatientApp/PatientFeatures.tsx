@@ -4,7 +4,7 @@ import { FadeIn } from "@/components/common/FadeIn";
 
 export function PatientFeatures() {
   return (
-    <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
+    <section className="py-12 md:py-16 bg-surface-50 border-b border-stone-100">
       <div className="container mx-auto px-6 max-w-6xl">
         <FadeIn className="text-center mb-6">
           <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">What changes when your records are finally in one place.</h2>

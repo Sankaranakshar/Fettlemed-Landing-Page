@@ -100,10 +100,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <main id="main-content" className="flex-1 flex flex-col min-h-[80vh]" tabIndex={-1}>{children}</main>
 
       {/* Global Footer  */}
-      <footer className="w-full text-white mt-auto bg-pine-900 pt-20 pb-12">
+      <footer className="w-full text-white mt-auto bg-pine-900 pt-14 pb-10">
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-16 border-b border-pine-800 pb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12 border-b border-pine-800 pb-12">
              {/* Column 1: Product */}
              <nav className="flex flex-col gap-4" aria-label="Product Links">
                 <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Product</h3>

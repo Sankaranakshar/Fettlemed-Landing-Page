@@ -4,7 +4,7 @@ import { FadeIn } from "@/components/common/FadeIn";
 
 export function PatientWhoWeAre() {
   return (
-    <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
+    <section className="py-12 md:py-16 bg-surface-50 border-b border-stone-100">
       <div className="container mx-auto px-6 max-w-5xl">
         <FadeIn className="mb-8 text-center">
           <p className="text-xs font-semibold text-pine-500 uppercase tracking-widest mb-3">The team behind FettleMed</p>

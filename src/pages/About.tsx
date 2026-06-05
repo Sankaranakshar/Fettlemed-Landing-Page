@@ -17,7 +17,7 @@ export default function About() {
       <div className="flex flex-col w-full bg-surface-50">
 
         {/* ── S1: Hero / Mission ───────────────────────────────────────── */}
-        <section className="relative pt-16 pb-16 md:pt-20 md:pb-20 bg-pine-900 border-b border-pine-800 text-white overflow-hidden">
+        <section className="relative pt-14 pb-12 md:pt-16 md:pb-16 bg-pine-900 border-b border-pine-800 text-white overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-pine-800/50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
           <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
             <FadeIn eager>
@@ -75,7 +75,7 @@ export default function About() {
         </section>
 
         {/* ── S3: Founders & Leadership ────────────────────────────────── */}
-        <section id="team" className="py-16 md:py-20 bg-white border-b border-stone-100">
+        <section id="team" className="py-12 md:py-16 bg-white border-b border-stone-100">
           <div className="container mx-auto px-4 md:px-8 max-w-5xl">
             <FadeIn className="mb-10">
               <h2 className="text-3xl md:text-5xl font-medium text-pine-900 mb-4 tracking-tight">Founders &amp; Leadership</h2>
@@ -146,7 +146,7 @@ export default function About() {
         </section>
 
         {/* ── S4: Where we are today ───────────────────────────────────── */}
-        <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
+        <section className="py-12 md:py-16 bg-surface-50 border-b border-stone-100">
           <div className="container mx-auto px-6 max-w-3xl text-center">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-medium text-pine-900 mb-8 tracking-tight">Where we are today</h2>
@@ -172,7 +172,7 @@ export default function About() {
         </section>
 
         {/* ── S5: Get in touch ─────────────────────────────────────────── */}
-        <section id="contact" className="py-16 md:py-20 bg-white border-b border-stone-100">
+        <section id="contact" className="py-12 md:py-16 bg-white border-b border-stone-100">
           <FadeIn>
             <div className="container mx-auto px-4 md:px-8 max-w-4xl">
               <div className="mb-12 text-center">

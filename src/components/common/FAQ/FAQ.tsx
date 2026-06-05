@@ -34,7 +34,7 @@ export function FAQ({ sections }: FAQProps) {
   const visibleSections = activeSection !== null ? [{ ...sections[activeSection], _origIndex: activeSection }] : sections.map((s, i) => ({ ...s, _origIndex: i }));
 
   return (
-    <div className="w-full max-w-4xl mx-auto mt-20 mb-32">
+    <div className="w-full max-w-4xl mx-auto mt-8 mb-10">
        <FadeIn>
           {!isExpanded ? (
             <div className="flex flex-col items-center">
