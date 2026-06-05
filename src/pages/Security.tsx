@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   ShieldCheck, Key, Settings, Users, Globe2, Lock,
   CheckCircle2, Clock, Calendar, Server, Eye, FileCheck2,
+  Stethoscope, Building2,
 } from "lucide-react";
 import { SEO } from '@/components/common/SEO';
 import { FadeIn } from "@/components/common/FadeIn";
@@ -10,20 +11,21 @@ import { Button } from "@/components/common/Button";
 import { FAQ } from "@/components/common/FAQ";
 import { useWaitlist } from "@/contexts/WaitlistContext";
 
-const SECTION_IDS = ["encryption", "consent", "access", "compliance", "sovereignty"] as const;
+const SECTION_IDS = ["consent", "encryption", "access", "audit", "compliance", "sovereignty"] as const;
 type SectionId = typeof SECTION_IDS[number];
 
 const sidebarLinks: { id: SectionId; label: string }[] = [
+  { id: "consent",     label: "Consent & Control" },
   { id: "encryption",  label: "Encryption" },
-  { id: "consent",     label: "Consent & Access" },
-  { id: "access",      label: "Role-Based Controls" },
+  { id: "access",      label: "Role-Based Access" },
+  { id: "audit",       label: "Audit Trail" },
   { id: "compliance",  label: "Compliance Status" },
   { id: "sovereignty", label: "Your Data in India" },
 ];
 
 const trustSignals = [
-  { icon: Lock,        label: "End-to-end encrypted", sub: "In transit (TLS 1.2+) and at rest (AES-256)" },
   { icon: Eye,         label: "Patient-controlled",  sub: "You grant and revoke access" },
+  { icon: Lock,        label: "End-to-end encrypted", sub: "In transit (TLS 1.2+) and at rest (AES-256)" },
   { icon: FileCheck2,  label: "Audit logging",       sub: "Live" },
   { icon: Globe2,      label: "DPDPA-aligned",       sub: "Built on India's data law" },
   { icon: Server,      label: "FHIR standard",       sub: "No proprietary lock-in" },
@@ -63,7 +65,7 @@ const faqData = [
 
 export default function Security() {
   const { openWaitlist } = useWaitlist();
-  const [activeSection, setActiveSection] = useState<SectionId>("encryption");
+  const [activeSection, setActiveSection] = useState<SectionId>("consent");
   const observersRef = useRef<IntersectionObserver[]>([]);
 
   useEffect(() => {
@@ -92,7 +94,7 @@ export default function Security() {
     <>
       <SEO
         title="Security"
-        description="Your health data is encrypted, patient-controlled, and stored on infrastructure in India. Here is exactly how FettleMed protects your health records."
+        description="Your health data is patient-controlled, encrypted, and stored on infrastructure in India. Here is exactly how FettleMed protects your health records, in plain language."
       />
       <div className="flex flex-col w-full bg-surface-50 min-h-screen">
 
@@ -103,13 +105,13 @@ export default function Security() {
             <FadeIn eager>
               <div className="text-center mb-12">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-pine-700 bg-pine-800/50 text-xs font-medium text-pine-300 uppercase tracking-widest mb-8">
-                  <ShieldCheck className="w-3.5 h-3.5" /> Security Architecture
+                  <ShieldCheck className="w-3.5 h-3.5" /> How we protect your data
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-6 tracking-tight text-balance">
-                  Every decision started with one question.<br className="hidden md:block" /> What keeps the patient safe?
+                  You should know exactly how your health data is protected.
                 </h1>
-                <p className="text-xl text-pine-200 font-medium leading-relaxed max-w-2xl mx-auto">
-                  Architecture, consent model, data residency. Every choice was made with patient safety as the starting point, not a compliance checkbox.
+                <p className="text-xl text-pine-200 font-medium leading-relaxed max-w-2xl mx-auto text-balance">
+                  No vague enterprise language. Here is who can see your records, how they are protected, where they live, and what we will never do with them, in plain terms.
                 </p>
               </div>
 
@@ -161,14 +163,16 @@ export default function Security() {
         </section>
 
         {/* ── S3: Visual consent model ─────────────────────────────────── */}
-        <section className="py-20 bg-white border-b border-stone-100">
+        <section className="py-16 md:py-20 bg-white border-b border-stone-100">
           <div className="container mx-auto px-4 max-w-5xl">
             <FadeIn>
-              <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight">How consent works, in plain terms.</h2>
+              <div className="text-center mb-4">
+                <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-3">Start here</p>
+                <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight text-balance">The patient holds the key. Everything else follows from that.</h2>
+                <p className="text-dim font-medium mt-3 max-w-2xl mx-auto">Sharing your health records works in three simple steps. You are in control at every one of them.</p>
               </div>
 
-              <div className="bg-surface-50 rounded-3xl border border-stone-100 p-8 md:p-12 shadow-sm flex flex-col md:flex-row items-stretch justify-center gap-4 md:gap-6 mb-8">
+              <div className="bg-surface-50 rounded-3xl border border-stone-100 p-8 md:p-12 shadow-sm flex flex-col md:flex-row items-stretch justify-center gap-4 md:gap-6 mb-8 mt-10">
                 {/* Step 1 */}
                 <div className="flex flex-col items-center text-center flex-1 min-w-0 max-w-xs">
                   <div className="w-16 h-16 rounded-full bg-pine-100 flex items-center justify-center mb-4 border border-pine-200 shrink-0">
@@ -212,7 +216,7 @@ export default function Security() {
                 {/* Step 3 */}
                 <div className="flex flex-col items-center text-center flex-1 min-w-0 max-w-xs">
                   <div className="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center mb-4 border border-stone-200 shrink-0">
-                    <ShieldCheck className="w-6 h-6 text-pine-600" />
+                    <FileCheck2 className="w-6 h-6 text-pine-600" />
                   </div>
                   <p className="font-medium text-pine-900 text-base mb-2">3. Access ends. Your records stay protected.</p>
                   <p className="text-sm font-medium text-dim leading-relaxed">When access expires or is revoked, the data remains encrypted and secure.</p>
@@ -231,8 +235,46 @@ export default function Security() {
           </div>
         </section>
 
-        {/* ── S4: Main content + sidebar ───────────────────────────────── */}
-        <section className="py-20">
+        {/* ── S4: What this means for you ──────────────────────────────── */}
+        <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
+          <div className="container mx-auto px-4 md:px-8 max-w-5xl">
+            <FadeIn className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight text-balance">The same protections, from where you stand.</h2>
+            </FadeIn>
+            <div className="grid md:grid-cols-3 gap-5">
+              {[
+                {
+                  icon: Eye,
+                  who: "If you are a patient",
+                  body: "Your records are yours. No doctor or clinic sees anything until you allow it, and you can take that access back in seconds. You can see who looked at what, and when.",
+                },
+                {
+                  icon: Stethoscope,
+                  who: "If you are a doctor",
+                  body: "When a patient shares, you see a complete, structured history instead of a blank form. Access is logged for your protection too, so there is a clear record of what was viewed and why.",
+                },
+                {
+                  icon: Building2,
+                  who: "If you run a clinic",
+                  body: "Every staff member sees only what their role needs. You can see who accessed which records as a standard feature, and your clinic's data is exportable at any time, never locked in.",
+                },
+              ].map(({ icon: Icon, who, body }) => (
+                <FadeIn key={who} delay={0.05}>
+                  <div className="h-full bg-white border border-stone-100 rounded-2xl p-7">
+                    <div className="w-11 h-11 rounded-xl bg-pine-50 border border-pine-100 flex items-center justify-center mb-5">
+                      <Icon className="w-5 h-5 text-pine-600" />
+                    </div>
+                    <p className="text-pine-900 font-medium mb-2">{who}</p>
+                    <p className="text-dim-2 font-medium leading-relaxed text-sm">{body}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── S5: Main content + sidebar ───────────────────────────────── */}
+        <section className="py-16 md:py-20">
           <div className="container mx-auto px-4 md:px-8 max-w-[1200px] flex flex-col lg:flex-row gap-12">
 
             {/* Desktop sidebar */}
@@ -279,6 +321,35 @@ export default function Security() {
 
               <div className="space-y-20">
 
+                {/* ── Consent & Control ────────────────────────────────── */}
+                <div id="consent" className="scroll-mt-32">
+                  <FadeIn>
+                    <div className="flex gap-6 items-start">
+                      <div className="w-10 h-10 bg-pine-50 border border-pine-100 rounded-xl flex items-center justify-center shrink-0 mt-1">
+                        <Settings className="w-5 h-5 text-pine-600" />
+                      </div>
+                      <div className="flex-1">
+                        <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Consent &amp; Control</h2>
+                        <p className="text-dim font-medium mb-8">You decide who sees your health data, what they see, and for how long. Provider access does not happen without your consent. This is the foundation everything else is built on.</p>
+                        <div className="space-y-6">
+                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
+                            <h3 className="text-pine-900 font-medium mb-2">Who controls access</h3>
+                            <p className="text-dim-2 font-medium leading-relaxed">The patient. Not the clinic. Not the doctor. Not FettleMed. A doctor can request access to a patient's records, but they cannot view anything until the patient grants it.</p>
+                          </div>
+                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
+                            <h3 className="text-pine-900 font-medium mb-2">What consent covers</h3>
+                            <p className="text-dim-2 font-medium leading-relaxed">Patients can share their full health profile, specific record types, or records from a defined time period. Consent is granular. A patient sharing records with a cardiologist does not automatically share them with every other doctor they have ever seen.</p>
+                          </div>
+                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
+                            <h3 className="text-pine-900 font-medium mb-2">How long access lasts</h3>
+                            <p className="text-dim-2 font-medium leading-relaxed">Consent can be granted for a single consultation, a fixed period, or on an ongoing basis. It expires automatically when the period ends. Patients can also revoke it manually at any time, from the app, in seconds.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </FadeIn>
+                </div>
+
                 {/* ── Encryption ───────────────────────────────────────── */}
                 <div id="encryption" className="scroll-mt-32">
                   <FadeIn>
@@ -288,7 +359,7 @@ export default function Security() {
                       </div>
                       <div className="flex-1">
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Encryption</h2>
-                        <p className="text-dim font-medium mb-8">Your records are encrypted whether they are sitting on our servers, moving between devices, or being accessed by a doctor you have authorised.</p>
+                        <p className="text-dim font-medium mb-8">Your records are encrypted whether they are sitting on our servers, moving between devices, or being accessed by a doctor you have authorised. In plain terms: your data is scrambled so that only the right people, with the right keys, can read it.</p>
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">In transit</h3>
@@ -311,40 +382,7 @@ export default function Security() {
                   </FadeIn>
                 </div>
 
-                {/* ── Consent & Access ─────────────────────────────────── */}
-                <div id="consent" className="scroll-mt-32">
-                  <FadeIn>
-                    <div className="flex gap-6 items-start">
-                      <div className="w-10 h-10 bg-pine-50 border border-pine-100 rounded-xl flex items-center justify-center shrink-0 mt-1">
-                        <Settings className="w-5 h-5 text-pine-600" />
-                      </div>
-                      <div className="flex-1">
-                        <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Consent &amp; Access</h2>
-                        <p className="text-dim font-medium mb-8">Patients decide who sees their health data, what they see, and for how long. Healthcare provider access requires patient consent.</p>
-                        <div className="space-y-6">
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">Who controls access</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">The patient. Not the clinic. Not the doctor. Not FettleMed. A doctor can request access to a patient's records, but they cannot view anything until the patient grants it.</p>
-                          </div>
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">What consent covers</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Patients can share their full health profile, specific record types, or records from a defined time period. Consent is granular. A patient sharing records with a cardiologist does not automatically share them with every other doctor they have ever seen.</p>
-                          </div>
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">How long access lasts</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Consent can be granted for a single consultation, a fixed period, or on an ongoing basis. It expires automatically when the period ends. Patients can also revoke it manually at any time, from the app, in seconds.</p>
-                          </div>
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">The audit trail</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Every consent event is recorded in a tamper-resistant audit log: when it was granted, what it covered, who accessed it, and when it was revoked or expired. Patients can view the full history at any time.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </FadeIn>
-                </div>
-
-                {/* ── Role-Based Controls ──────────────────────────────── */}
+                {/* ── Role-Based Access ────────────────────────────────── */}
                 <div id="access" className="scroll-mt-32">
                   <FadeIn>
                     <div className="flex gap-6 items-start">
@@ -352,17 +390,26 @@ export default function Security() {
                         <Users className="w-5 h-5 text-pine-600" />
                       </div>
                       <div className="flex-1">
-                        <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Role-Based Controls</h2>
+                        <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Role-Based Access</h2>
                         <p className="text-dim font-medium mb-8">Inside a clinic, every staff member sees exactly what their role requires, and nothing more.</p>
+
+                        {/* Role grid */}
+                        <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                          {[
+                            { role: "Front desk", sees: "Appointment schedules and patient registration" },
+                            { role: "Billing", sees: "Invoices and payment records" },
+                            { role: "Doctors", sees: "Clinical records and consultation notes" },
+                            { role: "Clinic owners", sees: "Everything, across all staff, doctors, and days" },
+                          ].map(({ role, sees }) => (
+                            <div key={role} className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
+                              <p className="text-xs font-medium tracking-wider uppercase text-pine-600 mb-1.5">{role}</p>
+                              <p className="text-dim-2 font-medium leading-relaxed text-sm">{sees}</p>
+                            </div>
+                          ))}
+                        </div>
+                        <p className="text-dim text-sm font-medium mb-8">No role can access what belongs to another. Permissions are not inherited. They are assigned specifically, by role, by clinic, and where relevant, by time period.</p>
+
                         <div className="space-y-6">
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">Role-based access</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Front desk staff see appointment schedules and patient registration. Billing staff see invoices and payment records. Doctors see clinical records and consultation notes. Clinic owners see everything, across all staff, all doctors, all days. No role can access what belongs to another.</p>
-                          </div>
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">Nobody sees more than their role requires</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Every account is configured with the minimum access required for its function. Permissions are not inherited. They are assigned specifically, by role, by clinic, and where relevant, by time period.</p>
-                          </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Multi-factor authentication</h3>
                             <p className="text-dim-2 font-medium leading-relaxed">All provider accounts, doctors, clinic administrators, and owners, require multi-factor authentication. A stolen password alone is not sufficient to access patient data.</p>
@@ -371,9 +418,33 @@ export default function Security() {
                             <h3 className="text-pine-900 font-medium mb-2">Session management</h3>
                             <p className="text-dim-2 font-medium leading-relaxed">Inactive sessions expire automatically. Sensitive actions require re-authentication. All access attempts, successful and failed, are logged with timestamps and user identifiers.</p>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </FadeIn>
+                </div>
+
+                {/* ── Audit Trail ──────────────────────────────────────── */}
+                <div id="audit" className="scroll-mt-32">
+                  <FadeIn>
+                    <div className="flex gap-6 items-start">
+                      <div className="w-10 h-10 bg-pine-50 border border-pine-100 rounded-xl flex items-center justify-center shrink-0 mt-1">
+                        <FileCheck2 className="w-5 h-5 text-pine-600" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <h2 className="text-2xl font-medium text-pine-900 tracking-tight">Audit Trail</h2>
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-pine-50 border border-pine-200 text-pine-700">Live</span>
+                        </div>
+                        <p className="text-dim font-medium mb-8">Access leaves a record. You never have to wonder who looked at what.</p>
+                        <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">Audit logging</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Live. Clinic owners can see who accessed what records, and when, as a standard feature. Every consent event and access attempt is logged with timestamps and user identifiers.</p>
+                            <h3 className="text-pine-900 font-medium mb-2">Every consent event is recorded</h3>
+                            <p className="text-dim-2 font-medium leading-relaxed">Consent events are written to a tamper-resistant audit log: when access was granted, what it covered, who accessed it, and when it was revoked or expired. Patients can view the full history at any time.</p>
+                          </div>
+                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
+                            <h3 className="text-pine-900 font-medium mb-2">Clinics can see who accessed what</h3>
+                            <p className="text-dim-2 font-medium leading-relaxed">Clinic owners can see who accessed which records, and when, as a standard feature. Every access attempt is logged with timestamps and user identifiers.</p>
                           </div>
                         </div>
                       </div>
@@ -390,7 +461,7 @@ export default function Security() {
                       </div>
                       <div className="flex-1">
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Compliance Status</h2>
-                        <p className="text-dim font-medium mb-6">We are transparent about where we are in our compliance journey: what is implemented today, what is in progress, and what is planned.</p>
+                        <p className="text-dim font-medium mb-6">We are transparent about where we are in our compliance journey: what is implemented today, what is in progress, and what is planned. We do not claim certifications we have not yet earned.</p>
 
                         {/* Badge strip */}
                         <div className="flex flex-wrap gap-2 mb-8">
@@ -537,8 +608,8 @@ export default function Security() {
           </div>
         </section>
 
-        {/* ── S5: FAQ ──────────────────────────────────────────────────── */}
-        <section className="py-20 bg-white border-t border-stone-100 border-b">
+        {/* ── S6: FAQ ──────────────────────────────────────────────────── */}
+        <section className="py-16 md:py-20 bg-white border-t border-stone-100 border-b">
           <div className="container mx-auto px-4 md:px-8 max-w-3xl">
             <FadeIn className="mb-12">
               <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Security questions, answered.</h2>
@@ -547,8 +618,8 @@ export default function Security() {
           </div>
         </section>
 
-        {/* ── S6: CTA ──────────────────────────────────────────────────── */}
-        <section className="py-20 bg-surface-50">
+        {/* ── S7: CTA ──────────────────────────────────────────────────── */}
+        <section className="py-16 md:py-20 bg-surface-50">
           <div className="container mx-auto px-4 md:px-8 max-w-2xl text-center">
             <FadeIn>
               <h2 className="text-2xl md:text-3xl font-medium text-pine-900 mb-4 tracking-tight">Security questions we haven't answered here?</h2>
