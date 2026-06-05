@@ -173,7 +173,7 @@ export default function PrivacyPolicy() {
             
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">7.1 Technical Safeguards</h3>
             <ul className="list-disc list-inside space-y-1">
-              <li><strong>Encryption in transit:</strong> Your health data is encrypted in transit using TLS 1.2+. At-rest AES-256 encryption is being implemented and will be confirmed before launch.</li>
+              <li><strong>End-to-end encryption:</strong> Your health data is encrypted in transit using TLS 1.2+ and encrypted at rest using AES-256.</li>
               <li><strong>Access Control:</strong> Role-based access control ensures employees and systems can access only the data necessary for their functions</li>
               <li><strong>Audit Logging:</strong> All access to health data is logged and monitored for suspicious activity</li>
               <li><strong>Firewalls and Intrusion Detection:</strong> Enterprise-grade firewalls and intrusion detection systems protect our infrastructure</li>

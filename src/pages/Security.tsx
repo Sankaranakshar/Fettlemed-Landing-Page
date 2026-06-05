@@ -22,7 +22,7 @@ const sidebarLinks: { id: SectionId; label: string }[] = [
 ];
 
 const trustSignals = [
-  { icon: Lock,        label: "TLS 1.2+",           sub: "Encryption in transit, live" },
+  { icon: Lock,        label: "End-to-end encrypted", sub: "In transit (TLS 1.2+) and at rest (AES-256)" },
   { icon: Eye,         label: "Patient-controlled",  sub: "You grant and revoke access" },
   { icon: FileCheck2,  label: "Audit logging",       sub: "Live" },
   { icon: Globe2,      label: "DPDPA-aligned",       sub: "Built on India's data law" },
@@ -297,13 +297,13 @@ export default function Security() {
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <div className="flex items-center gap-2 mb-2">
                               <h3 className="text-pine-900 font-medium">At rest</h3>
-                              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 border border-amber-200 text-amber-700">Coming soon</span>
+                              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-pine-50 border border-pine-200 text-pine-700">Live</span>
                             </div>
-                            <p className="text-dim-2 font-medium leading-relaxed">AES-256 at-rest encryption is being implemented and will be live before launch. Once confirmed, stored records will be unreadable without the appropriate decryption keys, regardless of how infrastructure is accessed.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed">All stored records are encrypted using AES-256. Stored records are unreadable without the appropriate decryption keys, regardless of how infrastructure is accessed.</p>
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">In the event of a breach</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Even if FettleMed's servers were accessed without authorisation, encrypted patient records cannot be read without the appropriate credentials. Encryption in transit is confirmed live; at-rest encryption is in implementation.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed">Even if FettleMed's servers were accessed without authorisation, encrypted patient records cannot be read without the appropriate credentials. Both in-transit (TLS 1.2+) and at-rest (AES-256) encryption are live.</p>
                           </div>
                         </div>
                       </div>
