@@ -47,7 +47,7 @@ export function FAQ({ sections }: FAQProps) {
                 </div>
                 <div className="text-center">
                   <h2 className="text-3xl md:text-4xl font-medium text-pine-900 mb-2 tracking-tight">Have questions?</h2>
-                  <p className="text-dim font-medium text-lg">Click to view our detailed frequently asked questions</p>
+                  <p className="text-dim font-medium text-lg">Everything you need to know before you decide.</p>
                 </div>
                 <div className="flex items-center gap-2 text-pine-600 font-medium uppercase tracking-widest text-sm bg-pine-50 px-6 py-2 rounded-full group-hover:bg-pine-100 transition-colors">
                   View FAQs <ChevronDown className="w-4 h-4" />

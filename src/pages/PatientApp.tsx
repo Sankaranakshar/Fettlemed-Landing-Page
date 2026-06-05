@@ -46,11 +46,11 @@ const faqSections = [
       },
       {
         "question": "If I upload a PDF lab report, does the app just store it or does it understand what is in it?",
-        "answer": "At launch, FettleMed will read and structure the information inside your PDF lab reports — not just store the file — so your results are organised and searchable. Plain-language explanations are on our near-term roadmap. FettleMed helps you understand your results; it does not replace your doctor's advice."
+        "answer": "FettleMed can read and structure the information inside your PDF lab reports - not just store the file - so your results are organised and searchable. This feature is being rolled out progressively through the pilot. Plain-language explanations are on our near-term roadmap. FettleMed helps you understand your results; it does not replace your doctor's advice."
       },
       {
         "question": "Can I add records from before I started using FettleMed?",
-        "answer": "Yes. You can upload older prescriptions, lab reports, and medical documents at any time. FettleMed will read and organise them into your health timeline."
+        "answer": "Yes. You can upload older prescriptions, lab reports, and medical documents at any time. FettleMed organises them into your health timeline so your history is complete from day one."
       },
       {
         "question": "If I lose my phone, do I lose my records?",
@@ -134,7 +134,7 @@ const faqSections = [
 export default function PatientApp() {
   return (
     <>
-      <SEO title="For Patients & Families" description="FettleMed keeps every prescription, lab report, and doctor visit in one place. Free for Indian patients, always. Share records with any doctor in seconds and revoke access any time." />
+      <SEO title="For Patients & Families" description="FettleMed keeps every prescription, lab report, and doctor visit in one place. Share records with any doctor in seconds and revoke access any time. ABDM-aligned. Built in India." />
       <div className="flex flex-col w-full bg-surface-50">
         <PatientHero />
         <PatientProblem />

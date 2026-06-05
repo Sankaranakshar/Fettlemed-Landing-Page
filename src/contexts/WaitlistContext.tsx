@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { WaitlistModal } from "@/components/common/WaitlistModal";
 
-type Role = "Individual" | "Doctor" | "Clinic";
+type Role = "Patients & Caregivers" | "Doctor" | "Clinic";
 
 interface WaitlistContextValue {
   openWaitlist: (role?: Role) => void;

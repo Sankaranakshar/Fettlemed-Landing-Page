@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -11,12 +11,11 @@ import { Button } from "@/components/common/Button";
 // ---------------------------------------------------------------------------
 
 const schema = z.object({
-  name:       z.string().min(2, "Name must be at least 2 characters"),
-  email:      z.string().email("Please enter a valid email address"),
-  phone:      z.string().optional(),
-  context:    z.string().optional(), // city / specialty / clinic name — label changes per role
-  comments:   z.string().optional(),
-  mathAnswer: z.string().min(1, "Please solve the math problem"),
+  name:     z.string().min(2, "Name must be at least 2 characters"),
+  email:    z.string().email("Please enter a valid email address"),
+  phone:    z.string().optional(),
+  context:  z.string().optional(), // city / specialty / clinic name — label changes per role
+  comments: z.string().optional(),
 });
 
 type FormValues = z.infer<typeof schema>;
@@ -123,71 +122,25 @@ FloatingTextarea.displayName = "FloatingTextarea";
 
 interface WaitlistFormProps {
   onSuccess?: () => void;
-  defaultRole?: "Individual" | "Doctor" | "Clinic";
+  defaultRole?: "Patients & Caregivers" | "Doctor" | "Clinic";
 }
 
 export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
-  const [submitted, setSubmitted]   = useState(false);
+  const [submitted, setSubmitted]       = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
-  const [role, setRole]             = useState<string>(defaultRole ?? "Individual");
-  const [honeypot, setHoneypot]     = useState("");
-  const [loadTime]                  = useState(Date.now());
-
-  const [num1, setNum1] = useState(0);
-  const [num2, setNum2] = useState(0);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [submitError, setSubmitError]   = useState(false);
+  const [role, setRole]                 = useState<string>(defaultRole ?? "Patients & Caregivers");
+  const [honeypot, setHoneypot]         = useState("");
+  const [loadTime]                      = useState(Date.now());
 
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: "onTouched",
   });
-
-  const mathAnswerValue = watch("mathAnswer", "");
-  const isHumanVerified =
-    mathAnswerValue !== "" && parseInt(mathAnswerValue, 10) === num1 + num2;
-
-  useEffect(() => {
-    const now = new Date();
-    const n1 = (now.getMinutes() % 9) + 1;
-    const n2 = (now.getSeconds() % 9) + 1;
-    setNum1(n1);
-    setNum2(n2);
-
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    ctx.setTransform(2, 0, 0, 2, 0, 0);
-    ctx.clearRect(0, 0, 150, 48);
-    ctx.fillStyle = "#fafaf9";
-    ctx.fillRect(0, 0, 150, 48);
-    for (let i = 0; i < 50; i++) {
-      ctx.fillStyle = `rgba(0,0,0,${Math.random() * 0.05})`;
-      ctx.beginPath();
-      ctx.arc(Math.random() * 150, Math.random() * 48, Math.random() * 2, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    ctx.font = "bold 24px monospace";
-    ctx.fillStyle = "#292524";
-    ctx.textBaseline = "middle";
-    ctx.textAlign = "center";
-    ctx.fillText(`${n1} + ${n2}`, 75, 24);
-    for (let i = 0; i < 6; i++) {
-      ctx.beginPath();
-      ctx.moveTo(Math.random() * 150, Math.random() * 48);
-      ctx.lineTo(Math.random() * 150, Math.random() * 48);
-      ctx.strokeStyle = `rgba(0,0,0,${0.1 + Math.random() * 0.15})`;
-      ctx.lineWidth = 1 + Math.random() * 1.5;
-      ctx.stroke();
-    }
-  }, []);
 
   const FORM_URL =
     "https://docs.google.com/forms/d/e/1FAIpQLSd_Gd_OmWQGHLY_gF_q3Xuj9kATD3cEXkjaym5pQFN7JyjSWw/formResponse";
@@ -254,7 +207,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
 
   return (
     <form onSubmit={handleSubmit(onValid)} className="space-y-5" noValidate>
-      {/* Honeypot — invisible to real users */}
+      {/* Honeypot - invisible to real users */}
       <div style={{ position: "absolute", left: "-5000px" }} aria-hidden="true">
         <input
           type="text"
@@ -269,7 +222,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
       <div className="flex flex-col space-y-3 pb-1">
         <label id="role-group-label" className="text-sm font-medium text-dim-2">I am a:</label>
         <div role="radiogroup" aria-labelledby="role-group-label" className="grid grid-cols-3 gap-2">
-          {["Individual", "Doctor", "Clinic"].map((r) => (
+          {["Patients & Caregivers", "Doctor", "Clinic"].map((r) => (
             <button
               key={r}
               type="button"
@@ -324,54 +277,6 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
         {...register("comments")}
       />
 
-      {/* Human verification */}
-      <div className="flex flex-col space-y-4 pt-4 border-t border-stone-200">
-        <div>
-          <label className="text-sm font-medium text-dim-2 mb-1 block">
-            Human Verification
-          </label>
-          <p id="wl-math-desc" className="text-xs text-dim mb-3">
-            Please solve the math problem below to submit.
-          </p>
-        </div>
-        <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
-          <div className="rounded-xl border border-stone-200 overflow-hidden shadow-sm inline-block">
-            <canvas
-              ref={canvasRef}
-              width={300}
-              height={96}
-              style={{ width: "150px", height: "48px" }}
-              className="bg-stone-50 mix-blend-multiply"
-              role="img"
-              aria-label="Math addition problem"
-            />
-          </div>
-          <label htmlFor="wl-math" className="sr-only">
-            Answer to the math problem shown above
-          </label>
-          <input
-            type="text"
-            inputMode="numeric"
-            pattern="[0-9]*"
-            id="wl-math"
-            aria-describedby="wl-math-desc"
-            placeholder="Your answer"
-            {...register("mathAnswer")}
-            className={`w-full sm:w-32 h-12 px-4 rounded-xl border ${
-              isHumanVerified
-                ? "border-green-500 ring-2 ring-green-500/20 bg-green-50"
-                : "border-stone-300 focus-visible:ring-pine-500 focus-visible:border-pine-500"
-            } focus-visible:outline-none focus-visible:ring-2 transition-[border-color,box-shadow,background-color] duration-150 text-pine-900 placeholder:text-dim font-medium`}
-          />
-          {isHumanVerified && (
-            <span className="text-green-600 font-medium text-sm">Verified! ✓</span>
-          )}
-        </div>
-        {errors.mathAnswer && (
-          <p className="text-xs text-red-500 font-medium">{errors.mathAnswer.message}</p>
-        )}
-      </div>
-
       {/* Consent notice */}
       <p className="text-xs text-dim font-medium leading-relaxed">
         By submitting, you agree to our{' '}
@@ -384,14 +289,14 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
       {/* Network error notice */}
       {submitError && (
         <p className="text-sm text-red-600 font-medium bg-red-50 border border-red-200 rounded-xl px-4 py-3">
-          Something went wrong — please check your connection and try again.
+          Something went wrong - please check your connection and try again.
         </p>
       )}
 
-      {/* Submit — loader overlays text so button width never shifts */}
+      {/* Submit */}
       <Button
         variant="animated"
-        disabled={isSubmitting || !isHumanVerified}
+        disabled={isSubmitting}
         type="submit"
         size="lg"
         className="relative w-full h-14 text-lg bg-pine-900 hover:bg-pine-800 text-white rounded-xl shadow-lg font-medium disabled:opacity-70 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"

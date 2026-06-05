@@ -24,8 +24,8 @@ const points = [
   },
   {
     n: "5",
-    heading: "Multiple branches, coming to the pilot.",
-    body: "Multi-location management is in active development. Clinics with more than one branch that join early will have direct input into how it's built.",
+    heading: "Multiple branches - planned for a future release.",
+    body: "Multi-location management is on our roadmap and will be available in a future release after the pilot. If you run more than one branch, let us know - your input shapes what we build.",
   },
 ];
 

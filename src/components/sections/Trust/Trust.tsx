@@ -49,7 +49,7 @@ export const Trust = () => {
               </div>
               <div>
                 <p className="text-sm font-medium text-pine-900">Dr. Sriram Shankar</p>
-                <p className="text-xs text-dim font-medium">Co-founder · FRCS (England) · FAMS (Singapore)</p>
+                <p className="text-xs text-dim font-medium">Co-founder · MBBS · FRCS (England) · FAMS (Singapore)</p>
               </div>
             </div>
             <div className="flex items-center gap-3">

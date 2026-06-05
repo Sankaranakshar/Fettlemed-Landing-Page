@@ -30,7 +30,7 @@ export default function NotFound() {
             </Link>
             <Link to="/patient-app" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto h-14 px-8 rounded-xl border-pine-100 text-dim hover:text-pine-900 font-medium flex items-center gap-2">
-                <Stethoscope className="w-5 h-5" /> Patient Portal
+                <Stethoscope className="w-5 h-5" /> Patient App
               </Button>
             </Link>
           </div>

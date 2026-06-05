@@ -19,12 +19,12 @@ export function PatientCTA() {
              </p>
 
              <div className="flex flex-col items-center justify-center gap-6">
-               <Button variant="animated" size="lg" onClick={() => openWaitlist('Individual')} className="bg-pine-900 hover:bg-pine-800 text-white h-14 px-12 text-lg rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2">
+               <Button variant="animated" size="lg" onClick={() => openWaitlist('Patients & Caregivers')} className="bg-pine-900 hover:bg-pine-800 text-white h-14 px-12 text-lg rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2">
                  Join the Waitlist
                </Button>
 
                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm font-medium text-dim">
-                  <span>Core patient features are free</span>
+                  <span>Free for patients during the pilot</span>
                   <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-200"></span>
                   <span>No credit card. No commitment.</span>
                   <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-200"></span>

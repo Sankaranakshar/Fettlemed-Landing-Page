@@ -173,7 +173,7 @@ export default function PrivacyPolicy() {
             
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">7.1 Technical Safeguards</h3>
             <ul className="list-disc list-inside space-y-1">
-              <li><strong>End-to-end encryption:</strong> Your health data is encrypted in transit using TLS 1.2+ and at rest using AES-256. Data is unreadable at every stage without the appropriate keys.</li>
+              <li><strong>Encryption in transit:</strong> Your health data is encrypted in transit using TLS 1.2+. At-rest AES-256 encryption is being implemented and will be confirmed before launch.</li>
               <li><strong>Access Control:</strong> Role-based access control ensures employees and systems can access only the data necessary for their functions</li>
               <li><strong>Audit Logging:</strong> All access to health data is logged and monitored for suspicious activity</li>
               <li><strong>Firewalls and Intrusion Detection:</strong> Enterprise-grade firewalls and intrusion detection systems protect our infrastructure</li>
@@ -206,7 +206,7 @@ export default function PrivacyPolicy() {
 
             {/* Section 9 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">9. International Data Transfers</h2>
-            <p>FettleMed is headquartered in India. Patient health records are stored entirely on servers located in India. All backups and disaster recovery infrastructure are also in India. Your health data does not leave the country. Anonymised, non-identifiable usage analytics (Google Analytics) may be processed on Google's infrastructure outside India, but contain no personal or health data.</p>
+            <p>FettleMed is headquartered in India. Patient health records are stored on infrastructure with the primary data centre in India. Certain backup or supporting services may operate in other regions under contractual data-protection obligations. Anonymised, non-identifiable usage analytics (Google Analytics) may be processed on Google's infrastructure outside India, but contain no personal or health data.</p>
 
             {/* Section 10 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">10. Children's Privacy</h2>

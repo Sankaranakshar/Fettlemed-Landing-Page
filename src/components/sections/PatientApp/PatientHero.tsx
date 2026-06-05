@@ -27,7 +27,7 @@ export function PatientHero() {
                 <Button
                   variant="animated"
                   size="lg"
-                  onClick={() => openWaitlist('Individual')}
+                  onClick={() => openWaitlist('Patients & Caregivers')}
                   className="bg-pine-900 hover:bg-pine-800 text-white h-12 px-10 text-base rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
                   Join the Waitlist. It's Free.

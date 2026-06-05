@@ -5,7 +5,7 @@ import { WaitlistForm } from "./WaitlistForm";
 interface WaitlistModalProps {
   open: boolean;
   onClose: () => void;
-  defaultRole?: "Individual" | "Doctor" | "Clinic";
+  defaultRole?: "Patients & Caregivers" | "Doctor" | "Clinic";
 }
 
 export function WaitlistModal({ open, onClose, defaultRole }: WaitlistModalProps) {
@@ -42,7 +42,7 @@ export function WaitlistModal({ open, onClose, defaultRole }: WaitlistModalProps
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 id="wl-modal-title" className="text-xl font-medium text-pine-900 tracking-tight">Join the Waitlist</h2>
-            <p className="text-sm text-dim font-medium mt-1">Early access for select clinics, doctors, and individuals.</p>
+            <p className="text-sm text-dim font-medium mt-1">Early access for select clinics, doctors, and patients.</p>
           </div>
           <button
             onClick={onClose}

@@ -893,7 +893,7 @@ function LabDiagnosticsVisual() {
 /* ═══════════════════════════════════════════════
    CARD DATA
 ═══════════════════════════════════════════════ */
-const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: string[]; visual: React.ReactNode; navLabel: string }[]> = {
+const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: React.ReactNode[]; visual: React.ReactNode; navLabel: string }[]> = {
   patient: [
     {
       navLabel: "Health Records",
@@ -981,8 +981,8 @@ const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: str
       icon: <Wallet className="w-6 h-6" />,
       heading: "Know what was billed, what was collected, and what's outstanding.",
       bullets: [
-        "Invoice generation with GST-related fields at point of consultation",
-        "UPI, cards, and net banking, all accepted",
+        <>GST-compliant invoicing <span className="inline-flex items-center ml-1.5 px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 border border-amber-200 text-amber-700">Pilot</span></>,
+        <>Payment gateway - UPI, cards, net banking <span className="inline-flex items-center ml-1.5 px-2 py-0.5 rounded-full text-xs font-semibold bg-stone-100 border border-stone-200 text-stone-500">Coming soon</span></>,
         "Owner dashboard: daily and monthly revenue, broken down by doctor",
       ],
       visual: <BillingRevenueVisual />,

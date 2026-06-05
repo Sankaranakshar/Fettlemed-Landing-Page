@@ -24,7 +24,7 @@ const sidebarLinks: { id: SectionId; label: string }[] = [
 const trustSignals = [
   { icon: Lock,        label: "TLS 1.2+",           sub: "Encryption in transit, live" },
   { icon: Eye,         label: "Patient-controlled",  sub: "You grant and revoke access" },
-  { icon: FileCheck2,  label: "Audit logging",       sub: "Live at launch" },
+  { icon: FileCheck2,  label: "Audit logging",       sub: "Live" },
   { icon: Globe2,      label: "DPDPA-aligned",       sub: "Built on India's data law" },
   { icon: Server,      label: "FHIR standard",       sub: "No proprietary lock-in" },
   { icon: ShieldCheck, label: "No data sales",       sub: "Health data never sold" },
@@ -153,7 +153,7 @@ export default function Security() {
         <section className="py-5 bg-pine-50 border-b border-pine-100">
           <div className="container mx-auto px-4 md:px-8 max-w-5xl">
             <p className="text-center text-xs text-pine-600 font-medium">
-              FettleMed is pre-launch and piloting in Chennai. This page labels what is live today and what is being finalized before launch.{" "}
+              FettleMed is pre-launch and currently running a pilot. This page labels what is live today and what is being finalized before launch.{" "}
               Last reviewed: June 2026. For questions about our security posture, write to{" "}
               <a href="mailto:hello@fettlemed.com" className="underline hover:text-pine-800 transition-colors">hello@fettlemed.com</a>.
             </p>
@@ -168,10 +168,10 @@ export default function Security() {
                 <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight">How consent works, in plain terms.</h2>
               </div>
 
-              <div className="bg-surface-50 rounded-3xl border border-stone-100 p-8 md:p-12 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
+              <div className="bg-surface-50 rounded-3xl border border-stone-100 p-8 md:p-12 shadow-sm flex flex-col md:flex-row items-stretch justify-center gap-4 md:gap-6 mb-8">
                 {/* Step 1 */}
-                <div className="flex flex-col items-center text-center max-w-[200px]">
-                  <div className="w-16 h-16 rounded-full bg-pine-100 flex items-center justify-center mb-4 border border-pine-200">
+                <div className="flex flex-col items-center text-center flex-1 min-w-0 max-w-xs">
+                  <div className="w-16 h-16 rounded-full bg-pine-100 flex items-center justify-center mb-4 border border-pine-200 shrink-0">
                     <Lock className="w-6 h-6 text-pine-600" />
                   </div>
                   <p className="font-medium text-pine-900 text-base mb-2">1. You grant consent</p>
@@ -179,19 +179,19 @@ export default function Security() {
                 </div>
 
                 {/* Arrow 1 — desktop */}
-                <div className="hidden md:flex flex-col items-center justify-center px-4 w-full relative">
-                  <div className="h-0.5 w-full bg-stone-200 absolute top-1/2 -translate-y-1/2" />
-                  <div className="bg-white px-4 py-1.5 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 whitespace-nowrap shadow-sm">Grant Access</div>
+                <div className="hidden md:flex flex-col items-center justify-center px-2 shrink-0 relative min-h-[80px]">
+                  <div className="h-0.5 w-12 bg-stone-200 absolute top-1/2 -translate-y-1/2" />
+                  <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 whitespace-nowrap shadow-sm">Grant Access</div>
                 </div>
                 {/* Arrow 1 — mobile */}
-                <div className="md:hidden flex flex-col items-center justify-center py-4 h-full relative">
-                  <div className="w-0.5 h-full min-h-[40px] bg-stone-200 absolute left-1/2 -translate-x-1/2" />
-                  <div className="bg-white px-4 py-1.5 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 shadow-sm">Grant Access</div>
+                <div className="md:hidden flex flex-col items-center justify-center py-3 shrink-0 relative">
+                  <div className="w-0.5 h-8 bg-stone-200 absolute left-1/2 -translate-x-1/2" />
+                  <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 shadow-sm">Grant Access</div>
                 </div>
 
                 {/* Step 2 */}
-                <div className="flex flex-col items-center text-center max-w-[200px]">
-                  <div className="w-16 h-16 rounded-full bg-pine-50 flex items-center justify-center mb-4 border border-pine-100">
+                <div className="flex flex-col items-center text-center flex-1 min-w-0 max-w-xs">
+                  <div className="w-16 h-16 rounded-full bg-pine-50 flex items-center justify-center mb-4 border border-pine-100 shrink-0">
                     <Key className="w-6 h-6 text-pine-600" />
                   </div>
                   <p className="font-medium text-pine-900 text-base mb-2">2. Doctor gets time-bound access</p>
@@ -199,19 +199,19 @@ export default function Security() {
                 </div>
 
                 {/* Arrow 2 — desktop */}
-                <div className="hidden md:flex flex-col items-center justify-center px-4 w-full relative">
-                  <div className="h-0.5 w-full bg-stone-200 absolute top-1/2 -translate-y-1/2" />
-                  <div className="bg-white px-4 py-1.5 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 whitespace-nowrap shadow-sm">Revoke</div>
+                <div className="hidden md:flex flex-col items-center justify-center px-2 shrink-0 relative min-h-[80px]">
+                  <div className="h-0.5 w-12 bg-stone-200 absolute top-1/2 -translate-y-1/2" />
+                  <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 whitespace-nowrap shadow-sm">Revoke</div>
                 </div>
                 {/* Arrow 2 — mobile */}
-                <div className="md:hidden flex flex-col items-center justify-center py-4 h-full relative">
-                  <div className="w-0.5 h-full min-h-[40px] bg-stone-200 absolute left-1/2 -translate-x-1/2" />
-                  <div className="bg-white px-4 py-1.5 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 shadow-sm">Revoke</div>
+                <div className="md:hidden flex flex-col items-center justify-center py-3 shrink-0 relative">
+                  <div className="w-0.5 h-8 bg-stone-200 absolute left-1/2 -translate-x-1/2" />
+                  <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 shadow-sm">Revoke</div>
                 </div>
 
                 {/* Step 3 */}
-                <div className="flex flex-col items-center text-center max-w-[200px]">
-                  <div className="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center mb-4 border border-stone-200">
+                <div className="flex flex-col items-center text-center flex-1 min-w-0 max-w-xs">
+                  <div className="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center mb-4 border border-stone-200 shrink-0">
                     <ShieldCheck className="w-6 h-6 text-pine-600" />
                   </div>
                   <p className="font-medium text-pine-900 text-base mb-2">3. Access ends. Your records stay protected.</p>
@@ -291,16 +291,19 @@ export default function Security() {
                         <p className="text-dim font-medium mb-8">Your records are encrypted whether they are sitting on our servers, moving between devices, or being accessed by a doctor you have authorised.</p>
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">At rest</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">All health records are encrypted at rest using AES-256. Stored data is unreadable without the appropriate decryption keys, regardless of how infrastructure is accessed.</p>
-                          </div>
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">In transit</h3>
                             <p className="text-dim-2 font-medium leading-relaxed">All data moving between your device and FettleMed's servers is protected using TLS 1.2 and above, with modern cipher suites. No data travels unencrypted at any point.</p>
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
+                            <div className="flex items-center gap-2 mb-2">
+                              <h3 className="text-pine-900 font-medium">At rest</h3>
+                              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 border border-amber-200 text-amber-700">Coming soon</span>
+                            </div>
+                            <p className="text-dim-2 font-medium leading-relaxed">AES-256 at-rest encryption is being implemented and will be live before launch. Once confirmed, stored records will be unreadable without the appropriate decryption keys, regardless of how infrastructure is accessed.</p>
+                          </div>
+                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">In the event of a breach</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Even if FettleMed's servers were accessed without authorisation, encrypted patient records cannot be read without the appropriate credentials. The data at rest is unreadable without the right keys.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed">Even if FettleMed's servers were accessed without authorisation, encrypted patient records cannot be read without the appropriate credentials. Encryption in transit is confirmed live; at-rest encryption is in implementation.</p>
                           </div>
                         </div>
                       </div>
@@ -370,7 +373,7 @@ export default function Security() {
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Audit logging</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Access audit logging is being implemented and will be fully live at launch. Clinic owners will be able to see who accessed what and when, as a standard feature.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed">Live. Clinic owners can see who accessed what records, and when, as a standard feature. Every consent event and access attempt is logged with timestamps and user identifiers.</p>
                           </div>
                         </div>
                       </div>
@@ -392,27 +395,29 @@ export default function Security() {
                         {/* Badge strip */}
                         <div className="flex flex-wrap gap-2 mb-8">
                           {[
-                            { label: "ABDM-aligned",   live: true  },
-                            { label: "DPDPA-aligned",  live: true  },
-                            { label: "FHIR standard",  live: true  },
-                            { label: "Data in India",  live: true  },
-                            { label: "ABDM certified", live: false },
-                            { label: "ISO 27001",      live: false },
-                          ].map(({ label, live }) => (
+                            { label: "DPDPA-aligned",             live: true,  status: ""            },
+                            { label: "FHIR standard",             live: true,  status: ""            },
+                            { label: "Primary data centre: India",live: true,  status: ""            },
+                            { label: "ABDM-aligned",              live: false, status: "in progress" },
+                            { label: "ABDM certified",            live: false, status: "planned"     },
+                            { label: "ISO 27001",                 live: false, status: "planned"     },
+                          ].map(({ label, live, status }) => (
                             <span
                               key={label}
                               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border ${
                                 live
                                   ? "bg-pine-50 border-pine-200 text-pine-700"
-                                  : "bg-stone-50 border-stone-200 text-dim"
+                                  : status === "in progress"
+                                    ? "bg-amber-50 border-amber-200 text-amber-700"
+                                    : "bg-stone-50 border-stone-200 text-dim"
                               }`}
                             >
                               {live
                                 ? <CheckCircle2 className="w-3 h-3 text-pine-500" />
-                                : <Clock className="w-3 h-3 text-stone-400" />
+                                : <Clock className={`w-3 h-3 ${status === "in progress" ? "text-amber-400" : "text-stone-400"}`} />
                               }
                               {label}
-                              {!live && <span className="text-stone-400 font-medium">· planned</span>}
+                              {!live && <span className={`font-medium ${status === "in progress" ? "text-amber-500" : "text-stone-400"}`}>· {status}</span>}
                             </span>
                           ))}
                         </div>
@@ -430,16 +435,12 @@ export default function Security() {
                                 body: "FettleMed's data handling practices are designed around the Digital Personal Data Protection Act, India's primary data protection legislation.",
                               },
                               {
-                                title: "ABDM-aligned architecture",
-                                body: "FettleMed is built on the ABDM framework and integrates with ABHA ID infrastructure, the national standard for health data portability in India. Patient records are interoperable with India's national health data ecosystem.",
-                              },
-                              {
                                 title: "FHIR data standards",
                                 body: "FettleMed uses FHIR (Fast Healthcare Interoperability Resources) for data exchange, the international standard for structured health data. Records are not locked in a proprietary format.",
                               },
                               {
-                                title: "Data residency",
-                                body: "Patient health records are stored entirely on servers in India. All backups are in India. Anonymised analytics (Google Analytics) may be processed outside India but contain no health data.",
+                                title: "Primary data centre in India",
+                                body: "Patient health records are stored on infrastructure with the primary data centre in India. Certain backup or supporting services may operate in other regions under contractual data-protection obligations. Anonymised analytics (Google Analytics) may be processed outside India but contain no health data.",
                               },
                             ].map(({ title, body }) => (
                               <div key={title} className="bg-pine-50/60 border border-pine-100 rounded-2xl p-5">
@@ -447,6 +448,20 @@ export default function Security() {
                                 <p className="text-dim-2 font-medium leading-relaxed">{body}</p>
                               </div>
                             ))}
+                          </div>
+                        </div>
+
+                        {/* In progress */}
+                        <div className="mb-8">
+                          <div className="flex items-center gap-2 mb-4">
+                            <Clock className="w-5 h-5 text-amber-500" />
+                            <p className="text-sm font-medium text-amber-700 uppercase tracking-wider">In progress</p>
+                          </div>
+                          <div className="pl-7 space-y-4">
+                            <div className="bg-amber-50/60 border border-amber-100 rounded-2xl p-5">
+                              <h3 className="text-pine-900 font-medium mb-1">ABDM-aligned architecture</h3>
+                              <p className="text-dim-2 font-medium leading-relaxed">FettleMed is being built on the ABDM framework. ABHA ID integration is in active development and will be available at launch, enabling interoperability with India's national health data ecosystem.</p>
+                            </div>
                           </div>
                         </div>
 
@@ -481,11 +496,11 @@ export default function Security() {
                       </div>
                       <div className="flex-1">
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Your Data in India</h2>
-                        <p className="text-dim font-medium mb-8">Your health records are stored on infrastructure in India. They are never sold, never used for advertising, and never shared with third parties for commercial purposes.</p>
+                        <p className="text-dim font-medium mb-8">Your health records are stored on infrastructure with the primary data centre in India. They are never sold, never used for advertising, and never shared with third parties for commercial purposes.</p>
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Where your data lives</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Patient health records are stored entirely on servers located in India. All backups and disaster recovery infrastructure are also in India. Your health data does not leave the country.</p>
+                            <p className="text-dim-2 font-medium leading-relaxed">Patient health records are stored on infrastructure with the primary data centre in India. Certain backup or supporting services may operate in other regions under contractual data-protection obligations. Anonymised, non-identifiable usage analytics may be processed on infrastructure outside India, but contain no health data.</p>
                           </div>
                           <div className="bg-pine-900 rounded-2xl p-6">
                             <h3 className="text-white font-medium mb-4">What your data is never used for</h3>
