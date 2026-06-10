@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/common/Button";
 import { FadeIn } from "@/components/common/FadeIn";
+import { HeroTilt } from "@/components/common/HeroTilt";
 import { DoctorConsultationMockup } from "@/components/sections/Mockups";
 import { useWaitlist } from "@/contexts/WaitlistContext";
 
@@ -13,13 +14,14 @@ export function DoctorHero() {
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-12">
           {/* Text column */}
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <FadeIn eager>
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-pine-200 bg-pine-50 shadow-sm text-xs font-medium text-pine-700 uppercase tracking-widest mb-6">
-                For Doctors
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-pine-900 leading-[1.05] mb-5 tracking-tight text-balance">
-                More clinical thinking, <span className="text-dim">less paperwork.</span>
-              </h1>
+            {/* Badge + H1 render instantly: the H1 is the LCP element */}
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-pine-200 bg-pine-50 shadow-sm text-xs font-medium text-pine-700 uppercase tracking-widest mb-6">
+              For Doctors
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-pine-900 leading-[1.05] mb-5 tracking-tight text-balance">
+              More clinical thinking, <span className="text-dim">less paperwork.</span>
+            </h1>
+            <FadeIn noYOffset eager delay={0.05}>
               <p className="text-xl text-dim mb-8 leading-relaxed max-w-2xl text-balance">
                 Built for the GP seeing 40 patients a day, not for the hospital with an IT department.
               </p>
@@ -46,7 +48,9 @@ export function DoctorHero() {
           {/* Mockup column */}
           <div className="w-full lg:w-1/2 mt-6 lg:mt-0">
             <FadeIn delay={0.2}>
-              <DoctorConsultationMockup />
+              <HeroTilt>
+                <DoctorConsultationMockup />
+              </HeroTilt>
             </FadeIn>
           </div>
         </div>

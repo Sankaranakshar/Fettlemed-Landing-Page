@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
+import { MotionConfig } from "motion/react";
 import { Layout } from "@/components/common/Layout";
 import { HelmetProvider } from "react-helmet-async";
 import { AnimatedRoutes } from "./AnimatedRoutes";
@@ -19,17 +20,20 @@ const PageLoader = () => (
 export default function App() {
   return (
     <HelmetProvider>
-      <Router>
-        <WaitlistProvider>
-          <Layout>
-            <ErrorBoundary>
-              <Suspense fallback={<PageLoader />}>
-                <AnimatedRoutes />
-              </Suspense>
-            </ErrorBoundary>
-          </Layout>
-        </WaitlistProvider>
-      </Router>
+      {/* reducedMotion="user" makes every Motion animation respect prefers-reduced-motion */}
+      <MotionConfig reducedMotion="user">
+        <Router>
+          <WaitlistProvider>
+            <Layout>
+              <ErrorBoundary>
+                <Suspense fallback={<PageLoader />}>
+                  <AnimatedRoutes />
+                </Suspense>
+              </ErrorBoundary>
+            </Layout>
+          </WaitlistProvider>
+        </Router>
+      </MotionConfig>
     </HelmetProvider>
   );
 }

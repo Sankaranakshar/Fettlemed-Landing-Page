@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/common/Button";
 
@@ -194,7 +195,13 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
   if (submitted) {
     return (
       <div className="flex flex-col items-center justify-center py-12 text-center">
-        <CheckCircle2 className="w-16 h-16 text-pine-500 mb-6" />
+        <motion.div
+          initial={{ scale: 0.4, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 340, damping: 16 }}
+        >
+          <CheckCircle2 className="w-16 h-16 text-pine-500 mb-6" />
+        </motion.div>
         <h2 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight">
           You're on the list.
         </h2>

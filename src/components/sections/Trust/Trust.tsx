@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 import { ShieldCheck, Stethoscope, FileCheck2, ArrowRight } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 
@@ -44,18 +45,30 @@ export const Trust = () => {
           {/* Compact founder strip */}
           <div className="border-t border-stone-100 mt-6 pt-5 grid md:grid-cols-2 gap-3 max-w-2xl mx-auto w-full">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-pine-900 rounded-full flex items-center justify-center shrink-0">
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ type: 'spring', stiffness: 340, damping: 18 }}
+                className="w-10 h-10 bg-pine-900 rounded-full flex items-center justify-center shrink-0"
+              >
                 <span className="text-[11px] font-semibold text-pine-100 tracking-wide">SS</span>
-              </div>
+              </motion.div>
               <div>
                 <p className="text-sm font-medium text-pine-900">Dr. Sriram Shankar</p>
                 <p className="text-xs text-dim font-medium">Co-founder · MBBS · FRCS (England) · FAMS (Singapore)</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-pine-900 rounded-full flex items-center justify-center shrink-0">
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: 0.08, type: 'spring', stiffness: 340, damping: 18 }}
+                className="w-10 h-10 bg-pine-900 rounded-full flex items-center justify-center shrink-0"
+              >
                 <span className="text-[11px] font-semibold text-pine-100 tracking-wide">BS</span>
-              </div>
+              </motion.div>
               <div>
                 <p className="text-sm font-medium text-pine-900">Dr. Bhavani Sriram</p>
                 <p className="text-xs text-dim font-medium">Co-founder · MRCP (UK) · Singapore Silent Hero</p>

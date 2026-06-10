@@ -10,11 +10,20 @@ import { CookieConsent } from "@/components/common/CookieConsent/CookieConsent";
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { openWaitlist } = useWaitlist();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [location.pathname]);
+
+  // Hairline shadow once the page is scrolled, so the nav reads as a layer
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const navLinks = [
     { name: "For Patients", path: "/patient-app" },
@@ -29,7 +38,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <a href="#main-content" className="skip-link">Skip to main content</a>
 
       {/* Navbar */}
-      <header className="sticky top-0 z-50 w-full h-20 border-b border-stone-200/50 bg-surface-50/80 backdrop-blur-xl transition-[background-color,border-color] duration-150">
+      <header className={cn(
+        "sticky top-0 z-50 w-full h-20 border-b border-stone-200/50 bg-surface-50/80 backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-150",
+        scrolled && "shadow-[0_1px_12px_rgba(8,35,28,0.06)]"
+      )}>
         <div className="container mx-auto px-4 md:px-8 h-full flex items-center justify-between max-w-none">
           <Link to="/" className="flex items-center h-full" onClick={() => setIsMobileMenuOpen(false)} aria-label="FettleMed Home">
             <span className="text-xl tracking-tight leading-none select-none">

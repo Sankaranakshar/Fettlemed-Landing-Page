@@ -1,6 +1,8 @@
 import React from 'react';
+import { motion } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
+import { DarkTexture } from "@/components/common/Texture/DarkTexture";
 import { VisualOnView, BillingRevenueVisual } from "@/components/sections/RoleVisuals";
 
 const items = [
@@ -29,7 +31,7 @@ const items = [
 export function ClinicOwnerView() {
   return (
     <section className="py-12 md:py-16 bg-pine-900 text-white relative overflow-hidden flex flex-col items-center">
-       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-50 transform translate-x-1/3 -translate-y-1/3"></div>
+       <DarkTexture />
        <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
           <FadeIn className="text-center mb-4">
              <h2 className="text-3xl md:text-4xl font-medium text-white tracking-tight text-balance">Right now, you're running the clinic from memory.</h2>
@@ -42,7 +44,15 @@ export function ClinicOwnerView() {
              <ul className="flex-1 text-base leading-relaxed space-y-5">
                 {items.map(({ heading, body }, i) => (
                    <li key={i} className="flex gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-pine-400 shrink-0 mt-0.5" />
+                      <motion.span
+                        initial={{ scale: 0, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ delay: 0.15 + i * 0.12, type: 'spring', stiffness: 340, damping: 18 }}
+                        className="shrink-0 mt-0.5"
+                      >
+                        <CheckCircle2 className="w-5 h-5 text-pine-400" />
+                      </motion.span>
                       <span><span className="text-white font-medium">{heading}:</span> <span className="text-pine-100">{body}</span></span>
                    </li>
                 ))}

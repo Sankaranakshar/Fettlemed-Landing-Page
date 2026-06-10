@@ -8,7 +8,18 @@ export default function Waitlist() {
   return (
     <>
       <SEO title="Join the Waitlist" description="Join the FettleMed waitlist for early access. Be among the first patients, doctors, and clinics to use India's connected health record platform." />
-      <div className="flex flex-col w-full min-h-screen bg-surface-50 font-sans">
+      <div className="flex flex-col w-full min-h-screen bg-surface-50 font-sans relative overflow-hidden">
+        {/* Static mesh gradient: calm near forms, no drift */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div
+            className="absolute -top-1/4 -right-[10%] w-[70%] h-[70%] rounded-full"
+            style={{ background: 'radial-gradient(circle, rgba(31,122,92,0.08), transparent 65%)' }}
+          />
+          <div
+            className="absolute -bottom-1/4 -left-[10%] w-[60%] h-[70%] rounded-full"
+            style={{ background: 'radial-gradient(circle, rgba(122,174,154,0.10), transparent 65%)' }}
+          />
+        </div>
         <section className="pt-20 pb-24 md:pt-32 relative z-10">
           <div className="container mx-auto px-4 max-w-6xl">
             <FadeIn eager>

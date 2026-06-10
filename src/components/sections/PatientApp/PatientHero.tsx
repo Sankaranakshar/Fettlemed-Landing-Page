@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/common/Button";
 import { FadeIn } from "@/components/common/FadeIn";
+import { HeroTilt } from "@/components/common/HeroTilt";
 import { PatientMobileMockup } from "@/components/sections/Mockups";
 import { useWaitlist } from "@/contexts/WaitlistContext";
 
@@ -13,13 +14,14 @@ export function PatientHero() {
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10">
           {/* Text column */}
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <FadeIn eager>
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-pine-200 bg-pine-50 shadow-sm text-xs font-medium text-pine-700 uppercase tracking-widest mb-5">
-                For Patients &amp; Families
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-pine-900 leading-[1.05] mb-4 tracking-tight text-balance">
-                Every prescription. Every result. <span className="text-pine-600">One place.</span>
-              </h1>
+            {/* Badge + H1 render instantly: the H1 is the LCP element */}
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-pine-200 bg-pine-50 shadow-sm text-xs font-medium text-pine-700 uppercase tracking-widest mb-5">
+              For Patients &amp; Families
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-pine-900 leading-[1.05] mb-4 tracking-tight text-balance">
+              Every prescription. Every result. <span className="text-pine-600">One place.</span>
+            </h1>
+            <FadeIn noYOffset eager delay={0.05}>
               <p className="text-lg md:text-xl text-dim mb-6 leading-relaxed max-w-2xl text-balance">
                 Every record in one place. You decide who sees it. Take it back anytime.
               </p>
@@ -43,7 +45,9 @@ export function PatientHero() {
           {/* Mockup column */}
           <div className="flex w-full lg:w-1/2 justify-center mt-6 lg:mt-0">
             <FadeIn delay={0.2}>
-              <PatientMobileMockup />
+              <HeroTilt restY={5} restX={2}>
+                <PatientMobileMockup />
+              </HeroTilt>
             </FadeIn>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { Button } from "@/components/common/Button";
 import { FadeIn } from "@/components/common/FadeIn";
+import { DarkTexture } from "@/components/common/Texture/DarkTexture";
 import { useWaitlist } from "@/contexts/WaitlistContext";
 
 export function ClinicPilot() {
@@ -9,7 +10,7 @@ export function ClinicPilot() {
 
   return (
     <section className="py-14 md:py-20 bg-pine-900 text-white relative overflow-hidden border-b border-stone-100">
-       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-50 transform translate-x-1/3 -translate-y-1/3"></div>
+       <DarkTexture />
        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center relative z-10">
           <FadeIn>
              <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight leading-tight mb-8">

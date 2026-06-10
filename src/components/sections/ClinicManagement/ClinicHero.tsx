@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/common/Button";
 import { FadeIn } from "@/components/common/FadeIn";
+import { HeroTilt } from "@/components/common/HeroTilt";
 import { ClinicShuffleMockup } from "@/components/sections/Mockups";
 import { useWaitlist } from "@/contexts/WaitlistContext";
 
@@ -13,13 +14,14 @@ export function ClinicHero() {
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Text column */}
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <FadeIn eager>
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-pine-200 bg-pine-50 shadow-sm text-xs font-medium text-pine-700 uppercase tracking-widest mb-6">
-                For Clinics
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-pine-900 leading-[1.05] mb-5 tracking-tight text-balance">
-                You handle the patients. <span className="text-dim">We handle everything else.</span>
-              </h1>
+            {/* Badge + H1 render instantly: the H1 is the LCP element */}
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-pine-200 bg-pine-50 shadow-sm text-xs font-medium text-pine-700 uppercase tracking-widest mb-6">
+              For Clinics
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-pine-900 leading-[1.05] mb-5 tracking-tight text-balance">
+              You handle the patients. <span className="text-dim">We handle everything else.</span>
+            </h1>
+            <FadeIn noYOffset eager delay={0.05}>
               <p className="text-lg md:text-xl text-dim mb-8 leading-relaxed max-w-2xl text-balance">
                 The front desk handles the queue. Billing closes at the end of each visit. The owner sees everything, from any device.
               </p>
@@ -46,7 +48,9 @@ export function ClinicHero() {
           {/* Mockup column */}
           <div className="w-full lg:w-1/2 mt-6 lg:mt-0">
             <FadeIn delay={0.2}>
-              <ClinicShuffleMockup />
+              <HeroTilt>
+                <ClinicShuffleMockup />
+              </HeroTilt>
             </FadeIn>
           </div>
         </div>

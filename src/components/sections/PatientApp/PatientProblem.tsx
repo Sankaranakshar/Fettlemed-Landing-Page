@@ -1,10 +1,12 @@
 import React from 'react';
 import { FolderSync, EyeOff } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
+import { DarkTexture } from "@/components/common/Texture/DarkTexture";
 
 export function PatientProblem() {
   return (
     <section className="py-12 md:py-16 bg-pine-900 border-b border-pine-800 relative overflow-hidden">
+       <DarkTexture glow="top-left" />
        <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
 
           <FadeIn className="mb-14">

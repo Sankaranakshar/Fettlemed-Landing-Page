@@ -1,21 +1,22 @@
 import React from 'react';
+import { motion } from "motion/react";
 import { FadeIn } from "@/components/common/FadeIn";
 
 const COLUMNS = [
   {
-    borderCls: "border-pine-200",
+    barCls: "bg-pine-200",
     heading: "You don't have the full picture",
     body: "History incomplete, scattered, or locked in another clinic's files.",
     close: "You're making decisions on half the information.",
   },
   {
-    borderCls: "border-pine-400",
+    barCls: "bg-pine-400",
     heading: "The paperwork doesn't end when the patient leaves",
     body: "Every visit spawns prescriptions, notes, referrals, certificates.",
     close: "Forty patients. Six hours. One register.",
   },
   {
-    borderCls: "border-pine-900",
+    barCls: "bg-pine-900",
     heading: "Their records don't follow them",
     body: "Patients move between clinics and labs. Their information doesn't.",
     close: "The patient leaves. The information stays where it was.",
@@ -34,8 +35,18 @@ export function DoctorProblem() {
         </FadeIn>
 
         <div className="grid md:grid-cols-3 gap-8 lg:gap-14">
-          {COLUMNS.map(({ borderCls, heading, body, close }, i) => (
-            <FadeIn key={i} delay={i * 0.1} className={`flex flex-col border-t-2 ${borderCls} pt-6`}>
+          {COLUMNS.map(({ barCls, heading, body, close }, i) => (
+            <FadeIn key={i} delay={i * 0.1} className="flex flex-col">
+              {/* Accent bar draws itself in */}
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: i * 0.12, duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                style={{ transformOrigin: 'left' }}
+                className={`h-0.5 ${barCls} mb-6`}
+                aria-hidden="true"
+              />
               <p className="text-xs font-semibold text-pine-500 uppercase tracking-widest mb-4">{heading}</p>
               <p className="text-lg text-dim-2 leading-relaxed mb-4 flex-1">
                 {body}

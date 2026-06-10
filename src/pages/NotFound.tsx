@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { SEO } from "@/components/common/SEO";
 import { Button } from "@/components/common/Button";
 import { FadeIn } from "@/components/common/FadeIn";
+import { motion } from "motion/react";
 import { Home, Smartphone, Search } from "lucide-react";
 
 export default function NotFound() {
@@ -12,7 +13,14 @@ export default function NotFound() {
       <div className="flex flex-col w-full min-h-[80vh] bg-surface-50 items-center justify-center p-6 text-center">
         <FadeIn>
           <div className="w-24 h-24 bg-pine-100 rounded-3xl flex items-center justify-center text-pine-600 mb-8 mx-auto shadow-sm">
-            <Search className="w-12 h-12" />
+            {/* One playful wobble on load. One. */}
+            <motion.div
+              initial={{ rotate: 0 }}
+              animate={{ rotate: [0, -14, 10, -6, 0] }}
+              transition={{ delay: 0.4, duration: 0.7, ease: 'easeInOut' }}
+            >
+              <Search className="w-12 h-12" />
+            </motion.div>
           </div>
           <h1 className="text-6xl font-medium text-pine-900 mb-4 tracking-tighter">404</h1>
           <h2 className="text-2xl font-medium text-ink mb-6 px-4">

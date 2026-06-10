@@ -1,6 +1,7 @@
 import React from 'react';
 import { FileText, Upload, User } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
+import { PulseLine } from "@/components/common/PulseLine";
 import { VisualOnView, LabDiagnosticsVisual } from "@/components/sections/RoleVisuals";
 
 const scenarios = [
@@ -32,7 +33,10 @@ export function ClinicConnectedLayer() {
              <p className="text-lg text-dim leading-relaxed max-w-2xl mx-auto">A live layer between clinic, doctors, and patients. In practice:</p>
           </FadeIn>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="relative">
+          {/* The connected layer, drawn: a pulse travels between the scenarios */}
+          <PulseLine className="hidden md:block absolute top-14 left-[6%] right-[6%] z-0" interval={6} />
+          <div className="relative z-10 grid md:grid-cols-3 gap-6">
              {scenarios.map(({ icon: Icon, heading, body }, i) => (
                 <FadeIn key={i} delay={i * 0.1} className="p-8 rounded-3xl bg-white border border-stone-100 shadow-sm flex flex-col gap-5 hover:shadow-md transition-shadow">
                    <div className="w-12 h-12 bg-pine-50 rounded-2xl border border-pine-100 flex items-center justify-center shrink-0">
@@ -44,6 +48,7 @@ export function ClinicConnectedLayer() {
                    </div>
                 </FadeIn>
              ))}
+          </div>
           </div>
 
           {/* Lab flow, shown rather than described */}
