@@ -1,12 +1,12 @@
 /**
- * Server-side render entry point — used only during the prerender build step.
+ * Server-side render entry point - used only during the prerender build step.
  *
  * Key differences from the client entry (App.tsx):
  *  - StaticRouter instead of BrowserRouter (no window.location needed)
- *  - All pages are statically imported — React.lazy + Suspense doesn't work
+ *  - All pages are statically imported - React.lazy + Suspense doesn't work
  *    with renderToString because suspended components render as fallbacks,
  *    which would bake the loading spinner into the HTML instead of content.
- *  - AnimatePresence / motion wrappers are omitted — they add no SEO value
+ *  - AnimatePresence / motion wrappers are omitted - they add no SEO value
  *    and can produce hydration mismatches.
  */
 import React from 'react';
@@ -17,7 +17,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from '@/components/common/Layout';
 import { WaitlistProvider } from '@/contexts/WaitlistContext';
 
-// Static imports — every page must be imported synchronously here
+// Static imports - every page must be imported synchronously here
 import Home from '@/pages/Home';
 import PatientApp from '@/pages/PatientApp';
 import DoctorPortal from '@/pages/DoctorPortal';

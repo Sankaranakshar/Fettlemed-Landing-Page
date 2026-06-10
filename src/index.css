@@ -80,16 +80,3 @@ h1, h2, h3 {
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
-
-/* Snap scroll — applied only on Home page via .home-snap class on <html> */
-html.home-snap {
-  scroll-snap-type: y proximity;
-}
-html.home-snap section {
-  scroll-snap-align: start;
-  scroll-margin-top: 80px; /* offset for sticky navbar height */
-}
-html.home-snap footer {
-  scroll-snap-align: start;
-  scroll-margin-top: 80px; /* offset for sticky navbar height */
-}

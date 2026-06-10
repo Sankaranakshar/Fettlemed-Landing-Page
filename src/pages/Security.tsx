@@ -25,7 +25,7 @@ const sidebarLinks: { id: SectionId; label: string }[] = [
 
 const trustSignals = [
   { icon: Eye,         label: "Patient-controlled",  sub: "You grant and revoke access" },
-  { icon: Lock,        label: "End-to-end encrypted", sub: "In transit (TLS 1.2+) and at rest (AES-256)" },
+  { icon: Lock,        label: "End-to-end encrypted", sub: "TLS 1.2+ in transit" },
   { icon: FileCheck2,  label: "Audit logging",       sub: "Live" },
   { icon: Globe2,      label: "DPDPA-aligned",       sub: "Built on India's data law" },
   { icon: Server,      label: "FHIR standard",       sub: "No proprietary lock-in" },
@@ -55,7 +55,7 @@ const faqData = [
   },
   {
     question: "Does FettleMed comply with ABDM?",
-    answer: "FettleMed is built on ABDM-aligned architecture and integrates with ABHA ID infrastructure. Formal ABDM certification is on our roadmap following pilot completion. We do not claim formal certification that has not yet been granted. See our Compliance Status section for the current state of each standard.",
+    answer: "FettleMed is being built on ABDM-aligned architecture, and ABHA ID integration is in active development. Formal ABDM certification is on our roadmap following pilot completion. We do not claim formal certification that has not yet been granted. See our Compliance Status section for the current state of each standard.",
   },
   {
     question: "Can a doctor access my records without my permission?",
@@ -110,7 +110,7 @@ export default function Security() {
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-6 tracking-tight text-balance">
                   You should know exactly how your health data is protected.
                 </h1>
-                <p className="text-xl text-pine-200 font-medium leading-relaxed max-w-2xl mx-auto text-balance">
+                <p className="text-xl text-pine-200 leading-relaxed max-w-2xl mx-auto text-balance">
                   No vague enterprise language. Here is who can see your records, how they are protected, where they live, and what we will never do with them, in plain terms.
                 </p>
               </div>
@@ -182,12 +182,12 @@ export default function Security() {
                   <p className="text-sm font-medium text-dim leading-relaxed">You decide who sees your health data, what they see, and for how long.</p>
                 </div>
 
-                {/* Arrow 1 — desktop */}
+                {/* Arrow 1 - desktop */}
                 <div className="hidden md:flex flex-col items-center justify-center px-2 shrink-0 relative min-h-[80px]">
                   <div className="h-0.5 w-12 bg-stone-200 absolute top-1/2 -translate-y-1/2" />
                   <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 whitespace-nowrap shadow-sm">Grant Access</div>
                 </div>
-                {/* Arrow 1 — mobile */}
+                {/* Arrow 1 - mobile */}
                 <div className="md:hidden flex flex-col items-center justify-center py-3 shrink-0 relative">
                   <div className="w-0.5 h-8 bg-stone-200 absolute left-1/2 -translate-x-1/2" />
                   <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 shadow-sm">Grant Access</div>
@@ -202,12 +202,12 @@ export default function Security() {
                   <p className="text-sm font-medium text-dim leading-relaxed">Access is scoped to what you chose to share, and expires when the period ends.</p>
                 </div>
 
-                {/* Arrow 2 — desktop */}
+                {/* Arrow 2 - desktop */}
                 <div className="hidden md:flex flex-col items-center justify-center px-2 shrink-0 relative min-h-[80px]">
                   <div className="h-0.5 w-12 bg-stone-200 absolute top-1/2 -translate-y-1/2" />
                   <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 whitespace-nowrap shadow-sm">Revoke</div>
                 </div>
-                {/* Arrow 2 — mobile */}
+                {/* Arrow 2 - mobile */}
                 <div className="md:hidden flex flex-col items-center justify-center py-3 shrink-0 relative">
                   <div className="w-0.5 h-8 bg-stone-200 absolute left-1/2 -translate-x-1/2" />
                   <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 shadow-sm">Revoke</div>
@@ -224,7 +224,7 @@ export default function Security() {
               </div>
 
               <div className="max-w-3xl mx-auto text-center space-y-3">
-                <p className="text-dim-2 font-medium leading-relaxed">
+                <p className="text-dim-2 leading-relaxed">
                   Access can be granted for a single consultation, a fixed time period, or on an ongoing basis. It can be revoked by the patient at any time, from the app, in seconds.
                 </p>
                 <p className="text-dim text-sm font-medium">
@@ -265,7 +265,7 @@ export default function Security() {
                       <Icon className="w-5 h-5 text-pine-600" />
                     </div>
                     <p className="text-pine-900 font-medium mb-2">{who}</p>
-                    <p className="text-dim-2 font-medium leading-relaxed text-sm">{body}</p>
+                    <p className="text-dim-2 leading-relaxed text-sm">{body}</p>
                   </div>
                 </FadeIn>
               ))}
@@ -334,15 +334,15 @@ export default function Security() {
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Who controls access</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">The patient. Not the clinic. Not the doctor. Not FettleMed. A doctor can request access to a patient's records, but they cannot view anything until the patient grants it.</p>
+                            <p className="text-dim-2 leading-relaxed">The patient. Not the clinic. Not the doctor. Not FettleMed. A doctor can request access to a patient's records, but they cannot view anything until the patient grants it.</p>
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">What consent covers</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Patients can share their full health profile, specific record types, or records from a defined time period. Consent is granular. A patient sharing records with a cardiologist does not automatically share them with every other doctor they have ever seen.</p>
+                            <p className="text-dim-2 leading-relaxed">Patients can share their full health profile, specific record types, or records from a defined time period. Consent is granular. A patient sharing records with a cardiologist does not automatically share them with every other doctor they have ever seen.</p>
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">How long access lasts</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Consent can be granted for a single consultation, a fixed period, or on an ongoing basis. It expires automatically when the period ends. Patients can also revoke it manually at any time, from the app, in seconds.</p>
+                            <p className="text-dim-2 leading-relaxed">Consent can be granted for a single consultation, a fixed period, or on an ongoing basis. It expires automatically when the period ends. Patients can also revoke it manually at any time, from the app, in seconds.</p>
                           </div>
                         </div>
                       </div>
@@ -359,22 +359,22 @@ export default function Security() {
                       </div>
                       <div className="flex-1">
                         <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Encryption</h2>
-                        <p className="text-dim font-medium mb-8">Your records are encrypted whether they are sitting on our servers, moving between devices, or being accessed by a doctor you have authorised. In plain terms: your data is scrambled so that only the right people, with the right keys, can read it.</p>
+                        <p className="text-dim font-medium mb-8">Your records are protected with end-to-end encryption: as they move between devices and as they are accessed by a doctor you have authorised. In plain terms: your data is scrambled so that only the right people, with the right keys, can read it.</p>
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">In transit</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">All data moving between your device and FettleMed's servers is protected using TLS 1.2 and above, with modern cipher suites. No data travels unencrypted at any point.</p>
+                            <p className="text-dim-2 leading-relaxed">All data moving between your device and FettleMed's servers is protected using TLS 1.2 and above, with modern cipher suites. No data travels unencrypted at any point.</p>
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <div className="flex items-center gap-2 mb-2">
-                              <h3 className="text-pine-900 font-medium">At rest</h3>
+                              <h3 className="text-pine-900 font-medium">End to end</h3>
                               <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-pine-50 border border-pine-200 text-pine-700">Live</span>
                             </div>
-                            <p className="text-dim-2 font-medium leading-relaxed">All stored records are encrypted using AES-256. Stored records are unreadable without the appropriate decryption keys, regardless of how infrastructure is accessed.</p>
+                            <p className="text-dim-2 leading-relaxed">Records are protected with end-to-end encryption, so they are unreadable without the appropriate keys at every step between the people you have authorised.</p>
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">In the event of a breach</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Even if FettleMed's servers were accessed without authorisation, encrypted patient records cannot be read without the appropriate credentials. Both in-transit (TLS 1.2+) and at-rest (AES-256) encryption are live.</p>
+                            <p className="text-dim-2 leading-relaxed">Even if FettleMed's systems were accessed without authorisation, encrypted patient records cannot be read without the appropriate credentials.</p>
                           </div>
                         </div>
                       </div>
@@ -403,7 +403,7 @@ export default function Security() {
                           ].map(({ role, sees }) => (
                             <div key={role} className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                               <p className="text-xs font-medium tracking-wider uppercase text-pine-600 mb-1.5">{role}</p>
-                              <p className="text-dim-2 font-medium leading-relaxed text-sm">{sees}</p>
+                              <p className="text-dim-2 leading-relaxed text-sm">{sees}</p>
                             </div>
                           ))}
                         </div>
@@ -411,12 +411,15 @@ export default function Security() {
 
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">Multi-factor authentication</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">All provider accounts, doctors, clinic administrators, and owners, require multi-factor authentication. A stolen password alone is not sufficient to access patient data.</p>
+                            <div className="flex items-center gap-2 mb-2">
+                              <h3 className="text-pine-900 font-medium">Multi-factor authentication</h3>
+                              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 border border-amber-200 text-amber-700">At launch</span>
+                            </div>
+                            <p className="text-dim-2 leading-relaxed">All provider accounts, doctors, clinic administrators, and owners, will require multi-factor authentication at launch. A stolen password alone will not be sufficient to access patient data.</p>
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Session management</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Inactive sessions expire automatically. Sensitive actions require re-authentication. All access attempts, successful and failed, are logged with timestamps and user identifiers.</p>
+                            <p className="text-dim-2 leading-relaxed">Inactive sessions expire automatically. Sensitive actions require re-authentication. All access attempts, successful and failed, are logged with timestamps and user identifiers.</p>
                           </div>
                         </div>
                       </div>
@@ -440,11 +443,11 @@ export default function Security() {
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Every consent event is recorded</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Consent events are written to a tamper-resistant audit log: when access was granted, what it covered, who accessed it, and when it was revoked or expired. Patients can view the full history at any time.</p>
+                            <p className="text-dim-2 leading-relaxed">Consent events are written to a tamper-resistant audit log: when access was granted, what it covered, who accessed it, and when it was revoked or expired. Patients can view the full history at any time.</p>
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Clinics can see who accessed what</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Clinic owners can see who accessed which records, and when, as a standard feature. Every access attempt is logged with timestamps and user identifiers.</p>
+                            <p className="text-dim-2 leading-relaxed">Clinic owners can see who accessed which records, and when, as a standard feature. Every access attempt is logged with timestamps and user identifiers.</p>
                           </div>
                         </div>
                       </div>
@@ -516,7 +519,7 @@ export default function Security() {
                             ].map(({ title, body }) => (
                               <div key={title} className="bg-pine-50/60 border border-pine-100 rounded-2xl p-5">
                                 <h3 className="text-pine-900 font-medium mb-1">{title}</h3>
-                                <p className="text-dim-2 font-medium leading-relaxed">{body}</p>
+                                <p className="text-dim-2 leading-relaxed">{body}</p>
                               </div>
                             ))}
                           </div>
@@ -531,7 +534,7 @@ export default function Security() {
                           <div className="pl-7 space-y-4">
                             <div className="bg-amber-50/60 border border-amber-100 rounded-2xl p-5">
                               <h3 className="text-pine-900 font-medium mb-1">ABDM-aligned architecture</h3>
-                              <p className="text-dim-2 font-medium leading-relaxed">FettleMed is being built on the ABDM framework. ABHA ID integration is in active development and will be available at launch, enabling interoperability with India's national health data ecosystem.</p>
+                              <p className="text-dim-2 leading-relaxed">FettleMed is being built on the ABDM framework. ABHA ID integration is in active development, enabling interoperability with India's national health data ecosystem.</p>
                             </div>
                           </div>
                         </div>
@@ -545,11 +548,11 @@ export default function Security() {
                           <div className="pl-7 space-y-4">
                             <div className="bg-surface-50 border border-stone-200 rounded-2xl p-5">
                               <h3 className="text-pine-900 font-medium mb-1">ABDM formal certification</h3>
-                              <p className="text-dim-2 font-medium leading-relaxed">Formal certification through the ABDM certification process is on the roadmap following pilot completion.</p>
+                              <p className="text-dim-2 leading-relaxed">Formal certification through the ABDM certification process is on the roadmap following pilot completion.</p>
                             </div>
                             <div className="bg-surface-50 border border-stone-200 rounded-2xl p-5">
                               <h3 className="text-pine-900 font-medium mb-1">ISO 27001 certification</h3>
-                              <p className="text-dim-2 font-medium leading-relaxed">ISO 27001 certification is on our roadmap. Formal work toward certification will begin following product launch.</p>
+                              <p className="text-dim-2 leading-relaxed">ISO 27001 certification is on our roadmap. Formal work toward certification will begin following product launch.</p>
                             </div>
                           </div>
                         </div>
@@ -571,7 +574,7 @@ export default function Security() {
                         <div className="space-y-6">
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">Where your data lives</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed">Patient health records are stored on infrastructure with the primary data centre in India. Certain backup or supporting services may operate in other regions under contractual data-protection obligations. Anonymised, non-identifiable usage analytics may be processed on infrastructure outside India, but contain no health data.</p>
+                            <p className="text-dim-2 leading-relaxed">Patient health records are stored on infrastructure with the primary data centre in India. Certain backup or supporting services may operate in other regions under contractual data-protection obligations. Anonymised, non-identifiable usage analytics may be processed on infrastructure outside India, but contain no health data.</p>
                           </div>
                           <div className="bg-pine-900 rounded-2xl p-6">
                             <h3 className="text-white font-medium mb-4">What your data is never used for</h3>
@@ -591,7 +594,7 @@ export default function Security() {
                           </div>
                           <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
                             <h3 className="text-pine-900 font-medium mb-2">The legal commitment</h3>
-                            <p className="text-dim-2 font-medium leading-relaxed mb-4">Our commitment to never sell or misuse your health data is documented in our Privacy Policy and Terms of Service. It applies to every user, every time.</p>
+                            <p className="text-dim-2 leading-relaxed mb-4">Our commitment to never sell or misuse your health data is documented in our Privacy Policy and Terms of Service. It applies to every user, every time.</p>
                             <div className="flex gap-4 text-sm font-medium">
                               <Link to="/privacy-policy" className="text-pine-600 hover:text-pine-700 transition-colors underline">Read our Privacy Policy</Link>
                               <Link to="/terms-of-service" className="text-pine-600 hover:text-pine-700 transition-colors underline">Read our Terms of Service</Link>

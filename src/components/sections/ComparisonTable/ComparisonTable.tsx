@@ -16,19 +16,17 @@ function StatusIcon({ value }: { value: boolean | null }) {
   return                      <Minus  className="w-4 h-4 text-amber-400" />;
 }
 
-export const WhatWeAreNot = () => {
+/* Comparison against the software doctors and clinic owners already know.
+   Lives on the audience pages, where "EMR / HIS" means something. */
+export const ComparisonTable = ({ heading = "How FettleMed compares" }: { heading?: string }) => {
   return (
     <section className="py-12 md:py-16 bg-surface-50 border-t border-stone-100 overflow-hidden">
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto px-6 max-w-4xl">
         <FadeIn>
-          <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-pine-900 mb-4">
-              Not another EMR. Not another health app.{" "}
-              <span className="text-pine-600">The layer that connects them.</span>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-pine-900 text-balance">
+              {heading}
             </h2>
-            <p className="text-lg text-dim-2 max-w-2xl mx-auto font-medium">
-              FettleMed is the shared layer between patient, doctor, and clinic. A prescription written in the room appears on the patient's phone before they leave the building.
-            </p>
           </div>
         </FadeIn>
 

@@ -1,6 +1,6 @@
 import { FAQ } from '@/components/common/FAQ';
 import { SEO } from '@/components/common/SEO';
-import { FadeIn } from "@/components/common/FadeIn";
+import { ComparisonTable } from "@/components/sections/ComparisonTable";
 import { DoctorHero } from "@/components/sections/DoctorPortal/DoctorHero";
 import { DoctorProblem } from "@/components/sections/DoctorPortal/DoctorProblem";
 import { DoctorDayOne } from "@/components/sections/DoctorPortal/DoctorDayOne";
@@ -19,7 +19,7 @@ const faqSections = [
       },
       {
         "question": "Do I need to buy any new hardware or equipment?",
-        "answer": "No. FettleMed works on the devices you already own — your phone, tablet, or laptop. No special equipment required."
+        "answer": "No. FettleMed works on the devices you already own - your phone, tablet, or laptop. No special equipment required."
       },
       {
         "question": "Can I use it on my existing phone or laptop?",
@@ -39,7 +39,7 @@ const faqSections = [
         "answer": "No. You do not need to migrate historical records to get started. FettleMed begins building a digital record from the first consultation you conduct on the platform. Over time, as patients use the app to upload their older records, their history becomes richer automatically."
       },
       {
-        "question": "What happens to my patients who are not on FettleMed — can I still create records for them?",
+        "question": "What happens to my patients who are not on FettleMed - can I still create records for them?",
         "answer": "Yes. You can create consultation records and e-prescriptions for any patient regardless of whether they use the FettleMed patient app. When they join the app later, their records will be available to them."
       },
       {
@@ -51,7 +51,7 @@ const faqSections = [
         "answer": "No. FettleMed is built to fit into your existing consultation routine, not replace it. You continue seeing patients the way you always have. The difference is that the documentation happens faster and the records are immediately available digitally."
       },
       {
-        "question": "What if I try it and decide it is not for me — what happens to my data?",
+        "question": "What if I try it and decide it is not for me - what happens to my data?",
         "answer": "Your data belongs to you. If you decide to leave FettleMed, we will give you a complete export of all records you created on the platform. Nothing is locked in."
       }
     ]
@@ -61,7 +61,7 @@ const faqSections = [
     items: [
       {
         "question": "How does the patient history dashboard work?",
-        "answer": "When you open a patient's file before a consultation, FettleMed shows you a consolidated view of their history — past diagnoses, prescriptions, and lab results — without you having to search for anything. If the patient has consented to share their full health profile, you see records from other doctors too."
+        "answer": "When you open a patient's file before a consultation, FettleMed shows you a consolidated view of their history - past diagnoses, prescriptions, and lab results - without you having to search for anything. If the patient has consented to share their full health profile, you see records from other doctors too."
       },
       {
         "question": "Can I create prescriptions in regional languages?",
@@ -69,7 +69,7 @@ const faqSections = [
       },
       {
         "question": "Can I access my records from outside the clinic?",
-        "answer": "Yes. Because FettleMed is cloud-based, you can access all your records securely from anywhere — your home, another clinic, or while travelling — as long as you have an internet connection."
+        "answer": "Yes. Because FettleMed is cloud-based, you can access all your records securely from anywhere - your home, another clinic, or while travelling - as long as you have an internet connection."
       },
       {
         "question": "What happens to consultation records if a patient revokes their consent after a visit?",
@@ -115,7 +115,7 @@ const faqSections = [
       },
       {
         "question": "How is this different from other software I have heard of?",
-        "answer": "Most existing platforms are either doctor-side tools or patient-facing apps. FettleMed connects both. The patient owns a live copy of every record created during their consultations. Consent is granular — the patient controls who sees their data, for how long, and can revoke access at any time. This level of patient data ownership is not a feature of existing Indian HMS platforms."
+        "answer": "Most existing platforms are either doctor-side tools or patient-facing apps. FettleMed connects both. The patient owns a live copy of every record created during their consultations. Consent is granular - the patient controls who sees their data, for how long, and can revoke access at any time. This level of patient data ownership is not a feature of existing Indian HMS platforms."
       },
       {
         "question": "Do my patients need to download an app for this to work?",
@@ -123,7 +123,7 @@ const faqSections = [
       },
       {
         "question": "What is ABDM and do I need to worry about it?",
-        "answer": "ABDM is the Ayushman Bharat Digital Mission, a government initiative to create a national digital health infrastructure. As a doctor, you do not need to do anything about ABDM today. FettleMed is building toward ABDM compliance and will handle the technical integration on your behalf when the time comes."
+        "answer": "ABDM is the Ayushman Bharat Digital Mission, a government initiative to create a national digital health infrastructure. As a doctor, you do not need to do anything about ABDM today. FettleMed is building toward ABDM alignment and will handle the technical integration on your behalf when the time comes."
       },
       {
         "question": "Is this built by people who understand how Indian clinics actually work?",
@@ -142,14 +142,12 @@ export default function DoctorPortal() {
         <DoctorProblem />
         <DoctorDayOne />
         <DoctorConsent />
+        <ComparisonTable heading="How FettleMed compares to the software you know" />
         <DoctorSwitching />
         <DoctorWhoWeAre />
         <DoctorPilot />
 
         <div className="container mx-auto px-4 lg:px-8 py-8 md:py-12 max-w-4xl">
-           <FadeIn className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Frequently asked questions</h2>
-           </FadeIn>
            <FAQ sections={faqSections} />
         </div>
       </div>

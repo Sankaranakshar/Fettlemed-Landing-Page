@@ -8,9 +8,10 @@ type View = typeof views[number];
 export function ClinicShuffleMockup() {
   const [active, setActive] = useState<View>("Appointments");
   const [hovered, setHovered] = useState(false);
+  const [userPaused, setUserPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { amount: 0.3 });
-  const paused = hovered || !isInView;
+  const paused = hovered || userPaused || !isInView;
 
   useEffect(() => {
     if (paused) return;
@@ -19,7 +20,7 @@ export function ClinicShuffleMockup() {
         const i = views.indexOf(v);
         return views[(i + 1) % views.length];
       });
-    }, 3200);
+    }, 7000);
     return () => clearInterval(id);
   }, [paused]);
 
@@ -36,7 +37,7 @@ export function ClinicShuffleMockup() {
           <span className="w-3 h-3 rounded-full bg-red-400" />
           <span className="w-3 h-3 rounded-full bg-amber-400" />
           <span className="w-3 h-3 rounded-full bg-green-400" />
-          <span className="mx-auto text-xs font-medium text-stone-400">Clinic Dashboard — Fettlemed</span>
+          <span className="mx-auto text-xs font-medium text-stone-400">Clinic Dashboard - FettleMed</span>
         </div>
 
         {/* Sidebar + main layout */}
@@ -48,7 +49,7 @@ export function ClinicShuffleMockup() {
               return (
                 <button
                   key={v}
-                  onClick={() => { setActive(v); setHovered(true); }}
+                  onClick={() => { setActive(v); setUserPaused(true); }}
                   className={`flex items-center gap-2 px-4 py-2.5 text-xs font-medium transition-[background-color,color] duration-150 ease-out text-left ${
                     active === v ? "bg-pine-900 text-white" : "text-stone-500 hover:bg-stone-200 hover:text-stone-700"
                   }`}
@@ -71,7 +72,7 @@ export function ClinicShuffleMockup() {
             <AnimatePresence mode="wait">
               {active === "Appointments" && (
                 <motion.div key="appts" initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} transition={{ duration: 0.25 }} className="space-y-2">
-                  <p className="text-[10px] font-medium text-stone-400 uppercase tracking-wider mb-3">Today — Tuesday 13 May</p>
+                  <p className="text-[10px] font-medium text-stone-400 uppercase tracking-wider mb-3">Today - Tuesday 13 May</p>
                   {[
                     { name: "Priya Venkat", time: "9:00 AM", status: "Completed", color: "green" },
                     { name: "Rajan S.", time: "9:30 AM", status: "In Consultation", color: "pine" },

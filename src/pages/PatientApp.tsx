@@ -21,7 +21,7 @@ const faqSections = [
       },
       {
         "question": "Does my doctor need to be on FettleMed for me to use the app?",
-        "answer": "No. You can start using the app independently — upload your existing prescriptions, lab reports, and medical records yourself and build your health profile straight away. When your doctor joins FettleMed, new records will sync to your profile automatically."
+        "answer": "No. You can start using the app independently - upload your existing prescriptions, lab reports, and medical records yourself and build your health profile straight away. When your doctor joins FettleMed, new records will sync to your profile automatically."
       },
       {
         "question": "Does it work in Hindi, Tamil, Telugu, or other Indian languages?",
@@ -29,7 +29,7 @@ const faqSections = [
       },
       {
         "question": "Do I need a smartphone?",
-        "answer": "Yes. FettleMed currently requires a smartphone running Android or iOS. It does not require a high-end device — any modern smartphone will work."
+        "answer": "Yes. FettleMed currently requires a smartphone running Android or iOS. It does not require a high-end device - any modern smartphone will work."
       }
     ]
   },
@@ -38,7 +38,7 @@ const faqSections = [
     items: [
       {
         "question": "Where are my records stored?",
-        "answer": "Your records are stored securely on FettleMed's infrastructure with the primary data centre in India — not just on your phone. This means you can access them from any device at any time and never lose them if your phone is damaged or lost."
+        "answer": "Your records are stored securely on FettleMed's infrastructure with the primary data centre in India - not just on your phone. This means you can access them from any device at any time and never lose them if your phone is damaged or lost."
       },
       {
         "question": "What types of records can I store?",
@@ -147,13 +147,10 @@ export default function PatientApp() {
         <PatientCTA />
 
         <div className="container mx-auto px-4 lg:px-8 py-8 md:py-12 max-w-4xl">
-           <FadeIn className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Frequently asked questions</h2>
-           </FadeIn>
            <FAQ sections={faqSections} />
         </div>
 
-        {/* Bottom crosslinks — segmented cards to demarcate patient vs clinical environments */}
+        {/* Bottom crosslinks - segmented cards to demarcate patient vs clinical environments */}
         <section className="py-10 bg-pine-900 text-center">
           <FadeIn>
             <div className="container mx-auto px-6 max-w-2xl">

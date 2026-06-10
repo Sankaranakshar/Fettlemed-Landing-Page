@@ -20,7 +20,7 @@ export function DoctorHero() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-pine-900 leading-[1.05] mb-5 tracking-tight text-balance">
                 More clinical thinking, <span className="text-dim">less paperwork.</span>
               </h1>
-              <p className="text-xl text-dim mb-8 font-medium leading-relaxed max-w-2xl text-balance">
+              <p className="text-xl text-dim mb-8 leading-relaxed max-w-2xl text-balance">
                 Built for the GP seeing 40 patients a day, not for the hospital with an IT department.
               </p>
               <div className="flex flex-col items-center lg:items-start gap-3">

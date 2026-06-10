@@ -156,7 +156,7 @@ function ClinicPanel() {
     const timers = [
       setTimeout(() => setShowCheckin(true),         150),
       setTimeout(() => setShowVitals(true),           350),
-      // files start after vitals finish (~1130ms) — give a small buffer
+      // files start after vitals finish (~1130ms) - give a small buffer
       setTimeout(() => setFile1Status("uploading"), 1300),
       setTimeout(() => setFile1Status("done"),      2100),
       setTimeout(() => setFile2Status("uploading"), 2300),
@@ -270,7 +270,7 @@ function ClinicPanel() {
 // ---------------------------------------------------------------------------
 
 const NOTE_TEXT =
-  "BP 138/88 — review in 4 weeks. CBC within range. Continue current dosage.";
+  "BP 138/88 - review in 4 weeks. CBC within range. Continue current dosage.";
 const NOTE_CHARS = NOTE_TEXT.length; // 69 chars × 22ms ≈ 1518ms → done ~2218ms from mount
 // Prescription starts at ~2350ms
 const PRESCRIPTION_TEXT = "Amlodipine 5mg · once daily";
@@ -282,7 +282,7 @@ function DoctorPanel() {
   const [showSendBtn, setShowSendBtn] = useState(false);
   const [sent, setSent] = useState(false);
 
-  // Typewriter for the note — starts at 700ms from mount
+  // Typewriter for the note - starts at 700ms from mount
   const noteText = useTypewriter(NOTE_TEXT, 700, 22);
   const noteDone = noteText.length >= NOTE_CHARS;
   const prescriptionDone = prescriptionText.length >= PRESCRIPTION_TEXT.length;
@@ -319,7 +319,7 @@ function DoctorPanel() {
 
   return (
     <div className="pt-2 space-y-2.5 min-h-[260px] sm:min-h-[300px] md:min-h-[360px]">
-      {/* Patient context card — visible immediately */}
+      {/* Patient context card - visible immediately */}
       <div className="bg-stone-50 border border-stone-200 rounded-xl p-2.5 space-y-2">
 
         {/* Name + conditions */}
@@ -398,7 +398,7 @@ function DoctorPanel() {
                 Consultation note
               </p>
             </div>
-            <p className="text-xs text-stone-700 font-medium leading-relaxed min-h-[2.5rem]">
+            <p className="text-xs text-stone-700 leading-relaxed min-h-[2.5rem]">
               {noteText}
               <BlinkingCursor visible={!noteDone} />
             </p>
@@ -485,7 +485,7 @@ function PatientPanel() {
           <div className="bg-white rounded-[1rem] overflow-hidden" style={{ height: 220 }}>
             {/* Phone status bar */}
             <div className="bg-pine-900 px-2 py-1.5 text-center">
-              <p className="text-white text-[8px] font-medium tracking-wide">Fettlemed</p>
+              <p className="text-white text-[8px] font-medium tracking-wide">FettleMed</p>
             </div>
 
             <div className="relative overflow-hidden flex-1" style={{ height: 184 }}>
@@ -598,20 +598,23 @@ function PatientPanel() {
 }
 
 // ---------------------------------------------------------------------------
-// HomeFlowMockup — main export
+// HomeFlowMockup - main export
 // ---------------------------------------------------------------------------
 
 export function HomeFlowMockup() {
+  const CYCLE_MS = 8000;
   const [active, setActive] = useState<Tab>("Clinic");
   const [hovered, setHovered] = useState(false);
+  // Manual interaction pauses the auto-rotation permanently
+  const [userPaused, setUserPaused] = useState(false);
   // tabKey increments on each tab switch so panels fully remount (fresh state + animation reset)
   const [tabKey, setTabKey] = useState(0);
   const prevActive = useRef<Tab>(active);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { amount: 0.3 });
 
-  // Paused when hovered OR scrolled out of view
-  const paused = hovered || !isInView;
+  // Paused when hovered, manually driven, or scrolled out of view
+  const paused = hovered || userPaused || !isInView;
 
   function switchTab(t: Tab) {
     if (t !== prevActive.current) {
@@ -630,7 +633,7 @@ export function HomeFlowMockup() {
         setTabKey((k) => k + 1);
         return next;
       });
-    }, 4000);
+    }, CYCLE_MS);
     return () => clearInterval(id);
   }, [paused]);
 
@@ -660,9 +663,9 @@ export function HomeFlowMockup() {
               key={t}
               onClick={() => {
                 switchTab(t);
-                setHovered(true);
+                setUserPaused(true);
               }}
-              className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-medium transition-[background-color,color,box-shadow] duration-150 ease-out ${
+              className={`relative overflow-hidden flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-medium transition-[background-color,color,box-shadow] duration-150 ease-out ${
                 active === t
                   ? "bg-pine-900 text-white shadow-sm"
                   : "bg-stone-100 text-stone-500 hover:bg-stone-200"
@@ -672,6 +675,16 @@ export function HomeFlowMockup() {
               {t === "Doctor" && <Stethoscope className="w-3 h-3" />}
               {t === "Everyone" && <Smartphone className="w-3 h-3" />}
               {t}
+              {/* Progress toward the next tab - fills over the cycle */}
+              {active === t && !paused && (
+                <motion.span
+                  key={`progress-${t}-${tabKey}`}
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: CYCLE_MS / 1000, ease: "linear" }}
+                  className="absolute bottom-0 left-0 h-[2px] bg-pine-300/80 pointer-events-none"
+                />
+              )}
             </button>
           ))}
         </div>
@@ -723,7 +736,7 @@ export function HomeFlowMockup() {
             key={t}
             onClick={() => {
               switchTab(t);
-              setHovered(true);
+              setUserPaused(true);
             }}
             className="h-8 w-8 flex items-center justify-center"
             aria-label={`Switch to ${t}`}

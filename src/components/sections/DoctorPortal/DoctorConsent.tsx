@@ -45,7 +45,7 @@ export function DoctorConsent() {
           <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">
             Who owns what.
           </h2>
-          <p className="text-dim text-base font-medium leading-relaxed mt-3 max-w-2xl">
+          <p className="text-dim text-base leading-relaxed mt-3 max-w-2xl">
             You keep everything you create. Patients control what they share beyond that. Every access is visible to both of you.
           </p>
         </FadeIn>

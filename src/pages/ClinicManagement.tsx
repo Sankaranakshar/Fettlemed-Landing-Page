@@ -1,10 +1,9 @@
 import { FAQ } from '@/components/common/FAQ';
 import { SEO } from '@/components/common/SEO';
-import { FadeIn } from "@/components/common/FadeIn";
+import { ComparisonTable } from "@/components/sections/ComparisonTable";
 import { ClinicHero } from "@/components/sections/ClinicManagement/ClinicHero";
 import { ClinicProblem } from "@/components/sections/ClinicManagement/ClinicProblem";
 import { ClinicFeatures } from "@/components/sections/ClinicManagement/ClinicFeatures";
-import { ClinicFrontDesk } from "@/components/sections/ClinicManagement/ClinicFrontDesk";
 import { ClinicOwnerView } from "@/components/sections/ClinicManagement/ClinicOwnerView";
 import { ClinicConnectedLayer } from "@/components/sections/ClinicManagement/ClinicConnectedLayer";
 import { ClinicSwitching } from "@/components/sections/ClinicManagement/ClinicSwitching";
@@ -46,10 +45,10 @@ const faqSections = [
       },
       {
         "question": "Can I manage multiple doctors under one clinic account?",
-        "answer": "Yes. The clinic owner has a single dashboard with visibility across all doctors in the clinic — appointments, patient flow, and records."
+        "answer": "Yes. The clinic owner has a single dashboard with visibility across all doctors in the clinic - appointments, patient flow, and records."
       },
       {
-        "question": "Can I see a real-time view of the clinic — how many patients are waiting, who is in consultation?",
+        "question": "Can I see a real-time view of the clinic - how many patients are waiting, who is in consultation?",
         "answer": "Yes. The clinic dashboard gives you a live view of patient flow so the front desk can manage queues without confusion."
       },
       {
@@ -67,7 +66,7 @@ const faqSections = [
       },
       {
         "question": "Can it generate billing reports automatically?",
-        "answer": "Yes. The clinic owner dashboard includes financial reports — daily collections, billing by doctor, and monthly summaries — without any manual input."
+        "answer": "Yes. The clinic owner dashboard includes financial reports - daily collections, billing by doctor, and monthly summaries - without any manual input."
       },
       {
         "question": "Can it connect with payment systems we already use?",
@@ -104,15 +103,15 @@ const faqSections = [
         "answer": "No. Staff access is controlled by role. Front desk staff see registration and appointment information only. Clinical records are visible only to doctors. A patient's records from other clinics are visible only with that patient's explicit consent."
       },
       {
-        "question": "Who is responsible for data security — FettleMed or the clinic?",
-        "answer": "FettleMed is responsible for the security of the platform and the infrastructure. The clinic is responsible for ensuring that staff access is managed correctly — for example, not sharing login credentials. We make this easy through role-based access controls."
+        "question": "Who is responsible for data security - FettleMed or the clinic?",
+        "answer": "FettleMed is responsible for the security of the platform and the infrastructure. The clinic is responsible for ensuring that staff access is managed correctly - for example, not sharing login credentials. We make this easy through role-based access controls."
       },
       {
         "question": "What happens if there is a data breach?",
         "answer": "We have procedures in place for breach detection and response in line with DPDPA 2023 requirements. Affected patients and the relevant authorities would be notified promptly. We take this obligation seriously."
       },
       {
-        "question": "Is patient data shared with any third party — labs, insurers, or the government?",
+        "question": "Is patient data shared with any third party - labs, insurers, or the government?",
         "answer": "No. Patient data is never sold or shared with any third party for commercial purposes. It is never shared with insurers or employers. Any sharing with labs or diagnostic partners happens only with the patient's explicit consent. Government access requires either explicit patient consent or a lawful order from the relevant authority."
       }
     ]
@@ -128,16 +127,13 @@ export default function ClinicManagement() {
         <ClinicProblem />
         <ClinicFeatures />
         <ClinicConnectedLayer />
-        <ClinicFrontDesk />
         <ClinicOwnerView />
+        <ComparisonTable heading="How FettleMed compares to the software you know" />
         <ClinicSwitching />
         <ClinicWhoWeAre />
         <ClinicPilot />
 
         <div className="container mx-auto px-4 lg:px-8 py-8 md:py-12 max-w-4xl">
-           <FadeIn className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Frequently asked questions</h2>
-           </FadeIn>
            <FAQ sections={faqSections} />
         </div>
       </div>

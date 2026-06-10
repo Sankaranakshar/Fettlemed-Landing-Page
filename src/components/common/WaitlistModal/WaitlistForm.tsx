@@ -14,7 +14,7 @@ const schema = z.object({
   name:     z.string().min(2, "Name must be at least 2 characters"),
   email:    z.string().email("Please enter a valid email address"),
   phone:    z.string().optional(),
-  context:  z.string().optional(), // city / specialty / clinic name — label changes per role
+  context:  z.string().optional(), // city / specialty / clinic name - label changes per role
   comments: z.string().optional(),
 });
 
@@ -177,7 +177,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
     try {
       await fetch(FORM_URL, { method: "POST", mode: "no-cors", body: data });
     } catch {
-      // no-cors responses are opaque — fetch only throws here on genuine
+      // no-cors responses are opaque - fetch only throws here on genuine
       // network failure (offline, DNS, firewall), not on server errors.
       networkError = true;
     }
@@ -198,7 +198,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
         <h2 className="text-2xl font-medium text-pine-900 mb-3 tracking-tight">
           You're on the list.
         </h2>
-        <p className="text-dim leading-relaxed font-medium max-w-sm">
+        <p className="text-dim leading-relaxed max-w-sm">
           Thank you for your interest in FettleMed. We will be in touch shortly with next steps.
         </p>
       </div>
@@ -278,7 +278,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
       />
 
       {/* Consent notice */}
-      <p className="text-xs text-dim font-medium leading-relaxed">
+      <p className="text-xs text-dim leading-relaxed">
         By submitting, you agree to our{' '}
         <Link to="/terms-of-service" className="underline hover:text-pine-600 transition-colors">Terms of Service</Link>
         {' '}and{' '}
@@ -302,7 +302,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
         className="relative w-full h-14 text-lg bg-pine-900 hover:bg-pine-800 text-white rounded-xl shadow-lg font-medium disabled:opacity-70 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
       >
         <span className={`transition-opacity duration-150 ${isSubmitting ? "opacity-0" : "opacity-100"}`}>
-          Request Access
+          Join the Waitlist
         </span>
         {isSubmitting && (
           <span className="absolute inset-0 flex items-center justify-center">

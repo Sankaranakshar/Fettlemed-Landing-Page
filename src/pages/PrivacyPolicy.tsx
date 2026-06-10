@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
               NamNalam Health Tech Private Limited (trading as FettleMed) ("we," "us," "our," or "FettleMed") is committed to building India's digital health backbone while placing your health data ownership at the absolute center of everything we do. This Privacy Policy explains how we collect, use, disclose, and otherwise process your personal and health information in connection with our integrated digital health platform, including our Patient App, Doctor Clinical Portal, Clinic Management System, and related services (collectively, the "Services").
             </p>
             <p>
-              Our core principle is <strong>Patient Data Sovereignty</strong>. You own your health data, and we are committed to transparency, trust, and security in how we handle it. We believe that empowering patients with complete control over their health information is not just ethically right—it is essential to building a more equitable and efficient healthcare ecosystem in India. Please read this Policy carefully to understand our privacy practices and your rights.
+              Our core principle is <strong>Patient Data Sovereignty</strong>. You own your health data, and we are committed to transparency, trust, and security in how we handle it. We believe that empowering patients with complete control over their health information is not just ethically right-it is essential to building a more equitable and efficient healthcare ecosystem in India. Please read this Policy carefully to understand our privacy practices and your rights.
             </p>
 
             {/* Section 2 */}
@@ -119,7 +119,7 @@ export default function PrivacyPolicy() {
             </ul>
 
             <div className="bg-pine-50 border-l-4 border-pine-500 p-6 rounded-r-xl my-8">
-              <p className="text-pine-900 font-medium m-0 italic">Your personal health data is never sold — not to insurers, pharmaceutical companies, employers, or any other third party. Anonymised, aggregated usage data may be used to improve our services and may inform product analytics. No personally identifiable health information is ever included in such analysis.</p>
+              <p className="text-pine-900 font-medium m-0 italic">Your personal health data is never sold - not to insurers, pharmaceutical companies, employers, or any other third party. Anonymised, aggregated usage data may be used to improve our services and may inform product analytics. No personally identifiable health information is ever included in such analysis.</p>
             </div>
 
             {/* Section 5 */}
@@ -146,7 +146,7 @@ export default function PrivacyPolicy() {
 
             {/* Section 6 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">6. Your Consent and Control: The Heart of Our Privacy Model</h2>
-            <p>Patient Data Sovereignty is not just a concept at FettleMed—it is operational reality embedded in our platform architecture. You maintain granular, auditable control over your health information at all times.</p>
+            <p>Patient Data Sovereignty is not just a concept at FettleMed-it is operational reality embedded in our platform architecture. You maintain granular, auditable control over your health information at all times.</p>
             
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">6.1 Granular Consent Management</h3>
             <ul className="list-disc list-inside space-y-1">

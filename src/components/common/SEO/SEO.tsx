@@ -14,9 +14,11 @@ export function SEO({
   description,
   name = "FettleMed",
   type = "website",
-  image = "/brand/lockup.svg"
+  image = "/og.png"
 }: SEOProps) {
   const { pathname } = useLocation();
+  // Social scrapers need an absolute URL and a raster format
+  const imageUrl = image.startsWith("http") ? image : `https://fettlemed.com${image}`;
   const isHome = title === 'Home';
   const fullTitle = isHome
     ? `${name}: Your Complete Health Record`
@@ -49,7 +51,7 @@ export function SEO({
       <meta property="og:type" content={type} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={imageUrl} />
       <meta property="og:url" content={`https://fettlemed.com${pathname}`} />
       
       {/* Twitter tags */}
@@ -57,7 +59,7 @@ export function SEO({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={imageUrl} />
 
       {/* Structured Data */}
       <script type="application/ld+json">

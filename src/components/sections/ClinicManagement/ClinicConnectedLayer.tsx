@@ -1,6 +1,7 @@
 import React from 'react';
 import { FileText, Upload, User } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
+import { VisualOnView, LabDiagnosticsVisual } from "@/components/sections/RoleVisuals";
 
 const scenarios = [
   {
@@ -16,7 +17,7 @@ const scenarios = [
   {
     icon: User,
     heading: "Returning FettleMed patient. Registration in seconds.",
-    body: "Diagnoses, meds, allergies — available with consent before the consultation begins.",
+    body: "Diagnoses, meds, allergies - available with consent before the consultation begins.",
   },
 ];
 
@@ -28,7 +29,7 @@ export function ClinicConnectedLayer() {
              <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">Not a digital filing cabinet. A connected layer.</h2>
           </FadeIn>
           <FadeIn className="text-center mb-10">
-             <p className="text-lg text-dim font-medium leading-relaxed max-w-2xl mx-auto">A live layer between clinic, doctors, and patients. In practice:</p>
+             <p className="text-lg text-dim leading-relaxed max-w-2xl mx-auto">A live layer between clinic, doctors, and patients. In practice:</p>
           </FadeIn>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -39,11 +40,22 @@ export function ClinicConnectedLayer() {
                    </div>
                    <div>
                       <p className="text-pine-900 text-base font-semibold mb-3 leading-snug">{heading}</p>
-                      <p className="text-dim-2 text-base font-medium leading-relaxed">{body}</p>
+                      <p className="text-dim-2 text-base leading-relaxed">{body}</p>
                    </div>
                 </FadeIn>
              ))}
           </div>
+
+          {/* Lab flow, shown rather than described */}
+          <FadeIn delay={0.2} className="mt-8 bg-white border border-stone-100 rounded-3xl shadow-sm p-8 flex flex-col md:flex-row items-center gap-8">
+             <div className="flex-1 text-center md:text-left">
+                <p className="text-pine-900 text-lg font-medium mb-2 tracking-tight">A test ordered in the morning is a result on two screens by evening.</p>
+                <p className="text-dim-2 text-base leading-relaxed">Lab results flow to the patient and the doctor automatically, linked to the consultation note.</p>
+             </div>
+             <VisualOnView className="shrink-0 w-full md:w-auto flex justify-center">
+                <LabDiagnosticsVisual />
+             </VisualOnView>
+          </FadeIn>
        </div>
     </section>
   );

@@ -12,13 +12,13 @@ export function PatientProblem() {
           </FadeIn>
 
           <div className="grid md:grid-cols-2 gap-6">
-             {/* Card One — Memory Burden */}
+             {/* Card One - Memory Burden */}
              <FadeIn delay={0.1} className="bg-pine-800/50 border border-pine-700/60 rounded-3xl p-8 lg:p-10 flex flex-col ">
                 <div className="w-14 h-14 bg-pine-700/60 border border-pine-600 rounded-2xl flex items-center justify-center mb-6 shrink-0">
                    <FolderSync className="w-7 h-7 text-pine-300" />
                 </div>
                 <h3 className="text-2xl font-medium text-white mb-4 tracking-tight">You can't remember everything</h3>
-                <p className="text-pine-50 text-base font-medium leading-relaxed mb-6 flex-1">Reports pile up in folders, in WhatsApp forwards, in the memory of whoever tracks these things. Something always goes missing.</p>
+                <p className="text-pine-50 text-base leading-relaxed mb-6 flex-1">Reports pile up in folders, in WhatsApp forwards, in the memory of whoever tracks these things. Something always goes missing.</p>
                 <ul className="space-y-2.5">
                    <li className="flex items-center gap-3 text-pine-50 font-medium text-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-pine-400 shrink-0" />
@@ -39,13 +39,13 @@ export function PatientProblem() {
                 </ul>
              </FadeIn>
 
-             {/* Card Two — Comprehension Gap */}
+             {/* Card Two - Comprehension Gap */}
              <FadeIn delay={0.2} className="bg-pine-800/50 border border-pine-700/60 rounded-3xl p-8 lg:p-10 flex flex-col ">
                 <div className="w-14 h-14 bg-pine-700/60 border border-pine-600 rounded-2xl flex items-center justify-center mb-6 shrink-0">
                    <EyeOff className="w-7 h-7 text-pine-300" />
                 </div>
-                <h3 className="text-2xl font-medium text-white mb-4 tracking-tight">The report means nothing to you.</h3>
-                <p className="text-pine-50 text-base font-medium leading-relaxed mb-6 flex-1">Haemoglobin 10.2 g/dL. Normal? Worrying? Nobody had time to say.</p>
+                <h3 className="text-2xl font-medium text-white mb-4 tracking-tight">The report is hard to act on.</h3>
+                <p className="text-pine-50 text-base leading-relaxed mb-6 flex-1">Haemoglobin 10.2 g/dL. Normal? Worrying? Without your earlier results next to it, even your doctor is guessing from memory.</p>
                 <ul className="space-y-2.5">
                    <li className="flex items-center gap-3 text-pine-50 font-medium text-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-pine-400 shrink-0" />

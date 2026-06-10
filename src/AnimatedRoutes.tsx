@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 
-// Home is eagerly imported — it's the entry page and must not show a spinner
+// Home is eagerly imported - it's the entry page and must not show a spinner
 import Home from "./pages/Home";
 const ClinicManagement = React.lazy(() => import("./pages/ClinicManagement"));
 const DoctorPortal = React.lazy(() => import("./pages/DoctorPortal"));

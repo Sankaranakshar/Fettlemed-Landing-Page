@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { ShieldCheck, FolderSync, EyeOff, Server, Lock } from "lucide-react";
+import { FolderSync, EyeOff, Server, Lock } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
+import { VisualOnView, ConsentVisual } from "@/components/sections/RoleVisuals";
 
 export function PatientDataRules() {
   return (
@@ -14,11 +15,16 @@ export function PatientDataRules() {
         {/* Bento grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-          {/* Hero card — Built around patient consent */}
-          <FadeIn delay={0.1} className="md:col-span-2 bg-pine-900 rounded-2xl p-6 flex flex-col">
-            <Lock className="w-6 h-6 text-pine-400 mb-4" />
-            <p className="text-2xl font-medium text-white tracking-tight leading-tight mb-2">Built around patient consent.</p>
-            <p className="text-pine-400 font-medium text-sm leading-relaxed mt-auto">Never sold. Never advertised. Shared only with who you authorise.</p>
+          {/* Hero card - Built around patient consent */}
+          <FadeIn delay={0.1} className="md:col-span-2 bg-pine-900 rounded-2xl p-6 flex flex-col md:flex-row md:items-center gap-6">
+            <div className="flex flex-col flex-1">
+              <Lock className="w-6 h-6 text-pine-400 mb-4" />
+              <p className="text-2xl font-medium text-white tracking-tight leading-tight mb-2">Built around patient consent.</p>
+              <p className="text-pine-400 font-medium text-sm leading-relaxed mt-auto">Never sold. Never advertised. Shared only with who you authorise.</p>
+            </div>
+            <VisualOnView className="shrink-0 w-full md:w-[260px] flex justify-center">
+              <ConsentVisual />
+            </VisualOnView>
           </FadeIn>
 
           {/* 2 taps / 1 tap */}

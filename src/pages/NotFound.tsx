@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { SEO } from "@/components/common/SEO";
 import { Button } from "@/components/common/Button";
 import { FadeIn } from "@/components/common/FadeIn";
-import { Home, Stethoscope, Search } from "lucide-react";
+import { Home, Smartphone, Search } from "lucide-react";
 
 export default function NotFound() {
   return (
@@ -18,9 +18,8 @@ export default function NotFound() {
           <h2 className="text-2xl font-medium text-ink mb-6 px-4">
             Oops! This page has gone off the grid.
           </h2>
-          <p className="text-dim max-w-md mx-auto mb-10 leading-relaxed font-medium">
-            It seems we couldn't find the record you were looking for. 
-            Don't worry, your own health records are safe!
+          <p className="text-dim max-w-md mx-auto mb-10 leading-relaxed">
+            Nothing here. Your records, however, are exactly where they should be.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/" className="w-full sm:w-auto">
@@ -30,7 +29,7 @@ export default function NotFound() {
             </Link>
             <Link to="/patient-app" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto h-14 px-8 rounded-xl border-pine-100 text-dim hover:text-pine-900 font-medium flex items-center gap-2">
-                <Stethoscope className="w-5 h-5" /> Patient App
+                <Smartphone className="w-5 h-5" /> Patient App
               </Button>
             </Link>
           </div>
