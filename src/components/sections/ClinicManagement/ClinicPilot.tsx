@@ -16,7 +16,7 @@ export function ClinicPilot() {
                 First clinics shape the product. Not just use it.
              </h2>
 
-             <div className="text-lg text-pine-100 font-medium leading-relaxed text-left md:text-center mb-10 max-w-2xl mx-auto">
+             <div className="text-lg text-pine-100 leading-relaxed text-left md:text-center mb-10 max-w-2xl mx-auto">
                 <p className="mb-6">You call us. We come. We don't leave until your clinic is running.</p>
                 <ul className="space-y-3 text-left max-w-sm mx-auto">
                    <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Hands-on onboarding until you're running.</li>
@@ -28,7 +28,7 @@ export function ClinicPilot() {
              <p className="text-pine-200 text-base font-medium mb-10 max-w-2xl mx-auto">
                 Not sure it fits? Write to{" "}
                 <a href="mailto:hello@fettlemed.com" className="underline hover:text-white transition-colors">hello@fettlemed.com</a>
-                {" "}— a real person replies.
+                {" "}- a real person replies.
              </p>
 
              <div className="flex flex-col items-center gap-3">
@@ -39,9 +39,7 @@ export function ClinicPilot() {
                 <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm font-medium text-pine-300 mt-3">
                    <span>Solo clinics and polyclinics welcome</span>
                    <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-600"></span>
-                   <span>No hardware. No IT team. Setup in one session.</span>
-                   <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-600"></span>
-                   <span>All data exportable in full, nothing locked in</span>
+                   <span>Setup in one session, on your existing devices</span>
                 </div>
 
                 <p className="text-pine-400 text-xs font-medium mt-4">

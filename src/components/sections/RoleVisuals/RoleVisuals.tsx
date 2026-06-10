@@ -1,28 +1,35 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from 'react';
 import {
-  Smartphone, Stethoscope, Building2,
-  ShieldCheck, Activity, Pill, HeartPulse, Users, FileText,
-  CalendarClock, TestTube, CheckCircle2,
-  ArrowUpRight, Wallet, FileCheck2
+  Stethoscope, ShieldCheck, Activity, Pill, HeartPulse, FileText,
+  CalendarClock, TestTube, CheckCircle2, FileCheck2,
 } from "lucide-react";
-import { motion, useAnimate, useReducedMotion } from "motion/react";
-import { FadeIn } from "@/components/common/FadeIn";
+import { motion, useAnimate, useInView, useReducedMotion } from "motion/react";
 
-type Role = 'patient' | 'doctor' | 'clinic';
+/* Mounts its child only once scrolled into view, so a visual's
+   entrance animation plays when the user can actually see it. */
+export function VisualOnView({ children, className }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.4 });
+  return (
+    <div ref={ref} className={className}>
+      {inView && children}
+    </div>
+  );
+}
 
 /* ═══════════════════════════════════════════════
-   VISUAL SUB-COMPONENTS
-   Each one tells the story of its card.
+   ROLE VISUALS
+   Animated product moments, shared between the home
+   ecosystem section and the audience pages.
 ═══════════════════════════════════════════════ */
 
-/* 1 · Health Records — documents fly in from different directions, stack up */
-function HealthRecordsVisual() {
+/* Health Records - documents fly in from different directions, stack up */
+export function HealthRecordsVisual() {
   const rm = useReducedMotion();
   const records = [
     { icon: <FileText className="w-4 h-4" />, label: "CBC Report", sub: "2 days ago", cls: "text-pine-600", bg: "bg-pine-50 border-pine-100", from: { x: -36, y: -8 } },
     { icon: <Pill className="w-4 h-4" />, label: "Amlodipine 5mg", sub: "Active prescription", cls: "text-rose-500", bg: "bg-rose-50 border-rose-100", from: { x: 36, y: -4 } },
-    { icon: <Activity className="w-4 h-4" />, label: "Consultation Note", sub: "Dr. Mehta — 1 week ago", cls: "text-indigo-500", bg: "bg-indigo-50 border-indigo-100", from: { x: -30, y: 4 } },
+    { icon: <Activity className="w-4 h-4" />, label: "Consultation Note", sub: "Dr. Mehta - 1 week ago", cls: "text-indigo-500", bg: "bg-indigo-50 border-indigo-100", from: { x: -30, y: 4 } },
     { icon: <HeartPulse className="w-4 h-4" />, label: "ECG Result", sub: "Last month", cls: "text-pine-500", bg: "bg-pine-50 border-pine-100", from: { x: 30, y: 0 } },
   ];
   return (
@@ -56,8 +63,8 @@ function HealthRecordsVisual() {
   );
 }
 
-/* 2 · Consent Control — request → line draws → shield activates → approval pulse → check */
-function ConsentVisual() {
+/* Consent Control - request → line draws → shield activates → approval pulse → check */
+export function ConsentVisual() {
   const rm = useReducedMotion();
   return (
     <div className="flex flex-col items-center gap-2 w-full max-w-[256px]">
@@ -144,108 +151,17 @@ function ConsentVisual() {
   );
 }
 
-/* 3 · Health Tracking — live BP, pulsing medication reminder, family member */
-function HealthTrackingVisual() {
-  const rm = useReducedMotion();
-  return (
-    <div className="w-full max-w-[240px] flex flex-col gap-2.5">
-      {/* Blood pressure with heartbeat pulse */}
-      <motion.div
-        initial={rm ? { opacity: 0 } : { x: 20, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
-        className="bg-white p-3 rounded-xl shadow-sm border border-stone-100 flex items-center gap-3"
-      >
-        <motion.div
-          animate={rm ? {} : { scale: [1, 1.2, 1] }}
-          transition={{ delay: 0.9, duration: 0.45, times: [0, 0.4, 1] }}
-          className="w-9 h-9 rounded-full bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-500 shrink-0"
-        >
-          <HeartPulse className="w-4 h-4" />
-        </motion.div>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-pine-400 font-medium">Blood Pressure</span>
-            <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.65, type: "spring" }}
-              className="text-[10px] font-medium text-pine-600 bg-pine-50 border border-pine-100 px-1.5 py-0.5 rounded-full"
-            >Normal</motion.span>
-          </div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.85 }}
-            className="text-sm font-semibold text-pine-900"
-          >120 / 80 mmHg</motion.p>
-        </div>
-      </motion.div>
-
-      {/* Medication reminder — sweep highlight + notification dot pulse */}
-      <motion.div
-        initial={rm ? { opacity: 0 } : { x: 20, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
-        className="relative bg-white p-3 rounded-xl shadow-sm border border-pine-100 flex items-center gap-3 overflow-hidden"
-      >
-        <motion.div
-          initial={{ x: '-100%' }}
-          animate={{ x: '260%' }}
-          transition={{ delay: 1.1, duration: 0.5, ease: "easeOut" }}
-          className="absolute inset-0 w-1/4 bg-gradient-to-r from-transparent via-pine-50 to-transparent pointer-events-none"
-        />
-        <div className="relative w-9 h-9 rounded-full bg-pine-50 border border-pine-100 flex items-center justify-center text-pine-600 shrink-0">
-          <Pill className="w-4 h-4" />
-          <motion.span
-            animate={rm ? {} : { scale: [1, 2.2], opacity: [0.6, 0] }}
-            transition={{ delay: 1.35, duration: 0.65, repeat: Infinity, repeatDelay: 2.8 }}
-            className="absolute inset-0 rounded-full bg-rose-300/40"
-          />
-          <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-rose-400 border-2 border-white" />
-        </div>
-        <div className="flex-1 min-w-0 relative z-10">
-          <p className="text-sm font-medium text-pine-900">Vitamin D — 60,000 IU</p>
-          <p className="text-xs text-pine-400">Reminder: 8:00 AM</p>
-        </div>
-      </motion.div>
-
-      {/* Family member */}
-      <motion.div
-        initial={rm ? { opacity: 0 } : { x: 20, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
-        className="bg-white p-3 rounded-xl shadow-sm border border-stone-100 flex items-center gap-3"
-      >
-        <div className="w-9 h-9 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-500 shrink-0">
-          <Users className="w-4 h-4" />
-        </div>
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium text-pine-900">Mom's checkup</p>
-          <p className="text-xs text-pine-400">Due in 3 days</p>
-        </div>
-        <motion.span
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.9, type: "spring", stiffness: 300 }}
-          className="text-[10px] font-medium text-amber-600 bg-amber-50 border border-amber-100 px-2 py-0.5 rounded-full shrink-0"
-        >Soon</motion.span>
-      </motion.div>
-    </div>
-  );
-}
-
-/* 4 · Full History (Doctor) — timeline spine draws, nodes pop in sequentially */
-function FullHistoryVisual() {
+/* Full History (Doctor) - timeline spine draws, nodes pop in sequentially */
+export function FullHistoryVisual() {
   const rm = useReducedMotion();
   const events = [
-    { Icon: CalendarClock, label: "Hypertension", sub: "Diagnosed — Jan 2024", dot: "bg-pine-300" },
-    { Icon: Activity,      label: "BP: 138/88",   sub: "Review — Mar 2024",   dot: "bg-rose-300" },
-    { Icon: TestTube,      label: "CBC Normal",   sub: "Lab result — May 2024", dot: "bg-indigo-300" },
+    { Icon: CalendarClock, label: "Hypertension", sub: "Diagnosed - Jan 2024", dot: "bg-pine-300" },
+    { Icon: Activity,      label: "BP: 138/88",   sub: "Review - Mar 2024",   dot: "bg-rose-300" },
+    { Icon: TestTube,      label: "CBC Normal",   sub: "Lab result - May 2024", dot: "bg-indigo-300" },
   ];
   return (
     <div className="w-full max-w-[280px] flex flex-col gap-3 relative">
-      {/* Timeline spine — draws itself top to bottom */}
+      {/* Timeline spine - draws itself top to bottom */}
       <motion.div
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
@@ -288,7 +204,7 @@ function FullHistoryVisual() {
   );
 }
 
-/* 5a · Doctor Portal — inline sync status row (lives inside the Rx workspace) */
+/* Doctor Portal - inline sync status row (lives inside the Rx workspace) */
 function SyncStatusRow({ onDone }: { onDone: () => void; key?: React.Key }) {
   const [scope, animate] = useAnimate();
   const [showCheck, setShowCheck] = useState(false);
@@ -347,8 +263,8 @@ function SyncStatusRow({ onDone }: { onDone: () => void; key?: React.Key }) {
   );
 }
 
-/* 5b · E-Prescriptions (Doctor) — widescreen Doctor Portal EMR interface */
-function EPrescriptionsVisual() {
+/* E-Prescriptions (Doctor) - widescreen Doctor Portal EMR interface */
+export function EPrescriptionsVisual() {
   const rm = useReducedMotion();
   const [loopKey, setLoopKey] = useState(0);
   const [showPatient, setShowPatient] = useState(rm ? true : false);
@@ -399,9 +315,9 @@ function EPrescriptionsVisual() {
     { label: 'HbA1c', value: '7.2%',  dot: 'bg-amber-400' },
   ];
   const rxItems = [
-    { drug: 'Amlodipine 5mg',  dose: '1 tab — morning',     tag: 'Antihypertensive' },
-    { drug: 'Metformin 500mg', dose: '2 tabs — after meals', tag: 'Antidiabetic'     },
-    { drug: 'Vitamin D3 60K',  dose: '1 cap — weekly',       tag: 'Supplement'       },
+    { drug: 'Amlodipine 5mg',  dose: '1 tab - morning',     tag: 'Antihypertensive' },
+    { drug: 'Metformin 500mg', dose: '2 tabs - after meals', tag: 'Antidiabetic'     },
+    { drug: 'Vitamin D3 60K',  dose: '1 cap - weekly',       tag: 'Supplement'       },
   ];
 
   return (
@@ -538,7 +454,7 @@ function EPrescriptionsVisual() {
                   </motion.div>
                 ))}
 
-                {/* Sync row — inline, not overlaid */}
+                {/* Sync row - inline, not overlaid */}
                 {showBadge && !showSynced && (
                   <SyncStatusRow key={loopKey} onDone={handleSyncDone} />
                 )}
@@ -576,8 +492,8 @@ function EPrescriptionsVisual() {
   );
 }
 
-/* 6 · Audit Trail (Doctor) — entries drop in, timestamps light up, live indicator */
-function AuditTrailVisual() {
+/* Audit Trail (Doctor) - entries drop in, timestamps light up, live indicator */
+export function AuditTrailVisual() {
   const rm = useReducedMotion();
   const entries = [
     { icon: <Stethoscope className="w-3.5 h-3.5" />, label: "You viewed full history",      sub: "Today, 9:15 AM",       cls: "text-pine-300" },
@@ -630,8 +546,8 @@ function AuditTrailVisual() {
   );
 }
 
-/* 7 · Patient Registration (Clinic) — queue builds, status animates through states */
-function PatientRegistrationVisual() {
+/* Patient Registration (Clinic) - queue builds, status animates through states */
+export function PatientRegistrationVisual() {
   const rm = useReducedMotion();
   const [status, setStatus] = useState<'Waiting' | 'Verified' | 'Consulting'>(
     rm ? 'Consulting' : 'Waiting'
@@ -652,7 +568,7 @@ function PatientRegistrationVisual() {
 
   return (
     <div className="flex flex-col gap-2.5 w-full max-w-[260px]">
-      {/* Primary patient — status transitions */}
+      {/* Primary patient - status transitions */}
       <motion.div
         initial={rm ? { opacity: 0 } : { x: -22, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -675,7 +591,7 @@ function PatientRegistrationVisual() {
         >{status}</motion.span>
       </motion.div>
 
-      {/* Queue — slides in, progressively dimmed */}
+      {/* Queue - slides in, progressively dimmed */}
       {([
         { n: '2', name: 'Arjun Singh', token: 'Token #002', delay: 0.28 },
         { n: '3', name: 'Meera R.',    token: 'Token #003', delay: 0.46 },
@@ -701,8 +617,8 @@ function PatientRegistrationVisual() {
   );
 }
 
-/* 8 · Billing & Revenue (Clinic) — counter counts up, bar chart draws */
-function BillingRevenueVisual() {
+/* Billing & Revenue (Clinic) - counter counts up, bar chart draws */
+export function BillingRevenueVisual() {
   const rm = useReducedMotion();
   const TARGET = 12480;
   const [displayed, setDisplayed] = useState(rm ? TARGET : 0);
@@ -748,7 +664,7 @@ function BillingRevenueVisual() {
         >↑ 12%</motion.div>
       </div>
 
-      {/* Bar chart — bars draw upward */}
+      {/* Bar chart - bars draw upward */}
       <div className="flex items-end gap-1.5" style={{ height: 56 }}>
         {bars.map(({ label, h, delay }) => (
           <div key={label} className="flex-1 flex flex-col items-center gap-0.5 self-end">
@@ -767,14 +683,14 @@ function BillingRevenueVisual() {
   );
 }
 
-/* 9 · Lab & Diagnostics (Clinic) — animated flow: order → processing → result */
-function LabDiagnosticsVisual() {
+/* Lab & Diagnostics (Clinic) - animated flow: order → processing → result */
+export function LabDiagnosticsVisual() {
   const rm = useReducedMotion();
   return (
     <div className="w-full max-w-[270px] flex flex-col gap-4">
       {/* 3-step flow */}
       <div className="flex items-center gap-2">
-        {/* Step 1 — Ordered */}
+        {/* Step 1 - Ordered */}
         <motion.div
           initial={rm ? { opacity: 0 } : { scale: 0.75, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -805,7 +721,7 @@ function LabDiagnosticsVisual() {
           />
         </div>
 
-        {/* Step 2 — Processing */}
+        {/* Step 2 - Processing */}
         <motion.div
           initial={rm ? { opacity: 0 } : { scale: 0.75, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -841,7 +757,7 @@ function LabDiagnosticsVisual() {
           />
         </div>
 
-        {/* Step 3 — Ready */}
+        {/* Step 3 - Ready */}
         <motion.div
           initial={rm ? { opacity: 0 } : { scale: 0.75, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -874,7 +790,7 @@ function LabDiagnosticsVisual() {
           <FileCheck2 className="w-5 h-5 text-pine-600" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium text-pine-900">CBC — All Normal</p>
+          <p className="text-sm font-medium text-pine-900">CBC - All Normal</p>
           <p className="text-xs text-pine-400">Sent to patient + doctor</p>
         </div>
         <motion.div
@@ -889,388 +805,3 @@ function LabDiagnosticsVisual() {
     </div>
   );
 }
-
-/* ═══════════════════════════════════════════════
-   CARD DATA
-═══════════════════════════════════════════════ */
-const CARDS: Record<Role, { icon: React.ReactNode; heading: string; bullets: React.ReactNode[]; visual: React.ReactNode; navLabel: string }[]> = {
-  patient: [
-    {
-      navLabel: "Health Records",
-      icon: <Smartphone className="w-6 h-6" />,
-      heading: "Your health records, all in one place",
-      bullets: [
-        "Every prescription, lab result, scan, and consultation in one view",
-        "Updated automatically when you visit a doctor on FettleMed",
-        "Yours to keep, yours to share, yours to revoke",
-      ],
-      visual: <HealthRecordsVisual />,
-    },
-    {
-      navLabel: "Consent Control",
-      icon: <ShieldCheck className="w-6 h-6" />,
-      heading: "You decide who sees your records",
-      bullets: [
-        "Share your full health profile with any doctor in two taps",
-        "Set access to expire after one consultation, or keep it open",
-        "Get notified every time someone views your records",
-      ],
-      visual: <ConsentVisual />,
-    },
-    {
-      navLabel: "Health Tracking",
-      icon: <FileCheck2 className="w-6 h-6" />,
-      heading: "Stay ahead of your health",
-      bullets: [
-        "Medication reminders and refill alerts",
-        "Track your health across consultations and see the pattern, not just the visit",
-        "Manage records for your children, parents, and dependents under one login",
-      ],
-      visual: <HealthTrackingVisual />,
-    },
-  ],
-  doctor: [
-    {
-      navLabel: "Full History",
-      icon: <Stethoscope className="w-6 h-6" />,
-      heading: "Every patient's full history before they sit down",
-      bullets: [
-        "Diagnoses, prescriptions, and lab results — without asking",
-        "Consented records from other doctors, instantly available",
-        "No searching. No starting from scratch.",
-      ],
-      visual: <FullHistoryVisual />,
-    },
-    {
-      navLabel: "E-Prescriptions",
-      icon: <FileCheck2 className="w-6 h-6" />,
-      heading: "Prescriptions in seconds. Notes that don't live in a register.",
-      bullets: [
-        "E-prescriptions generated and sent to the patient's phone instantly",
-        "Consultation notes structured, dated, and searchable",
-        "Referral letters drafted in moments",
-      ],
-      visual: <EPrescriptionsVisual />,
-    },
-    {
-      navLabel: "Follow-up Audit",
-      icon: <ShieldCheck className="w-6 h-6" />,
-      heading: "Your clinical relationship doesn't end at the door.",
-      bullets: [
-        "Prescriptions sync to the patient's app the moment you generate them",
-        "Patients upload follow-up results directly, no extra visit needed",
-        "Every access logged. Full audit trail for you and the patient.",
-      ],
-      visual: <AuditTrailVisual />,
-    },
-  ],
-  clinic: [
-    {
-      navLabel: "Patient Registration",
-      icon: <Building2 className="w-6 h-6" />,
-      heading: "No more starting from scratch with returning patients.",
-      bullets: [
-        "Every patient registered once, pulled up in seconds on return",
-        "ABHA ID verification built into registration",
-        "Walk-ins checked in without paper, without delay",
-      ],
-      visual: <PatientRegistrationVisual />,
-    },
-    {
-      navLabel: "Billing & Revenue",
-      icon: <Wallet className="w-6 h-6" />,
-      heading: "Know what was billed, what was collected, and what's outstanding.",
-      bullets: [
-        <>GST-compliant invoicing <span className="inline-flex items-center ml-1.5 px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 border border-amber-200 text-amber-700">Pilot</span></>,
-        <>Payment gateway - UPI, cards, net banking <span className="inline-flex items-center ml-1.5 px-2 py-0.5 rounded-full text-xs font-semibold bg-stone-100 border border-stone-200 text-stone-500">Coming soon</span></>,
-        "Owner dashboard: daily and monthly revenue, broken down by doctor",
-      ],
-      visual: <BillingRevenueVisual />,
-    },
-    {
-      navLabel: "Lab & Diagnostics",
-      icon: <TestTube className="w-6 h-6" />,
-      heading: "Test orders, results, and records — without the paper trail.",
-      bullets: [
-        "Lab results delivered electronically to patient and doctor",
-        "Results linked directly to the consultation note",
-        "Full diagnostic history attached to the patient record automatically",
-      ],
-      visual: <LabDiagnosticsVisual />,
-    },
-  ],
-};
-
-/* ═══════════════════════════════════════════════
-   ROLE STYLE TOKENS
-═══════════════════════════════════════════════ */
-const ROLE_STYLES: Record<Role, {
-  tab: string;
-  cardBg: string; cardBorder: string; hoverShadow: string;
-  iconBg: string; iconColor: string;
-  heading: string; bullets: string; bulletDot: string;
-  visualBg: string; visualBorder: string;
-  navActive: string; navInactive: string;
-  ctaTo: string; ctaLabel: string; ctaClass: string;
-}> = {
-  patient: {
-    tab: 'bg-pine-900 text-white shadow-md',
-    cardBg: 'bg-white', cardBorder: 'border-stone-200', hoverShadow: '0 16px 40px rgba(0,0,0,0.09)',
-    iconBg: 'bg-pine-50', iconColor: 'text-pine-700',
-    heading: 'text-pine-900', bullets: 'text-dim-2', bulletDot: 'bg-pine-600',
-    visualBg: 'bg-surface-50', visualBorder: 'border-pine-100',
-    navActive: 'bg-pine-900 text-white',
-    navInactive: 'bg-pine-100 text-pine-700 hover:bg-pine-200',
-    ctaTo: '/patient-app', ctaLabel: 'See the full Patient experience', ctaClass: 'bg-pine-900 hover:bg-pine-800',
-  },
-  doctor: {
-    tab: 'bg-pine-900 text-white shadow-md',
-    cardBg: 'bg-pine-900', cardBorder: 'border-pine-700', hoverShadow: '0 16px 40px rgba(0,0,0,0.28)',
-    iconBg: 'bg-pine-800', iconColor: 'text-pine-200',
-    heading: 'text-white', bullets: 'text-pine-200', bulletDot: 'bg-pine-400',
-    visualBg: 'bg-pine-800/50', visualBorder: 'border-pine-700',
-    navActive: 'bg-pine-300 text-pine-900',
-    navInactive: 'bg-pine-800 text-pine-300 hover:bg-pine-700',
-    ctaTo: '/doctor-portal', ctaLabel: 'See the full Doctor experience', ctaClass: 'bg-pine-700 hover:bg-pine-600',
-  },
-  clinic: {
-    tab: 'bg-pine-900 text-white shadow-md',
-    cardBg: 'bg-white', cardBorder: 'border-stone-200', hoverShadow: '0 16px 40px rgba(0,0,0,0.09)',
-    iconBg: 'bg-pine-50', iconColor: 'text-pine-700',
-    heading: 'text-pine-900', bullets: 'text-dim-2', bulletDot: 'bg-pine-600',
-    visualBg: 'bg-surface-50', visualBorder: 'border-pine-100',
-    navActive: 'bg-pine-900 text-white',
-    navInactive: 'bg-pine-100 text-pine-700 hover:bg-pine-200',
-    ctaTo: '/clinic-management', ctaLabel: 'See the full Clinic experience', ctaClass: 'bg-pine-900 hover:bg-pine-800',
-  },
-};
-
-/* ═══════════════════════════════════════════════
-   MAIN COMPONENT
-═══════════════════════════════════════════════ */
-export const TargetedRoles = ({ initialRole = 'patient' }: { initialRole?: Role }) => {
-  const [activeRole, setActiveRole] = useState<Role>(initialRole);
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
-
-  // Sync swipe → active card index
-  const handleCarouselScroll = useCallback(() => {
-    const el = carouselRef.current;
-    if (!el) return;
-    const idx = Math.round(el.scrollLeft / el.offsetWidth);
-    setActiveCardIndex(prev => (idx !== prev ? idx : prev));
-  }, []);
-
-  useEffect(() => {
-    const el = carouselRef.current;
-    if (!el) return;
-    el.addEventListener('scroll', handleCarouselScroll, { passive: true });
-    return () => el.removeEventListener('scroll', handleCarouselScroll);
-  }, [handleCarouselScroll]);
-
-  // Reset carousel to first card when role changes
-  useEffect(() => {
-    carouselRef.current?.scrollTo({ left: 0, behavior: 'instant' });
-  }, [activeRole]);
-
-  const handleRoleChange = (role: Role) => {
-    setActiveRole(role);
-    setActiveCardIndex(0);
-  };
-
-  // Chip click — update state + scroll carousel on mobile
-  const handleChipClick = (idx: number) => {
-    setActiveCardIndex(idx);
-    const el = carouselRef.current;
-    if (el) el.scrollTo({ left: idx * el.offsetWidth, behavior: 'smooth' });
-  };
-
-  const s = ROLE_STYLES[activeRole];
-  const cards = CARDS[activeRole];
-
-  const tabRow = (
-    <div role="tablist" className="flex w-full sm:inline-flex sm:w-auto bg-white rounded-full p-1.5 border border-stone-200 shadow-sm gap-1">
-      {([
-        { role: 'patient', Icon: Smartphone,  label: 'Patients' },
-        { role: 'doctor',  Icon: Stethoscope, label: 'Doctors'  },
-        { role: 'clinic',  Icon: Building2,   label: 'Clinics'  },
-      ] as { role: Role; Icon: React.ElementType; label: string }[]).map(({ role, Icon, label }) => (
-        <button
-          key={role}
-          role="tab"
-          aria-selected={activeRole === role}
-          onClick={() => handleRoleChange(role)}
-          className={`flex-1 sm:flex-none flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-5 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-[background-color,color,box-shadow] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 focus-visible:ring-offset-1 ${
-            activeRole === role ? ROLE_STYLES[role].tab : 'text-dim hover:text-pine-900 hover:bg-pine-50'
-          }`}
-        >
-          <Icon className="w-4 h-4" /> {label}
-        </button>
-      ))}
-    </div>
-  );
-
-  const chipNav = (onChipClick: (idx: number) => void) => (
-    <div className="flex gap-2 mt-4 justify-center flex-wrap">
-      {cards.map((card, idx) => (
-        <button
-          key={idx}
-          onClick={() => onChipClick(idx)}
-          aria-pressed={activeCardIndex === idx}
-          className={`px-4 py-3 min-h-[44px] rounded-full text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 ${
-            activeCardIndex === idx ? s.navActive : s.navInactive
-          }`}
-        >
-          {card.navLabel}
-        </button>
-      ))}
-    </div>
-  );
-
-  const ctaLink = (
-    <div className="mt-3 text-center flex justify-center">
-      <Link
-        to={s.ctaTo}
-        className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl ${s.ctaClass} text-white font-medium text-base transition-colors shadow-sm`}
-      >
-        {s.ctaLabel} <ArrowUpRight className="w-4 h-4" />
-      </Link>
-    </div>
-  );
-
-  return (
-    <section id="roles" className="py-8 md:py-16 bg-surface-50">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <FadeIn>
-          <div className="text-center mb-3 md:mb-5">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium tracking-tight text-pine-900 mb-2 text-balance">
-              See what FettleMed changes for you.
-            </h2>
-            <p className="text-sm font-medium text-dim mb-4">Select your role.</p>
-            {tabRow}
-          </div>
-        </FadeIn>
-
-        {/* ── MOBILE CAROUSEL (hidden on md+) ───────────────────────────── */}
-        <div
-          key={`mobile-${activeRole}`}
-          className="md:hidden flex flex-col animate-in fade-in duration-200"
-        >
-          {/* ── Card chip nav — equal-width buttons in a single row, sits ABOVE carousel ── */}
-          <div className="flex gap-1.5 mt-4">
-            {cards.map((card, idx) => (
-              <button
-                key={idx}
-                onClick={() => handleChipClick(idx)}
-                aria-pressed={activeCardIndex === idx}
-                className={`flex-1 py-1.5 min-h-[36px] rounded-full text-xs font-medium text-center whitespace-nowrap transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 ${
-                  activeCardIndex === idx ? s.navActive : s.navInactive
-                }`}
-              >
-                {card.navLabel}
-              </button>
-            ))}
-          </div>
-
-          {/* ── Swipeable snap carousel ── */}
-          <div
-            ref={carouselRef}
-            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-2xl mt-3"
-            aria-live="polite"
-          >
-            {cards.map((card, idx) => (
-              <div
-                key={idx}
-                className={`min-w-full snap-start flex flex-col ${s.cardBg} border ${s.cardBorder} shadow-sm rounded-2xl overflow-hidden`}
-              >
-                {/* ── Animation viewport — sized to guarantee the full animation is visible on first paint ── */}
-                <div className={`w-full flex items-center justify-center min-h-[260px] overflow-hidden p-4 ${s.visualBg} border-b ${s.visualBorder}`}>
-                  {card.visual}
-                </div>
-                {/* ── Text region — compact spacing on mobile ── */}
-                <div className="flex flex-col p-4">
-                  <div className={`w-10 h-10 ${s.iconBg} ${s.iconColor} rounded-xl flex items-center justify-center mb-3 shrink-0`}>
-                    {card.icon}
-                  </div>
-                  <h3 className={`text-lg font-medium ${s.heading} mb-2.5 tracking-tight`}>{card.heading}</h3>
-                  <ul className="space-y-2">
-                    {card.bullets.map((b, bi) => (
-                      <li key={bi} className={`flex items-start gap-2.5 ${s.bullets} font-medium text-sm`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${s.bulletDot} mt-1.5 shrink-0`} />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* ── Dot pager — shows swipe position, tappable ── */}
-          <div className="flex items-center justify-center gap-2 mt-3">
-            {cards.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => handleChipClick(idx)}
-                aria-label={`Go to ${cards[idx].navLabel}`}
-                className={`rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 ${
-                  activeCardIndex === idx
-                    ? `w-5 h-2 ${s.bulletDot}`
-                    : 'w-2 h-2 bg-stone-300'
-                }`}
-              />
-            ))}
-          </div>
-
-          {ctaLink}
-        </div>
-
-        {/* ── DESKTOP CROSS-FADE (hidden below md) ─────────────────────── */}
-        <div
-          key={`desktop-${activeRole}`}
-          className="hidden md:flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-200"
-        >
-          <div className="w-full relative min-h-[380px]" aria-live="polite" aria-atomic="true">
-            {cards.map((card, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={activeCardIndex === idx ? { boxShadow: s.hoverShadow } : {}}
-                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                className={`absolute inset-0 ${s.cardBg} border ${s.cardBorder} p-5 md:p-6 rounded-3xl flex flex-row gap-6 transition-[transform,opacity] duration-200 ease-out shadow-sm ${
-                  activeCardIndex === idx ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-4 pointer-events-none'
-                }`}
-              >
-                {/* Left: text */}
-                <div className="flex-1 w-full flex flex-col justify-center">
-                  <motion.div
-                    whileHover={{ y: -2, scale: 1.05 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 22 }}
-                    className={`w-10 h-10 ${s.iconBg} ${s.iconColor} rounded-xl flex items-center justify-center mb-4`}
-                  >
-                    {card.icon}
-                  </motion.div>
-                  <h3 className={`text-xl font-medium ${s.heading} mb-4 tracking-tight`}>{card.heading}</h3>
-                  <ul className="space-y-3">
-                    {card.bullets.map((b, bi) => (
-                      <li key={bi} className={`flex items-start gap-2.5 ${s.bullets} font-medium text-base`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${s.bulletDot} mt-2 shrink-0`} />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                {/* Right: visual */}
-                <div className={`flex-1 w-full flex items-center justify-center ${s.visualBg} rounded-2xl border ${s.visualBorder} overflow-hidden min-h-[180px]`}>
-                  {activeCardIndex === idx && card.visual}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          {chipNav(idx => setActiveCardIndex(idx))}
-          {ctaLink}
-        </div>
-
-      </div>
-    </section>
-  );
-};

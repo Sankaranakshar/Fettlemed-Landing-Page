@@ -20,7 +20,7 @@ export function ClinicHero() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-pine-900 leading-[1.05] mb-5 tracking-tight text-balance">
                 You handle the patients. <span className="text-dim">We handle everything else.</span>
               </h1>
-              <p className="text-lg md:text-xl text-dim mb-8 font-medium leading-relaxed max-w-2xl text-balance">
+              <p className="text-lg md:text-xl text-dim mb-8 leading-relaxed max-w-2xl text-balance">
                 The front desk handles the queue. Billing closes at the end of each visit. The owner sees everything, from any device.
               </p>
               <div className="flex flex-col items-center lg:items-start gap-3">
@@ -44,7 +44,7 @@ export function ClinicHero() {
           </div>
 
           {/* Mockup column */}
-          <div className="hidden lg:block w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2 mt-6 lg:mt-0">
             <FadeIn delay={0.2}>
               <ClinicShuffleMockup />
             </FadeIn>

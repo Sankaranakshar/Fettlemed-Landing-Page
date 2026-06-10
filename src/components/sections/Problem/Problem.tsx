@@ -32,9 +32,9 @@ export const Problem = () => {
         {/* Headline */}
         <FadeIn>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.08] mb-14 md:mb-16 max-w-3xl">
-            Care Without{' '}
+            Care without{' '}
             <span className="text-pine-600 underline decoration-pine-600/30 underline-offset-8">
-              Context.
+              context.
             </span>
           </h2>
         </FadeIn>
@@ -58,17 +58,8 @@ export const Problem = () => {
           ))}
         </div>
 
-        {/* Pivot statement */}
-        <FadeIn delay={0.35}>
-          <blockquote className="border-l-2 border-pine-600 pl-5 mb-10 md:mb-12">
-            <p className="text-xl md:text-2xl text-dim-2 leading-relaxed italic">
-              A doctor can't treat what they don't know. A patient can't explain what they can't recall.
-            </p>
-          </blockquote>
-        </FadeIn>
-
         {/* Resolution block */}
-        <FadeIn delay={0.45}>
+        <FadeIn delay={0.35}>
           <div className="bg-pine-900 text-white rounded-2xl px-8 py-10 md:px-12 md:py-12">
             <h3 className="text-2xl md:text-3xl font-medium leading-snug mb-4">
               FettleMed changes what the doctor sees before you walk in.

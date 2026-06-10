@@ -8,9 +8,10 @@ type Tab = typeof tabs[number];
 export function DoctorConsultationMockup() {
   const [active, setActive] = useState<Tab>("Patient Summary");
   const [hovered, setHovered] = useState(false);
+  const [userPaused, setUserPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { amount: 0.3 });
-  const paused = hovered || !isInView;
+  const paused = hovered || userPaused || !isInView;
 
   useEffect(() => {
     if (paused) return;
@@ -19,7 +20,7 @@ export function DoctorConsultationMockup() {
         const i = tabs.indexOf(t);
         return tabs[(i + 1) % tabs.length];
       });
-    }, 3500);
+    }, 7000);
     return () => clearInterval(id);
   }, [paused]);
 
@@ -36,7 +37,7 @@ export function DoctorConsultationMockup() {
           <span className="w-3 h-3 rounded-full bg-red-400" />
           <span className="w-3 h-3 rounded-full bg-amber-400" />
           <span className="w-3 h-3 rounded-full bg-green-400" />
-          <span className="mx-auto text-xs font-medium text-stone-400">Doctor Portal — Dr. Sriram</span>
+          <span className="mx-auto text-xs font-medium text-stone-400">Doctor Portal - Dr. Sriram</span>
         </div>
 
         {/* Patient bar */}
@@ -57,7 +58,7 @@ export function DoctorConsultationMockup() {
           {tabs.map((t) => (
             <button
               key={t}
-              onClick={() => { setActive(t); setHovered(true); }}
+              onClick={() => { setActive(t); setUserPaused(true); }}
               className={`flex items-center gap-1.5 px-4 py-2.5 text-xs font-medium border-b-2 transition-[border-color,color] duration-150 ease-out ${
                 active === t ? "border-pine-700 text-pine-900" : "border-transparent text-stone-400 hover:text-stone-600"
               }`}
@@ -78,7 +79,7 @@ export function DoctorConsultationMockup() {
                 <div className="grid grid-cols-2 gap-3">
                   {[
                     { label: "Blood Pressure", value: "138/88 mmHg", icon: Activity, color: "rose" },
-                    { label: "Last Lab", value: "CBC — 5 days ago", icon: FileText, color: "indigo" },
+                    { label: "Last Lab", value: "CBC - 5 days ago", icon: FileText, color: "indigo" },
                   ].map(({ label, value, icon: Icon, color }) => (
                     <div key={label} className="bg-stone-50 rounded-xl p-3 flex items-start gap-2">
                       <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${color === "rose" ? "bg-rose-50" : "bg-indigo-50"}`}>
@@ -93,7 +94,7 @@ export function DoctorConsultationMockup() {
                 </div>
                 <div className="bg-stone-50 rounded-xl p-3">
                   <p className="text-[10px] font-medium text-stone-400 uppercase tracking-wider mb-2">Current Medications</p>
-                  {["Amlodipine 5mg — once daily", "Metformin 500mg — twice daily"].map((m) => (
+                  {["Amlodipine 5mg - once daily", "Metformin 500mg - twice daily"].map((m) => (
                     <div key={m} className="flex items-center gap-2 py-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-pine-500 shrink-0" />
                       <span className="text-xs font-medium text-stone-700">{m}</span>
@@ -138,10 +139,10 @@ export function DoctorConsultationMockup() {
               <motion.div key="note" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.25 }} className="space-y-3">
                 <p className="text-[10px] font-medium text-stone-400 uppercase tracking-wider">Consultation note</p>
                 <div className="bg-stone-50 rounded-xl p-4 min-h-[100px] relative">
-                  <motion.p className="text-sm text-stone-700 font-medium leading-relaxed" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-                    BP 138/88 — slight improvement. CBC within normal range. No change to medication at this time. Review in 4 weeks. Patient advised on dietary sodium reduction.
+                  <motion.p className="text-sm text-stone-700 leading-relaxed" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
+                    BP 138/88 - slight improvement. CBC within normal range. No change to medication at this time. Review in 4 weeks. Patient advised on dietary sodium reduction.
                   </motion.p>
-                  <motion.span initial={{ opacity: 1 }} animate={{ opacity: [1, 0] }} transition={{ delay: 1.8, repeat: Infinity, duration: 0.7 }} className="inline-block w-0.5 h-4 bg-pine-600 ml-0.5 align-text-bottom" />
+                  <motion.span initial={{ opacity: 1 }} animate={{ opacity: 0 }} transition={{ delay: 2.6, duration: 0.4 }} className="inline-block w-0.5 h-4 bg-pine-600 ml-0.5 align-text-bottom" />
                 </div>
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.0 }} className="flex gap-2">
                   <button className="flex-1 py-2.5 bg-pine-900 text-white rounded-xl text-xs font-medium hover:bg-pine-800 transition-colors">Save Note</button>

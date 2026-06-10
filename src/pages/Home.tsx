@@ -2,8 +2,7 @@ import React from 'react';
 import { SEO } from '@/components/common/SEO';
 import { Hero } from '@/components/sections/Hero';
 import { Problem } from '@/components/sections/Problem';
-import { TargetedRoles } from '@/components/sections/TargetedRoles';
-import { WhatWeAreNot } from '@/components/sections/WhatWeAreNot/WhatWeAreNot';
+import { EcosystemRoles } from '@/components/sections/EcosystemRoles';
 import { Trust } from '@/components/sections/Trust';
 import { CTA } from '@/components/sections/CTA';
 
@@ -20,16 +19,13 @@ export default function Home() {
         {/* SECTION 2: Problem */}
         <Problem />
 
-        {/* SECTION 3: Targeted Content by Role */}
-        <TargetedRoles />
+        {/* SECTION 3: One record, three views */}
+        <EcosystemRoles />
 
-        {/* SECTION 4: What We Are Not */}
-        <WhatWeAreNot />
-
-        {/* SECTION 5: Trust & Security */}
+        {/* SECTION 4: Trust, security, and the founders */}
         <Trust />
 
-        {/* SECTION 6: Final CTA */}
+        {/* SECTION 5: Final CTA */}
         <CTA />
 
       </div>

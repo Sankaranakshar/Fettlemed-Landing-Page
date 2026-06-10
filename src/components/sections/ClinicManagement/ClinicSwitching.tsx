@@ -20,12 +20,7 @@ const points = [
   {
     n: "4",
     heading: "If FettleMed isn't right for your clinic, you leave with everything.",
-    body: "Records, billing history, patient data — exportable in full, any time.",
-  },
-  {
-    n: "5",
-    heading: "Multiple branches - planned for a future release.",
-    body: "Multi-location is on the roadmap. Join the pilot to shape what ships first.",
+    body: "Records, billing history, patient data - exportable in full, any time.",
   },
 ];
 
@@ -37,7 +32,7 @@ export function ClinicSwitching() {
              <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight text-balance">Switching from paper</h2>
           </FadeIn>
           <FadeIn className="mb-10">
-             <p className="text-lg text-dim font-medium leading-relaxed">Every switching worry a clinic owner has, answered.</p>
+             <p className="text-lg text-dim leading-relaxed">Every switching worry a clinic owner has, answered.</p>
           </FadeIn>
 
           <div className="space-y-6">
@@ -48,11 +43,15 @@ export function ClinicSwitching() {
                    </div>
                    <div>
                       <p className="text-pine-900 text-base font-semibold mb-1">{heading}</p>
-                      <p className="text-dim-2 text-base font-medium leading-relaxed">{body}</p>
+                      <p className="text-dim-2 text-base leading-relaxed">{body}</p>
                    </div>
                 </FadeIn>
              ))}
           </div>
+
+          <FadeIn className="mt-8 bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 text-amber-900 text-sm font-medium">
+             <strong>Current limitation:</strong> multi-location management is planned for a future release. Clinics in the pilot have direct input into what ships first.
+          </FadeIn>
        </div>
     </section>
   );

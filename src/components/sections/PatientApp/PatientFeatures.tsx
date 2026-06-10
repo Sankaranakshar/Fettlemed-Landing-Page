@@ -17,7 +17,7 @@ export function PatientFeatures() {
             </div>
             <h3 className="text-lg font-medium text-pine-900 mb-2 tracking-tight">Your full history, not just the last visit</h3>
             <ul className="space-y-1.5 text-dim-2 font-medium text-sm">
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Every prescription, lab, scan, and note — yours or your doctor's.</li>
+              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Every prescription, lab, scan, and note - yours or your doctor's.</li>
               <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>On your phone. No paper folders to carry to the appointment.</li>
               <li className="flex items-start gap-2 text-pine-600 font-medium"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Free for patients during the pilot.</li>
             </ul>
@@ -39,11 +39,10 @@ export function PatientFeatures() {
             <div className="w-10 h-10 bg-pine-50 rounded-xl flex items-center justify-center mb-4 border border-pine-100 shrink-0">
               <Share2 className="w-5 h-5 text-pine-700" />
             </div>
-            <h3 className="text-lg font-medium text-pine-900 mb-2 tracking-tight">Two taps to share, one tap to revoke</h3>
+            <h3 className="text-lg font-medium text-pine-900 mb-2 tracking-tight">You decide who sees it</h3>
             <ul className="space-y-1.5 text-dim-2 font-medium text-sm">
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Share full history in two taps</li>
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Set it to expire or stay open</li>
-              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Revoke in one tap</li>
+              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Share with any doctor, take it back anytime</li>
+              <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Set access to expire or stay open</li>
               <li className="flex items-start gap-2 text-pine-700 font-medium"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Get notified on every view</li>
             </ul>
           </FadeIn>

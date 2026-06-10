@@ -37,7 +37,7 @@ export function ClinicProblem() {
           {COLUMNS.map(({ borderCls, heading, body, close }, i) => (
             <FadeIn key={i} delay={i * 0.1} className={`flex flex-col border-t-2 ${borderCls} pt-6`}>
               <p className="text-xs font-semibold text-pine-500 uppercase tracking-widest mb-4">{heading}</p>
-              <p className="text-lg text-dim-2 font-medium leading-relaxed mb-4 flex-1">
+              <p className="text-lg text-dim-2 leading-relaxed mb-4 flex-1">
                 {body}
               </p>
               <p className="text-pine-900 text-lg font-semibold leading-snug">

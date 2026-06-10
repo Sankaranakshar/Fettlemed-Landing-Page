@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { ShieldCheck, Stethoscope, FileCheck2, ArrowRight, User } from "lucide-react";
+import { ShieldCheck, Stethoscope, FileCheck2, ArrowRight } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 
 export const Trust = () => {
@@ -19,7 +19,7 @@ export const Trust = () => {
                  </div>
                  <h3 className="text-lg font-medium text-pine-900">2-Tap Consent</h3>
                </div>
-               <p className="text-dim-2 leading-relaxed font-medium text-base">Grant a doctor access to your records in two taps. Revoke it in one. Set it to expire after a single consultation or keep it open. You decide, every time, from the app.</p>
+               <p className="text-dim-2 leading-relaxed text-base">Grant a doctor access in two taps, revoke it in one. You decide, every time.</p>
              </div>
              <div className="bg-white border border-stone-200 p-7 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
                <div className="flex items-center gap-3">
@@ -28,7 +28,7 @@ export const Trust = () => {
                  </div>
                  <h3 className="text-lg font-medium text-pine-900">Built with working doctors</h3>
                </div>
-               <p className="text-dim-2 leading-relaxed font-medium text-base">Built with doctors who are still in practice. Every feature passes one test: does this save the doctor a step, or add one?</p>
+               <p className="text-dim-2 leading-relaxed text-base">Every feature passes one test: does it save the doctor a step, or add one?</p>
              </div>
              <div className="bg-white border border-stone-200 p-7 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
                <div className="flex items-center gap-3">
@@ -37,15 +37,15 @@ export const Trust = () => {
                  </div>
                  <h3 className="text-lg font-medium text-pine-900">Your data is yours. Always.</h3>
                </div>
-               <p className="text-dim-2 leading-relaxed font-medium text-base">We do not sell your health data. No advertising. End-to-end encrypted. Stored in India. Access controlled entirely by you.</p>
+               <p className="text-dim-2 leading-relaxed text-base">Never sold, never advertised. End-to-end encrypted, with the primary data centre in India.</p>
              </div>
           </div>
 
           {/* Compact founder strip */}
           <div className="border-t border-stone-100 mt-6 pt-5 grid md:grid-cols-2 gap-3 max-w-2xl mx-auto w-full">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-pine-50 rounded-full flex items-center justify-center border border-pine-100 shrink-0">
-                <User className="w-5 h-5 text-pine-300" />
+              <div className="w-10 h-10 bg-pine-900 rounded-full flex items-center justify-center shrink-0">
+                <span className="text-[11px] font-semibold text-pine-100 tracking-wide">SS</span>
               </div>
               <div>
                 <p className="text-sm font-medium text-pine-900">Dr. Sriram Shankar</p>
@@ -53,8 +53,8 @@ export const Trust = () => {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-pine-50 rounded-full flex items-center justify-center border border-pine-100 shrink-0">
-                <User className="w-5 h-5 text-pine-300" />
+              <div className="w-10 h-10 bg-pine-900 rounded-full flex items-center justify-center shrink-0">
+                <span className="text-[11px] font-semibold text-pine-100 tracking-wide">BS</span>
               </div>
               <div>
                 <p className="text-sm font-medium text-pine-900">Dr. Bhavani Sriram</p>

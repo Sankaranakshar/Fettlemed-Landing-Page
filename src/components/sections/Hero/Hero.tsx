@@ -10,17 +10,17 @@ export const Hero = () => {
 
   return (
     <section className="relative overflow-hidden flex flex-col bg-surface-50 md:h-[calc(100vh-80px)] md:min-h-[600px]">
-      {/* Main content — grows to fill space above the strip, centered vertically */}
+      {/* Main content - grows to fill space above the strip, centered vertically */}
       <div className="flex-1 min-h-0 flex md:items-center px-6 pt-12 pb-4 md:pt-14 lg:pt-6 md:pb-4 relative z-10">
         <div className="container mx-auto max-w-7xl w-full">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-8 lg:gap-10">
           <div className="w-full md:w-1/2 text-center md:text-left">
             <FadeIn noYOffset eager>
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium leading-[1.08] tracking-tight mb-4 md:mb-5 lg:mb-4 text-ink drop-shadow-sm">
-                Own Your Health Records. <span className="text-pine-600">Share them with your doctor, when you choose.</span>
+                The full history, ready <span className="text-pine-600">before the patient says a word.</span>
               </h1>
-              <p className="text-lg md:text-xl text-dim mb-5 md:mb-5 lg:mb-4 max-w-xl mx-auto md:mx-0 leading-relaxed font-medium text-balance">
-                Your full history, ready on the doctor's screen before you say a word.
+              <p className="text-lg md:text-xl text-dim mb-5 md:mb-5 lg:mb-4 max-w-xl mx-auto md:mx-0 leading-relaxed text-balance">
+                One record that follows the patient: every prescription, lab, and visit, shared only with consent.
               </p>
 
 <div className="flex flex-col items-center md:items-start gap-4 justify-center md:justify-start">

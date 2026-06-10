@@ -10,7 +10,7 @@ const tabIcons: Record<Tab, React.ElementType> = {
 };
 
 const TAB_ORDER: Tab[] = ["Home", "Records", "Share", "Profile"];
-const CYCLE_MS = 3000;
+const CYCLE_MS = 6000;
 
 // iPhone status bar icons
 function SignalBars() {
@@ -49,22 +49,30 @@ function BatteryIcon() {
   );
 }
 
-export function PatientMobileMockup() {
-  const [active, setActive] = useState<Tab>("Home");
+interface PatientMobileMockupProps {
+  /** When provided, the phone is externally controlled (no auto-cycle, no float). */
+  activeTab?: Tab;
+}
+
+export function PatientMobileMockup({ activeTab }: PatientMobileMockupProps) {
+  const controlled = activeTab !== undefined;
+  const [internalActive, setInternalActive] = useState<Tab>("Home");
   const [userPaused, setUserPaused] = useState(false);
+  const active = controlled ? activeTab : internalActive;
 
   useEffect(() => {
-    if (userPaused) return;
+    if (controlled || userPaused) return;
     let i = TAB_ORDER.indexOf(active);
     const id = setInterval(() => {
       i = (i + 1) % TAB_ORDER.length;
-      setActive(TAB_ORDER[i]);
+      setInternalActive(TAB_ORDER[i]);
     }, CYCLE_MS);
     return () => clearInterval(id);
-  }, [userPaused, active]);
+  }, [controlled, userPaused, active]);
 
   function handleTabClick(t: Tab) {
-    setActive(t);
+    if (controlled) return;
+    setInternalActive(t);
     setUserPaused(true);
   }
 
@@ -80,15 +88,11 @@ export function PatientMobileMockup() {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
       >
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          style={{ willChange: "transform" }}
-        >
+        <div>
           {/* ── iPhone shell ── */}
           <div className="relative" style={{ width: 280 }}>
 
-            {/* Side buttons — volume up/down (left) */}
+            {/* Side buttons - volume up/down (left) */}
             <div style={{
               position: "absolute", left: -4, top: 90,
               width: 4, height: 28, backgroundColor: "#1a2e24", borderRadius: "2px 0 0 2px",
@@ -136,7 +140,7 @@ export function PatientMobileMockup() {
                   </div>
                 </div>
 
-                {/* Tab content — flex-1 fills whatever space remains */}
+                {/* Tab content - flex-1 fills whatever space remains */}
                 <div className="overflow-hidden flex-1 bg-surface-50 relative">
                   <AnimatePresence mode="sync">
                     {active === "Home" && (
@@ -161,7 +165,7 @@ export function PatientMobileMockup() {
                               </div>
                               <div>
                                 <p className="text-xs font-medium text-pine-900">CBC Report added</p>
-                                <p className="text-[9px] text-stone-400">From Dr. Sriram — Today</p>
+                                <p className="text-[9px] text-stone-400">From Dr. Sriram - Today</p>
                               </div>
                             </div>
                           </motion.div>
@@ -179,7 +183,7 @@ export function PatientMobileMockup() {
                             <Calendar className="w-4 h-4 text-pine-600 shrink-0" />
                             <div>
                               <p className="text-xs font-medium text-pine-900">Next visit</p>
-                              <p className="text-[9px] text-pine-600">Dr. Sriram — Jun 10</p>
+                              <p className="text-[9px] text-pine-600">Dr. Sriram - Jun 10</p>
                             </div>
                           </motion.div>
                         </div>
@@ -201,10 +205,10 @@ export function PatientMobileMockup() {
                         </div>
                         <div className="px-3 py-3 space-y-2 overflow-hidden">
                           {[
-                            { label: "CBC Report", sub: "Dr. Sriram — Today", icon: Activity },
-                            { label: "Prescription", sub: "Dr. Sriram — Jan 14", icon: Pill },
-                            { label: "ECG Report", sub: "Apollo — Dec 2024", icon: Activity },
-                            { label: "Prescription", sub: "Dr. Kapur — Nov 2024", icon: Pill },
+                            { label: "CBC Report", sub: "Dr. Sriram - Today", icon: Activity },
+                            { label: "Prescription", sub: "Dr. Sriram - Jan 14", icon: Pill },
+                            { label: "ECG Report", sub: "Apollo - Dec 2024", icon: Activity },
+                            { label: "Prescription", sub: "Dr. Kapur - Nov 2024", icon: Pill },
                           ].map(({ label, sub, icon: Icon }, i) => (
                             <motion.div
                               key={`${label}-${i}`}
@@ -331,7 +335,7 @@ export function PatientMobileMockup() {
               </div>{/* /OLED screen */}
             </div>{/* /phone body */}
           </div>{/* /relative shell */}
-        </motion.div>
+        </div>
       </motion.div>
     </div>
   );

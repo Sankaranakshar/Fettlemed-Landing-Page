@@ -32,7 +32,7 @@ export function DoctorSwitching() {
           <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">
             Switching from paper
           </h2>
-          <p className="text-lg text-dim mt-3 font-medium leading-relaxed max-w-2xl">
+          <p className="text-lg text-dim mt-3 leading-relaxed max-w-2xl">
             Built for paper and Excel. Every switching worry, answered.
           </p>
         </FadeIn>
@@ -45,7 +45,7 @@ export function DoctorSwitching() {
               </div>
               <div>
                 <p className="text-pine-900 text-base font-semibold mb-1">{heading}</p>
-                <p className="text-dim-2 text-base font-medium leading-relaxed">{body}</p>
+                <p className="text-dim-2 text-base leading-relaxed">{body}</p>
               </div>
             </FadeIn>
           ))}

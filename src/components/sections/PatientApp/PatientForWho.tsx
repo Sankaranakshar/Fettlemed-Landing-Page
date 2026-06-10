@@ -6,17 +6,17 @@ const CARDS = [
   {
     icon: Users,
     heading: "One login. Every family member.",
-    body: "All under one login, each record separate.",
+    body: "Your parents' prescriptions, your children's vaccinations, your own labs. Each person gets their own record.",
   },
   {
     icon: FolderOpen,
-    heading: "Organised by person, private by default.",
-    body: "Private by default. You manage access.",
+    heading: "Private by default.",
+    body: "Each family member's record has its own access controls. Sharing yours never exposes theirs.",
   },
   {
     icon: Zap,
-    heading: "Emergency appointment. New specialist. Their record is already in your pocket.",
-    body: "Their full history, already in your pocket.",
+    heading: "Ready for the unplanned visit.",
+    body: "Emergency appointment, new specialist: their full history is already in your pocket.",
   },
 ];
 
@@ -39,7 +39,7 @@ export function PatientForWho() {
               </div>
               <div>
                 <h3 className="text-lg font-medium text-pine-900 mb-2 tracking-tight">{heading}</h3>
-                <p className="text-dim-2 text-sm leading-relaxed font-medium">{body}</p>
+                <p className="text-dim-2 text-sm leading-relaxed">{body}</p>
               </div>
             </FadeIn>
           ))}

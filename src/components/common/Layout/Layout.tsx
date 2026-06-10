@@ -17,7 +17,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
   }, [location.pathname]);
 
   const navLinks = [
-    { name: "Home", path: "/" },
     { name: "For Patients", path: "/patient-app" },
     { name: "For Doctors", path: "/doctor-portal" },
     { name: "For Clinics", path: "/clinic-management" },
@@ -47,7 +46,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 end={link.path === "/"}
                 onMouseEnter={() => preloadRoutes[link.path]?.()}
                 className={({ isActive }) => cn(
-                  "text-xs lg:text-sm font-medium tracking-wide transition-colors duration-150 ease-out whitespace-nowrap",
+                  "text-sm font-medium tracking-wide transition-colors duration-150 ease-out whitespace-nowrap",
                   isActive ? "text-pine-600" : "text-dim hover:text-pine-600"
                 )}
               >
@@ -132,15 +131,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
              <nav className="flex flex-col gap-4" aria-label="Connect Links">
                 <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Connect</h3>
                 <a href="mailto:hello@fettlemed.com" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">hello@fettlemed.com</a>
-                <a href="https://www.linkedin.com/company/fettlemed/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">LinkedIn</a>
+                <a href="https://www.linkedin.com/company/fettlemed/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">LinkedIn</a>
                 <a href="https://x.com/FETTLEMEDHEALTH" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">X (Twitter)</a>
-                <a href="https://www.instagram.com/fettlemed?igsh=dWs4bGQ4ZGVrNG9j&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Instagram</a>
+                <a href="https://www.instagram.com/fettlemed" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Instagram</a>
              </nav>
           </div>
 
-          {/* Medical disclaimer — visible, not buried in ToS */}
+          {/* Medical disclaimer - visible, not buried in ToS */}
           <div className="border-t border-pine-800 pt-6 mb-8 text-center">
-            <p className="text-pine-400 text-xs font-medium leading-relaxed max-w-3xl mx-auto">
+            <p className="text-pine-400 text-xs leading-relaxed max-w-3xl mx-auto">
               FettleMed is a health record management platform. It is <strong className="text-pine-300">not a substitute</strong> for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional for medical decisions.
             </p>
           </div>
