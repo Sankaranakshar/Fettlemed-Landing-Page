@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useReducedMotion } from 'motion/react';
+import { EASE_OUT_STRONG } from '@/lib/motionTokens';
 
 interface PulseLineProps {
   vertical?: boolean;
@@ -30,7 +31,7 @@ export function PulseLine({ vertical = false, className = '', interval = 5 }: Pu
       <motion.div
         initial={{ [vertical ? 'scaleY' : 'scaleX']: 0 }}
         animate={seen ? { [vertical ? 'scaleY' : 'scaleX']: 1 } : {}}
-        transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
+        transition={{ duration: 0.9, ease: EASE_OUT_STRONG }}
         style={{ transformOrigin: vertical ? 'top' : 'left' }}
         className="absolute inset-0 bg-pine-200"
       />
