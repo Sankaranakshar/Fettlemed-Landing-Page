@@ -5,7 +5,9 @@ import { cn } from "@/utils/cn";
 import { Menu, X } from "lucide-react";
 import { preloadRoutes } from "@/preloadRoutes";
 import { useWaitlist } from "@/contexts/WaitlistContext";
+import { audienceRoleForPath } from "@/config/constants";
 import { CookieConsent } from "@/components/common/CookieConsent/CookieConsent";
+import { FooterQuickJoin } from "@/components/common/Layout/FooterQuickJoin";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -32,6 +34,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [isMobileMenuOpen]);
+
+  // The nav CTA pre-selects the role the current page speaks to
+  const audienceRole = audienceRoleForPath(location.pathname);
 
   const navLinks = [
     { name: "For Patients", path: "/patient-app" },
@@ -74,7 +79,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </NavLink>
             ))}
             <div className="h-5 w-[1px] bg-pine-100 mx-1 lg:mx-2" />
-            <Button variant="animated" onClick={() => openWaitlist()} className="bg-pine-900 hover:bg-pine-800 text-white rounded-lg shadow-sm text-xs lg:text-sm h-9 lg:h-10 px-4 lg:px-6 font-medium transition-colors">
+            <Button variant="animated" onClick={() => openWaitlist(audienceRole)} className="bg-pine-900 hover:bg-pine-800 text-white rounded-lg shadow-sm text-xs lg:text-sm h-9 lg:h-10 px-4 lg:px-6 font-medium transition-colors">
               Join Waitlist
             </Button>
           </nav>
@@ -108,7 +113,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </NavLink>
               ))}
               <div className="pt-6 border-t border-stone-200 flex flex-col gap-4">
-                <Button variant="animated" size="lg" onClick={() => { setIsMobileMenuOpen(false); openWaitlist(); }} className="w-full bg-pine-900 hover:bg-pine-800 text-white rounded-xl h-14 font-medium">Join Waitlist</Button>
+                <Button variant="animated" size="lg" onClick={() => { setIsMobileMenuOpen(false); openWaitlist(audienceRole); }} className="w-full bg-pine-900 hover:bg-pine-800 text-white rounded-xl h-14 font-medium">Join Waitlist</Button>
               </div>
             </nav>
           </div>
@@ -121,6 +126,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
       {/* Global Footer  */}
       <footer className="w-full text-white mt-auto bg-pine-900 pt-14 pb-10">
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+
+          {/* Quick capture: email only, for visitors not ready for the full form */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-pine-800 pb-10 mb-12">
+            <div>
+              <p className="text-white font-medium text-lg tracking-tight">Not ready for the form?</p>
+              <p className="text-pine-300 text-sm mt-1">Leave your email and we'll reach out when your spot opens.</p>
+            </div>
+            <FooterQuickJoin />
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12 border-b border-pine-800 pb-12">
              {/* Column 1: Product */}

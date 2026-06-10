@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/common/Button";
+import { WAITLIST_FORM } from "@/config/constants";
 
 // ---------------------------------------------------------------------------
 // Schema
@@ -143,9 +144,6 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
     mode: "onTouched",
   });
 
-  const FORM_URL =
-    "https://docs.google.com/forms/d/e/1FAIpQLSd_Gd_OmWQGHLY_gF_q3Xuj9kATD3cEXkjaym5pQFN7JyjSWw/formResponse";
-
   const finalRole = role === "Clinic" ? "Clinic / Practice Owner" : role;
 
   const contextLabel =
@@ -167,16 +165,16 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
     setSubmitError(false);
 
     const data = new FormData();
-    data.append("entry.1983186495", finalRole);
-    data.append("entry.177738397",  values.name);
-    data.append("entry.1945336821", values.email);
-    data.append("entry.764661147",  values.phone ?? "");
-    data.append("entry.1761616143", values.context ?? "");
-    data.append("entry.838799959",  values.comments ?? "");
+    data.append(WAITLIST_FORM.entries.role,     finalRole);
+    data.append(WAITLIST_FORM.entries.name,     values.name);
+    data.append(WAITLIST_FORM.entries.email,    values.email);
+    data.append(WAITLIST_FORM.entries.phone,    values.phone ?? "");
+    data.append(WAITLIST_FORM.entries.context,  values.context ?? "");
+    data.append(WAITLIST_FORM.entries.comments, values.comments ?? "");
 
     let networkError = false;
     try {
-      await fetch(FORM_URL, { method: "POST", mode: "no-cors", body: data });
+      await fetch(WAITLIST_FORM.url, { method: "POST", mode: "no-cors", body: data });
     } catch {
       // no-cors responses are opaque - fetch only throws here on genuine
       // network failure (offline, DNS, firewall), not on server errors.
@@ -206,7 +204,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
           You're on the list.
         </h2>
         <p className="text-dim leading-relaxed max-w-sm">
-          Thank you for your interest in FettleMed. We will be in touch shortly with next steps.
+          We review applications in cohorts and reach out personally when your spot opens. No newsletter, no spam.
         </p>
       </div>
     );
