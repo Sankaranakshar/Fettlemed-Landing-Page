@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import {
   ShieldCheck, Key, Settings, Users, Globe2, Lock,
-  CheckCircle2, Clock, Calendar, Server, Eye, FileCheck2,
+  CheckCircle2, Clock, Calendar, Download, Eye, FileCheck2,
   Stethoscope, Building2,
 } from "lucide-react";
 import { SEO } from '@/components/common/SEO';
@@ -30,7 +30,7 @@ const trustSignals = [
   { icon: Lock,        label: "End-to-end encrypted", sub: "TLS 1.2+ in transit" },
   { icon: FileCheck2,  label: "Audit logging",       sub: "Live" },
   { icon: Globe2,      label: "DPDPA-aligned",       sub: "Built on India's data law" },
-  { icon: Server,      label: "FHIR standard",       sub: "No proprietary lock-in" },
+  { icon: Download,    label: "Your data, portable", sub: "Yours to download and keep" },
   { icon: ShieldCheck, label: "No data sales",       sub: "Health data never sold" },
 ];
 
@@ -480,7 +480,7 @@ export default function Security() {
                         <div className="flex flex-wrap gap-2 mb-8">
                           {[
                             { label: "DPDPA-aligned",             live: true,  status: ""            },
-                            { label: "FHIR standard",             live: true,  status: ""            },
+                            { label: "Data portability",          live: true,  status: ""            },
                             { label: "Primary data centre: India",live: true,  status: ""            },
                             { label: "ABDM-aligned",              live: false, status: "in progress" },
                             { label: "ABDM certified",            live: false, status: "planned"     },
@@ -519,8 +519,8 @@ export default function Security() {
                                 body: "FettleMed's data handling practices are designed around the Digital Personal Data Protection Act, India's primary data protection legislation.",
                               },
                               {
-                                title: "FHIR data standards",
-                                body: "FettleMed uses FHIR (Fast Healthcare Interoperability Resources) for data exchange, the international standard for structured health data. Records are not locked in a proprietary format.",
+                                title: "Data portability",
+                                body: "Your records are yours to download and keep, in full. If you ever want a copy of your data, we will provide it on request. Nothing is locked to the platform.",
                               },
                               {
                                 title: "Primary data centre in India",
