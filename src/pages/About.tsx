@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 import { SEO } from '@/components/common/SEO';
 import { Mail, MapPin, Stethoscope, Code2, ArrowRight, Quote } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { Button } from "@/components/common/Button";
+import { DarkTexture } from "@/components/common/Texture/DarkTexture";
 import { useWaitlist } from "@/contexts/WaitlistContext";
 
 export default function About() {
@@ -19,8 +21,7 @@ export default function About() {
 
         {/* ── S1: Hero ──────────────────────────────────────────────────── */}
         <section className="relative pt-16 pb-16 md:pt-24 md:pb-24 bg-pine-900 text-white overflow-hidden">
-          <div className="absolute top-0 right-0 w-[32rem] h-[32rem] bg-pine-800/50 rounded-full blur-[120px] -translate-y-1/3 translate-x-1/4 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-pine-700/30 rounded-full blur-[120px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+          <DarkTexture />
           <div className="container mx-auto px-4 md:px-8 max-w-4xl relative z-10">
             <FadeIn eager>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-pine-700 bg-pine-800/50 text-xs font-medium text-pine-300 uppercase tracking-widest mb-8">
@@ -67,13 +68,29 @@ export default function About() {
 
         {/* ── S3: What we believe ──────────────────────────────────────── */}
         <section className="py-16 md:py-24 bg-pine-900 text-white overflow-hidden relative">
-          <div className="absolute top-1/2 left-1/2 w-[40rem] h-[40rem] bg-pine-800/40 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+          <DarkTexture glow="center" />
           <div className="container mx-auto px-4 md:px-8 max-w-3xl relative z-10">
             <FadeIn>
               <p className="text-xs font-medium tracking-widest uppercase text-pine-400 mb-8">What we believe</p>
-              <p className="text-2xl md:text-3xl font-medium leading-snug tracking-tight text-balance mb-10">
-                Your health belongs to you. Not to a filing cabinet, not to the last clinic you visited, not to us.
-              </p>
+              {/* Masked-line reveal: each phrase rises from under a clip */}
+              <div className="text-2xl md:text-3xl font-medium leading-snug tracking-tight mb-10">
+                {[
+                  "Your health belongs to you.",
+                  "Not to a filing cabinet, not to the last clinic you visited, not to us.",
+                ].map((line, i) => (
+                  <span key={i} className="block overflow-hidden">
+                    <motion.span
+                      initial={{ y: '105%' }}
+                      whileInView={{ y: 0 }}
+                      viewport={{ once: true, margin: "-60px" }}
+                      transition={{ delay: 0.1 + i * 0.12, duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+                      className="block text-balance"
+                    >
+                      {line}
+                    </motion.span>
+                  </span>
+                ))}
+              </div>
               <div className="space-y-6 text-lg text-pine-100 leading-relaxed">
                 <p>
                   We exist because health decisions matter, for the patient managing a chronic condition, the parent tracking a child's vaccinations, the doctor who needs the full picture before they can truly help. When the right information reaches the right person at the right moment, care gets better. That is what we are here to enable.
@@ -106,9 +123,9 @@ export default function About() {
               <div className="grid md:grid-cols-2 gap-10 mb-14">
 
                 {/* Dr. Sriram Shankar */}
-                <div className="flex flex-col">
-                  <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl bg-pine-900 mb-6 flex items-center justify-center">
-                    <span className="text-6xl font-medium text-pine-300 tracking-widest select-none">SS</span>
+                <div className="flex flex-col group">
+                  <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl bg-pine-900 mb-6 flex items-center justify-center" style={{ perspective: 800 }}>
+                    <span className="text-6xl font-medium text-pine-300 tracking-widest select-none transition-transform duration-500 group-hover:[transform:rotateY(14deg)]">SS</span>
                   </div>
                   <h3 className="text-2xl font-medium text-pine-900 mb-1">Dr. Sriram Shankar</h3>
                   <p className="text-pine-600 font-medium mb-1">Co-founder &amp; Chief Medical Officer</p>
@@ -117,9 +134,9 @@ export default function About() {
                 </div>
 
                 {/* Dr. Bhavani Sriram */}
-                <div className="flex flex-col">
-                  <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl bg-pine-900 mb-6 flex items-center justify-center">
-                    <span className="text-6xl font-medium text-pine-300 tracking-widest select-none">BS</span>
+                <div className="flex flex-col group">
+                  <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl bg-pine-900 mb-6 flex items-center justify-center" style={{ perspective: 800 }}>
+                    <span className="text-6xl font-medium text-pine-300 tracking-widest select-none transition-transform duration-500 group-hover:[transform:rotateY(14deg)]">BS</span>
                   </div>
                   <h3 className="text-2xl font-medium text-pine-900 mb-1">Dr. Bhavani Sriram</h3>
                   <p className="text-pine-600 font-medium mb-1">Co-founder &amp; Chief Clinical Officer</p>
@@ -191,8 +208,17 @@ export default function About() {
             </FadeIn>
 
             <div className="relative grid sm:grid-cols-3 gap-5 mb-10">
-              {/* Connecting line behind the stages */}
-              <div className="hidden sm:block absolute top-10 left-[16.6%] right-[16.6%] h-px bg-stone-200" aria-hidden="true" />
+              {/* Connecting line behind the stages, fills as the section enters */}
+              <div className="hidden sm:block absolute top-10 left-[16.6%] right-[16.6%] h-px bg-stone-200 overflow-hidden" aria-hidden="true">
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
+                  style={{ transformOrigin: 'left' }}
+                  className="absolute inset-0 bg-pine-400"
+                />
+              </div>
               {[
                 {
                   stage: "Now",
@@ -243,7 +269,7 @@ export default function About() {
 
         {/* ── S7: Call to action ───────────────────────────────────────── */}
         <section className="py-16 md:py-24 bg-pine-900 text-white overflow-hidden relative">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-pine-800/50 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+          <DarkTexture />
           <div className="container mx-auto px-4 md:px-8 max-w-4xl relative z-10">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-medium leading-tight mb-4 tracking-tight text-balance">

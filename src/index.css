@@ -80,3 +80,31 @@ h1, h2, h3 {
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
+
+/* ── Mesh gradient drift (hero backgrounds) ─────────────────────────
+   Two soft radial layers translating very slowly. Transform-only,
+   composited, and fully static under reduced motion. */
+@keyframes mesh-drift-a {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(4%, 6%) scale(1.08); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+@keyframes mesh-drift-b {
+  0%   { transform: translate(0, 0) scale(1.05); }
+  50%  { transform: translate(-5%, -4%) scale(1); }
+  100% { transform: translate(0, 0) scale(1.05); }
+}
+.mesh-layer-a { animation: mesh-drift-a 32s ease-in-out infinite; will-change: transform; }
+.mesh-layer-b { animation: mesh-drift-b 38s ease-in-out infinite; will-change: transform; }
+
+/* ── Consent flow dash (Security page) ──────────────────────────────
+   The one ambient loop allowed on the Security page: data moving
+   under consent, depicted literally. */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -16; }
+}
+.consent-dash { animation: dash-flow 1.6s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh-layer-a, .mesh-layer-b, .consent-dash { animation: none; }
+}

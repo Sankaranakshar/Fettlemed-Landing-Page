@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { Smartphone, Stethoscope, Building2, ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
+import { PulseLine } from "@/components/common/PulseLine";
 import {
   VisualOnView,
   HealthRecordsVisual,
@@ -63,9 +64,21 @@ export const EcosystemRoles = () => {
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="relative">
+          {/* Desktop: one line running behind the three cards. It shows in the
+              gaps between them, with a pulse travelling clinic-to-patient. */}
+          <PulseLine className="hidden md:block absolute top-[120px] left-[8%] right-[8%] z-0" />
+
+          <div className="relative flex flex-col gap-0 md:grid md:grid-cols-3 md:gap-5">
           {ROLES.map(({ Icon, label, heading, bullets, visual, to, dark }, i) => (
-            <FadeIn key={label} delay={0.08 + i * 0.08} className="h-full">
+            <React.Fragment key={label}>
+            {/* Mobile: short vertical connector between stacked cards */}
+            {i > 0 && (
+              <div className="md:hidden flex justify-center py-1">
+                <PulseLine vertical className="h-10" interval={6} />
+              </div>
+            )}
+            <FadeIn delay={0.08 + i * 0.08} className="h-full relative z-10">
               <Link
                 to={to}
                 className={`group flex flex-col h-full rounded-3xl border overflow-hidden shadow-sm transition-shadow hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2 ${
@@ -100,7 +113,9 @@ export const EcosystemRoles = () => {
                 </div>
               </Link>
             </FadeIn>
+            </React.Fragment>
           ))}
+          </div>
         </div>
       </div>
     </section>

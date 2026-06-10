@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 import { Button } from "@/components/common/Button";
 import { FadeIn } from "@/components/common/FadeIn";
+import { DarkTexture } from "@/components/common/Texture/DarkTexture";
 import { useWaitlist } from "@/contexts/WaitlistContext";
 
 export function DoctorPilot() {
@@ -9,7 +11,7 @@ export function DoctorPilot() {
 
   return (
     <section className="py-14 md:py-20 bg-pine-900 text-white relative overflow-hidden border-b border-stone-100">
-       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pine-800/40 rounded-full blur-[120px] pointer-events-none opacity-50 transform translate-x-1/3 -translate-y-1/3"></div>
+       <DarkTexture />
        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center relative z-10">
           <FadeIn>
              <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight leading-tight mb-8">
@@ -22,19 +24,34 @@ export function DoctorPilot() {
 
              {/* Timeline */}
              <div className="relative mb-10 max-w-3xl mx-auto">
-               {/* Connecting line - desktop only */}
-               <div className="hidden md:block absolute top-5 left-[12.5%] right-[12.5%] h-px bg-pine-700" />
+               {/* Connecting line - desktop only, fills as the section enters */}
+               <div className="hidden md:block absolute top-5 left-[12.5%] right-[12.5%] h-px bg-pine-700 overflow-hidden" aria-hidden="true">
+                 <motion.div
+                   initial={{ scaleX: 0 }}
+                   whileInView={{ scaleX: 1 }}
+                   viewport={{ once: true, margin: "-80px" }}
+                   transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
+                   style={{ transformOrigin: 'left' }}
+                   className="absolute inset-0 bg-pine-400"
+                 />
+               </div>
                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                  {[
                    { step: "1", title: "Apply",            desc: "2-minute form, no paperwork" },
                    { step: "2", title: "We review",        desc: "Each application is reviewed by the founding team" },
                    { step: "3", title: "Go live",          desc: "Selected doctors set up in one session" },
                    { step: "4", title: "Build with us",    desc: "Your feedback goes to the people writing the code." },
-                 ].map(({ step, title, desc }) => (
+                 ].map(({ step, title, desc }, i) => (
                    <div key={step} className="flex flex-col items-center text-center relative">
-                     <div className="w-10 h-10 rounded-full flex items-center justify-center mb-3 text-sm z-10 relative border-2 font-semibold bg-pine-700 text-white border-pine-500">
+                     <motion.div
+                       initial={{ scale: 0.6, opacity: 0 }}
+                       whileInView={{ scale: 1, opacity: 1 }}
+                       viewport={{ once: true, margin: "-80px" }}
+                       transition={{ delay: 0.25 + i * 0.25, type: 'spring', stiffness: 340, damping: 18 }}
+                       className="w-10 h-10 rounded-full flex items-center justify-center mb-3 text-sm z-10 relative border-2 font-semibold bg-pine-700 text-white border-pine-500"
+                     >
                        {step}
-                     </div>
+                     </motion.div>
                      <p className="font-semibold text-sm mb-1 text-white">{title}</p>
                      <p className="text-xs leading-relaxed text-pine-300">{desc}</p>
                    </div>

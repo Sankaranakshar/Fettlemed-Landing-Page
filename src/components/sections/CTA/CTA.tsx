@@ -1,14 +1,16 @@
 import React from 'react';
 import { FadeIn } from "@/components/common/FadeIn";
 import { Button } from "@/components/common/Button";
+import { DarkTexture } from "@/components/common/Texture/DarkTexture";
 import { useWaitlist } from "@/contexts/WaitlistContext";
 
 export const CTA = () => {
   const { openWaitlist } = useWaitlist();
 
   return (
-    <section className="py-14 md:py-20 bg-pine-900">
-       <div className="container mx-auto px-6 max-w-4xl text-center">
+    <section className="relative overflow-hidden py-14 md:py-20 bg-pine-900">
+       <DarkTexture glow="center" />
+       <div className="container mx-auto px-6 max-w-4xl text-center relative z-10">
           <FadeIn>
              <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-white tracking-tight mb-6 text-balance">Join the pilot. Talk to the founders.</h2>
              <p className="text-lg md:text-xl font-medium text-pine-200 mb-10 max-w-2xl mx-auto">

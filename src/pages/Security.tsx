@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 import {
   ShieldCheck, Key, Settings, Users, Globe2, Lock,
   CheckCircle2, Clock, Calendar, Server, Eye, FileCheck2,
@@ -7,6 +8,7 @@ import {
 } from "lucide-react";
 import { SEO } from '@/components/common/SEO';
 import { FadeIn } from "@/components/common/FadeIn";
+import { DarkTexture } from "@/components/common/Texture/DarkTexture";
 import { Button } from "@/components/common/Button";
 import { FAQ } from "@/components/common/FAQ";
 import { useWaitlist } from "@/contexts/WaitlistContext";
@@ -100,7 +102,7 @@ export default function Security() {
 
         {/* ── S1: Hero ─────────────────────────────────────────────────── */}
         <section className="relative pt-16 pb-12 md:pt-20 md:pb-16 bg-pine-900 text-white overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-pine-800/50 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+          <DarkTexture />
           <div className="container mx-auto px-4 md:px-8 max-w-4xl relative z-10">
             <FadeIn eager>
               <div className="text-center mb-12">
@@ -184,12 +186,12 @@ export default function Security() {
 
                 {/* Arrow 1 - desktop */}
                 <div className="hidden md:flex flex-col items-center justify-center px-2 shrink-0 relative min-h-[80px]">
-                  <div className="h-0.5 w-12 bg-stone-200 absolute top-1/2 -translate-y-1/2" />
+                  <svg className="absolute top-1/2 -translate-y-1/2 w-12 h-1 overflow-visible" aria-hidden="true"><line x1="0" y1="2" x2="48" y2="2" stroke="#B8D4CA" strokeWidth="2" strokeDasharray="6 10" className="consent-dash" /></svg>
                   <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 whitespace-nowrap shadow-sm">Grant Access</div>
                 </div>
                 {/* Arrow 1 - mobile */}
                 <div className="md:hidden flex flex-col items-center justify-center py-3 shrink-0 relative">
-                  <div className="w-0.5 h-8 bg-stone-200 absolute left-1/2 -translate-x-1/2" />
+                  <svg className="absolute left-1/2 -translate-x-1/2 h-8 w-1 overflow-visible" aria-hidden="true"><line x1="2" y1="0" x2="2" y2="32" stroke="#B8D4CA" strokeWidth="2" strokeDasharray="6 10" className="consent-dash" /></svg>
                   <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 shadow-sm">Grant Access</div>
                 </div>
 
@@ -204,12 +206,12 @@ export default function Security() {
 
                 {/* Arrow 2 - desktop */}
                 <div className="hidden md:flex flex-col items-center justify-center px-2 shrink-0 relative min-h-[80px]">
-                  <div className="h-0.5 w-12 bg-stone-200 absolute top-1/2 -translate-y-1/2" />
+                  <svg className="absolute top-1/2 -translate-y-1/2 w-12 h-1 overflow-visible" aria-hidden="true"><line x1="0" y1="2" x2="48" y2="2" stroke="#B8D4CA" strokeWidth="2" strokeDasharray="6 10" className="consent-dash" /></svg>
                   <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 whitespace-nowrap shadow-sm">Revoke</div>
                 </div>
                 {/* Arrow 2 - mobile */}
                 <div className="md:hidden flex flex-col items-center justify-center py-3 shrink-0 relative">
-                  <div className="w-0.5 h-8 bg-stone-200 absolute left-1/2 -translate-x-1/2" />
+                  <svg className="absolute left-1/2 -translate-x-1/2 h-8 w-1 overflow-visible" aria-hidden="true"><line x1="2" y1="0" x2="2" y2="32" stroke="#B8D4CA" strokeWidth="2" strokeDasharray="6 10" className="consent-dash" /></svg>
                   <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 shadow-sm">Revoke</div>
                 </div>
 
@@ -285,12 +287,20 @@ export default function Security() {
                   <button
                     key={id}
                     onClick={(e) => { e.preventDefault(); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }}
-                    className={`block w-full text-left text-sm font-medium py-2 px-3 rounded-lg transition-colors ${
+                    className={`relative block w-full text-left text-sm font-medium py-2 px-3 rounded-lg transition-colors ${
                       activeSection === id
                         ? "bg-pine-50 text-pine-700"
                         : "text-dim hover:text-pine-600"
                     }`}
                   >
+                    {/* Sliding rail segment follows the active section */}
+                    {activeSection === id && (
+                      <motion.span
+                        layoutId="securityRail"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                        className="absolute left-0 top-1.5 bottom-1.5 w-0.5 rounded-full bg-pine-600"
+                      />
+                    )}
                     {label}
                   </button>
                 ))}

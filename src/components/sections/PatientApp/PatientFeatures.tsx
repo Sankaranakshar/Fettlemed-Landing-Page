@@ -19,7 +19,6 @@ export function PatientFeatures() {
             <ul className="space-y-1.5 text-dim-2 font-medium text-sm">
               <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Every prescription, lab, scan, and note - yours or your doctor's.</li>
               <li className="flex items-start gap-2"><span className="text-pine-500 mt-0.5 shrink-0">•</span>On your phone. No paper folders to carry to the appointment.</li>
-              <li className="flex items-start gap-2 text-pine-600 font-medium"><span className="text-pine-500 mt-0.5 shrink-0">•</span>Free for patients during the pilot.</li>
             </ul>
           </FadeIn>
 

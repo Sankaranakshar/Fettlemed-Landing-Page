@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 import { FolderSync, EyeOff, Server, Lock } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { VisualOnView, ConsentVisual } from "@/components/sections/RoleVisuals";
@@ -31,9 +32,23 @@ export function PatientDataRules() {
           <FadeIn delay={0.2} className="bg-surface-50 border border-stone-100 rounded-2xl p-6 flex flex-col">
             <FolderSync className="w-6 h-6 text-pine-600 mb-4" />
             <div className="flex-1">
-              <p className="text-5xl font-bold text-pine-900 tracking-tight leading-none">2</p>
+              <motion.p
+                initial={{ scale: 0.6, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ type: 'spring', stiffness: 340, damping: 18 }}
+                style={{ transformOrigin: 'left bottom' }}
+                className="text-5xl font-bold text-pine-900 tracking-tight leading-none"
+              >2</motion.p>
               <p className="text-pine-600 font-medium text-sm mb-4">taps to share</p>
-              <p className="text-5xl font-bold text-pine-900 tracking-tight leading-none">1</p>
+              <motion.p
+                initial={{ scale: 0.6, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: 0.12, type: 'spring', stiffness: 340, damping: 18 }}
+                style={{ transformOrigin: 'left bottom' }}
+                className="text-5xl font-bold text-pine-900 tracking-tight leading-none"
+              >1</motion.p>
               <p className="text-pine-600 font-medium text-sm">tap to revoke</p>
             </div>
             <p className="text-dim-2 font-medium text-xs leading-relaxed mt-4">You set the access window. Nothing stays open longer than you intend.</p>
