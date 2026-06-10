@@ -126,7 +126,7 @@ export default function Security() {
                     </div>
                     <div>
                       <p className="text-white font-medium text-sm leading-tight">{label}</p>
-                      <p className="text-pine-400 text-xs font-medium mt-0.5">{sub}</p>
+                      <p className="text-pine-300 text-xs font-medium mt-0.5">{sub}</p>
                     </div>
                   </div>
                 ))}

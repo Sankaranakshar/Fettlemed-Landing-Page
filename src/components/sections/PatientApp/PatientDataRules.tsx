@@ -19,9 +19,9 @@ export function PatientDataRules() {
           {/* Hero card - Built around patient consent */}
           <FadeIn delay={0.1} className="md:col-span-2 bg-pine-900 rounded-2xl p-6 flex flex-col md:flex-row md:items-center gap-6">
             <div className="flex flex-col flex-1">
-              <Lock className="w-6 h-6 text-pine-400 mb-4" />
+              <Lock className="w-6 h-6 text-pine-300 mb-4" />
               <p className="text-2xl font-medium text-white tracking-tight leading-tight mb-2">Built around patient consent.</p>
-              <p className="text-pine-400 font-medium text-sm leading-relaxed mt-auto">Never sold. Never advertised. Shared only with who you authorise.</p>
+              <p className="text-pine-300 font-medium text-sm leading-relaxed mt-auto">Never sold. Never advertised. Shared only with who you authorise.</p>
             </div>
             <VisualOnView className="shrink-0 w-full md:w-[260px] flex justify-center">
               <ConsentVisual />

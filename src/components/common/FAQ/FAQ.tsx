@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 
@@ -20,6 +20,14 @@ export function FAQ({ sections }: FAQProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [openIds, setOpenIds] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Collapsing from the bottom of a long list would otherwise leave the
+  // user stranded mid-page; bring the FAQ block back into view.
+  const handleClose = () => {
+    setIsExpanded(false);
+    requestAnimationFrame(() => containerRef.current?.scrollIntoView({ block: 'center' }));
+  };
 
   const toggleOpen = (sectionIndex: number, itemIndex: number) => {
     const id = `${sectionIndex}-${itemIndex}`;
@@ -47,7 +55,7 @@ export function FAQ({ sections }: FAQProps) {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto mt-8 mb-10">
+    <div ref={containerRef} className="w-full max-w-4xl mx-auto mt-8 mb-10 scroll-mt-28">
        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
        <FadeIn>
           {!isExpanded ? (
@@ -73,7 +81,7 @@ export function FAQ({ sections }: FAQProps) {
               <div className="flex items-center justify-between mb-8 pb-8 border-b border-stone-200">
                 <h2 className="text-3xl md:text-5xl font-medium text-pine-900 tracking-tight">Frequently Asked Questions</h2>
                 <button
-                  onClick={() => setIsExpanded(false)}
+                  onClick={handleClose}
                   className="text-dim hover:text-ink font-medium flex items-center gap-2 transition-colors"
                 >
                   Close <ChevronDown className="w-4 h-4 rotate-180" />
@@ -117,7 +125,7 @@ export function FAQ({ sections }: FAQProps) {
                                 <button
                                    onClick={() => toggleOpen(sIndex, iIndex)}
                                    aria-expanded={isOpen}
-                                   className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                                   className="w-full px-6 py-5 flex items-center justify-between text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-inset"
                                 >
                                    <span className={`font-medium text-lg transition-colors ${isOpen ? "text-pine-900" : "text-dim-2"}`}>{item.question}</span>
                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-[transform,background-color,color] duration-200 ease-out shrink-0 ml-4 ${isOpen ? "bg-pine-900 text-white rotate-180" : "bg-pine-100 text-dim"}`}>

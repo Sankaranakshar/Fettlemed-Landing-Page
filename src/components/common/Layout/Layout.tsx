@@ -25,6 +25,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Escape closes the mobile menu
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setIsMobileMenuOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { name: "For Patients", path: "/patient-app" },
     { name: "For Doctors", path: "/doctor-portal" },
@@ -117,7 +125,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12 border-b border-pine-800 pb-12">
              {/* Column 1: Product */}
              <nav className="flex flex-col gap-4" aria-label="Product Links">
-                <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Product</h3>
+                <h3 className="text-sm font-medium tracking-widest text-pine-300 uppercase mb-2">Product</h3>
                 <Link to="/patient-app" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Patients</Link>
                 <Link to="/doctor-portal" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Doctors</Link>
                 <Link to="/clinic-management" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Clinics</Link>
@@ -126,22 +134,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
              {/* Column 2: Company */}
              <nav className="flex flex-col gap-4" aria-label="Company Links">
-                <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Company</h3>
+                <h3 className="text-sm font-medium tracking-widest text-pine-300 uppercase mb-2">Company</h3>
                 <Link to="/about" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">About</Link>
                 <Link to="/about#team" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Team</Link>
                 <Link to="/about#contact" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Contact</Link>
+                <Link to="/waitlist" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Join the Waitlist</Link>
              </nav>
 
              {/* Column 3: Legal */}
              <nav className="flex flex-col gap-4" aria-label="Legal Links">
-                <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Legal</h3>
+                <h3 className="text-sm font-medium tracking-widest text-pine-300 uppercase mb-2">Legal</h3>
                 <Link to="/privacy-policy" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Privacy Policy</Link>
                 <Link to="/terms-of-service" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Terms of Service</Link>
              </nav>
 
              {/* Column 4: Connect */}
              <nav className="flex flex-col gap-4" aria-label="Connect Links">
-                <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Connect</h3>
+                <h3 className="text-sm font-medium tracking-widest text-pine-300 uppercase mb-2">Connect</h3>
                 <a href="mailto:hello@fettlemed.com" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">hello@fettlemed.com</a>
                 <a href="https://www.linkedin.com/company/fettlemed/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">LinkedIn</a>
                 <a href="https://x.com/FETTLEMEDHEALTH" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">X (Twitter)</a>
@@ -151,7 +160,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Medical disclaimer - visible, not buried in ToS */}
           <div className="border-t border-pine-800 pt-6 mb-8 text-center">
-            <p className="text-pine-400 text-xs leading-relaxed max-w-3xl mx-auto">
+            <p className="text-pine-300 text-xs leading-relaxed max-w-3xl mx-auto">
               FettleMed is a health record management platform. It is <strong className="text-pine-300">not a substitute</strong> for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional for medical decisions.
             </p>
           </div>

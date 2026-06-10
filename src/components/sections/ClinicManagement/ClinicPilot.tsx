@@ -20,9 +20,9 @@ export function ClinicPilot() {
              <div className="text-lg text-pine-100 leading-relaxed text-left md:text-center mb-10 max-w-2xl mx-auto">
                 <p className="mb-6">You call us. We come. We don't leave until your clinic is running.</p>
                 <ul className="space-y-3 text-left max-w-sm mx-auto">
-                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Hands-on onboarding until you're running.</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Talk directly to the founding team.</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-400 mt-1 shrink-0">•</span>Your feedback ships first.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-300 mt-1 shrink-0">•</span>Hands-on onboarding until you're running.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-300 mt-1 shrink-0">•</span>Talk directly to the founding team.</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-300 mt-1 shrink-0">•</span>Your feedback ships first.</li>
                 </ul>
              </div>
 
@@ -43,12 +43,12 @@ export function ClinicPilot() {
                    <span>Setup in one session, on your existing devices</span>
                 </div>
 
-                <p className="text-pine-400 text-xs font-medium mt-4">
+                <p className="text-pine-300 text-xs font-medium mt-4">
                    By applying, you agree to our{" "}
                    <Link to="/privacy-policy" className="underline hover:text-pine-200 transition-colors">Privacy Policy</Link>.
                    {" "}Clinic and user data is end-to-end encrypted and never shared with third parties.
                 </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm font-medium text-pine-400 mt-8 pt-6 border-t border-pine-800">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm font-medium text-pine-300 mt-8 pt-6 border-t border-pine-800">
                    <span>Are you a doctor? <Link to="/doctor-portal" className="text-pine-200 hover:text-white transition-colors">See the doctor portal →</Link></span>
                    <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-700"></span>
                    <span>Looking for the patient app? <Link to="/patient-app" className="text-pine-200 hover:text-white transition-colors">See FettleMed for patients →</Link></span>

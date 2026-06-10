@@ -51,7 +51,7 @@ export function DoctorWhoWeAre() {
           <p className="text-pine-100 font-medium text-base md:text-lg leading-relaxed">
             "We built this from inside the consultation room. We were there, watching it fail."
           </p>
-          <p className="text-pine-400 text-sm font-medium mt-3">
+          <p className="text-pine-300 text-sm font-medium mt-3">
             Both founders are available to speak with pilot doctors directly.
           </p>
         </FadeIn>

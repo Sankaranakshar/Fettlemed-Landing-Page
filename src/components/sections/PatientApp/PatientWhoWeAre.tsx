@@ -51,7 +51,7 @@ export function PatientWhoWeAre() {
           <p className="text-pine-100 font-medium text-base md:text-lg leading-relaxed">
             "Every feature in the patient app came from a real moment in a consultation where the patient didn't have what they needed. And shouldn't have had to."
           </p>
-          <p className="text-pine-400 text-sm font-medium mt-3">
+          <p className="text-pine-300 text-sm font-medium mt-3">
             We are available to speak with patients and families directly. Write to us at hello@fettlemed.com.
           </p>
         </FadeIn>

@@ -49,7 +49,7 @@ export function ClinicWhoWeAre() {
           <p className="text-pine-100 font-medium text-base md:text-lg leading-relaxed">
             "A clinic runs on people, not software. Our job is to make the software invisible. So your staff can focus on the patients."
           </p>
-          <p className="text-pine-400 text-sm font-medium mt-3">
+          <p className="text-pine-300 text-sm font-medium mt-3">
             Both founders are available to speak with pilot clinics directly.
           </p>
         </FadeIn>

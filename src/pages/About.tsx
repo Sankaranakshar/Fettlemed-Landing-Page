@@ -71,7 +71,7 @@ export default function About() {
           <DarkTexture glow="center" />
           <div className="container mx-auto px-4 md:px-8 max-w-3xl relative z-10">
             <FadeIn>
-              <p className="text-xs font-medium tracking-widest uppercase text-pine-400 mb-8">What we believe</p>
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-300 mb-8">What we believe</p>
               {/* Masked-line reveal: each phrase rises from under a clip */}
               <div className="text-2xl md:text-3xl font-medium leading-snug tracking-tight mb-10">
                 {[
