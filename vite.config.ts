@@ -36,9 +36,9 @@ export default defineConfig({
           rollupOptions: {
             output: {
               manualChunks: {
-                'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+                'react-vendor': ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
                 'ui-vendor': ['lucide-react', 'clsx', 'tailwind-merge'],
-                'animations': ['motion', 'react-helmet-async'],
+                'animations': ['motion'],
               },
             },
           },
