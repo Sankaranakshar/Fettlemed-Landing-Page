@@ -79,14 +79,10 @@ export function ClinicShuffleMockup() {
   );
 }
 
-interface PatientMobileMockupProps {
-  activeTab?: "Home" | "Records" | "Share" | "Profile";
-}
-
-export function PatientMobileMockup(props: PatientMobileMockupProps) {
+export function PatientMobileMockup() {
   return (
     <Suspense fallback={<PhoneSkeleton />}>
-      <PatientInner {...props} />
+      <PatientInner />
     </Suspense>
   );
 }

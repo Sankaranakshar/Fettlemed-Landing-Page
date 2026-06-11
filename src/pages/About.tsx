@@ -5,7 +5,7 @@ import { SEO } from '@/components/common/SEO';
 import {
   Mail, MapPin, Stethoscope, Code2, ArrowRight, Quote,
   Lock, KeyRound, Download, ShieldCheck, Feather,
-  Smartphone, Building2, CheckCircle2,
+  Smartphone, Building2, CheckCircle2, XCircle,
 } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { Button } from "@/components/common/Button";
@@ -84,41 +84,43 @@ export default function About() {
           </div>
         </section>
 
-        {/* ── S2: The story, in three acts ─────────────────────────────── */}
-        <section className="py-16 md:py-24 bg-white border-b border-stone-100">
-          <div className="container mx-auto px-4 md:px-8 max-w-3xl">
-            <FadeIn>
-              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-10">Why FettleMed exists</p>
-            </FadeIn>
+        {/* ── S2: The story ─────────────────────────────────────────────── */}
+        <section className="py-16 md:py-20 bg-white border-b border-stone-100">
+          <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+            <FadeIn className="mb-8">
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-5">Why FettleMed exists</p>
+              <h2 className="text-2xl md:text-4xl font-medium leading-snug tracking-tight text-balance">
+                <span className="text-pine-900">A patient's history is scattered across clinics, labs, folders, and memory. </span>
+                <span className="text-pine-600">It should follow them: owned by the patient, shared only with consent.</span>
+              </h2>
 
-            {/* Act 1: the problem */}
-            <FadeIn>
-              <p className="text-2xl md:text-4xl font-medium text-pine-900 leading-snug tracking-tight text-balance">
-                A patient's history is scattered across clinics, labs, folders, and memory.
+              {/* What the gap costs, concretely */}
+              <div className="flex flex-wrap gap-2 mt-7">
+                {[
+                  "Tests repeated because results can't be found",
+                  "Medications recalled from memory",
+                  "Every new doctor starts from zero",
+                ].map((item, i) => (
+                  <motion.span
+                    key={item}
+                    initial={{ opacity: 0, y: 8 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: 0.15 + i * 0.08, duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                    className="inline-flex items-center gap-2 bg-surface-50 border border-stone-200 rounded-full px-4 py-2 text-sm font-medium text-dim-2"
+                  >
+                    <XCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                    {item}
+                  </motion.span>
+                ))}
+              </div>
+
+              <p className="text-lg text-dim-2 leading-relaxed mt-7 max-w-2xl">
+                FettleMed closes that gap with one consent-controlled record, moving between the three people who need it:
               </p>
             </FadeIn>
 
-            {/* Act 2: the vision, rising line by line */}
-            <div className="text-2xl md:text-4xl font-medium leading-snug tracking-tight mt-10 mb-14">
-              {[
-                { text: "It should follow them.", cls: "text-pine-900" },
-                { text: "Owned by the patient. Shared only with consent.", cls: "text-pine-600" },
-              ].map(({ text, cls }, i) => (
-                <span key={i} className="block overflow-hidden">
-                  <motion.span
-                    initial={{ y: '105%' }}
-                    whileInView={{ y: 0 }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{ delay: 0.1 + i * 0.12, duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                    className={`block text-balance ${cls}`}
-                  >
-                    {text}
-                  </motion.span>
-                </span>
-              ))}
-            </div>
-
-            {/* Act 3: the ecosystem, drawn not described */}
+            {/* The ecosystem, drawn not described */}
             <FadeIn delay={0.1}>
               <div className="relative">
                 <PulseLine className="hidden sm:block absolute top-7 left-[12%] right-[12%] z-0" interval={6} />
@@ -142,7 +144,6 @@ export default function About() {
                   ))}
                 </div>
               </div>
-              <p className="text-dim text-sm mt-4 text-center sm:text-left">One consent-controlled record, moving between all three.</p>
             </FadeIn>
           </div>
         </section>

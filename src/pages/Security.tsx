@@ -35,12 +35,12 @@ function StatusPill({ status }: { status: Status }) {
   );
 }
 
-/* ── Hero trust signals ─────────────────────────────────────────── */
-const trustSignals: { icon: React.ElementType; label: string; sub: string; status?: Status }[] = [
+/* ── Hero trust signals: clean chips, statuses live in the grid below ── */
+const trustSignals: { icon: React.ElementType; label: string; sub: string }[] = [
   { icon: Eye,        label: "Patient-controlled",   sub: "You grant and revoke access" },
-  { icon: Lock,       label: "End-to-end encrypted", sub: "TLS 1.2+ in transit", status: "live" },
-  { icon: FileCheck2, label: "Audit logging",        sub: "Every access recorded", status: "live" },
-  { icon: Key,        label: "Multi-factor auth",    sub: "All provider accounts", status: "launch" },
+  { icon: Lock,       label: "End-to-end encrypted", sub: "TLS 1.2+ in transit" },
+  { icon: FileCheck2, label: "Audit logging",        sub: "Every access recorded" },
+  { icon: Key,        label: "Multi-factor auth",    sub: "Provider accounts, at launch" },
   { icon: ShieldCheck,label: "DPDPA-aligned",        sub: "Built on India's data law" },
   { icon: Download,   label: "Your data, portable",  sub: "Yours to download and keep" },
 ];
@@ -123,18 +123,15 @@ export default function Security() {
                 </p>
               </div>
 
-              {/* Trust signal grid with honest status */}
+              {/* Trust signal grid */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {trustSignals.map(({ icon: Icon, label, sub, status }) => (
+                {trustSignals.map(({ icon: Icon, label, sub }) => (
                   <div key={label} className="bg-pine-800/50 border border-pine-700/60 rounded-2xl p-4 flex items-center gap-4">
                     <div className="w-10 h-10 bg-pine-700/60 border border-pine-600 rounded-xl flex items-center justify-center shrink-0">
                       <Icon className="w-5 h-5 text-pine-300" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-white font-medium text-sm leading-tight flex items-center gap-2 flex-wrap">
-                        {label}
-                        {status && <StatusPill status={status} />}
-                      </p>
+                      <p className="text-white font-medium text-sm leading-tight">{label}</p>
                       <p className="text-pine-300 text-xs font-medium mt-0.5">{sub}</p>
                     </div>
                   </div>
@@ -164,28 +161,26 @@ export default function Security() {
         </section>
 
         {/* ── S3: Philosophy ───────────────────────────────────────────── */}
-        <section className="py-16 md:py-24 bg-white border-b border-stone-100">
-          <div className="container mx-auto px-4 md:px-8 max-w-3xl">
-            <FadeIn>
-              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-8">Our security philosophy</p>
+        <section className="py-16 md:py-20 bg-white border-b border-stone-100">
+          <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+            <FadeIn className="mb-10">
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-3">Our security philosophy</p>
+              <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight">Three rules, before any technology.</h2>
             </FadeIn>
-            <div className="text-2xl md:text-4xl font-medium text-pine-900 leading-snug tracking-tight">
+
+            <div className="space-y-6">
               {[
-                "The patient holds the key.",
-                "We claim only what is live today.",
-                "Your health data is never for sale.",
-              ].map((line, i) => (
-                <span key={i} className="block overflow-hidden">
-                  <motion.span
-                    initial={{ y: '105%' }}
-                    whileInView={{ y: 0 }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{ delay: 0.1 + i * 0.12, duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                    className={`block text-balance ${i === 2 ? "text-pine-600" : ""}`}
-                  >
-                    {line}
-                  </motion.span>
-                </span>
+                { n: "01", line: "The patient holds the key.",            sub: "No doctor, clinic, or FettleMed employee sees a record without the patient's consent." },
+                { n: "02", line: "We claim only what is live today.",     sub: "Every protection on this page is labelled honestly: live, at launch, in progress, or planned." },
+                { n: "03", line: "Your health data is never for sale.",   sub: "Not to insurers, not to advertisers, not to AI companies. Not ever." },
+              ].map(({ n, line, sub }, i) => (
+                <FadeIn key={n} delay={0.06 * i} className="flex gap-5 md:gap-8 items-start border-l-2 border-pine-200 pl-5 md:pl-8 py-1">
+                  <span className="font-mono text-sm font-medium text-pine-600 tracking-widest mt-2 shrink-0">{n}</span>
+                  <div>
+                    <p className="text-xl md:text-2xl font-medium text-pine-900 tracking-tight leading-snug">{line}</p>
+                    <p className="text-dim-2 leading-relaxed mt-1.5">{sub}</p>
+                  </div>
+                </FadeIn>
               ))}
             </div>
           </div>

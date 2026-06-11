@@ -49,30 +49,22 @@ function BatteryIcon() {
   );
 }
 
-interface PatientMobileMockupProps {
-  /** When provided, the phone is externally controlled (no auto-cycle, no float). */
-  activeTab?: Tab;
-}
-
-export function PatientMobileMockup({ activeTab }: PatientMobileMockupProps) {
-  const controlled = activeTab !== undefined;
-  const [internalActive, setInternalActive] = useState<Tab>("Home");
+export function PatientMobileMockup() {
+  const [active, setActive] = useState<Tab>("Home");
   const [userPaused, setUserPaused] = useState(false);
-  const active = controlled ? activeTab : internalActive;
 
   useEffect(() => {
-    if (controlled || userPaused) return;
+    if (userPaused) return;
     let i = TAB_ORDER.indexOf(active);
     const id = setInterval(() => {
       i = (i + 1) % TAB_ORDER.length;
-      setInternalActive(TAB_ORDER[i]);
+      setActive(TAB_ORDER[i]);
     }, CYCLE_MS);
     return () => clearInterval(id);
-  }, [controlled, userPaused, active]);
+  }, [userPaused, active]);
 
   function handleTabClick(t: Tab) {
-    if (controlled) return;
-    setInternalActive(t);
+    setActive(t);
     setUserPaused(true);
   }
 
