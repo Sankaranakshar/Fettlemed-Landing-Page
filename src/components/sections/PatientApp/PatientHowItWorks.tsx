@@ -1,24 +1,21 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useScroll } from 'motion/react';
 import { FadeIn } from "@/components/common/FadeIn";
-import { PatientMobileMockup } from "@/components/sections/Mockups";
+import { HowItWorksPhone } from "./HowItWorksPhone";
 
 const STEPS = [
   {
     n: "1",
-    tab: "Records" as const,
     heading: "Upload what you already have",
     body: "Old reports, PDFs, photos. Your history doesn't start at zero.",
   },
   {
     n: "2",
-    tab: "Home" as const,
     heading: "Records grow with every visit",
     body: "Show your QR at a FettleMed clinic. You approve. Notes and prescriptions sync to you.",
   },
   {
     n: "3",
-    tab: "Share" as const,
     heading: "Walk into your next appointment ready",
     body: "Share in two taps at your next visit. Expire it or keep it open. Revoke anytime.",
   },
@@ -34,7 +31,7 @@ export function PatientHowItWorks() {
     useInView(refs[2], { margin: "-40% 0px -40% 0px" }),
   ];
   const activeIndex = inView.lastIndexOf(true);
-  const activeTab = STEPS[activeIndex === -1 ? 0 : activeIndex].tab;
+  const activeStep = activeIndex === -1 ? 0 : activeIndex;
 
   // Vertical rail behind the step numbers, filling as steps cross the viewport centre
   const stepsRef = useRef<HTMLDivElement>(null);
@@ -74,9 +71,9 @@ export function PatientHowItWorks() {
             ))}
           </div>
 
-          {/* Sticky phone - follows the active step */}
+          {/* Sticky phone - acts out the active step */}
           <div className="hidden md:block w-[320px] shrink-0 sticky top-28 self-start">
-            <PatientMobileMockup activeTab={activeTab} />
+            <HowItWorksPhone step={activeStep} />
           </div>
         </div>
       </div>

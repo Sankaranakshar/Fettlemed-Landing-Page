@@ -115,6 +115,27 @@ async function prerender() {
     }
   }
 
+  // Generate sitemap.xml from the same route list, dated to this build.
+  // (Replaces the hand-maintained file that always went stale.)
+  const today = new Date().toISOString().slice(0, 10);
+  const sitemap =
+    `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    ROUTES.map((route) => {
+      const priority = route === '/' ? '1.0' : route.includes('terms') || route.includes('privacy') ? '0.3' : '0.8';
+      return (
+        `  <url>\n` +
+        `    <loc>https://fettlemed.com${route === '/' ? '/' : route}</loc>\n` +
+        `    <lastmod>${today}</lastmod>\n` +
+        `    <changefreq>weekly</changefreq>\n` +
+        `    <priority>${priority}</priority>\n` +
+        `  </url>`
+      );
+    }).join('\n') +
+    `\n</urlset>\n`;
+  writeFileSync(resolve(rootDir, 'dist/sitemap.xml'), sitemap);
+  console.log('  ✓  sitemap.xml');
+
   console.log('\n✅  Prerender complete.\n');
 }
 

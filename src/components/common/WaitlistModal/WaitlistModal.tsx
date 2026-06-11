@@ -52,7 +52,9 @@ export function WaitlistModal({ open, onClose, defaultRole }: WaitlistModalProps
             <X className="w-4 h-4 text-dim" />
           </button>
         </div>
-        <WaitlistForm onSuccess={onClose} defaultRole={defaultRole} />
+        {/* No onSuccess close: the success state stays visible so people
+            actually see the confirmation and next steps */}
+        <WaitlistForm defaultRole={defaultRole} />
       </div>
     </dialog>
   );

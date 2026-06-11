@@ -5,7 +5,9 @@ import { cn } from "@/utils/cn";
 import { Menu, X } from "lucide-react";
 import { preloadRoutes } from "@/preloadRoutes";
 import { useWaitlist } from "@/contexts/WaitlistContext";
+import { audienceRoleForPath } from "@/config/constants";
 import { CookieConsent } from "@/components/common/CookieConsent/CookieConsent";
+import { FooterQuickJoin } from "@/components/common/Layout/FooterQuickJoin";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -24,6 +26,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Escape closes the mobile menu
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setIsMobileMenuOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isMobileMenuOpen]);
+
+  // The nav CTA pre-selects the role the current page speaks to
+  const audienceRole = audienceRoleForPath(location.pathname);
 
   const navLinks = [
     { name: "For Patients", path: "/patient-app" },
@@ -66,7 +79,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </NavLink>
             ))}
             <div className="h-5 w-[1px] bg-pine-100 mx-1 lg:mx-2" />
-            <Button variant="animated" onClick={() => openWaitlist()} className="bg-pine-900 hover:bg-pine-800 text-white rounded-lg shadow-sm text-xs lg:text-sm h-9 lg:h-10 px-4 lg:px-6 font-medium transition-colors">
+            <Button variant="animated" onClick={() => openWaitlist(audienceRole)} className="bg-pine-900 hover:bg-pine-800 text-white rounded-lg shadow-sm text-xs lg:text-sm h-9 lg:h-10 px-4 lg:px-6 font-medium transition-colors">
               Join Waitlist
             </Button>
           </nav>
@@ -100,7 +113,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </NavLink>
               ))}
               <div className="pt-6 border-t border-stone-200 flex flex-col gap-4">
-                <Button variant="animated" size="lg" onClick={() => { setIsMobileMenuOpen(false); openWaitlist(); }} className="w-full bg-pine-900 hover:bg-pine-800 text-white rounded-xl h-14 font-medium">Join Waitlist</Button>
+                <Button variant="animated" size="lg" onClick={() => { setIsMobileMenuOpen(false); openWaitlist(audienceRole); }} className="w-full bg-pine-900 hover:bg-pine-800 text-white rounded-xl h-14 font-medium">Join Waitlist</Button>
               </div>
             </nav>
           </div>
@@ -114,10 +127,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <footer className="w-full text-white mt-auto bg-pine-900 pt-14 pb-10">
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
 
+          {/* Quick capture: email only, for visitors not ready for the full form */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-pine-800 pb-10 mb-12">
+            <div>
+              <p className="text-white font-medium text-lg tracking-tight">Not ready for the form?</p>
+              <p className="text-pine-300 text-sm mt-1">Leave your email and we'll reach out when your spot opens.</p>
+            </div>
+            <FooterQuickJoin />
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12 border-b border-pine-800 pb-12">
              {/* Column 1: Product */}
              <nav className="flex flex-col gap-4" aria-label="Product Links">
-                <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Product</h3>
+                <h3 className="text-sm font-medium tracking-widest text-pine-300 uppercase mb-2">Product</h3>
                 <Link to="/patient-app" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Patients</Link>
                 <Link to="/doctor-portal" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Doctors</Link>
                 <Link to="/clinic-management" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Clinics</Link>
@@ -126,22 +148,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
              {/* Column 2: Company */}
              <nav className="flex flex-col gap-4" aria-label="Company Links">
-                <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Company</h3>
+                <h3 className="text-sm font-medium tracking-widest text-pine-300 uppercase mb-2">Company</h3>
                 <Link to="/about" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">About</Link>
                 <Link to="/about#team" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Team</Link>
                 <Link to="/about#contact" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Contact</Link>
+                <Link to="/waitlist" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Join the Waitlist</Link>
              </nav>
 
              {/* Column 3: Legal */}
              <nav className="flex flex-col gap-4" aria-label="Legal Links">
-                <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Legal</h3>
+                <h3 className="text-sm font-medium tracking-widest text-pine-300 uppercase mb-2">Legal</h3>
                 <Link to="/privacy-policy" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Privacy Policy</Link>
                 <Link to="/terms-of-service" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Terms of Service</Link>
              </nav>
 
              {/* Column 4: Connect */}
              <nav className="flex flex-col gap-4" aria-label="Connect Links">
-                <h3 className="text-sm font-medium tracking-widest text-pine-400 uppercase mb-2">Connect</h3>
+                <h3 className="text-sm font-medium tracking-widest text-pine-300 uppercase mb-2">Connect</h3>
                 <a href="mailto:hello@fettlemed.com" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">hello@fettlemed.com</a>
                 <a href="https://www.linkedin.com/company/fettlemed/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">LinkedIn</a>
                 <a href="https://x.com/FETTLEMEDHEALTH" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">X (Twitter)</a>
@@ -151,7 +174,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Medical disclaimer - visible, not buried in ToS */}
           <div className="border-t border-pine-800 pt-6 mb-8 text-center">
-            <p className="text-pine-400 text-xs leading-relaxed max-w-3xl mx-auto">
+            <p className="text-pine-300 text-xs leading-relaxed max-w-3xl mx-auto">
               FettleMed is a health record management platform. It is <strong className="text-pine-300">not a substitute</strong> for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional for medical decisions.
             </p>
           </div>

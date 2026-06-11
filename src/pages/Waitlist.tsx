@@ -1,10 +1,24 @@
 import React from "react";
+import { useSearchParams } from "react-router-dom";
 import { SEO } from '@/components/common/SEO';
 import { User, Stethoscope, Building2 } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { WaitlistForm } from "@/components/common/WaitlistModal";
+import type { WaitlistRole } from "@/config/constants";
+
+/* /waitlist?role=doctor|clinic|patient pre-selects the audience,
+   so campaign and WhatsApp links can deep-link the right form. */
+const ROLE_PARAM: Record<string, WaitlistRole> = {
+  doctor: "Doctor",
+  clinic: "Clinic",
+  patient: "Patients & Caregivers",
+  patients: "Patients & Caregivers",
+};
 
 export default function Waitlist() {
+  const [searchParams] = useSearchParams();
+  const defaultRole = ROLE_PARAM[(searchParams.get("role") ?? "").toLowerCase()];
+
   return (
     <>
       <SEO title="Join the Waitlist" description="Join the FettleMed waitlist for early access. Be among the first patients, doctors, and clinics to use India's connected health record platform." />
@@ -67,7 +81,7 @@ export default function Waitlist() {
                 {/* Right: form */}
                 <div className="w-full lg:w-1/2">
                   <div className="bg-white rounded-[2rem] border border-stone-200 p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-                    <WaitlistForm />
+                    <WaitlistForm defaultRole={defaultRole} />
                   </div>
                 </div>
 

@@ -1,37 +1,69 @@
-import { useState, useEffect, useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import {
-  ShieldCheck, Key, Settings, Users, Globe2, Lock,
-  CheckCircle2, Clock, Calendar, Server, Eye, FileCheck2,
-  Stethoscope, Building2,
+  ShieldCheck, Key, Settings, Users, Lock, Clock4,
+  CheckCircle2, Clock, Calendar, Download, Eye, FileCheck2,
+  Server, XCircle,
 } from "lucide-react";
 import { SEO } from '@/components/common/SEO';
 import { FadeIn } from "@/components/common/FadeIn";
 import { DarkTexture } from "@/components/common/Texture/DarkTexture";
-import { Button } from "@/components/common/Button";
 import { FAQ } from "@/components/common/FAQ";
-import { useWaitlist } from "@/contexts/WaitlistContext";
 
-const SECTION_IDS = ["consent", "encryption", "access", "audit", "compliance", "sovereignty"] as const;
-type SectionId = typeof SECTION_IDS[number];
+/* ── Status vocabulary: the page's spine. We claim only what is true. ── */
+type Status = "live" | "launch" | "progress" | "planned";
 
-const sidebarLinks: { id: SectionId; label: string }[] = [
-  { id: "consent",     label: "Consent & Control" },
-  { id: "encryption",  label: "Encryption" },
-  { id: "access",      label: "Role-Based Access" },
-  { id: "audit",       label: "Audit Trail" },
-  { id: "compliance",  label: "Compliance Status" },
-  { id: "sovereignty", label: "Your Data in India" },
+const STATUS_CLS: Record<Status, string> = {
+  live:     "bg-pine-50 border-pine-200 text-pine-700",
+  launch:   "bg-amber-50 border-amber-200 text-amber-700",
+  progress: "bg-amber-50 border-amber-200 text-amber-700",
+  planned:  "bg-stone-50 border-stone-200 text-dim",
+};
+const STATUS_LABEL: Record<Status, string> = {
+  live: "Live",
+  launch: "At launch",
+  progress: "In progress",
+  planned: "Planned",
+};
+
+function StatusPill({ status }: { status: Status }) {
+  return (
+    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold border ${STATUS_CLS[status]}`}>
+      {STATUS_LABEL[status]}
+    </span>
+  );
+}
+
+/* ── Hero trust signals: clean chips, statuses live in the grid below ── */
+const trustSignals: { icon: React.ElementType; label: string; sub: string }[] = [
+  { icon: Eye,        label: "Patient-controlled",   sub: "You grant and revoke access" },
+  { icon: Lock,       label: "End-to-end encrypted", sub: "TLS 1.2+ in transit" },
+  { icon: FileCheck2, label: "Audit logging",        sub: "Every access recorded" },
+  { icon: Key,        label: "Multi-factor auth",    sub: "Provider accounts, at launch" },
+  { icon: ShieldCheck,label: "DPDPA-aligned",        sub: "Built on India's data law" },
+  { icon: Download,   label: "Your data, portable",  sub: "Yours to download and keep" },
 ];
 
-const trustSignals = [
-  { icon: Eye,         label: "Patient-controlled",  sub: "You grant and revoke access" },
-  { icon: Lock,        label: "End-to-end encrypted", sub: "TLS 1.2+ in transit" },
-  { icon: FileCheck2,  label: "Audit logging",       sub: "Live" },
-  { icon: Globe2,      label: "DPDPA-aligned",       sub: "Built on India's data law" },
-  { icon: Server,      label: "FHIR standard",       sub: "No proprietary lock-in" },
-  { icon: ShieldCheck, label: "No data sales",       sub: "Health data never sold" },
+/* ── Protection grid: one fact per card ─────────────────────────── */
+const PROTECTIONS: { icon: React.ElementType; title: string; fact: string; status?: Status }[] = [
+  { icon: Settings,   title: "Consent first",       fact: "Nothing is visible until the patient grants access.", status: "live" },
+  { icon: Eye,        title: "Granular sharing",    fact: "Share everything, specific records, or a time period." },
+  { icon: Clock4,     title: "Time-bound access",   fact: "Expires on its own. Revocable in seconds, from the app." },
+  { icon: Lock,       title: "In transit",          fact: "TLS 1.2+ with modern cipher suites on every connection.", status: "live" },
+  { icon: Key,        title: "End to end",          fact: "Records unreadable without the right keys, at every step.", status: "live" },
+  { icon: ShieldCheck,title: "Multi-factor auth",   fact: "Required on every provider account.", status: "launch" },
+  { icon: Users,      title: "Role-based access",   fact: "Front desk, billing, doctors, owners: each sees only their lane." },
+  { icon: Clock,      title: "Session control",     fact: "Inactive sessions expire. Sensitive actions re-authenticate." },
+  { icon: FileCheck2, title: "Audit trail",         fact: "Who viewed what, and when. Always visible to you.", status: "live" },
+];
+
+/* ── Our responsibilities ───────────────────────────────────────── */
+const RESPONSIBILITIES = [
+  { title: "Protect every record",   line: "End-to-end encryption on the platform and the infrastructure." },
+  { title: "Log every access",       line: "A tamper-resistant trail, visible to patients and clinics." },
+  { title: "Answer for breaches",    line: "Detection and notification procedures under DPDPA 2023." },
+  { title: "Never monetise your data", line: "Never sold, never advertised, never used to train AI models." },
 ];
 
 const faqData = [
@@ -57,7 +89,7 @@ const faqData = [
   },
   {
     question: "Does FettleMed comply with ABDM?",
-    answer: "FettleMed is being built on ABDM-aligned architecture, and ABHA ID integration is in active development. Formal ABDM certification is on our roadmap following pilot completion. We do not claim formal certification that has not yet been granted. See our Compliance Status section for the current state of each standard.",
+    answer: "FettleMed is being built on ABDM-aligned architecture, and ABHA ID integration is in active development. Formal ABDM certification is on our roadmap following pilot completion. We do not claim formal certification that has not yet been granted. See our compliance roadmap for the current state of each standard.",
   },
   {
     question: "Can a doctor access my records without my permission?",
@@ -66,32 +98,6 @@ const faqData = [
 ];
 
 export default function Security() {
-  const { openWaitlist } = useWaitlist();
-  const [activeSection, setActiveSection] = useState<SectionId>("consent");
-  const observersRef = useRef<IntersectionObserver[]>([]);
-
-  useEffect(() => {
-    observersRef.current.forEach(o => o.disconnect());
-    observersRef.current = [];
-
-    SECTION_IDS.forEach(id => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const obs = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) setActiveSection(id);
-          });
-        },
-        { rootMargin: "-20% 0px -65% 0px", threshold: 0 }
-      );
-      obs.observe(el);
-      observersRef.current.push(obs);
-    });
-
-    return () => observersRef.current.forEach(o => o.disconnect());
-  }, []);
-
   return (
     <>
       <SEO
@@ -105,7 +111,7 @@ export default function Security() {
           <DarkTexture />
           <div className="container mx-auto px-4 md:px-8 max-w-4xl relative z-10">
             <FadeIn eager>
-              <div className="text-center mb-12">
+              <div className="text-center mb-10">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-pine-700 bg-pine-800/50 text-xs font-medium text-pine-300 uppercase tracking-widest mb-8">
                   <ShieldCheck className="w-3.5 h-3.5" /> How we protect your data
                 </div>
@@ -113,7 +119,7 @@ export default function Security() {
                   You should know exactly how your health data is protected.
                 </h1>
                 <p className="text-xl text-pine-200 leading-relaxed max-w-2xl mx-auto text-balance">
-                  No vague enterprise language. Here is who can see your records, how they are protected, where they live, and what we will never do with them, in plain terms.
+                  Who can see your records, how they are protected, and what we will never do with them. In plain terms.
                 </p>
               </div>
 
@@ -124,24 +130,16 @@ export default function Security() {
                     <div className="w-10 h-10 bg-pine-700/60 border border-pine-600 rounded-xl flex items-center justify-center shrink-0">
                       <Icon className="w-5 h-5 text-pine-300" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <p className="text-white font-medium text-sm leading-tight">{label}</p>
-                      <p className="text-pine-400 text-xs font-medium mt-0.5">{sub}</p>
+                      <p className="text-pine-300 text-xs font-medium mt-0.5">{sub}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Hero CTA */}
-              <div className="flex flex-col sm:flex-row gap-3 justify-center mt-10">
-                <Button
-                  variant="animated"
-                  size="lg"
-                  onClick={() => openWaitlist()}
-                  className="h-12 px-8 text-base bg-white text-pine-900 hover:bg-pine-50 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
-                >
-                  Join the Waitlist
-                </Button>
+              {/* One action: this page informs, it doesn't sell */}
+              <div className="flex justify-center mt-10">
                 <a
                   href="mailto:hello@fettlemed.com"
                   className="inline-flex items-center justify-center h-12 px-8 text-base border-2 border-pine-600 text-white hover:bg-pine-800 rounded-xl font-medium transition-colors"
@@ -153,121 +151,34 @@ export default function Security() {
           </div>
         </section>
 
-        {/* ── S2: Trust strip ──────────────────────────────────────────── */}
-        <section className="py-5 bg-pine-50 border-b border-pine-100">
+        {/* ── S2: Disclosure strip ─────────────────────────────────────── */}
+        <section className="py-4 bg-pine-50 border-b border-pine-100">
           <div className="container mx-auto px-4 md:px-8 max-w-5xl">
             <p className="text-center text-xs text-pine-600 font-medium">
-              FettleMed is pre-launch and currently running a pilot. This page labels what is live today and what is being finalized before launch.{" "}
-              Last reviewed: June 2026. For questions about our security posture, write to{" "}
-              <a href="mailto:hello@fettlemed.com" className="underline hover:text-pine-800 transition-colors">hello@fettlemed.com</a>.
+              FettleMed is pre-launch. This page labels what is live today and what is being finalised. Last reviewed: June 2026.
             </p>
           </div>
         </section>
 
-        {/* ── S3: Visual consent model ─────────────────────────────────── */}
+        {/* ── S3: Philosophy ───────────────────────────────────────────── */}
         <section className="py-16 md:py-20 bg-white border-b border-stone-100">
-          <div className="container mx-auto px-4 max-w-5xl">
-            <FadeIn>
-              <div className="text-center mb-4">
-                <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-3">Start here</p>
-                <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight text-balance">The patient holds the key. Everything else follows from that.</h2>
-                <p className="text-dim font-medium mt-3 max-w-2xl mx-auto">Sharing your health records works in three simple steps. You are in control at every one of them.</p>
-              </div>
-
-              <div className="bg-surface-50 rounded-3xl border border-stone-100 p-8 md:p-12 shadow-sm flex flex-col md:flex-row items-stretch justify-center gap-4 md:gap-6 mb-8 mt-10">
-                {/* Step 1 */}
-                <div className="flex flex-col items-center text-center flex-1 min-w-0 max-w-xs">
-                  <div className="w-16 h-16 rounded-full bg-pine-100 flex items-center justify-center mb-4 border border-pine-200 shrink-0">
-                    <Lock className="w-6 h-6 text-pine-600" />
-                  </div>
-                  <p className="font-medium text-pine-900 text-base mb-2">1. You grant consent</p>
-                  <p className="text-sm font-medium text-dim leading-relaxed">You decide who sees your health data, what they see, and for how long.</p>
-                </div>
-
-                {/* Arrow 1 - desktop */}
-                <div className="hidden md:flex flex-col items-center justify-center px-2 shrink-0 relative min-h-[80px]">
-                  <svg className="absolute top-1/2 -translate-y-1/2 w-12 h-1 overflow-visible" aria-hidden="true"><line x1="0" y1="2" x2="48" y2="2" stroke="#B8D4CA" strokeWidth="2" strokeDasharray="6 10" className="consent-dash" /></svg>
-                  <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 whitespace-nowrap shadow-sm">Grant Access</div>
-                </div>
-                {/* Arrow 1 - mobile */}
-                <div className="md:hidden flex flex-col items-center justify-center py-3 shrink-0 relative">
-                  <svg className="absolute left-1/2 -translate-x-1/2 h-8 w-1 overflow-visible" aria-hidden="true"><line x1="2" y1="0" x2="2" y2="32" stroke="#B8D4CA" strokeWidth="2" strokeDasharray="6 10" className="consent-dash" /></svg>
-                  <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 shadow-sm">Grant Access</div>
-                </div>
-
-                {/* Step 2 */}
-                <div className="flex flex-col items-center text-center flex-1 min-w-0 max-w-xs">
-                  <div className="w-16 h-16 rounded-full bg-pine-50 flex items-center justify-center mb-4 border border-pine-100 shrink-0">
-                    <Key className="w-6 h-6 text-pine-600" />
-                  </div>
-                  <p className="font-medium text-pine-900 text-base mb-2">2. Doctor gets time-bound access</p>
-                  <p className="text-sm font-medium text-dim leading-relaxed">Access is scoped to what you chose to share, and expires when the period ends.</p>
-                </div>
-
-                {/* Arrow 2 - desktop */}
-                <div className="hidden md:flex flex-col items-center justify-center px-2 shrink-0 relative min-h-[80px]">
-                  <svg className="absolute top-1/2 -translate-y-1/2 w-12 h-1 overflow-visible" aria-hidden="true"><line x1="0" y1="2" x2="48" y2="2" stroke="#B8D4CA" strokeWidth="2" strokeDasharray="6 10" className="consent-dash" /></svg>
-                  <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 whitespace-nowrap shadow-sm">Revoke</div>
-                </div>
-                {/* Arrow 2 - mobile */}
-                <div className="md:hidden flex flex-col items-center justify-center py-3 shrink-0 relative">
-                  <svg className="absolute left-1/2 -translate-x-1/2 h-8 w-1 overflow-visible" aria-hidden="true"><line x1="2" y1="0" x2="2" y2="32" stroke="#B8D4CA" strokeWidth="2" strokeDasharray="6 10" className="consent-dash" /></svg>
-                  <div className="bg-white px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 shadow-sm">Revoke</div>
-                </div>
-
-                {/* Step 3 */}
-                <div className="flex flex-col items-center text-center flex-1 min-w-0 max-w-xs">
-                  <div className="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center mb-4 border border-stone-200 shrink-0">
-                    <FileCheck2 className="w-6 h-6 text-pine-600" />
-                  </div>
-                  <p className="font-medium text-pine-900 text-base mb-2">3. Access ends. Your records stay protected.</p>
-                  <p className="text-sm font-medium text-dim leading-relaxed">When access expires or is revoked, the data remains encrypted and secure.</p>
-                </div>
-              </div>
-
-              <div className="max-w-3xl mx-auto text-center space-y-3">
-                <p className="text-dim-2 leading-relaxed">
-                  Access can be granted for a single consultation, a fixed time period, or on an ongoing basis. It can be revoked by the patient at any time, from the app, in seconds.
-                </p>
-                <p className="text-dim text-sm font-medium">
-                  Doctors retain the clinical records they create, as required under Indian Medical Council Regulations 2002. Consent controls the patient's broader health profile, not the doctor's own documentation.
-                </p>
-              </div>
+          <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+            <FadeIn className="mb-10">
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-3">Our security philosophy</p>
+              <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight">Three rules, before any technology.</h2>
             </FadeIn>
-          </div>
-        </section>
 
-        {/* ── S4: What this means for you ──────────────────────────────── */}
-        <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
-          <div className="container mx-auto px-4 md:px-8 max-w-5xl">
-            <FadeIn className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight text-balance">The same protections, from where you stand.</h2>
-            </FadeIn>
-            <div className="grid md:grid-cols-3 gap-5">
+            <div className="space-y-6">
               {[
-                {
-                  icon: Eye,
-                  who: "If you are a patient",
-                  body: "Your records are yours. No doctor or clinic sees anything until you allow it, and you can take that access back in seconds. You can see who looked at what, and when.",
-                },
-                {
-                  icon: Stethoscope,
-                  who: "If you are a doctor",
-                  body: "When a patient shares, you see a complete, structured history instead of a blank form. Access is logged for your protection too, so there is a clear record of what was viewed and why.",
-                },
-                {
-                  icon: Building2,
-                  who: "If you run a clinic",
-                  body: "Every staff member sees only what their role needs. You can see who accessed which records as a standard feature, and your clinic's data is exportable at any time, never locked in.",
-                },
-              ].map(({ icon: Icon, who, body }) => (
-                <FadeIn key={who} delay={0.05}>
-                  <div className="h-full bg-white border border-stone-100 rounded-2xl p-7">
-                    <div className="w-11 h-11 rounded-xl bg-pine-50 border border-pine-100 flex items-center justify-center mb-5">
-                      <Icon className="w-5 h-5 text-pine-600" />
-                    </div>
-                    <p className="text-pine-900 font-medium mb-2">{who}</p>
-                    <p className="text-dim-2 leading-relaxed text-sm">{body}</p>
+                { n: "01", line: "The patient holds the key.",            sub: "No doctor, clinic, or FettleMed employee sees a record without the patient's consent." },
+                { n: "02", line: "We claim only what is live today.",     sub: "Every protection on this page is labelled honestly: live, at launch, in progress, or planned." },
+                { n: "03", line: "Your health data is never for sale.",   sub: "Not to insurers, not to advertisers, not to AI companies. Not ever." },
+              ].map(({ n, line, sub }, i) => (
+                <FadeIn key={n} delay={0.06 * i} className="flex gap-5 md:gap-8 items-start border-l-2 border-pine-200 pl-5 md:pl-8 py-1">
+                  <span className="font-mono text-sm font-medium text-pine-600 tracking-widest mt-2 shrink-0">{n}</span>
+                  <div>
+                    <p className="text-xl md:text-2xl font-medium text-pine-900 tracking-tight leading-snug">{line}</p>
+                    <p className="text-dim-2 leading-relaxed mt-1.5">{sub}</p>
                   </div>
                 </FadeIn>
               ))}
@@ -275,388 +186,295 @@ export default function Security() {
           </div>
         </section>
 
-        {/* ── S5: Main content + sidebar ───────────────────────────────── */}
-        <section className="py-16 md:py-20">
-          <div className="container mx-auto px-4 md:px-8 max-w-[1200px] flex flex-col lg:flex-row gap-12">
-
-            {/* Desktop sidebar */}
-            <nav className="lg:w-1/4 hidden lg:block" aria-label="Security sections">
-              <div className="sticky top-32 space-y-1">
-                <p className="text-xs font-medium tracking-widest uppercase text-dim mb-5">On this page</p>
-                {sidebarLinks.map(({ id, label }) => (
-                  <button
-                    key={id}
-                    onClick={(e) => { e.preventDefault(); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }}
-                    className={`relative block w-full text-left text-sm font-medium py-2 px-3 rounded-lg transition-colors ${
-                      activeSection === id
-                        ? "bg-pine-50 text-pine-700"
-                        : "text-dim hover:text-pine-600"
-                    }`}
-                  >
-                    {/* Sliding rail segment follows the active section */}
-                    {activeSection === id && (
-                      <motion.span
-                        layoutId="securityRail"
-                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                        className="absolute left-0 top-1.5 bottom-1.5 w-0.5 rounded-full bg-pine-600"
-                      />
-                    )}
-                    {label}
-                  </button>
-                ))}
+        {/* ── S4: How sharing works ────────────────────────────────────── */}
+        <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <FadeIn>
+              <div className="text-center mb-10">
+                <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-3">How sharing works</p>
+                <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight text-balance">Three steps. You are in control at every one.</h2>
               </div>
-            </nav>
 
-            {/* Content */}
-            <div className="lg:w-3/4 max-w-3xl">
-
-              {/* Mobile chip nav */}
-              <nav aria-label="Security sections" className="lg:hidden overflow-x-auto pb-4 mb-10 -mx-4 px-4">
-                <div className="flex gap-2 w-max">
-                  {sidebarLinks.map(({ id, label }) => (
-                    <button
-                      key={id}
-                      onClick={(e) => { e.preventDefault(); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }}
-                      className={`px-4 py-3 min-h-[44px] inline-flex items-center rounded-full text-sm font-medium whitespace-nowrap border transition-colors ${
-                        activeSection === id
-                          ? "bg-pine-700 text-white border-pine-700"
-                          : "bg-white text-dim border-stone-200 hover:border-pine-300 hover:text-pine-700"
-                      }`}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </nav>
-
-              <div className="space-y-20">
-
-                {/* ── Consent & Control ────────────────────────────────── */}
-                <div id="consent" className="scroll-mt-32">
-                  <FadeIn>
-                    <div className="flex gap-6 items-start">
-                      <div className="w-10 h-10 bg-pine-50 border border-pine-100 rounded-xl flex items-center justify-center shrink-0 mt-1">
-                        <Settings className="w-5 h-5 text-pine-600" />
-                      </div>
-                      <div className="flex-1">
-                        <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Consent &amp; Control</h2>
-                        <p className="text-dim font-medium mb-8">You decide who sees your health data, what they see, and for how long. Provider access does not happen without your consent. This is the foundation everything else is built on.</p>
-                        <div className="space-y-6">
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">Who controls access</h3>
-                            <p className="text-dim-2 leading-relaxed">The patient. Not the clinic. Not the doctor. Not FettleMed. A doctor can request access to a patient's records, but they cannot view anything until the patient grants it.</p>
-                          </div>
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">What consent covers</h3>
-                            <p className="text-dim-2 leading-relaxed">Patients can share their full health profile, specific record types, or records from a defined time period. Consent is granular. A patient sharing records with a cardiologist does not automatically share them with every other doctor they have ever seen.</p>
-                          </div>
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">How long access lasts</h3>
-                            <p className="text-dim-2 leading-relaxed">Consent can be granted for a single consultation, a fixed period, or on an ongoing basis. It expires automatically when the period ends. Patients can also revoke it manually at any time, from the app, in seconds.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </FadeIn>
+              <div className="bg-white rounded-3xl border border-stone-100 p-8 md:p-12 shadow-sm flex flex-col md:flex-row items-stretch justify-center gap-4 md:gap-6 mb-6">
+                {/* Step 1 */}
+                <div className="flex flex-col items-center text-center flex-1 min-w-0 max-w-xs">
+                  <div className="w-16 h-16 rounded-full bg-pine-100 flex items-center justify-center mb-4 border border-pine-200 shrink-0">
+                    <Lock className="w-6 h-6 text-pine-600" />
+                  </div>
+                  <p className="font-medium text-pine-900 text-base mb-2">1. You grant consent</p>
+                  <p className="text-sm font-medium text-dim leading-relaxed">Who sees it, what they see, for how long.</p>
                 </div>
 
-                {/* ── Encryption ───────────────────────────────────────── */}
-                <div id="encryption" className="scroll-mt-32">
-                  <FadeIn>
-                    <div className="flex gap-6 items-start">
-                      <div className="w-10 h-10 bg-pine-50 border border-pine-100 rounded-xl flex items-center justify-center shrink-0 mt-1">
-                        <Key className="w-5 h-5 text-pine-600" />
-                      </div>
-                      <div className="flex-1">
-                        <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Encryption</h2>
-                        <p className="text-dim font-medium mb-8">Your records are protected with end-to-end encryption: as they move between devices and as they are accessed by a doctor you have authorised. In plain terms: your data is scrambled so that only the right people, with the right keys, can read it.</p>
-                        <div className="space-y-6">
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">In transit</h3>
-                            <p className="text-dim-2 leading-relaxed">All data moving between your device and FettleMed's servers is protected using TLS 1.2 and above, with modern cipher suites. No data travels unencrypted at any point.</p>
-                          </div>
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <div className="flex items-center gap-2 mb-2">
-                              <h3 className="text-pine-900 font-medium">End to end</h3>
-                              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-pine-50 border border-pine-200 text-pine-700">Live</span>
-                            </div>
-                            <p className="text-dim-2 leading-relaxed">Records are protected with end-to-end encryption, so they are unreadable without the appropriate keys at every step between the people you have authorised.</p>
-                          </div>
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">In the event of a breach</h3>
-                            <p className="text-dim-2 leading-relaxed">Even if FettleMed's systems were accessed without authorisation, encrypted patient records cannot be read without the appropriate credentials.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </FadeIn>
+                {/* Arrow 1 - desktop */}
+                <div className="hidden md:flex flex-col items-center justify-center px-2 shrink-0 relative min-h-[80px]">
+                  <svg className="absolute top-1/2 -translate-y-1/2 w-12 h-1 overflow-visible" aria-hidden="true"><line x1="0" y1="2" x2="48" y2="2" stroke="#B8D4CA" strokeWidth="2" strokeDasharray="6 10" className="consent-dash" /></svg>
+                  <div className="bg-surface-50 px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 whitespace-nowrap shadow-sm">Grant</div>
+                </div>
+                {/* Arrow 1 - mobile */}
+                <div className="md:hidden flex flex-col items-center justify-center py-3 shrink-0 relative">
+                  <svg className="absolute left-1/2 -translate-x-1/2 h-8 w-1 overflow-visible" aria-hidden="true"><line x1="2" y1="0" x2="2" y2="32" stroke="#B8D4CA" strokeWidth="2" strokeDasharray="6 10" className="consent-dash" /></svg>
+                  <div className="bg-surface-50 px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 shadow-sm">Grant</div>
                 </div>
 
-                {/* ── Role-Based Access ────────────────────────────────── */}
-                <div id="access" className="scroll-mt-32">
-                  <FadeIn>
-                    <div className="flex gap-6 items-start">
-                      <div className="w-10 h-10 bg-pine-50 border border-pine-100 rounded-xl flex items-center justify-center shrink-0 mt-1">
-                        <Users className="w-5 h-5 text-pine-600" />
-                      </div>
-                      <div className="flex-1">
-                        <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Role-Based Access</h2>
-                        <p className="text-dim font-medium mb-8">Inside a clinic, every staff member sees exactly what their role requires, and nothing more.</p>
-
-                        {/* Role grid */}
-                        <div className="grid sm:grid-cols-2 gap-3 mb-6">
-                          {[
-                            { role: "Front desk", sees: "Appointment schedules and patient registration" },
-                            { role: "Billing", sees: "Invoices and payment records" },
-                            { role: "Doctors", sees: "Clinical records and consultation notes" },
-                            { role: "Clinic owners", sees: "Everything, across all staff, doctors, and days" },
-                          ].map(({ role, sees }) => (
-                            <div key={role} className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                              <p className="text-xs font-medium tracking-wider uppercase text-pine-600 mb-1.5">{role}</p>
-                              <p className="text-dim-2 leading-relaxed text-sm">{sees}</p>
-                            </div>
-                          ))}
-                        </div>
-                        <p className="text-dim text-sm font-medium mb-8">No role can access what belongs to another. Permissions are not inherited. They are assigned specifically, by role, by clinic, and where relevant, by time period.</p>
-
-                        <div className="space-y-6">
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <div className="flex items-center gap-2 mb-2">
-                              <h3 className="text-pine-900 font-medium">Multi-factor authentication</h3>
-                              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 border border-amber-200 text-amber-700">At launch</span>
-                            </div>
-                            <p className="text-dim-2 leading-relaxed">All provider accounts, doctors, clinic administrators, and owners, will require multi-factor authentication at launch. A stolen password alone will not be sufficient to access patient data.</p>
-                          </div>
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">Session management</h3>
-                            <p className="text-dim-2 leading-relaxed">Inactive sessions expire automatically. Sensitive actions require re-authentication. All access attempts, successful and failed, are logged with timestamps and user identifiers.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </FadeIn>
+                {/* Step 2 */}
+                <div className="flex flex-col items-center text-center flex-1 min-w-0 max-w-xs">
+                  <div className="w-16 h-16 rounded-full bg-pine-50 flex items-center justify-center mb-4 border border-pine-100 shrink-0">
+                    <Key className="w-6 h-6 text-pine-600" />
+                  </div>
+                  <p className="font-medium text-pine-900 text-base mb-2">2. Time-bound access</p>
+                  <p className="text-sm font-medium text-dim leading-relaxed">Scoped to what you chose. Expires when the period ends.</p>
                 </div>
 
-                {/* ── Audit Trail ──────────────────────────────────────── */}
-                <div id="audit" className="scroll-mt-32">
-                  <FadeIn>
-                    <div className="flex gap-6 items-start">
-                      <div className="w-10 h-10 bg-pine-50 border border-pine-100 rounded-xl flex items-center justify-center shrink-0 mt-1">
-                        <FileCheck2 className="w-5 h-5 text-pine-600" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h2 className="text-2xl font-medium text-pine-900 tracking-tight">Audit Trail</h2>
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-pine-50 border border-pine-200 text-pine-700">Live</span>
-                        </div>
-                        <p className="text-dim font-medium mb-8">Access leaves a record. You never have to wonder who looked at what.</p>
-                        <div className="space-y-6">
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">Every consent event is recorded</h3>
-                            <p className="text-dim-2 leading-relaxed">Consent events are written to a tamper-resistant audit log: when access was granted, what it covered, who accessed it, and when it was revoked or expired. Patients can view the full history at any time.</p>
-                          </div>
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">Clinics can see who accessed what</h3>
-                            <p className="text-dim-2 leading-relaxed">Clinic owners can see who accessed which records, and when, as a standard feature. Every access attempt is logged with timestamps and user identifiers.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </FadeIn>
+                {/* Arrow 2 - desktop */}
+                <div className="hidden md:flex flex-col items-center justify-center px-2 shrink-0 relative min-h-[80px]">
+                  <svg className="absolute top-1/2 -translate-y-1/2 w-12 h-1 overflow-visible" aria-hidden="true"><line x1="0" y1="2" x2="48" y2="2" stroke="#B8D4CA" strokeWidth="2" strokeDasharray="6 10" className="consent-dash" /></svg>
+                  <div className="bg-surface-50 px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 whitespace-nowrap shadow-sm">Revoke</div>
+                </div>
+                {/* Arrow 2 - mobile */}
+                <div className="md:hidden flex flex-col items-center justify-center py-3 shrink-0 relative">
+                  <svg className="absolute left-1/2 -translate-x-1/2 h-8 w-1 overflow-visible" aria-hidden="true"><line x1="2" y1="0" x2="2" y2="32" stroke="#B8D4CA" strokeWidth="2" strokeDasharray="6 10" className="consent-dash" /></svg>
+                  <div className="bg-surface-50 px-3 py-1 rounded-full border border-stone-200 font-medium text-xs uppercase tracking-wider text-dim relative z-10 shadow-sm">Revoke</div>
                 </div>
 
-                {/* ── Compliance Status ────────────────────────────────── */}
-                <div id="compliance" className="scroll-mt-32">
-                  <FadeIn>
-                    <div className="flex gap-6 items-start">
-                      <div className="w-10 h-10 bg-pine-50 border border-pine-100 rounded-xl flex items-center justify-center shrink-0 mt-1">
-                        <ShieldCheck className="w-5 h-5 text-pine-600" />
-                      </div>
-                      <div className="flex-1">
-                        <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Compliance Status</h2>
-                        <p className="text-dim font-medium mb-6">We are transparent about where we are in our compliance journey: what is implemented today, what is in progress, and what is planned. We do not claim certifications we have not yet earned.</p>
-
-                        {/* Badge strip */}
-                        <div className="flex flex-wrap gap-2 mb-8">
-                          {[
-                            { label: "DPDPA-aligned",             live: true,  status: ""            },
-                            { label: "FHIR standard",             live: true,  status: ""            },
-                            { label: "Primary data centre: India",live: true,  status: ""            },
-                            { label: "ABDM-aligned",              live: false, status: "in progress" },
-                            { label: "ABDM certified",            live: false, status: "planned"     },
-                            { label: "ISO 27001",                 live: false, status: "planned"     },
-                          ].map(({ label, live, status }) => (
-                            <span
-                              key={label}
-                              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border ${
-                                live
-                                  ? "bg-pine-50 border-pine-200 text-pine-700"
-                                  : status === "in progress"
-                                    ? "bg-amber-50 border-amber-200 text-amber-700"
-                                    : "bg-stone-50 border-stone-200 text-dim"
-                              }`}
-                            >
-                              {live
-                                ? <CheckCircle2 className="w-3 h-3 text-pine-500" />
-                                : <Clock className={`w-3 h-3 ${status === "in progress" ? "text-amber-400" : "text-stone-400"}`} />
-                              }
-                              {label}
-                              {!live && <span className={`font-medium ${status === "in progress" ? "text-amber-500" : "text-stone-400"}`}>· {status}</span>}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* Current */}
-                        <div className="mb-8">
-                          <div className="flex items-center gap-2 mb-4">
-                            <CheckCircle2 className="w-5 h-5 text-pine-600" />
-                            <p className="text-sm font-medium text-pine-700 uppercase tracking-wider">Current, implemented today</p>
-                          </div>
-                          <div className="space-y-4 pl-7">
-                            {[
-                              {
-                                title: "DPDPA-aligned controls",
-                                body: "FettleMed's data handling practices are designed around the Digital Personal Data Protection Act, India's primary data protection legislation.",
-                              },
-                              {
-                                title: "FHIR data standards",
-                                body: "FettleMed uses FHIR (Fast Healthcare Interoperability Resources) for data exchange, the international standard for structured health data. Records are not locked in a proprietary format.",
-                              },
-                              {
-                                title: "Primary data centre in India",
-                                body: "Patient health records are stored on infrastructure with the primary data centre in India. Certain backup or supporting services may operate in other regions under contractual data-protection obligations. Anonymised analytics (Google Analytics) may be processed outside India but contain no health data.",
-                              },
-                            ].map(({ title, body }) => (
-                              <div key={title} className="bg-pine-50/60 border border-pine-100 rounded-2xl p-5">
-                                <h3 className="text-pine-900 font-medium mb-1">{title}</h3>
-                                <p className="text-dim-2 leading-relaxed">{body}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* In progress */}
-                        <div className="mb-8">
-                          <div className="flex items-center gap-2 mb-4">
-                            <Clock className="w-5 h-5 text-amber-500" />
-                            <p className="text-sm font-medium text-amber-700 uppercase tracking-wider">In progress</p>
-                          </div>
-                          <div className="pl-7 space-y-4">
-                            <div className="bg-amber-50/60 border border-amber-100 rounded-2xl p-5">
-                              <h3 className="text-pine-900 font-medium mb-1">ABDM-aligned architecture</h3>
-                              <p className="text-dim-2 leading-relaxed">FettleMed is being built on the ABDM framework. ABHA ID integration is in active development, enabling interoperability with India's national health data ecosystem.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Planned */}
-                        <div>
-                          <div className="flex items-center gap-2 mb-4">
-                            <Calendar className="w-5 h-5 text-dim" />
-                            <p className="text-sm font-medium text-dim uppercase tracking-wider">Planned post-launch</p>
-                          </div>
-                          <div className="pl-7 space-y-4">
-                            <div className="bg-surface-50 border border-stone-200 rounded-2xl p-5">
-                              <h3 className="text-pine-900 font-medium mb-1">ABDM formal certification</h3>
-                              <p className="text-dim-2 leading-relaxed">Formal certification through the ABDM certification process is on the roadmap following pilot completion.</p>
-                            </div>
-                            <div className="bg-surface-50 border border-stone-200 rounded-2xl p-5">
-                              <h3 className="text-pine-900 font-medium mb-1">ISO 27001 certification</h3>
-                              <p className="text-dim-2 leading-relaxed">ISO 27001 certification is on our roadmap. Formal work toward certification will begin following product launch.</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </FadeIn>
+                {/* Step 3 */}
+                <div className="flex flex-col items-center text-center flex-1 min-w-0 max-w-xs">
+                  <div className="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center mb-4 border border-stone-200 shrink-0">
+                    <FileCheck2 className="w-6 h-6 text-pine-600" />
+                  </div>
+                  <p className="font-medium text-pine-900 text-base mb-2">3. Access ends</p>
+                  <p className="text-sm font-medium text-dim leading-relaxed">Your records stay encrypted and protected.</p>
                 </div>
-
-                {/* ── Your Data in India ───────────────────────────────── */}
-                <div id="sovereignty" className="scroll-mt-32">
-                  <FadeIn>
-                    <div className="flex gap-6 items-start">
-                      <div className="w-10 h-10 bg-pine-50 border border-pine-100 rounded-xl flex items-center justify-center shrink-0 mt-1">
-                        <Globe2 className="w-5 h-5 text-pine-600" />
-                      </div>
-                      <div className="flex-1">
-                        <h2 className="text-2xl font-medium text-pine-900 mb-2 tracking-tight">Your Data in India</h2>
-                        <p className="text-dim font-medium mb-8">Your health records are stored on infrastructure with the primary data centre in India. They are never sold, never used for advertising, and never shared with third parties for commercial purposes.</p>
-                        <div className="space-y-6">
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">Where your data lives</h3>
-                            <p className="text-dim-2 leading-relaxed">Patient health records are stored on infrastructure with the primary data centre in India. Certain backup or supporting services may operate in other regions under contractual data-protection obligations. Anonymised, non-identifiable usage analytics may be processed on infrastructure outside India, but contain no health data.</p>
-                          </div>
-                          <div className="bg-pine-900 rounded-2xl p-6">
-                            <h3 className="text-white font-medium mb-4">What your data is never used for</h3>
-                            <ul className="space-y-3">
-                              {[
-                                "Your personal health data is never sold. Not to insurers, pharmaceutical companies, employers, or any third party.",
-                                "Anonymised, aggregated usage data may inform product analytics and service improvement. No personally identifiable health information is included.",
-                                "Never used to train AI or machine learning models.",
-                              ].map((item) => (
-                                <li key={item} className="flex items-start gap-3 text-pine-100 font-medium text-sm leading-relaxed">
-                                  <CheckCircle2 className="w-4 h-4 text-pine-400 shrink-0 mt-0.5" />
-                                  {item}
-                                </li>
-                              ))}
-                            </ul>
-                            <p className="text-pine-300 font-medium text-sm mt-4">Ever.</p>
-                          </div>
-                          <div className="bg-surface-50 border border-stone-100 rounded-2xl p-5">
-                            <h3 className="text-pine-900 font-medium mb-2">The legal commitment</h3>
-                            <p className="text-dim-2 leading-relaxed mb-4">Our commitment to never sell or misuse your health data is documented in our Privacy Policy and Terms of Service. It applies to every user, every time.</p>
-                            <div className="flex gap-4 text-sm font-medium">
-                              <Link to="/privacy-policy" className="text-pine-600 hover:text-pine-700 transition-colors underline">Read our Privacy Policy</Link>
-                              <Link to="/terms-of-service" className="text-pine-600 hover:text-pine-700 transition-colors underline">Read our Terms of Service</Link>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </FadeIn>
-                </div>
-
               </div>
+
+              <p className="text-dim text-sm font-medium text-center max-w-2xl mx-auto">
+                Doctors retain the clinical records they create, as required under Indian Medical Council Regulations 2002. Consent controls your broader health profile.
+              </p>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* ── S5: How your data is protected ───────────────────────────── */}
+        <section className="py-16 md:py-20 bg-white border-b border-stone-100">
+          <div className="container mx-auto px-4 md:px-8 max-w-5xl">
+            <FadeIn className="mb-10">
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-3">The protections</p>
+              <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight text-balance">How your data is protected.</h2>
+            </FadeIn>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {PROTECTIONS.map(({ icon: Icon, title, fact, status }, i) => (
+                <FadeIn key={title} delay={0.04 * i} className="bg-surface-50 border border-stone-100 rounded-2xl p-5 flex flex-col gap-2.5">
+                  <div className="flex items-center justify-between">
+                    <div className="w-9 h-9 rounded-xl bg-white border border-pine-100 flex items-center justify-center">
+                      <Icon className="w-4 h-4 text-pine-600" />
+                    </div>
+                    {status && <StatusPill status={status} />}
+                  </div>
+                  <h3 className="text-pine-900 font-medium tracking-tight">{title}</h3>
+                  <p className="text-dim-2 text-sm leading-relaxed">{fact}</p>
+                </FadeIn>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* ── S6: FAQ ──────────────────────────────────────────────────── */}
-        <section className="py-16 md:py-20 bg-white border-t border-stone-100 border-b">
-          <div className="container mx-auto px-4 md:px-8 max-w-3xl">
-            <FadeIn className="mb-12">
-              <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Security questions, answered.</h2>
+        {/* ── S6: What FettleMed is responsible for ────────────────────── */}
+        <section className="py-16 md:py-20 bg-pine-900 text-white relative overflow-hidden border-b border-stone-100">
+          <DarkTexture glow="top-left" />
+          <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
+            <FadeIn className="mb-10">
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-300 mb-3">Our side of the deal</p>
+              <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-balance">What FettleMed is responsible for.</h2>
             </FadeIn>
-            <FAQ sections={[{ title: "", items: faqData.map(({ question, answer }) => ({ question, answer })) }]} />
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              {RESPONSIBILITIES.map(({ title, line }, i) => (
+                <FadeIn key={title} delay={0.06 * i} className="bg-pine-800/50 border border-pine-700/60 rounded-2xl p-6 flex items-start gap-4">
+                  <motion.span
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: 0.15 + i * 0.1, type: 'spring', stiffness: 340, damping: 18 }}
+                    className="shrink-0 mt-0.5"
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-pine-300" />
+                  </motion.span>
+                  <div>
+                    <p className="text-white font-medium mb-1">{title}</p>
+                    <p className="text-pine-200 text-sm leading-relaxed">{line}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* ── S7: CTA ──────────────────────────────────────────────────── */}
-        <section className="py-16 md:py-20 bg-surface-50">
+        {/* ── S7: Ownership, portability, and where data lives ─────────── */}
+        <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
+          <div className="container mx-auto px-4 md:px-8 max-w-5xl">
+            <FadeIn className="mb-10">
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-3">Ownership</p>
+              <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight text-balance">Your data is yours. In practice, not just in principle.</h2>
+            </FadeIn>
+
+            <div className="grid md:grid-cols-3 gap-4">
+              {/* 2 taps / 1 tap */}
+              <FadeIn delay={0.05} className="bg-white border border-stone-200 rounded-2xl p-6 flex flex-col">
+                <motion.p
+                  initial={{ scale: 0.6, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ type: 'spring', stiffness: 340, damping: 18 }}
+                  style={{ transformOrigin: 'left bottom' }}
+                  className="text-5xl font-bold text-pine-900 tracking-tight leading-none"
+                >2</motion.p>
+                <p className="text-pine-600 font-medium text-sm mb-4">taps to share</p>
+                <motion.p
+                  initial={{ scale: 0.6, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: 0.12, type: 'spring', stiffness: 340, damping: 18 }}
+                  style={{ transformOrigin: 'left bottom' }}
+                  className="text-5xl font-bold text-pine-900 tracking-tight leading-none"
+                >1</motion.p>
+                <p className="text-pine-600 font-medium text-sm">tap to revoke</p>
+              </FadeIn>
+
+              {/* Portability */}
+              <FadeIn delay={0.1} className="bg-white border border-stone-200 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-9 h-9 rounded-xl bg-pine-50 border border-pine-100 flex items-center justify-center">
+                  <Download className="w-4 h-4 text-pine-600" />
+                </div>
+                <h3 className="text-pine-900 font-medium tracking-tight">Download and keep</h3>
+                <p className="text-dim-2 text-sm leading-relaxed">Export everything, in full, anytime. If you ever want a copy of your data, we provide it on request.</p>
+              </FadeIn>
+
+              {/* Residency */}
+              <FadeIn delay={0.15} className="bg-white border border-stone-200 rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-9 h-9 rounded-xl bg-pine-50 border border-pine-100 flex items-center justify-center">
+                  <Server className="w-4 h-4 text-pine-600" />
+                </div>
+                <h3 className="text-pine-900 font-medium tracking-tight">Where it lives</h3>
+                <p className="text-dim-2 text-sm leading-relaxed">Cloud infrastructure with the primary data centre in India. Certain backup or supporting services may operate in other regions under contractual data-protection obligations.</p>
+              </FadeIn>
+            </div>
+
+            {/* Never used for */}
+            <FadeIn delay={0.2} className="mt-4 relative overflow-hidden bg-pine-900 rounded-2xl p-6 md:p-8">
+              <DarkTexture glow="none" />
+              <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-5 md:gap-10">
+                <h3 className="text-white font-medium text-lg tracking-tight shrink-0">Never used for</h3>
+                <ul className="flex flex-col sm:flex-row gap-3 sm:gap-8">
+                  {["Selling to anyone", "Advertising", "Training AI models"].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-pine-100 font-medium text-sm">
+                      <XCircle className="w-4 h-4 text-pine-300 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-pine-300 font-medium text-sm md:ml-auto">Ever.</p>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* ── S8: Compliance roadmap ───────────────────────────────────── */}
+        <section className="py-16 md:py-20 bg-white border-b border-stone-100">
+          <div className="container mx-auto px-4 md:px-8 max-w-5xl">
+            <FadeIn className="mb-10">
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-3">Compliance roadmap</p>
+              <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight text-balance">Where we are, honestly.</h2>
+              <p className="text-dim mt-3 max-w-2xl">We do not claim certifications we have not yet earned.</p>
+            </FadeIn>
+
+            <div className="grid md:grid-cols-3 gap-4">
+              {/* Live today */}
+              <FadeIn delay={0.05} className="bg-surface-50 border border-pine-100 rounded-2xl p-6">
+                <div className="flex items-center gap-2 mb-5">
+                  <CheckCircle2 className="w-5 h-5 text-pine-600" />
+                  <p className="text-sm font-semibold text-pine-700 uppercase tracking-wider">Live today</p>
+                </div>
+                <ul className="space-y-4">
+                  {[
+                    { t: "DPDPA-aligned controls", l: "Data handling designed around India's data protection law." },
+                    { t: "Data portability", l: "Records downloadable in full, provided on request." },
+                    { t: "Primary data centre in India", l: "With the hedge above on backups and supporting services." },
+                  ].map(({ t, l }) => (
+                    <li key={t}>
+                      <p className="text-pine-900 font-medium text-sm">{t}</p>
+                      <p className="text-dim-2 text-sm leading-relaxed mt-0.5">{l}</p>
+                    </li>
+                  ))}
+                </ul>
+              </FadeIn>
+
+              {/* In progress */}
+              <FadeIn delay={0.1} className="bg-surface-50 border border-amber-100 rounded-2xl p-6">
+                <div className="flex items-center gap-2 mb-5">
+                  <Clock className="w-5 h-5 text-amber-500" />
+                  <p className="text-sm font-semibold text-amber-700 uppercase tracking-wider">In progress</p>
+                </div>
+                <ul className="space-y-4">
+                  {[
+                    { t: "ABDM-aligned architecture", l: "ABHA ID integration is in active development." },
+                  ].map(({ t, l }) => (
+                    <li key={t}>
+                      <p className="text-pine-900 font-medium text-sm">{t}</p>
+                      <p className="text-dim-2 text-sm leading-relaxed mt-0.5">{l}</p>
+                    </li>
+                  ))}
+                </ul>
+              </FadeIn>
+
+              {/* Planned */}
+              <FadeIn delay={0.15} className="bg-surface-50 border border-stone-200 rounded-2xl p-6">
+                <div className="flex items-center gap-2 mb-5">
+                  <Calendar className="w-5 h-5 text-dim" />
+                  <p className="text-sm font-semibold text-dim uppercase tracking-wider">Planned</p>
+                </div>
+                <ul className="space-y-4">
+                  {[
+                    { t: "ABDM certification", l: "Formal certification after pilot completion." },
+                    { t: "ISO 27001", l: "Certification work begins after launch." },
+                  ].map(({ t, l }) => (
+                    <li key={t}>
+                      <p className="text-pine-900 font-medium text-sm">{t}</p>
+                      <p className="text-dim-2 text-sm leading-relaxed mt-0.5">{l}</p>
+                    </li>
+                  ))}
+                </ul>
+              </FadeIn>
+            </div>
+          </div>
+        </section>
+
+        {/* ── S9: FAQ ──────────────────────────────────────────────────── */}
+        <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
+          <div className="container mx-auto px-4 md:px-8 max-w-3xl">
+            <FadeIn className="mb-2">
+              <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Security questions, answered.</h2>
+            </FadeIn>
+            <FAQ sections={[{ title: "", items: faqData }]} />
+          </div>
+        </section>
+
+        {/* ── S10: Contact ─────────────────────────────────────────────── */}
+        <section className="py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4 md:px-8 max-w-2xl text-center">
             <FadeIn>
-              <h2 className="text-2xl md:text-3xl font-medium text-pine-900 mb-4 tracking-tight">Security questions we haven't answered here?</h2>
-              <p className="text-lg text-dim font-medium mb-8 leading-relaxed">
-                Write to us directly at{" "}
+              <h2 className="text-2xl md:text-3xl font-medium text-pine-900 mb-4 tracking-tight">Something we haven't answered?</h2>
+              <p className="text-lg text-dim mb-8 leading-relaxed">
+                Write to{" "}
                 <a href="mailto:hello@fettlemed.com" className="text-pine-600 hover:text-pine-700 underline transition-colors">hello@fettlemed.com</a>.
-                {" "}Someone from the team responds personally, not a support ticket system.
+                {" "}A person replies, not a ticket system.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  variant="animated"
-                  size="lg"
-                  onClick={() => openWaitlist()}
-                  className="h-12 px-8 text-base bg-pine-900 hover:bg-pine-800 text-white rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
-                >
-                  Join the Waitlist
-                </Button>
-                <Link
-                  to="/privacy-policy"
-                  className="inline-flex items-center justify-center h-12 px-8 text-base border-2 border-pine-900 text-pine-900 hover:bg-pine-50 rounded-xl font-medium transition-colors"
-                >
+              <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm font-medium">
+                <Link to="/privacy-policy" className="inline-flex items-center justify-center h-11 px-6 border-2 border-pine-900 text-pine-900 hover:bg-pine-50 rounded-xl transition-colors">
                   Read our Privacy Policy
                 </Link>
-
+                <Link to="/waitlist" className="inline-flex items-center justify-center h-11 px-6 text-pine-600 hover:text-pine-800 transition-colors">
+                  Join the waitlist →
+                </Link>
               </div>
             </FadeIn>
           </div>

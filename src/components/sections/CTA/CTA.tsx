@@ -12,6 +12,11 @@ export const CTA = () => {
        <DarkTexture glow="center" />
        <div className="container mx-auto px-6 max-w-4xl text-center relative z-10">
           <FadeIn>
+             {/* Pilot status: honest, no geography, no dates */}
+             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-pine-700 bg-pine-800/60 text-pine-200 text-xs font-medium uppercase tracking-widest mb-6">
+               <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" aria-hidden="true" />
+               Pilot status: onboarding clinics soon
+             </div>
              <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-white tracking-tight mb-6 text-balance">Join the pilot. Talk to the founders.</h2>
              <p className="text-lg md:text-xl font-medium text-pine-200 mb-10 max-w-2xl mx-auto">
                We reach out personally when your spot opens. Not a newsletter. A conversation.
@@ -19,7 +24,7 @@ export const CTA = () => {
              <Button variant="animated" size="lg" onClick={() => openWaitlist()} className="h-14 px-12 text-lg bg-white hover:bg-pine-50 text-pine-900 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900">
                Join the Waitlist
              </Button>
-             <p className="mt-6 text-sm text-pine-400 font-medium">By joining, you agree to our <a href="/privacy-policy" className="underline hover:text-pine-200">Privacy Policy</a>. We will not share your details with third parties.</p>
+             <p className="mt-6 text-sm text-pine-300 font-medium">By joining, you agree to our <a href="/privacy-policy" className="underline hover:text-pine-200">Privacy Policy</a>. We will not share your details with third parties.</p>
           </FadeIn>
        </div>
     </section>

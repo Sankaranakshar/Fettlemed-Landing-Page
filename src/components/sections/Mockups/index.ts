@@ -1,4 +1,8 @@
-export { HomeFlowMockup } from "./HomeFlowMockup";
-export { DoctorConsultationMockup } from "./DoctorConsultationMockup";
-export { ClinicShuffleMockup } from "./ClinicShuffleMockup";
-export { PatientMobileMockup } from "./PatientMobileMockup";
+// Public surface is the code-split wrappers; import the raw components
+// from their own files only if you explicitly need them in the main chunk.
+export {
+  HomeFlowMockup,
+  DoctorConsultationMockup,
+  ClinicShuffleMockup,
+  PatientMobileMockup,
+} from "./lazyMockups";
