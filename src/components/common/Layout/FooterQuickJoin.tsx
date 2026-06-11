@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
-import { WAITLIST_FORM, audienceRoleForPath } from "@/config/constants";
-import { useLocation } from "react-router-dom";
+import { WAITLIST_FORM } from "@/config/constants";
 
 /**
  * Low-friction capture for visitors not ready for the full form:
@@ -9,9 +8,10 @@ import { useLocation } from "react-router-dom";
  * footer quick signup so the founders can triage the lead.
  */
 export function FooterQuickJoin() {
-  const location = useLocation();
   const [email, setEmail] = useState("");
-  const [state, setState] = useState<"idle" | "sending" | "done">("idle");
+  const [state, setState] = useState<"idle" | "sending" | "done">(() => {
+    try { return localStorage.getItem("wl_submitted") === "1" ? "done" : "idle"; } catch { return "idle"; }
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,21 +19,19 @@ export function FooterQuickJoin() {
     setState("sending");
 
     const data = new URLSearchParams();
-    const rawRole = audienceRoleForPath(location.pathname) ?? "Patients & Caregivers";
-    const formRole =
-      rawRole === "Patients & Caregivers" ? "Patient" :
-      rawRole === "Clinic"                ? "Clinic / Practice Owner" :
-      rawRole; // "Doctor" unchanged
-    data.append(WAITLIST_FORM.entries.role, formRole);
-    data.append(WAITLIST_FORM.entries.name, "");
-    data.append(WAITLIST_FORM.entries.email, email);
-    data.append(WAITLIST_FORM.entries.comments, "Quick signup (footer)");
+    data.append(WAITLIST_FORM.entries.role,    "From Footer - Email Only");
+    data.append(WAITLIST_FORM.entries.name,    "Unknown");
+    data.append(WAITLIST_FORM.entries.email,   email);
+    data.append(WAITLIST_FORM.entries.phone,   "0000000000");
+    data.append(WAITLIST_FORM.entries.context, "unknown");
+    data.append(WAITLIST_FORM.entries.comments,"Nil");
     try {
       await fetch(WAITLIST_FORM.url, { method: "POST", mode: "no-cors", body: data });
     } catch {
       // no-cors is opaque; only genuine network failure throws, and even
       // then a retry path isn't worth the friction here
     }
+    try { localStorage.setItem("wl_submitted", "1"); } catch {}
     setState("done");
   };
 

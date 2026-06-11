@@ -15,7 +15,10 @@ import { WAITLIST_FORM } from "@/config/constants";
 const schema = z.object({
   name:     z.string().min(2, "Name must be at least 2 characters"),
   email:    z.string().email("Please enter a valid email address"),
-  phone:    z.string().optional(),
+  phone:    z.string().optional().refine(
+    val => !val || /^[6-9]\d{9}$/.test(val),
+    { message: "Enter a 10-digit Indian mobile number or leave blank" }
+  ),
   context:  z.string().optional(), // city / specialty / clinic name - label changes per role
   comments: z.string().optional(),
 });
@@ -128,7 +131,9 @@ interface WaitlistFormProps {
 }
 
 export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
-  const [submitted, setSubmitted]       = useState(false);
+  const [submitted, setSubmitted]       = useState(() => {
+    try { return localStorage.getItem("wl_submitted") === "1"; } catch { return false; }
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError]   = useState(false);
   const [role, setRole]                 = useState<string>(defaultRole ?? "Patients & Caregivers");
@@ -161,7 +166,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
     // Spam guard: honeypot filled or submitted too fast
     if (honeypot || Date.now() - loadTime < 3000) {
       setIsSubmitting(true);
-      setTimeout(() => { setIsSubmitting(false); setSubmitted(true); onSuccess?.(); }, 1200);
+      setTimeout(() => { setIsSubmitting(false); try { localStorage.setItem("wl_submitted", "1"); } catch {} setSubmitted(true); onSuccess?.(); }, 1200);
       return;
     }
 
@@ -190,6 +195,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
       setSubmitError(true);
       return;
     }
+    try { localStorage.setItem("wl_submitted", "1"); } catch {}
     setSubmitted(true);
     onSuccess?.();
   };
@@ -271,6 +277,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
         type="tel"
         autoComplete="tel"
         inputMode="tel"
+        error={errors.phone?.message}
         {...register("phone")}
       />
       <FloatingInput
