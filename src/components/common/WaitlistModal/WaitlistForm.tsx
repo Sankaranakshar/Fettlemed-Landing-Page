@@ -15,7 +15,10 @@ import { WAITLIST_FORM } from "@/config/constants";
 const schema = z.object({
   name:     z.string().min(2, "Name must be at least 2 characters"),
   email:    z.string().email("Please enter a valid email address"),
-  phone:    z.string().optional(),
+  phone:    z.string().optional().refine(
+    val => !val || /^[6-9]\d{9}$/.test(val),
+    { message: "Enter a 10-digit Indian mobile number or leave blank" }
+  ),
   context:  z.string().optional(), // city / specialty / clinic name - label changes per role
   comments: z.string().optional(),
 });
@@ -271,6 +274,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
         type="tel"
         autoComplete="tel"
         inputMode="tel"
+        error={errors.phone?.message}
         {...register("phone")}
       />
       <FloatingInput
