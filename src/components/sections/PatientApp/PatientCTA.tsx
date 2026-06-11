@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { Button } from "@/components/common/Button";
 import { FadeIn } from "@/components/common/FadeIn";
 import { useWaitlist } from "@/contexts/WaitlistContext";
@@ -29,11 +28,6 @@ export function PatientCTA() {
                   <span>No credit card. No commitment.</span>
                </div>
 
-               <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm font-medium text-dim mt-4 pt-4 border-t border-stone-100 w-full justify-center">
-                  <span>Are you a doctor? <Link to="/doctor-portal" className="text-pine-600 hover:text-pine-700 transition-colors">Join the doctor pilot →</Link></span>
-                  <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-200"></span>
-                  <span>Do you run a clinic? <Link to="/clinic-management" className="text-pine-600 hover:text-pine-700 transition-colors">Join the clinic pilot →</Link></span>
-               </div>
              </div>
           </FadeIn>
        </div>
