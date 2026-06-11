@@ -48,11 +48,6 @@ export function ClinicPilot() {
                    <Link to="/privacy-policy" className="underline hover:text-pine-200 transition-colors">Privacy Policy</Link>.
                    {" "}Clinic and user data is end-to-end encrypted and never shared with third parties.
                 </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm font-medium text-pine-300 mt-8 pt-6 border-t border-pine-800">
-                   <span>Are you a doctor? <Link to="/doctor-portal" className="text-pine-200 hover:text-white transition-colors">See the doctor portal →</Link></span>
-                   <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-700"></span>
-                   <span>Looking for the patient app? <Link to="/patient-app" className="text-pine-200 hover:text-white transition-colors">See FettleMed for patients →</Link></span>
-                </div>
              </div>
           </FadeIn>
        </div>

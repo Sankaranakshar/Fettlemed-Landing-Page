@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { Button } from "@/components/common/Button";
 import { FadeIn } from "@/components/common/FadeIn";
@@ -65,11 +64,6 @@ export function DoctorPilot() {
                 </Button>
                 <p className="text-pine-300 text-sm font-medium">For your practice. Limited spots available.</p>
                 <p className="text-sm font-medium text-pine-300 mt-3">Works on the device you already have.</p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm font-medium text-pine-300 mt-8 pt-6 border-t border-pine-800">
-                   <span>Do you run a clinic? <Link to="/clinic-management" className="text-pine-200 hover:text-white transition-colors">See the clinic platform →</Link></span>
-                   <span className="hidden sm:inline w-1 h-1 rounded-full bg-pine-700"></span>
-                   <span>Looking for the patient app? <Link to="/patient-app" className="text-pine-200 hover:text-white transition-colors">See FettleMed for patients →</Link></span>
-                </div>
              </div>
           </FadeIn>
        </div>
