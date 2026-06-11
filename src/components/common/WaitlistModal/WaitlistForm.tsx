@@ -144,7 +144,11 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
     mode: "onTouched",
   });
 
-  const finalRole = role === "Clinic" ? "Clinic / Practice Owner" : role;
+  // Must match Google Form radio options exactly
+  const finalRole =
+    role === "Patients & Caregivers" ? "Patient" :
+    role === "Clinic"                ? "Clinic / Practice Owner" :
+    role; // "Doctor" is unchanged
 
   const contextLabel =
     role === "Doctor"
@@ -164,7 +168,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
     setIsSubmitting(true);
     setSubmitError(false);
 
-    const data = new FormData();
+    const data = new URLSearchParams();
     data.append(WAITLIST_FORM.entries.role,     finalRole);
     data.append(WAITLIST_FORM.entries.name,     values.name);
     data.append(WAITLIST_FORM.entries.email,    values.email);

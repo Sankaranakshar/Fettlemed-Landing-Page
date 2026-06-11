@@ -125,6 +125,7 @@ export function FAQ({ sections }: FAQProps) {
                                 <button
                                    onClick={() => toggleOpen(sIndex, iIndex)}
                                    aria-expanded={isOpen}
+                                   aria-controls={`faq-answer-${sIndex}-${iIndex}`}
                                    className="w-full px-6 py-5 flex items-center justify-between text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-inset"
                                 >
                                    <span className={`font-medium text-lg transition-colors ${isOpen ? "text-pine-900" : "text-dim-2"}`}>{item.question}</span>
@@ -135,8 +136,10 @@ export function FAQ({ sections }: FAQProps) {
 
                                 {/* Grid-rows trick animates to natural height - no clipped answers */}
                                 <div
-                                   className={`grid px-6 transition-[grid-template-rows,opacity] duration-300 ease-out ${
-                                      isOpen ? "grid-rows-[1fr] pb-6 opacity-100" : "grid-rows-[0fr] opacity-0"
+                                   id={`faq-answer-${sIndex}-${iIndex}`}
+                                   role="region"
+                                   className={`grid px-6 transition-[grid-template-rows,opacity,visibility] duration-300 ease-out ${
+                                      isOpen ? "grid-rows-[1fr] pb-6 opacity-100 visible" : "grid-rows-[0fr] opacity-0 invisible"
                                    }`}
                                 >
                                    <div className="overflow-hidden">
