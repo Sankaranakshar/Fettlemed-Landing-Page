@@ -131,7 +131,9 @@ interface WaitlistFormProps {
 }
 
 export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
-  const [submitted, setSubmitted]       = useState(false);
+  const [submitted, setSubmitted]       = useState(() => {
+    try { return localStorage.getItem("wl_submitted") === "1"; } catch { return false; }
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError]   = useState(false);
   const [role, setRole]                 = useState<string>(defaultRole ?? "Patients & Caregivers");
@@ -164,7 +166,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
     // Spam guard: honeypot filled or submitted too fast
     if (honeypot || Date.now() - loadTime < 3000) {
       setIsSubmitting(true);
-      setTimeout(() => { setIsSubmitting(false); setSubmitted(true); onSuccess?.(); }, 1200);
+      setTimeout(() => { setIsSubmitting(false); try { localStorage.setItem("wl_submitted", "1"); } catch {} setSubmitted(true); onSuccess?.(); }, 1200);
       return;
     }
 
@@ -193,6 +195,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
       setSubmitError(true);
       return;
     }
+    try { localStorage.setItem("wl_submitted", "1"); } catch {}
     setSubmitted(true);
     onSuccess?.();
   };

@@ -9,7 +9,9 @@ import { WAITLIST_FORM } from "@/config/constants";
  */
 export function FooterQuickJoin() {
   const [email, setEmail] = useState("");
-  const [state, setState] = useState<"idle" | "sending" | "done">("idle");
+  const [state, setState] = useState<"idle" | "sending" | "done">(() => {
+    try { return localStorage.getItem("wl_submitted") === "1" ? "done" : "idle"; } catch { return "idle"; }
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,6 +31,7 @@ export function FooterQuickJoin() {
       // no-cors is opaque; only genuine network failure throws, and even
       // then a retry path isn't worth the friction here
     }
+    try { localStorage.setItem("wl_submitted", "1"); } catch {}
     setState("done");
   };
 
