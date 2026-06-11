@@ -10,6 +10,7 @@ import { SEO } from '@/components/common/SEO';
 import { FadeIn } from "@/components/common/FadeIn";
 import { DarkTexture } from "@/components/common/Texture/DarkTexture";
 import { FAQ } from "@/components/common/FAQ";
+import { securityFaqs } from "@/config/faqs";
 
 /* ── Status vocabulary: the page's spine. We claim only what is true. ── */
 type Status = "live" | "launch" | "progress" | "planned";
@@ -66,36 +67,6 @@ const RESPONSIBILITIES = [
   { title: "Never monetise your data", line: "Never sold, never advertised, never used to train AI models." },
 ];
 
-const faqData = [
-  {
-    question: "Can FettleMed see my health records?",
-    answer: "FettleMed staff do not have routine access to patient health records. Access to patient data by FettleMed personnel is restricted to specific operational needs, such as resolving a technical support request, and requires internal authorisation. Any such access is logged and auditable. We do not browse patient records.",
-  },
-  {
-    question: "What happens to my data if I stop using FettleMed?",
-    answer: "Your records are yours. You can export all your health data in full at any time, before, during, or after you stop using the platform. Nothing is deleted automatically when you leave. If you want your data removed from FettleMed's servers entirely, you can request deletion and we will process it in accordance with DPDPA requirements.",
-  },
-  {
-    question: "What happens to clinic data if the clinic stops using FettleMed?",
-    answer: "Clinics can export all patient records, billing history, and operational data in full at any time. Data is not locked to the platform. Clinics retain ownership of the clinical records they have created, in line with Indian Medical Council Regulations 2002. Export is available as a standard feature, not a paid service.",
-  },
-  {
-    question: "Is my data safe if FettleMed shuts down?",
-    answer: "We plan for this scenario deliberately. Patient and clinic data is exportable at any time in standard formats. In the event that FettleMed ceases operations, data will not simply disappear. We are committed to giving users sufficient notice and access to export everything before any service discontinuation.",
-  },
-  {
-    question: "Who is responsible for security at FettleMed?",
-    answer: "Security is owned at the founding level, not delegated to a third-party vendor or a single team member. Gurubalaji, our Lead Developer, is responsible for the technical implementation of every security measure described on this page. Questions about our security posture can be directed to hello@fettlemed.com.",
-  },
-  {
-    question: "Does FettleMed comply with ABDM?",
-    answer: "FettleMed is being built on ABDM-aligned architecture, and ABHA ID integration is in active development. Formal ABDM certification is on our roadmap following pilot completion. We do not claim formal certification that has not yet been granted. See our compliance roadmap for the current state of each standard.",
-  },
-  {
-    question: "Can a doctor access my records without my permission?",
-    answer: "No. A doctor can request access to your records, but they cannot view anything until you grant it explicitly. Access is time-bound and scoped. A doctor you share records with for one consultation cannot continue accessing them after that consultation ends unless you grant ongoing access separately. You are notified when access is requested and when it is used.",
-  },
-];
 
 export default function Security() {
   return (
@@ -454,7 +425,7 @@ export default function Security() {
             <FadeIn className="mb-2">
               <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Security questions, answered.</h2>
             </FadeIn>
-            <FAQ sections={[{ title: "", items: faqData }]} />
+            <FAQ sections={securityFaqs} />
           </div>
         </section>
 

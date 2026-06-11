@@ -18,8 +18,13 @@ export function FooterQuickJoin() {
     if (state !== "idle" || !/.+@.+\..+/.test(email)) return;
     setState("sending");
 
-    const data = new FormData();
-    data.append(WAITLIST_FORM.entries.role, audienceRoleForPath(location.pathname) ?? "Patients & Caregivers");
+    const data = new URLSearchParams();
+    const rawRole = audienceRoleForPath(location.pathname) ?? "Patients & Caregivers";
+    const formRole =
+      rawRole === "Patients & Caregivers" ? "Patient" :
+      rawRole === "Clinic"                ? "Clinic / Practice Owner" :
+      rawRole; // "Doctor" unchanged
+    data.append(WAITLIST_FORM.entries.role, formRole);
     data.append(WAITLIST_FORM.entries.name, "");
     data.append(WAITLIST_FORM.entries.email, email);
     data.append(WAITLIST_FORM.entries.comments, "Quick signup (footer)");
