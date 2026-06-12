@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import {
   ShieldCheck, Key, Settings, Users, Lock, Clock4,
-  CheckCircle2, Clock, Calendar, Download, Eye, FileCheck2,
-  Server, XCircle,
+  CheckCircle2, Clock, Download, Eye, FileCheck2,
+  Server, XCircle, EyeOff,
 } from "lucide-react";
 import { SEO } from '@/components/common/SEO';
 import { FadeIn } from "@/components/common/FadeIn";
@@ -38,7 +38,7 @@ function StatusPill({ status }: { status: Status }) {
 
 /* ── Hero trust signals: clean chips, statuses live in the grid below ── */
 const trustSignals: { icon: React.ElementType; label: string; sub: string }[] = [
-  { icon: Eye,        label: "Patient-controlled",   sub: "You grant and revoke access" },
+  { icon: EyeOff,     label: "Zero employee access", sub: "No FettleMed staff can read your records" },
   { icon: Lock,       label: "End-to-end encrypted", sub: "TLS 1.2+ in transit" },
   { icon: FileCheck2, label: "Audit logging",        sub: "Every access recorded" },
   { icon: Key,        label: "Multi-factor auth",    sub: "Provider accounts, at launch" },
@@ -47,24 +47,24 @@ const trustSignals: { icon: React.ElementType; label: string; sub: string }[] = 
 ];
 
 /* ── Protection grid: one fact per card ─────────────────────────── */
-const PROTECTIONS: { icon: React.ElementType; title: string; fact: string; status?: Status }[] = [
-  { icon: Settings,   title: "Consent first",       fact: "Nothing is visible until the patient grants access.", status: "live" },
-  { icon: Eye,        title: "Granular sharing",    fact: "Share everything, specific records, or a time period." },
-  { icon: Clock4,     title: "Time-bound access",   fact: "Expires on its own. Revocable in seconds, from the app." },
-  { icon: Lock,       title: "In transit",          fact: "TLS 1.2+ with modern cipher suites on every connection.", status: "live" },
-  { icon: Key,        title: "End to end",          fact: "Records unreadable without the right keys, at every step.", status: "live" },
-  { icon: ShieldCheck,title: "Multi-factor auth",   fact: "Required on every provider account.", status: "launch" },
-  { icon: Users,      title: "Role-based access",   fact: "Front desk, billing, doctors, owners: each sees only their lane." },
-  { icon: Clock,      title: "Session control",     fact: "Inactive sessions expire. Sensitive actions re-authenticate." },
-  { icon: FileCheck2, title: "Audit trail",         fact: "Who viewed what, and when. Always visible to you.", status: "live" },
+const PROTECTIONS: { icon: React.ElementType; title: string; fact: string }[] = [
+  { icon: EyeOff,     title: "Zero employee access", fact: "No FettleMed staff member - support, engineering, or leadership - has a path to read your health records." },
+  { icon: Settings,   title: "Consent first",        fact: "Nothing is visible until the patient grants access." },
+  { icon: Eye,        title: "Granular sharing",     fact: "Share everything, specific records, or a time period." },
+  { icon: Clock4,     title: "Time-bound access",    fact: "Expires on its own. Revocable in seconds, from the app." },
+  { icon: Lock,       title: "Encrypted end to end", fact: "TLS 1.2+ in transit. Records unreadable without the right keys at every step." },
+  { icon: ShieldCheck,title: "Multi-factor auth",    fact: "Required on every provider account." },
+  { icon: Users,      title: "Role-based access",    fact: "Front desk, billing, doctors, owners: each sees only their lane." },
+  { icon: Clock,      title: "Session control",      fact: "Inactive sessions expire. Sensitive actions re-authenticate." },
+  { icon: FileCheck2, title: "Audit trail",          fact: "Who viewed what, and when. Always visible to you." },
 ];
 
 /* ── Our responsibilities ───────────────────────────────────────── */
 const RESPONSIBILITIES = [
-  { title: "Protect every record",   line: "End-to-end encryption on the platform and the infrastructure." },
-  { title: "Log every access",       line: "A tamper-resistant trail, visible to patients and clinics." },
-  { title: "Answer for breaches",    line: "Detection and notification procedures under DPDPA 2023." },
-  { title: "Never monetise your data", line: "Never sold, never advertised, never used to train AI models." },
+  { title: "Protect every record",        line: "End-to-end encryption on the platform and the infrastructure." },
+  { title: "Log every access",            line: "A tamper-resistant trail, visible to patients and clinics." },
+  { title: "Protecting your data is not a feature. It is a commitment.", line: "We build, audit, and improve our security so you never have to worry about it." },
+  { title: "Never share data with advertisers", line: "Relevant health content only appears when consent has been given. Your health records never touch an ad network or third-party data broker." },
 ];
 
 
@@ -73,7 +73,7 @@ export default function Security() {
     <>
       <SEO
         title="Security"
-        description="Your health data is patient-controlled, encrypted, and stored on infrastructure in India. Here is exactly how FettleMed protects your health records, in plain language."
+        description="No FettleMed employee can ever read your health records. Your data is never shared with advertisers - any relevant content you see is based only on your explicit consent."
       />
       <div className="flex flex-col w-full bg-surface-50 min-h-screen">
 
@@ -87,10 +87,10 @@ export default function Security() {
                   <ShieldCheck className="w-3.5 h-3.5" /> How we protect your data
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-6 tracking-tight text-balance">
-                  You should know exactly how your health data is protected.
+                  No one at FettleMed can read your health records. Ever.
                 </h1>
                 <p className="text-xl text-pine-200 leading-relaxed max-w-2xl mx-auto text-balance">
-                  Who can see your records, how they are protected, and what we will never do with them. In plain terms.
+                  Not our engineers, not our founders, not support staff. Your data is never shared with advertisers. Any relevant content you see is based only on your explicit consent.
                 </p>
               </div>
 
@@ -133,24 +133,21 @@ export default function Security() {
 
         {/* ── S3: Philosophy ───────────────────────────────────────────── */}
         <section className="py-16 md:py-20 bg-white border-b border-stone-100">
-          <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+          <div className="container mx-auto px-4 md:px-8 max-w-5xl">
             <FadeIn className="mb-10">
               <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-3">Our security philosophy</p>
               <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight">Three rules, before any technology.</h2>
             </FadeIn>
 
-            <div className="space-y-6">
+            <div className="grid md:grid-cols-3 gap-4">
               {[
-                { n: "01", line: "The patient holds the key.",            sub: "No doctor, clinic, or FettleMed employee sees a record without the patient's consent." },
-                { n: "02", line: "We claim only what is live today.",     sub: "Every protection on this page is labelled honestly: live, at launch, in progress, or planned." },
-                { n: "03", line: "Your health data is never for sale.",   sub: "Not to insurers, not to advertisers, not to AI companies. Not ever." },
-              ].map(({ n, line, sub }, i) => (
-                <FadeIn key={n} delay={0.06 * i} className="flex gap-5 md:gap-8 items-start border-l-2 border-pine-200 pl-5 md:pl-8 py-1">
-                  <span className="font-mono text-sm font-medium text-pine-600 tracking-widest mt-2 shrink-0">{n}</span>
-                  <div>
-                    <p className="text-xl md:text-2xl font-medium text-pine-900 tracking-tight leading-snug">{line}</p>
-                    <p className="text-dim-2 leading-relaxed mt-1.5">{sub}</p>
-                  </div>
+                { n: "01", line: "Every record is encrypted and portable. Your data goes where you go." },
+                { n: "02", line: "Every access is logged. You can verify it." },
+                { n: "03", line: "No one can access your data without your consent. No exceptions." },
+              ].map(({ n, line }, i) => (
+                <FadeIn key={n} delay={0.06 * i} className="bg-surface-50 border border-stone-100 rounded-2xl p-6 flex flex-col gap-4">
+                  <span className="font-mono text-xs font-semibold text-pine-400 tracking-widest">{n}</span>
+                  <p className="text-lg font-medium text-pine-900 tracking-tight leading-snug">{line}</p>
                 </FadeIn>
               ))}
             </div>
@@ -233,13 +230,10 @@ export default function Security() {
             </FadeIn>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {PROTECTIONS.map(({ icon: Icon, title, fact, status }, i) => (
+              {PROTECTIONS.map(({ icon: Icon, title, fact }, i) => (
                 <FadeIn key={title} delay={0.04 * i} className="bg-surface-50 border border-stone-100 rounded-2xl p-5 flex flex-col gap-2.5">
-                  <div className="flex items-center justify-between">
-                    <div className="w-9 h-9 rounded-xl bg-white border border-pine-100 flex items-center justify-center">
-                      <Icon className="w-4 h-4 text-pine-600" />
-                    </div>
-                    {status && <StatusPill status={status} />}
+                  <div className="w-9 h-9 rounded-xl bg-white border border-pine-100 flex items-center justify-center">
+                    <Icon className="w-4 h-4 text-pine-600" />
                   </div>
                   <h3 className="text-pine-900 font-medium tracking-tight">{title}</h3>
                   <p className="text-dim-2 text-sm leading-relaxed">{fact}</p>
@@ -330,92 +324,53 @@ export default function Security() {
               </FadeIn>
             </div>
 
-            {/* Never used for */}
+            {/* Advertising commitment - two-part: what we never do vs what consent means */}
             <FadeIn delay={0.2} className="mt-4 relative overflow-hidden bg-pine-900 rounded-2xl p-6 md:p-8">
               <DarkTexture glow="none" />
-              <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-5 md:gap-10">
-                <h3 className="text-white font-medium text-lg tracking-tight shrink-0">Never used for</h3>
-                <ul className="flex flex-col sm:flex-row gap-3 sm:gap-8">
-                  {["Selling to anyone", "Advertising", "Training AI models"].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-pine-100 font-medium text-sm">
-                      <XCircle className="w-4 h-4 text-pine-300 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-pine-300 font-medium text-sm md:ml-auto">Ever.</p>
+              <div className="relative z-10 flex flex-col gap-6">
+                <div className="flex flex-col md:flex-row gap-6 md:gap-10">
+                  {/* Never column */}
+                  <div className="flex-1">
+                    <p className="text-pine-400 text-xs font-semibold uppercase tracking-widest mb-3">Never</p>
+                    <ul className="space-y-2.5">
+                      {[
+                        "Shared with advertisers or data brokers",
+                        "Sold to anyone, for any reason",
+                        "Used to train AI models",
+                      ].map((item) => (
+                        <li key={item} className="flex items-start gap-2.5 text-pine-100 font-medium text-sm">
+                          <XCircle className="w-4 h-4 text-pine-400 shrink-0 mt-0.5" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="hidden md:block w-px bg-pine-700" />
+
+                  {/* Consent-based column */}
+                  <div className="flex-1">
+                    <p className="text-pine-400 text-xs font-semibold uppercase tracking-widest mb-3">Only with your explicit consent</p>
+                    <ul className="space-y-2.5">
+                      {[
+                        "Relevant health content may be shown - you choose whether to see it",
+                        "Consent is opt-in, not buried in terms",
+                        "You can withdraw consent at any time, instantly",
+                      ].map((item) => (
+                        <li key={item} className="flex items-start gap-2.5 text-pine-100 font-medium text-sm">
+                          <CheckCircle2 className="w-4 h-4 text-pine-300 shrink-0 mt-0.5" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <p className="text-pine-400 text-xs font-medium border-t border-pine-800 pt-4">
+                  When you see relevant content on FettleMed, it is because you chose to. The underlying records never leave FettleMed. Advertisers receive no data, ever.
+                </p>
               </div>
             </FadeIn>
-          </div>
-        </section>
-
-        {/* ── S8: Compliance roadmap ───────────────────────────────────── */}
-        <section className="py-16 md:py-20 bg-white border-b border-stone-100">
-          <div className="container mx-auto px-4 md:px-8 max-w-5xl">
-            <FadeIn className="mb-10">
-              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-3">Compliance roadmap</p>
-              <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight text-balance">Where we are, honestly.</h2>
-              <p className="text-dim mt-3 max-w-2xl">We do not claim certifications we have not yet earned.</p>
-            </FadeIn>
-
-            <div className="grid md:grid-cols-3 gap-4">
-              {/* Live today */}
-              <FadeIn delay={0.05} className="bg-surface-50 border border-pine-100 rounded-2xl p-6">
-                <div className="flex items-center gap-2 mb-5">
-                  <CheckCircle2 className="w-5 h-5 text-pine-600" />
-                  <p className="text-sm font-semibold text-pine-700 uppercase tracking-wider">Live today</p>
-                </div>
-                <ul className="space-y-4">
-                  {[
-                    { t: "DPDPA-aligned controls", l: "Data handling designed around India's data protection law." },
-                    { t: "Data portability", l: "Records downloadable in full, provided on request." },
-                    { t: "Primary data centre in India", l: "With the hedge above on backups and supporting services." },
-                  ].map(({ t, l }) => (
-                    <li key={t}>
-                      <p className="text-pine-900 font-medium text-sm">{t}</p>
-                      <p className="text-dim-2 text-sm leading-relaxed mt-0.5">{l}</p>
-                    </li>
-                  ))}
-                </ul>
-              </FadeIn>
-
-              {/* In progress */}
-              <FadeIn delay={0.1} className="bg-surface-50 border border-amber-100 rounded-2xl p-6">
-                <div className="flex items-center gap-2 mb-5">
-                  <Clock className="w-5 h-5 text-amber-500" />
-                  <p className="text-sm font-semibold text-amber-700 uppercase tracking-wider">In progress</p>
-                </div>
-                <ul className="space-y-4">
-                  {[
-                    { t: "ABDM-aligned architecture", l: "ABHA ID integration is in active development." },
-                  ].map(({ t, l }) => (
-                    <li key={t}>
-                      <p className="text-pine-900 font-medium text-sm">{t}</p>
-                      <p className="text-dim-2 text-sm leading-relaxed mt-0.5">{l}</p>
-                    </li>
-                  ))}
-                </ul>
-              </FadeIn>
-
-              {/* Planned */}
-              <FadeIn delay={0.15} className="bg-surface-50 border border-stone-200 rounded-2xl p-6">
-                <div className="flex items-center gap-2 mb-5">
-                  <Calendar className="w-5 h-5 text-dim" />
-                  <p className="text-sm font-semibold text-dim uppercase tracking-wider">Planned</p>
-                </div>
-                <ul className="space-y-4">
-                  {[
-                    { t: "ABDM certification", l: "Formal certification after pilot completion." },
-                    { t: "ISO 27001", l: "Certification work begins after launch." },
-                  ].map(({ t, l }) => (
-                    <li key={t}>
-                      <p className="text-pine-900 font-medium text-sm">{t}</p>
-                      <p className="text-dim-2 text-sm leading-relaxed mt-0.5">{l}</p>
-                    </li>
-                  ))}
-                </ul>
-              </FadeIn>
-            </div>
           </div>
         </section>
 
