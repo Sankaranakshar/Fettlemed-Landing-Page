@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
+import { motion, useScroll, useSpring, useTransform, useReducedMotion, MotionValue } from "motion/react";
 import { SEO } from '@/components/common/SEO';
 import {
   Mail, MapPin, Stethoscope, Code2, ArrowRight, Quote,
-  Lock, KeyRound, Download, ShieldCheck, Feather,
-  Smartphone, Building2, CheckCircle2, XCircle,
+  Lock, KeyRound, Download, ShieldCheck, Feather, CheckCircle2,
+  FlaskConical, Pill, Receipt, CalendarDays, Syringe, HeartPulse,
 } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { Button } from "@/components/common/Button";
 import { DarkTexture } from "@/components/common/Texture/DarkTexture";
-import { PulseLine } from "@/components/common/PulseLine";
 import { useWaitlist } from "@/contexts/WaitlistContext";
 
 /* ── Principles: five cards instead of belief paragraphs ─────────── */
@@ -22,21 +21,122 @@ const PRINCIPLES = [
   { Icon: Feather,     title: "Simplicity",         line: "If it adds a step, it doesn't ship." },
 ];
 
-/* ── Timeline: origin to rollout ─────────────────────────────────── */
-const TIMELINE = [
-  { stage: "The idea",  title: "Seven years in the making", line: "Two clinicians, watching records fail the patients in front of them.", tone: "past" },
-  { stage: "2025",      title: "The decision",              line: "We committed to building it.",                                          tone: "past" },
-  { stage: "Now",       title: "Doctor & clinic pilot",     line: "Refined against real consultations and real clinic days.",            tone: "live" },
-  { stage: "Next",      title: "Patient onboarding",        line: "The app joins a connected system, not an empty one.",                 tone: "progress" },
-  { stage: "Then",      title: "Wider rollout",             line: "Access widens as the experience proves itself.",                       tone: "planned" },
+/* ── Chaos to clarity: scattered records that snap into one ring ──
+   Each card has a scattered pose (sx, sy, sr) and a slot in the
+   final stack (fy). Scroll drives drift apart, then the snap. */
+const CONSTELLATION: { Icon: React.ElementType; title: string; sub: string; sx: number; sy: number; sr: number; fy: number }[] = [
+  { Icon: FlaskConical, title: "Lab report",   sub: "HbA1c · 6.1%",    sx: -105, sy: -200, sr: -10, fy: -95 },
+  { Icon: Pill,         title: "Prescription", sub: "Metformin 500mg", sx:   95, sy: -150, sr:   8, fy: -57 },
+  { Icon: Receipt,      title: "Hospital bill",sub: "Paper file, 2023",sx: -110, sy:  -40, sr:   6, fy: -19 },
+  { Icon: CalendarDays, title: "Appointment",  sub: "Dr. Rao · 9:30",  sx:  105, sy:   30, sr:  -7, fy:  19 },
+  { Icon: Syringe,      title: "Vaccination",  sub: "Tdap booster",    sx:  -80, sy:  160, sr:   9, fy:  57 },
+  { Icon: HeartPulse,   title: "Vitals",       sub: "BP 124/82",       sx:   90, sy:  220, sr:  -6, fy:  95 },
 ];
 
-const toneCls: Record<string, string> = {
-  past:     "bg-stone-50 border-stone-200 text-dim",
-  live:     "bg-pine-50 border-pine-200 text-pine-700",
-  progress: "bg-amber-50 border-amber-200 text-amber-700",
-  planned:  "bg-stone-50 border-stone-200 text-dim",
-};
+function ConstellationCard({ p, card }: { p: MotionValue<number>; card: (typeof CONSTELLATION)[number]; key?: React.Key }) {
+  const { Icon, title, sub, sx, sy, sr, fy } = card;
+  // drift apart through 0.35, then snap to the slot by 0.62
+  const x      = useTransform(p, [0, 0.35, 0.62], [sx, sx * 1.12, 0]);
+  const y      = useTransform(p, [0, 0.35, 0.62], [sy, sy * 1.12, fy]);
+  const rotate = useTransform(p, [0, 0.35, 0.62], [sr, sr * 1.3, 0]);
+  const scale  = useTransform(p, [0.35, 0.62], [1, 0.92]);
+  return (
+    <motion.div
+      style={{ x, y, rotate, scale }}
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-40 bg-white/95 rounded-xl shadow-lg px-3 py-2 flex items-center gap-2.5"
+    >
+      <span className="w-7 h-7 rounded-lg bg-pine-50 border border-pine-100 flex items-center justify-center shrink-0">
+        <Icon className="w-3.5 h-3.5 text-pine-600" />
+      </span>
+      <span className="min-w-0">
+        <span className="block text-[11px] font-semibold text-pine-900 leading-tight truncate">{title}</span>
+        <span className="block text-[10px] font-medium text-dim leading-tight truncate">{sub}</span>
+      </span>
+    </motion.div>
+  );
+}
+
+function ChaosToClarity() {
+  const ref = useRef<HTMLElement>(null);
+  const reduced = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
+  const p = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.4 });
+
+  // Headline 1 in, hold, out; headline 2 in on the snap
+  const h1Opacity   = useTransform(p, [0, 0.08, 0.34, 0.46], [0, 1, 1, 0]);
+  const h1Y         = useTransform(p, [0.34, 0.46], [0, -24]);
+  const h2Opacity   = useTransform(p, [0.58, 0.72], [0, 1]);
+  const h2Y         = useTransform(p, [0.58, 0.72], [24, 0]);
+  // The ring arrives just before the cards snap into it
+  const ringOpacity = useTransform(p, [0.36, 0.5], [0, 1]);
+  const ringScale   = useTransform(p, [0.36, 0.56], [0.55, 1]);
+
+  if (reduced) {
+    return (
+      <section className="relative bg-pine-900 text-white overflow-hidden py-20">
+        <DarkTexture />
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <p className="text-xs font-medium tracking-widest uppercase text-pine-300 mb-6">Why FettleMed exists</p>
+          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-balance mb-4">So we built the center of gravity.</h2>
+          <p className="text-pine-200 text-lg max-w-xl mx-auto">One record, owned by you, shared only with consent.</p>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section ref={ref} className="relative h-[320vh] bg-pine-900">
+      <div className="sticky top-0 h-screen overflow-hidden text-white">
+        <DarkTexture />
+
+        {/* eyebrow */}
+        <p className="absolute top-10 left-1/2 -translate-x-1/2 text-xs font-medium tracking-widest uppercase text-pine-300 z-20 whitespace-nowrap">
+          Why FettleMed exists
+        </p>
+
+        {/* the ring: FettleMed's center of gravity */}
+        <motion.div
+          style={{ opacity: ringOpacity, scale: ringScale }}
+          aria-hidden="true"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[310px] h-[310px] rounded-full border border-pine-400/70"
+        >
+          <div className="absolute -inset-3 rounded-full border border-pine-500/30" />
+          <div className="absolute inset-0 rounded-full shadow-[0_0_80px_12px_rgba(76,175,143,0.25)]" />
+        </motion.div>
+
+        {/* scattered records */}
+        <div aria-hidden="true">
+          {CONSTELLATION.map((card) => (
+            <ConstellationCard key={card.title} p={p} card={card} />
+          ))}
+        </div>
+
+        {/* headline 1: the problem */}
+        <motion.div
+          style={{ opacity: h1Opacity, y: h1Y }}
+          className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-10 text-center px-6 pointer-events-none"
+        >
+          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-balance leading-tight [text-shadow:0_2px_24px_rgba(8,35,28,0.9)]">
+            Your health history is scattered.
+          </h2>
+        </motion.div>
+
+        {/* headline 2: the payoff, beneath the ring */}
+        <motion.div
+          style={{ opacity: h2Opacity, y: h2Y }}
+          className="absolute inset-x-0 bottom-[10vh] z-10 text-center px-6 pointer-events-none"
+        >
+          <h2 className="text-2xl md:text-4xl font-medium tracking-tight text-balance leading-tight">
+            So we built the center of gravity.
+          </h2>
+          <p className="text-pine-300 text-sm md:text-base font-medium mt-3 max-w-md mx-auto">
+            One record, owned by you, shared only with consent.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
 
 export default function About() {
   const { openWaitlist } = useWaitlist();
@@ -84,69 +184,8 @@ export default function About() {
           </div>
         </section>
 
-        {/* ── S2: The story ─────────────────────────────────────────────── */}
-        <section className="py-16 md:py-20 bg-white border-b border-stone-100">
-          <div className="container mx-auto px-4 md:px-8 max-w-4xl">
-            <FadeIn className="mb-8">
-              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-5">Why FettleMed exists</p>
-              <h2 className="text-2xl md:text-4xl font-medium leading-snug tracking-tight text-balance">
-                <span className="text-pine-900">A patient's history is scattered across clinics, labs, folders, and memory. </span>
-                <span className="text-pine-600">It should follow them: owned by the patient, shared only with consent.</span>
-              </h2>
-
-              {/* What the gap costs, concretely */}
-              <div className="flex flex-wrap gap-2 mt-7">
-                {[
-                  "Tests repeated because results can't be found",
-                  "Medications recalled from memory",
-                  "Every new doctor starts from zero",
-                ].map((item, i) => (
-                  <motion.span
-                    key={item}
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ delay: 0.15 + i * 0.08, duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-                    className="inline-flex items-center gap-2 bg-surface-50 border border-stone-200 rounded-full px-4 py-2 text-sm font-medium text-dim-2"
-                  >
-                    <XCircle className="w-4 h-4 text-rose-400 shrink-0" />
-                    {item}
-                  </motion.span>
-                ))}
-              </div>
-
-              <p className="text-lg text-dim-2 leading-relaxed mt-7 max-w-2xl">
-                FettleMed closes that gap with one consent-controlled record, moving between the three people who need it:
-              </p>
-            </FadeIn>
-
-            {/* The ecosystem, drawn not described */}
-            <FadeIn delay={0.1}>
-              <div className="relative">
-                <PulseLine className="hidden sm:block absolute top-7 left-[12%] right-[12%] z-0" interval={6} />
-                <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {[
-                    { Icon: Smartphone,  label: "Patients", to: "/patient-app" },
-                    { Icon: Stethoscope, label: "Doctors",  to: "/doctor-portal" },
-                    { Icon: Building2,   label: "Clinics",  to: "/clinic-management" },
-                  ].map(({ Icon, label, to }) => (
-                    <Link
-                      key={label}
-                      to={to}
-                      className="group flex items-center justify-center gap-3 bg-surface-50 border border-stone-200 rounded-2xl py-4 px-5 hover:border-pine-300 hover:bg-pine-50/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-600"
-                    >
-                      <span className="w-9 h-9 rounded-xl bg-white border border-pine-100 flex items-center justify-center shrink-0">
-                        <Icon className="w-4 h-4 text-pine-600" />
-                      </span>
-                      <span className="font-medium text-pine-900">{label}</span>
-                      <ArrowRight className="w-4 h-4 text-pine-400 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
+        {/* ── S2: The story, chaos to clarity ───────────────────────────── */}
+        <ChaosToClarity />
 
         {/* ── S3: Principles ───────────────────────────────────────────── */}
         <section className="py-16 md:py-24 bg-surface-50 border-b border-stone-100">
@@ -265,43 +304,6 @@ export default function About() {
 
               </div>
             </FadeIn>
-          </div>
-        </section>
-
-        {/* ── S5: Timeline ─────────────────────────────────────────────── */}
-        <section className="py-16 md:py-24 bg-surface-50 border-b border-stone-100">
-          <div className="container mx-auto px-4 md:px-8 max-w-5xl">
-            <FadeIn className="mb-10">
-              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-4">The road</p>
-              <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight text-balance">
-                Seven years of thinking. Built deliberately.
-              </h2>
-            </FadeIn>
-
-            <div className="relative grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {/* Connecting line, fills as the section enters (desktop) */}
-              <div className="hidden lg:block absolute top-9 left-[10%] right-[10%] h-px bg-stone-200 overflow-hidden" aria-hidden="true">
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 1.4, ease: [0.23, 1, 0.32, 1] }}
-                  style={{ transformOrigin: 'left' }}
-                  className="absolute inset-0 bg-pine-400"
-                />
-              </div>
-              {TIMELINE.map(({ stage, title, line, tone }, i) => (
-                <FadeIn key={stage} delay={0.05 + i * 0.06}>
-                  <div className="h-full bg-white border border-stone-100 rounded-2xl p-5 relative z-10">
-                    <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold mb-3 border ${toneCls[tone]}`}>
-                      {stage}
-                    </span>
-                    <h3 className="text-pine-900 font-medium mb-1.5 leading-snug">{title}</h3>
-                    <p className="text-dim-2 text-sm leading-relaxed">{line}</p>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
           </div>
         </section>
 
