@@ -238,8 +238,8 @@ export default function About() {
               <div className="grid md:grid-cols-2 gap-10 mb-14">
 
                 <div className="flex flex-col group">
-                  <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl bg-pine-900 mb-6 flex items-center justify-center" style={{ perspective: 800 }}>
-                    <span className="text-6xl font-medium text-pine-300 tracking-widest select-none transition-transform duration-500 group-hover:[transform:rotateY(14deg)]">SS</span>
+                  <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl mb-6">
+                    <img src="/dr-sriram-shankar.png" alt="Dr. Sriram Shankar" className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <h3 className="text-2xl font-medium text-pine-900 mb-1">Dr. Sriram Shankar</h3>
                   <p className="text-pine-600 font-medium mb-1">Co-founder &amp; Chief Medical Officer</p>
@@ -248,8 +248,8 @@ export default function About() {
                 </div>
 
                 <div className="flex flex-col group">
-                  <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl bg-pine-900 mb-6 flex items-center justify-center" style={{ perspective: 800 }}>
-                    <span className="text-6xl font-medium text-pine-300 tracking-widest select-none transition-transform duration-500 group-hover:[transform:rotateY(14deg)]">BS</span>
+                  <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl mb-6">
+                    <img src="/dr-bhavani-sriram.jpg" alt="Dr. Bhavani Sriram" className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <h3 className="text-2xl font-medium text-pine-900 mb-1">Dr. Bhavani Sriram</h3>
                   <p className="text-pine-600 font-medium mb-1">Co-founder &amp; Chief Clinical Officer</p>
