@@ -71,8 +71,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 end={link.path === "/"}
                 onMouseEnter={() => preloadRoutes[link.path]?.()}
                 className={({ isActive }) => cn(
-                  "text-sm font-medium tracking-wide transition-colors duration-150 ease-out whitespace-nowrap",
-                  isActive ? "text-pine-600" : "text-dim hover:text-pine-600"
+                  "text-sm font-medium tracking-wide transition-colors duration-150 ease-out whitespace-nowrap relative",
+                  isActive
+                    ? "text-pine-700 after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:rounded-full after:bg-pine-600"
+                    : "text-dim hover:text-pine-600"
                 )}
               >
                 {link.name}
@@ -80,7 +82,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             ))}
             <div className="h-5 w-[1px] bg-pine-100 mx-1 lg:mx-2" />
             <Button variant="animated" onClick={() => openWaitlist(audienceRole)} className="bg-pine-900 hover:bg-pine-800 text-white rounded-lg shadow-sm text-xs lg:text-sm h-9 lg:h-10 px-4 lg:px-6 font-medium transition-colors">
-              Join Waitlist
+              Join the Pilot
             </Button>
           </nav>
 
@@ -113,7 +115,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </NavLink>
               ))}
               <div className="pt-6 border-t border-stone-200 flex flex-col gap-4">
-                <Button variant="animated" size="lg" onClick={() => { setIsMobileMenuOpen(false); openWaitlist(audienceRole); }} className="w-full bg-pine-900 hover:bg-pine-800 text-white rounded-xl h-14 font-medium">Join Waitlist</Button>
+                <Button variant="animated" size="lg" onClick={() => { setIsMobileMenuOpen(false); openWaitlist(audienceRole); }} className="w-full bg-pine-900 hover:bg-pine-800 text-white rounded-xl h-14 font-medium">Join the Pilot</Button>
               </div>
             </nav>
           </div>
@@ -152,7 +154,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Link to="/about" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">About</Link>
                 <Link to="/about#team" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Team</Link>
                 <Link to="/about#contact" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Contact</Link>
-                <Link to="/waitlist" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Join the Waitlist</Link>
+                <Link to="/waitlist" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Join the Pilot</Link>
              </nav>
 
              {/* Column 3: Legal */}

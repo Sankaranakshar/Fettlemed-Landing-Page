@@ -32,7 +32,7 @@ export function PatientHero() {
                   onClick={() => openWaitlist('Patients & Caregivers')}
                   className="bg-pine-900 hover:bg-pine-800 text-white h-12 px-10 text-base rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
-                  Join the Waitlist
+                  Join the Pilot
                 </Button>
                 <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm font-medium">
                   <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse flex-shrink-0" />

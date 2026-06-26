@@ -41,8 +41,8 @@ export const ComparisonTable = ({ heading = "How FettleMed compares" }: { headin
                   <th className="text-center py-3 w-[22%] border-b border-stone-100">
                     <span className="text-[10px] font-semibold tracking-normal uppercase text-stone-400 whitespace-nowrap">Health App</span>
                   </th>
-                  <th className="text-center py-3 w-[22%] bg-pine-50/60 border-l border-r border-t border-b border-pine-100 rounded-tr-xl">
-                    <span className="text-[10px] font-semibold tracking-normal uppercase text-pine-700 whitespace-nowrap">FettleMed</span>
+                  <th className="text-center py-3 w-[22%] bg-pine-100/70 border-l border-r border-t border-b border-pine-200 rounded-tr-xl">
+                    <span className="text-[10px] font-semibold tracking-normal uppercase text-pine-800 whitespace-nowrap">FettleMed ✦</span>
                   </th>
                 </tr>
               </thead>
@@ -58,7 +58,7 @@ export const ComparisonTable = ({ heading = "How FettleMed compares" }: { headin
                     <td className="text-center px-3 py-3.5">
                       <span className="inline-flex justify-center"><StatusIcon value={app} /></span>
                     </td>
-                    <td className={`text-center px-3 py-3.5 bg-pine-50/60 border-l border-r border-pine-100 ${i === rows.length - 1 ? "border-b rounded-br-xl" : ""}`}>
+                    <td className={`text-center px-3 py-3.5 bg-pine-100/70 border-l border-r border-pine-200 ${i === rows.length - 1 ? "border-b rounded-br-xl" : ""}`}>
                       <span className="inline-flex justify-center"><StatusIcon value={fm} /></span>
                     </td>
                   </tr>
@@ -72,6 +72,9 @@ export const ComparisonTable = ({ heading = "How FettleMed compares" }: { headin
               <span className="flex items-center gap-1.5"><Minus className="w-3 h-3 text-amber-400" /> Partial</span>
               <span className="flex items-center gap-1.5"><X className="w-3 h-3 text-stone-400" /> No</span>
             </div>
+            <p className="text-[11px] text-dim-2 mt-3 leading-relaxed">
+              * EMR / HIS refers to traditional clinic management systems (e.g. Practo, Dr. Patti, hospital EMRs). Health App refers to consumer wellness apps (e.g. Apple Health, Google Fit).
+            </p>
           </div>
       </div>
     </section>

@@ -32,7 +32,7 @@ export function DoctorHero() {
                   onClick={() => openWaitlist('Doctor')}
                   className="bg-pine-900 hover:bg-pine-800 text-white h-14 px-12 text-lg rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
-                  Join the Clinical Pilot
+                  Join the Pilot
                 </Button>
                 <p className="text-dim text-sm font-medium">No IT team. No specialised hardware. Setup in one session.</p>
                 <a

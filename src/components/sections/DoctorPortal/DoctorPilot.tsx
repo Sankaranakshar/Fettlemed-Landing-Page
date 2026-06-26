@@ -60,7 +60,7 @@ export function DoctorPilot() {
 
              <div className="flex flex-col items-center gap-3">
                 <Button variant="animated" size="lg" onClick={() => openWaitlist('Doctor')} className="bg-white hover:bg-pine-50 text-pine-900 h-14 px-12 text-lg rounded-xl font-medium shadow-lg">
-                  Join the Clinical Pilot
+                  Join the Pilot
                 </Button>
                 <p className="text-pine-300 text-sm font-medium">For your practice. Limited spots available.</p>
                 <p className="text-sm font-medium text-pine-300 mt-3">Works on the device you already have.</p>

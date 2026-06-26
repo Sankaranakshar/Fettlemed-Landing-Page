@@ -34,7 +34,7 @@ export function ClinicPilot() {
 
              <div className="flex flex-col items-center gap-3">
                 <Button variant="animated" size="lg" onClick={() => openWaitlist('Clinic')} className="bg-white hover:bg-pine-50 text-pine-900 h-14 px-12 text-lg rounded-xl font-medium shadow-lg">
-                  Join the Clinic Pilot
+                  Join the Pilot
                 </Button>
 
                 <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm font-medium text-pine-300 mt-3">

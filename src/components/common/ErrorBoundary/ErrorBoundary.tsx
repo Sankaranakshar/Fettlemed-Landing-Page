@@ -11,6 +11,8 @@ export class ErrorBoundary extends Component<Props, State> {
     return { hasError: true };
   }
 
+  // TODO(dev): wire Sentry here before production — componentDidCatch(error, info) { Sentry.captureException(error, { extra: info }); }
+
   render() {
     if (this.state.hasError) {
       return (

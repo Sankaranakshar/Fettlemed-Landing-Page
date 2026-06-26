@@ -22,7 +22,7 @@ export const CTA = () => {
                We reach out personally when your spot opens. Not a newsletter. A conversation.
              </p>
              <Button variant="animated" size="lg" onClick={() => openWaitlist()} className="h-14 px-12 text-lg bg-white hover:bg-pine-50 text-pine-900 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900">
-               Join the Waitlist
+               Join the Pilot
              </Button>
              <p className="mt-6 text-sm text-pine-300 font-medium">By joining, you agree to our <a href="/privacy-policy" className="underline hover:text-pine-200">Privacy Policy</a>. We will not share your details with third parties.</p>
           </FadeIn>

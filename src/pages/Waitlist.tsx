@@ -21,7 +21,7 @@ export default function Waitlist() {
 
   return (
     <>
-      <SEO title="Join the Waitlist" description="Join the FettleMed waitlist for early access. Be among the first patients, doctors, and clinics to use India's connected health record platform." />
+      <SEO title="Join the Pilot" description="Join the FettleMed pilot for early access. Be among the first patients, doctors, and clinics to use India's connected health record platform." />
       <div className="flex flex-col w-full min-h-screen bg-surface-50 font-sans relative overflow-hidden">
         {/* Static mesh gradient: calm near forms, no drift */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -45,7 +45,7 @@ export default function Waitlist() {
                     Get early access to your complete health record.
                   </h1>
                   <p className="text-lg md:text-xl text-dim leading-relaxed mb-8">
-                    Join our waitlist for early access to the patient app, doctor portal, or clinic management system.
+                    Join the pilot for early access to the patient app, doctor portal, or clinic management system.
                   </p>
                   <div className="flex flex-col gap-3">
                     {[

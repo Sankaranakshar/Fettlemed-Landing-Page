@@ -44,7 +44,7 @@ export const Hero = () => {
                   onClick={() => openWaitlist()}
                   className="w-full sm:w-auto h-14 px-10 text-lg bg-pine-900 hover:bg-pine-800 text-white rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
-                  Join the Waitlist
+                  Join the Pilot
                 </Button>
               </div>
             </FadeIn>
