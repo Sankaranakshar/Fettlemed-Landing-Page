@@ -318,7 +318,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
         className="relative w-full h-14 text-lg bg-pine-900 hover:bg-pine-800 text-white rounded-xl shadow-lg font-medium disabled:opacity-70 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
       >
         <span className={`transition-opacity duration-150 ${isSubmitting ? "opacity-0" : "opacity-100"}`}>
-          Join the Waitlist
+          Join the Pilot
         </span>
         {isSubmitting && (
           <span className="absolute inset-0 flex items-center justify-center">

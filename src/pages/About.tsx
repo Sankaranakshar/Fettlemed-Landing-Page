@@ -171,7 +171,7 @@ export default function About() {
                   onClick={() => openWaitlist()}
                   className="h-12 px-8 text-base bg-white text-pine-900 hover:bg-pine-50 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
-                  Join the Waitlist
+                  Join the Pilot
                 </Button>
                 <a
                   href="#team"
@@ -360,7 +360,7 @@ export default function About() {
                 onClick={() => openWaitlist()}
                 className="h-12 px-10 text-base bg-white text-pine-900 hover:bg-pine-50 rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2 focus-visible:ring-offset-pine-900"
               >
-                Join the Waitlist
+                Join the Pilot
               </Button>
             </FadeIn>
           </div>

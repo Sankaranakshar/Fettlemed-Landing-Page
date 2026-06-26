@@ -32,7 +32,7 @@ export function ClinicHero() {
                   onClick={() => openWaitlist('Clinic')}
                   className="bg-pine-900 hover:bg-pine-800 text-white h-13 px-12 text-base rounded-xl font-medium shadow-lg focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2"
                 >
-                  Join the Clinic Pilot
+                  Join the Pilot
                 </Button>
                 <p className="text-dim text-sm font-medium">Works on your existing devices. Your staff is ready on day one.</p>
                 <a
