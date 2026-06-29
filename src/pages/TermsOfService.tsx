@@ -17,7 +17,7 @@ export default function TermsOfService() {
             </p>
           </div>
 
-          <div className="bg-white border border-stone-200 rounded-3xl p-8 md:p-12 shadow-sm prose prose-lg max-w-none text-dim">
+          <div className="bg-white border border-stone-200 rounded-3xl p-8 md:p-12 shadow-sm max-w-none text-dim leading-relaxed [&_p]:mb-4 [&_ul]:mb-4 [&_ul]:pl-5 [&_ul]:list-disc [&_ol]:mb-4 [&_ol]:pl-5 [&_ol]:list-decimal [&_li]:mb-1 [&_strong]:font-medium [&_strong]:text-pine-900 [&_a]:text-pine-600 [&_a:hover]:text-pine-700 [&_a]:underline">
             
             {/* Section 1 */}
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-8">1. Acceptance of Terms</h2>

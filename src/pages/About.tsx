@@ -239,7 +239,7 @@ export default function About() {
 
                 <div className="flex flex-col group">
                   <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl mb-6">
-                    <img src="/dr-sriram-shankar.png" alt="Dr. Sriram Shankar" className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+                    <img src="/dr-sriram-shankar.jpg" alt="Dr. Sriram Shankar" className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <h3 className="text-2xl font-medium text-pine-900 mb-1">Dr. Sriram Shankar</h3>
                   <p className="text-pine-600 font-medium mb-1">Co-founder &amp; Chief Medical Officer</p>
@@ -267,7 +267,7 @@ export default function About() {
                   "The problem isn't money or access to doctors. It's the fragmentation of information."
                 </blockquote>
                 <figcaption className="text-pine-600 font-medium">
-                  Dr. Sriram Shankar, on why FettleMed exists
+                  — Dr. Sriram Shankar, Co-founder
                 </figcaption>
               </figure>
             </FadeIn>

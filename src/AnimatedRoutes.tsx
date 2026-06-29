@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
+import { trackPageView } from "@/lib/analytics";
 
 // Home is eagerly imported - it's the entry page and must not show a spinner
 import Home from "./pages/Home";
@@ -16,6 +17,11 @@ const NotFound = React.lazy(() => import("./pages/NotFound"));
 
 export function AnimatedRoutes() {
   const location = useLocation();
+
+  // Track page views on every route change
+  useEffect(() => {
+    trackPageView(location.pathname);
+  }, [location.pathname]);
 
   // Prefetch the pilot pages in the background after the home page loads
   // so navigation to /doctor-portal and /clinic-management is instant

@@ -16,8 +16,26 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const { openWaitlist } = useWaitlist();
 
   useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      // Poll until the anchor element exists in the DOM (lazy pages can take
+      // several seconds in dev; built chunks load in < 200ms in production).
+      // Give up after ~10 seconds (50 × 200ms).
+      let attempts = 0;
+      const timer = setInterval(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          clearInterval(timer);
+          const top = el.getBoundingClientRect().top + window.scrollY - 96;
+          window.scrollTo({ top, behavior: 'smooth' });
+        } else if (++attempts >= 50) {
+          clearInterval(timer);
+        }
+      }, 200);
+      return () => clearInterval(timer);
+    }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   // Hairline shadow once the page is scrolled, so the nav reads as a layer
   useEffect(() => {

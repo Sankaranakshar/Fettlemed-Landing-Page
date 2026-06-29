@@ -55,7 +55,7 @@ export function SEO({
       <meta property="og:url" content={`https://fettlemed.com${pathname}`} />
       
       {/* Twitter tags */}
-      <meta name="twitter:creator" content="@fettlemed" />
+      <meta name="twitter:creator" content="@FETTLEMEDHEALTH" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
