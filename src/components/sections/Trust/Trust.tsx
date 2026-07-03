@@ -38,7 +38,7 @@ export const Trust = () => {
                  </div>
                  <h3 className="text-lg font-medium text-pine-900">Your data is yours. Always.</h3>
                </div>
-               <p className="text-dim-2 leading-relaxed text-base">Never sold, never advertised. End-to-end encrypted, with the primary data centre in India.</p>
+               <p className="text-dim-2 leading-relaxed text-base">Never sold, never advertised. Encrypted end to end, data centre in India.</p>
              </div>
           </div>
 
