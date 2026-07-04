@@ -155,7 +155,7 @@ export const doctorFaqs: FAQSection[] = [
       },
       {
         question: "How long does it take for my staff to learn the system?",
-        answer: "FettleMed is designed for clinics that are moving from paper or Excel, not for teams with IT departments. Most functions can be learned in a single session. We support you through onboarding and remain available for questions.",
+        answer: "FettleMed is designed to be simple enough for clinics moving straight from paper or Excel, no IT team required. Most functions can be learned in a single session. We support you through onboarding and remain available for questions.",
       },
       {
         question: "Will FettleMed change how I see patients?",
