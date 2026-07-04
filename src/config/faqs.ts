@@ -378,7 +378,11 @@ export const securityFaqs: FAQSection[] = [
       },
       {
         question: "Does FettleMed comply with ABDM?",
-        answer: "FettleMed is being built on ABDM-aligned architecture, and ABHA ID integration is in active development. Formal ABDM certification is on our roadmap following pilot completion. We do not claim formal certification that has not yet been granted. See our compliance roadmap for the current state of each standard.",
+        answer: "FettleMed is being built on ABDM-aligned architecture, and ABHA ID integration is in active development. Formal ABDM certification is on our roadmap following pilot completion. We do not claim formal certification that has not yet been granted.",
+      },
+      {
+        question: "Is there a way to report a security issue?",
+        answer: "Yes. Email hello@fettlemed.com and mark your message as a security report. We respond to every report and credit researchers who follow responsible disclosure.",
       },
       {
         question: "Can a doctor access my records without my permission?",

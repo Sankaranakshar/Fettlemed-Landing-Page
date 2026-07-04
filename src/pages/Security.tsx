@@ -39,24 +39,26 @@ function StatusPill({ status }: { status: Status }) {
 /* ── Hero trust signals: clean chips, statuses live in the grid below ── */
 const trustSignals: { icon: React.ElementType; label: string; sub: string }[] = [
   { icon: EyeOff,     label: "Zero employee access", sub: "No FettleMed staff can read your records" },
-  { icon: Lock,       label: "End-to-end encrypted", sub: "TLS 1.2+ in transit" },
-  { icon: FileCheck2, label: "Audit logging",        sub: "Every access recorded" },
-  { icon: Key,        label: "Multi-factor auth",    sub: "Provider accounts, at launch" },
+  { icon: Lock,       label: "Encrypted end to end", sub: "TLS 1.2+ in transit" },
+  { icon: FileCheck2, label: "Audit logging",        sub: "Sensitive actions recorded" },
+  { icon: Key,        label: "Multi-factor auth",    sub: "Provider accounts (Planned)" },
   { icon: ShieldCheck,label: "DPDPA-aligned",        sub: "Built on India's data law" },
+  { icon: Server,     label: "Private database",     sub: "Locked away from the public internet" },
   { icon: Download,   label: "Your data, portable",  sub: "Yours to download and keep" },
 ];
 
 /* ── Protection grid: one fact per card ─────────────────────────── */
 const PROTECTIONS: { icon: React.ElementType; title: string; fact: string }[] = [
-  { icon: EyeOff,     title: "Zero employee access", fact: "No FettleMed staff member - support, engineering, or leadership - has a path to read your health records." },
-  { icon: Settings,   title: "Consent first",        fact: "Nothing is visible until the patient grants access." },
-  { icon: Eye,        title: "Granular sharing",     fact: "Share everything, specific records, or a time period." },
-  { icon: Clock4,     title: "Time-bound access",    fact: "Expires on its own. Revocable in seconds, from the app." },
-  { icon: Lock,       title: "Encrypted end to end", fact: "TLS 1.2+ in transit. Records unreadable without the right keys at every step." },
-  { icon: ShieldCheck,title: "Multi-factor auth",    fact: "Required on every provider account." },
-  { icon: Users,      title: "Role-based access",    fact: "Front desk, billing, doctors, owners: each sees only their lane." },
-  { icon: Clock,      title: "Session control",      fact: "Inactive sessions expire. Sensitive actions re-authenticate." },
-  { icon: FileCheck2, title: "Audit trail",          fact: "Who viewed what, and when. Always visible to you." },
+  { icon: EyeOff,     title: "Zero employee access",     fact: "No FettleMed staff member, support, engineering, or leadership, has a path to read your health records." },
+  { icon: Settings,   title: "Consent first",            fact: "Nothing is visible until the patient grants access." },
+  { icon: Eye,        title: "Granular sharing",         fact: "Share everything, specific records, or a time period." },
+  { icon: Clock4,     title: "Time-bound access",        fact: "Expires on its own. Revocable in seconds, from the app." },
+  { icon: Lock,       title: "Encrypted everywhere",     fact: "Unreadable without the right keys, which are not accessible to the public." },
+  { icon: ShieldCheck,title: "Multi-factor auth (Planned)", fact: "Required on every provider account." },
+  { icon: Users,      title: "Roles enforced end to end", fact: "Staff permissions are checked by the system on every request, not just hidden in the interface." },
+  { icon: Key,        title: "Login protection",         fact: "Repeat login attempts are blocked, and any active session can be shut down immediately if something looks wrong." },
+  { icon: Clock,      title: "Session control",          fact: "Inactive sessions expire. Sensitive actions re-authenticate." },
+  { icon: FileCheck2, title: "Audit trail",              fact: "Sensitive actions leave a trace, and the trace itself is protected so no one can quietly rewrite it." },
 ];
 
 /* ── Our responsibilities ───────────────────────────────────────── */
@@ -73,7 +75,7 @@ export default function Security() {
     <>
       <SEO
         title="Security"
-        description="No FettleMed employee can ever read your health records. Your data is never shared with advertisers - any relevant content you see is based only on your explicit consent."
+        description="Your health records, yours to control. FettleMed data is never sold, shared with advertisers, or disclosed to anyone without your explicit consent."
       />
       <div className="flex flex-col w-full bg-surface-50 min-h-screen">
 
@@ -87,10 +89,10 @@ export default function Security() {
                   <ShieldCheck className="w-3.5 h-3.5" /> How we protect your data
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-6 tracking-tight text-balance">
-                  No one at FettleMed can read your health records. Ever.
+                  Your health records. Yours to control.
                 </h1>
                 <p className="text-xl text-pine-200 leading-relaxed max-w-2xl mx-auto text-balance">
-                  Not our engineers, not our founders, not support staff. Your data is never shared with advertisers. Any relevant content you see is based only on your explicit consent.
+                  Not our engineers. Not our founders. Not our support team. Your data is never sold, shared with advertisers, or disclosed to anyone without your explicit consent.
                 </p>
               </div>
 
@@ -274,6 +276,33 @@ export default function Security() {
           </div>
         </section>
 
+        {/* ── S6.5: Reliability ────────────────────────────────────────── */}
+        <section className="py-16 md:py-20 bg-white border-b border-stone-100">
+          <div className="container mx-auto px-4 md:px-8 max-w-5xl">
+            <FadeIn className="mb-10">
+              <p className="text-xs font-medium tracking-widest uppercase text-pine-600 mb-3">Reliability</p>
+              <h2 className="text-2xl md:text-3xl font-medium text-pine-900 tracking-tight text-balance">Built to stay up. Built to recover.</h2>
+            </FadeIn>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                { icon: Server,     title: "Always-on records",   fact: "Your data is copied live between two locations. Daily backups kept for a week. The data can't be deleted by accident." },
+                { icon: Eye,        title: "24/7 monitoring",     fact: "If anything stops responding or starts erroring, the team is alerted within minutes." },
+                { icon: FileCheck2, title: "Reversible releases", fact: "Before every update, we take a fresh backup. If anything goes wrong, we can roll straight back." },
+                { icon: Key,        title: "Short-lived access",  fact: "The system that pushes updates never holds a permanent key. Every release uses a temporary one, specific to that release." },
+              ].map(({ icon: Icon, title, fact }, i) => (
+                <FadeIn key={title} delay={0.04 * i} className="bg-surface-50 border border-stone-100 rounded-2xl p-5 flex flex-col gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-white border border-pine-100 flex items-center justify-center">
+                    <Icon className="w-4 h-4 text-pine-600" />
+                  </div>
+                  <h3 className="text-pine-900 font-medium tracking-tight">{title}</h3>
+                  <p className="text-dim-2 text-sm leading-relaxed">{fact}</p>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── S7: Ownership, portability, and where data lives ─────────── */}
         <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
           <div className="container mx-auto px-4 md:px-8 max-w-5xl">
@@ -320,7 +349,7 @@ export default function Security() {
                   <Server className="w-4 h-4 text-pine-600" />
                 </div>
                 <h3 className="text-pine-900 font-medium tracking-tight">Where it lives</h3>
-                <p className="text-dim-2 text-sm leading-relaxed">Cloud infrastructure with the primary data centre in India. Certain backup or supporting services may operate in other regions under contractual data-protection obligations.</p>
+                <p className="text-dim-2 text-sm leading-relaxed">Your data is stored in India. The database sits in a private network with no public access. Certain backup or supporting services may operate in other regions under contractual data-protection obligations.</p>
               </FadeIn>
             </div>
 
@@ -367,7 +396,7 @@ export default function Security() {
                 </div>
 
                 <p className="text-pine-400 text-xs font-medium border-t border-pine-800 pt-4">
-                  When you see relevant content on FettleMed, it is because you chose to. The underlying records never leave FettleMed. Advertisers receive no data, ever.
+                  Your records never leave FettleMed for advertising, profiling, or model training. There is no exception buried in the terms.
                 </p>
               </div>
             </FadeIn>
