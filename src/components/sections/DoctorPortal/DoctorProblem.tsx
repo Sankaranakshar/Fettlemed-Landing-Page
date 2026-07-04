@@ -152,6 +152,7 @@ export function DoctorProblem() {
       payoffSub="One chronological history, ready the moment the consultation starts."
       items={ITEMS}
       clarity={<DoctorDashboardUI />}
+      variant="assemble"
     />
   );
 }

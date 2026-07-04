@@ -148,6 +148,7 @@ export function ClinicProblem() {
       payoffSub="Front desk, billing, and patient flow, finally in step."
       items={ITEMS}
       clarity={<ClinicCmsUI />}
+      variant="sweep"
     />
   );
 }

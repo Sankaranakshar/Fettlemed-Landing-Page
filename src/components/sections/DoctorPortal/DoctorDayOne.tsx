@@ -7,6 +7,11 @@ import {
   AuditTrailVisual,
 } from "@/components/sections/RoleVisuals";
 
+/* Visual container is a fixed height so all three cards split
+   visual/content in the same ratio. Each mockup's own natural size
+   differs, so visualScale normalizes them to read at the same density. */
+const VISUAL_HEIGHT = "h-[240px]";
+
 const CARDS = [
   {
     heading: "The full picture. Before they sit down.",
@@ -16,6 +21,7 @@ const CARDS = [
       "Allergies and meds flagged before the consultation begins.",
     ],
     visual: <FullHistoryVisual />,
+    visualScale: 0.85,
   },
   {
     heading: "Consultations without the paperwork",
@@ -25,6 +31,7 @@ const CARDS = [
       "Referrals drafted in seconds.",
     ],
     visual: <EPrescriptionsVisual />,
+    visualScale: 1,
   },
   {
     heading: "You know what happens after they leave",
@@ -34,6 +41,7 @@ const CARDS = [
       "The freed slot goes to who needs it.",
     ],
     visual: <AuditTrailVisual />,
+    visualScale: 0.9,
   },
 ];
 
@@ -46,14 +54,19 @@ export function DoctorDayOne() {
           </FadeIn>
 
           <div className="grid md:grid-cols-3 gap-6 auto-rows-fr">
-             {CARDS.map(({ heading, bullets, visual }, i) => (
+             {CARDS.map(({ heading, bullets, visual, visualScale }, i) => (
                 <FadeIn key={heading} delay={0.1 + i * 0.1} className="bg-white border border-stone-200 rounded-3xl overflow-hidden shadow-sm flex flex-col h-full hover:shadow-md transition-shadow">
-                   <VisualOnView className="bg-pine-900 border-b border-pine-800 flex items-center justify-center min-h-[240px] p-4">
-                      {visual}
+                   <VisualOnView className={`bg-pine-900 border-b border-pine-800 flex items-center justify-center ${VISUAL_HEIGHT} overflow-hidden p-6`}>
+                      <div
+                        className="flex w-full max-w-[260px] items-center justify-center"
+                        style={{ transform: `scale(${visualScale})` }}
+                      >
+                        {visual}
+                      </div>
                    </VisualOnView>
                    <div className="p-6 flex flex-col flex-1">
-                      <h3 className="text-xl font-medium text-pine-900 mb-3 tracking-tight text-balance">{heading}</h3>
-                      <ul className="text-dim-2 leading-relaxed text-base space-y-2.5">
+                      <h3 className="text-xl font-medium text-pine-900 mb-4 tracking-tight text-balance">{heading}</h3>
+                      <ul className="text-dim-2 leading-relaxed text-base space-y-2">
                          {bullets.map((b) => (
                             <li key={b} className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-pine-600 mt-2 shrink-0" />{b}</li>
                          ))}
