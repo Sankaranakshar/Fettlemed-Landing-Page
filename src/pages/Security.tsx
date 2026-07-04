@@ -41,7 +41,6 @@ const trustSignals: { icon: React.ElementType; label: string; sub: string }[] = 
   { icon: EyeOff,     label: "Zero employee access", sub: "No FettleMed staff can read your records" },
   { icon: Lock,       label: "Encrypted end to end", sub: "TLS 1.2+ in transit" },
   { icon: FileCheck2, label: "Audit logging",        sub: "Sensitive actions recorded" },
-  { icon: Key,        label: "Multi-factor auth",    sub: "Provider accounts (Planned)" },
   { icon: ShieldCheck,label: "DPDPA-aligned",        sub: "Built on India's data law" },
   { icon: Server,     label: "Private database",     sub: "Locked away from the public internet" },
   { icon: Download,   label: "Your data, portable",  sub: "Yours to download and keep" },
@@ -53,8 +52,7 @@ const PROTECTIONS: { icon: React.ElementType; title: string; fact: string }[] = 
   { icon: Settings,   title: "Consent first",            fact: "Nothing is visible until the patient grants access." },
   { icon: Eye,        title: "Granular sharing",         fact: "Share everything, specific records, or a time period." },
   { icon: Clock4,     title: "Time-bound access",        fact: "Expires on its own. Revocable in seconds, from the app." },
-  { icon: Lock,       title: "Encrypted everywhere",     fact: "Unreadable without the right keys, which are not accessible to the public." },
-  { icon: ShieldCheck,title: "Multi-factor auth (Planned)", fact: "Required on every provider account." },
+  { icon: Lock,       title: "Encrypted end to end",     fact: "Your data is protected with end-to-end encryption in transit using TLS 1.2+." },
   { icon: Users,      title: "Roles enforced end to end", fact: "Staff permissions are checked by the system on every request, not just hidden in the interface." },
   { icon: Key,        title: "Login protection",         fact: "Repeat login attempts are blocked, and any active session can be shut down immediately if something looks wrong." },
   { icon: Clock,      title: "Session control",          fact: "Inactive sessions expire. Sensitive actions re-authenticate." },
@@ -63,9 +61,9 @@ const PROTECTIONS: { icon: React.ElementType; title: string; fact: string }[] = 
 
 /* ── Our responsibilities ───────────────────────────────────────── */
 const RESPONSIBILITIES = [
-  { title: "Protect every record",        line: "End-to-end encryption on the platform and the infrastructure." },
+  { title: "Protect every record",        line: "End-to-end encryption in transit across the platform." },
   { title: "Log every access",            line: "A tamper-resistant trail, visible to patients and clinics." },
-  { title: "Protecting your data is not a feature. It is a commitment.", line: "We build, audit, and improve our security so you never have to worry about it." },
+  { title: "Improve continuously",        line: "Security is a commitment, not a feature. We build, audit, and improve it so you never have to worry." },
   { title: "Never share data with advertisers", line: "Relevant health content only appears when consent has been given. Your health records never touch an ad network or third-party data broker." },
 ];
 
@@ -128,7 +126,7 @@ export default function Security() {
         <section className="py-4 bg-pine-50 border-b border-pine-100">
           <div className="container mx-auto px-4 md:px-8 max-w-5xl">
             <p className="text-center text-xs text-pine-600 font-medium">
-              FettleMed is pre-launch. This page labels what is live today and what is being finalised. Last reviewed: June 2026.
+              FettleMed is pre-launch. This page labels what is live today and what is being finalised. Last reviewed: July 2026.
             </p>
           </div>
         </section>
@@ -148,7 +146,7 @@ export default function Security() {
                 { n: "03", line: "No one can access your data without your consent. No exceptions." },
               ].map(({ n, line }, i) => (
                 <FadeIn key={n} delay={0.06 * i} className="bg-surface-50 border border-stone-100 rounded-2xl p-6 flex flex-col gap-4">
-                  <span className="font-mono text-xs font-semibold text-pine-400 tracking-widest">{n}</span>
+                  <span className="font-mono text-xs font-semibold text-pine-600 tracking-widest">{n}</span>
                   <p className="text-lg font-medium text-pine-900 tracking-tight leading-snug">{line}</p>
                 </FadeIn>
               ))}
@@ -349,7 +347,7 @@ export default function Security() {
                   <Server className="w-4 h-4 text-pine-600" />
                 </div>
                 <h3 className="text-pine-900 font-medium tracking-tight">Where it lives</h3>
-                <p className="text-dim-2 text-sm leading-relaxed">Your data is stored in India. The database sits in a private network with no public access. Certain backup or supporting services may operate in other regions under contractual data-protection obligations.</p>
+                <p className="text-dim-2 text-sm leading-relaxed">Patient health records are stored on infrastructure with the primary data centre in India. The database sits in a private network with no public access. Certain backup or supporting services may operate in other regions under contractual data-protection obligations.</p>
               </FadeIn>
             </div>
 
@@ -360,7 +358,7 @@ export default function Security() {
                 <div className="flex flex-col md:flex-row gap-6 md:gap-10">
                   {/* Never column */}
                   <div className="flex-1">
-                    <p className="text-pine-400 text-xs font-semibold uppercase tracking-widest mb-3">Never</p>
+                    <p className="text-pine-300 text-xs font-semibold uppercase tracking-widest mb-3">Never</p>
                     <ul className="space-y-2.5">
                       {[
                         "Shared with advertisers or data brokers",
@@ -379,7 +377,7 @@ export default function Security() {
 
                   {/* Consent-based column */}
                   <div className="flex-1">
-                    <p className="text-pine-400 text-xs font-semibold uppercase tracking-widest mb-3">Only with your explicit consent</p>
+                    <p className="text-pine-300 text-xs font-semibold uppercase tracking-widest mb-3">Only with your explicit consent</p>
                     <ul className="space-y-2.5">
                       {[
                         "Relevant health content may be shown - you choose whether to see it",
@@ -395,7 +393,7 @@ export default function Security() {
                   </div>
                 </div>
 
-                <p className="text-pine-400 text-xs font-medium border-t border-pine-800 pt-4">
+                <p className="text-pine-300 text-xs font-medium border-t border-pine-800 pt-4">
                   Your records never leave FettleMed for advertising, profiling, or model training. There is no exception buried in the terms.
                 </p>
               </div>
@@ -406,9 +404,6 @@ export default function Security() {
         {/* ── S9: FAQ ──────────────────────────────────────────────────── */}
         <section className="py-16 md:py-20 bg-surface-50 border-b border-stone-100">
           <div className="container mx-auto px-4 md:px-8 max-w-3xl">
-            <FadeIn className="mb-2">
-              <h2 className="text-3xl md:text-4xl font-medium text-pine-900 tracking-tight">Security questions, answered.</h2>
-            </FadeIn>
             <FAQ sections={securityFaqs} />
           </div>
         </section>

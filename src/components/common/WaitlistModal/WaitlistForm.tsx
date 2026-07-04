@@ -236,13 +236,30 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
       {/* Role selector */}
       <div className="flex flex-col space-y-3 pb-1">
         <label id="role-group-label" className="text-sm font-medium text-dim-2">I am a:</label>
-        <div role="radiogroup" aria-labelledby="role-group-label" className="grid grid-cols-3 gap-2">
+        <div
+          role="radiogroup"
+          aria-labelledby="role-group-label"
+          className="grid grid-cols-3 gap-2"
+          onKeyDown={(e) => {
+            const roles = ["Patients & Caregivers", "Doctor", "Clinic"];
+            const dir = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
+            if (!dir) return;
+            e.preventDefault();
+            const next = roles[(roles.indexOf(role) + dir + roles.length) % roles.length];
+            setRole(next);
+            (e.currentTarget.querySelector<HTMLButtonElement>(`[data-role="${next}"]`))?.focus();
+          }}
+        >
           {["Patients & Caregivers", "Doctor", "Clinic"].map((r) => (
             <button
               key={r}
               type="button"
+              role="radio"
+              aria-checked={role === r}
+              tabIndex={role === r ? 0 : -1}
+              data-role={r}
               onClick={() => setRole(r)}
-              className={`py-2 sm:py-3 px-1 sm:px-2 rounded-xl border text-xs sm:text-sm font-medium transition-[background-color,border-color,color,box-shadow] duration-150 ease-out active:scale-[0.97] ${
+              className={`py-2 sm:py-3 px-1 sm:px-2 rounded-xl border text-xs sm:text-sm font-medium transition-[background-color,border-color,color,box-shadow] duration-150 ease-out active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine-600 focus-visible:ring-offset-2 ${
                 role === r
                   ? "bg-pine-900 border-pine-900 text-white shadow-md"
                   : "bg-white border-pine-100 text-dim hover:border-pine-300 hover:bg-pine-50"

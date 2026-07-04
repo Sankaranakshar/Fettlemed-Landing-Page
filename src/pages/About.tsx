@@ -267,7 +267,7 @@ export default function About() {
                   "The problem isn't money or access to doctors. It's the fragmentation of information."
                 </blockquote>
                 <figcaption className="text-pine-600 font-medium">
-                  — Dr. Sriram Shankar, Co-founder
+                  Dr. Sriram Shankar, Co-founder
                 </figcaption>
               </figure>
             </FadeIn>
