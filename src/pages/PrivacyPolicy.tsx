@@ -173,7 +173,7 @@ export default function PrivacyPolicy() {
             
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">7.1 Technical Safeguards</h3>
             <ul className="list-disc list-inside space-y-1">
-              <li><strong>End-to-end encryption:</strong> Your health data is encrypted in transit using TLS 1.2+ and encrypted at rest using AES-256.</li>
+              <li><strong>End-to-end encryption:</strong> Your health data is encrypted in transit using TLS 1.2+.</li>
               <li><strong>Access Control:</strong> Role-based access control ensures employees and systems can access only the data necessary for their functions</li>
               <li><strong>Audit Logging:</strong> All access to health data is logged and monitored for suspicious activity</li>
               <li><strong>Firewalls and Intrusion Detection:</strong> Enterprise-grade firewalls and intrusion detection systems protect our infrastructure</li>
@@ -182,7 +182,6 @@ export default function PrivacyPolicy() {
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">7.2 Organizational Safeguards</h3>
             <ul className="list-disc list-inside space-y-1">
-              <li><strong>Employee Training:</strong> All staff members receive privacy and security training, especially those handling health information</li>
               <li><strong>Strict Confidentiality Agreements:</strong> Employees and contractors sign comprehensive confidentiality and non-disclosure agreements</li>
               <li><strong>Data Minimization:</strong> We collect and retain only the health information necessary to serve your needs</li>
               <li><strong>Access Restrictions:</strong> Physical and administrative controls limit who can access our systems and facilities</li>
@@ -200,7 +199,7 @@ export default function PrivacyPolicy() {
               <li><strong>Health Records:</strong> Retained indefinitely at your direction. You own this data and can request deletion at any time</li>
               <li><strong>Account Information:</strong> Retained while your account is active; you can delete your account at any time</li>
               <li><strong>Audit Logs:</strong> Retained for 7 years to comply with regulatory requirements</li>
-              <li><strong>De-Identified Research Data:</strong> Retained indefinitely for research purposes (cannot be re-identified)</li>
+              <li><strong>Research Data:</strong> Used for research only with your explicit consent. If you withdraw consent or request deletion, the related data is deleted</li>
               <li><strong>Deleted Data:</strong> Securely destroyed using industry-standard methods that render data unrecoverable</li>
             </ul>
 
@@ -220,7 +219,7 @@ export default function PrivacyPolicy() {
             <h2 className="text-2xl font-medium text-pine-900 font-sans tracking-tight mb-4 mt-12">12. Compliance with Data Protection Regulations</h2>
             
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">12.1 ABDM (Ayushman Bharat Digital Mission) Compliance</h3>
-            <p>FettleMed is designed to align with the Ayushman Bharat Digital Mission (ABDM) framework established by the Government of India. We implement the consent and data exchange standards mandated by ABDM, ensuring interoperability with the broader Indian healthcare ecosystem while maintaining your data sovereignty principles.</p>
+            <p>FettleMed is designed to align with the Ayushman Bharat Digital Mission (ABDM) framework established by the Government of India. We are building toward the consent and data exchange standards of ABDM, working to enable interoperability with the broader Indian healthcare ecosystem while maintaining your data sovereignty principles.</p>
 
             <h3 className="text-lg font-medium text-pine-800 mt-6 mb-3">12.2 India Data Protection Laws</h3>
             <p>We comply with applicable Indian data protection laws, including provisions related to health data handling. We recognize the sensitive nature of health information and implement protections that exceed minimum legal requirements.</p>

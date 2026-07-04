@@ -33,7 +33,7 @@ export function ClinicFeatures() {
                 <ul className="text-dim-2 font-medium text-base space-y-3">
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Digital registration with full patient profile from the first visit</li>
                    <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>Diagnoses, medications, allergies. Visible before the consultation begins.</li>
-                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>ABHA ID linked at registration</li>
+                   <li className="flex items-start gap-2"><span className="text-pine-600 font-bold mt-1 shrink-0">•</span>ABHA ID linking, in active development</li>
                 </ul>
              </FadeIn>
 

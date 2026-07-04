@@ -15,7 +15,7 @@ const POINTS = [
   {
     n: "3",
     heading: "Setup takes one session.",
-    body: "First patient on FettleMed the same day. If you can use WhatsApp, you can use this.",
+    body: "First patient on FettleMed the same day. No training manual, no dedicated setup team.",
   },
   {
     n: "4",
@@ -33,7 +33,7 @@ export function DoctorSwitching() {
             Switching from paper
           </h2>
           <p className="text-lg text-dim mt-3 leading-relaxed max-w-2xl">
-            Built for paper and Excel. Every switching worry, answered.
+            Easy enough to switch from paper and Excel. Every switching worry, answered.
           </p>
         </FadeIn>
 

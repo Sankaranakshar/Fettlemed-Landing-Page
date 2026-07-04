@@ -6,12 +6,12 @@ const STEPS = [
   {
     n: "01",
     heading: "Upload what you already have",
-    body: "Old reports, PDFs, photos of prescriptions. Your history doesn't start at zero — it starts where you are.",
+    body: "Old reports, PDFs, photos of prescriptions. Your history doesn't start at zero. It starts where you are.",
   },
   {
     n: "02",
     heading: "Records grow with every visit",
-    body: "Show your QR at a FettleMed clinic. You approve. Notes and prescriptions sync to you — no typing, no follow-up.",
+    body: "Show your QR at a FettleMed clinic. You approve. Notes and prescriptions sync to you. No typing, no follow-up.",
   },
   {
     n: "03",

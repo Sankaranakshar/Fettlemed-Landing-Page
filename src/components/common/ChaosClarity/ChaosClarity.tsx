@@ -17,6 +17,12 @@ export interface ChaosItem {
   sr: number;
 }
 
+/** Choreography for how chaos resolves into clarity:
+ *  - dissolve: items pull to centre and shrink away; UI materialises in place (patient)
+ *  - assemble: items gather into a stack on the left; UI slides in from the right (doctor)
+ *  - sweep: items fall away off the bottom edge; UI rises up from below (clinic) */
+export type ChaosVariant = "dissolve" | "assemble" | "sweep";
+
 interface ChaosClarityProps {
   eyebrow: string;
   problem: string;
@@ -25,16 +31,26 @@ interface ChaosClarityProps {
   payoffSub?: string;
   items: ChaosItem[];
   clarity: React.ReactNode;
+  variant?: ChaosVariant;
 }
 
-function ChaosItemShell({ p, item }: { p: MotionValue<number>; item: ChaosItem; key?: React.Key }) {
+function ChaosItemShell({ p, item, variant }: { p: MotionValue<number>; item: ChaosItem; variant: ChaosVariant; key?: React.Key }) {
   const { node, sx, sy, sr } = item;
-  // drift apart, then get pulled to centre and dissolve on arrival
-  const x       = useTransform(p, [0, 0.32, 0.58], [sx, sx * 1.12, 0]);
-  const y       = useTransform(p, [0, 0.32, 0.58], [sy, sy * 1.12, 0]);
-  const rotate  = useTransform(p, [0, 0.32, 0.58], [sr, sr * 1.3, 0]);
-  const scale   = useTransform(p, [0.32, 0.58], [1, 0.4]);
-  const opacity = useTransform(p, [0.46, 0.58], [1, 0]);
+  const isAssemble = variant === "assemble";
+  const isSweep = variant === "sweep";
+
+  // idle scatter while the headline holds, then resolved in one continuous
+  // motion (scroll 1) - the resolution differs per variant:
+  const targetX = isAssemble ? -130 : isSweep ? sx * 0.5 : 0;
+  const targetY = isSweep ? 420 : isAssemble ? sy * 0.35 : 0;
+  const targetR = isSweep ? sr * 2.2 : isAssemble ? sr * 0.4 : 0;
+  const resolveEnd = isSweep ? 0.32 : 0.40;
+
+  const x       = useTransform(p, [0, 0.14, resolveEnd], [sx, sx * 1.08, targetX]);
+  const y       = useTransform(p, [0, 0.14, resolveEnd], [sy, sy * 1.08, targetY]);
+  const rotate  = useTransform(p, [0, 0.14, resolveEnd], [sr, sr * 1.15, targetR]);
+  const scale   = useTransform(p, [0.14, resolveEnd], [1, isSweep ? 0.85 : isAssemble ? 0.7 : 0.35]);
+  const opacity = useTransform(p, isSweep ? [0.20, 0.32] : [0.30, 0.40], [1, 0]);
   return (
     <motion.div
       style={{ x, y, rotate, scale, opacity }}
@@ -45,20 +61,28 @@ function ChaosItemShell({ p, item }: { p: MotionValue<number>; item: ChaosItem; 
   );
 }
 
-export function ChaosClarity({ eyebrow, problem, problemSub, payoff, payoffSub, items, clarity }: ChaosClarityProps) {
+export function ChaosClarity({ eyebrow, problem, problemSub, payoff, payoffSub, items, clarity, variant = "dissolve" }: ChaosClarityProps) {
   const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
   const p = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.4 });
 
-  const h1Opacity   = useTransform(p, [0, 0.07, 0.30, 0.42], [0, 1, 1, 0]);
-  const h1Y         = useTransform(p, [0.30, 0.42], [0, -24]);
-  const ringOpacity = useTransform(p, [0.32, 0.46], [0, 1]);
-  const ringScale   = useTransform(p, [0.32, 0.52], [0.5, 1]);
-  const uiOpacity   = useTransform(p, [0.56, 0.68], [0, 1]);
-  const uiScale     = useTransform(p, [0.56, 0.70], [0.75, 1]);
-  const h2Opacity   = useTransform(p, [0.66, 0.78], [0, 1]);
-  const h2Y         = useTransform(p, [0.66, 0.78], [24, 0]);
+  // Scroll 1: headline appears instantly, holds, fades as the ring forms
+  // and the scattered records converge; they dissolve directly into the
+  // phone with no gap (opacity windows overlap exactly).
+  const h1Opacity   = useTransform(p, [0, 0.02, 0.14, 0.22], [0, 1, 1, 0]);
+  const h1Y         = useTransform(p, [0.14, 0.22], [0, -24]);
+  const ringOpacity = useTransform(p, [0.16, 0.28], [0, 1]);
+  const ringScale   = useTransform(p, [0.16, 0.34], [0.5, 1]);
+  const uiOpacity   = useTransform(p, [0.30, 0.40], [0, 1]);
+  const uiScale     = useTransform(p, [0.30, 0.42], [0.85, 1]);
+  const uiX         = useTransform(p, [0.30, 0.42], variant === "assemble" ? [140, 0] : [0, 0]);
+  const uiY         = useTransform(p, [0.30, 0.42], variant === "sweep" ? [70, 0] : [0, 0]);
+
+  // Scroll 2: phone stays put, payoff headline settles in beneath it,
+  // then the composition holds for the rest of the pinned section.
+  const h2Opacity   = useTransform(p, [0.46, 0.58], [0, 1]);
+  const h2Y         = useTransform(p, [0.46, 0.58], [24, 0]);
 
   if (reduced) {
     return (
@@ -82,30 +106,46 @@ export function ChaosClarity({ eyebrow, problem, problemSub, payoff, payoffSub, 
         <DarkTexture />
 
         {/* eyebrow */}
-        <p className="absolute top-10 left-1/2 -translate-x-1/2 text-xs font-medium tracking-widest uppercase text-pine-300 z-20 whitespace-nowrap">
+        <p className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-2xl px-6 text-center text-xs font-medium tracking-widest uppercase text-pine-300 z-20">
           {eyebrow}
         </p>
 
-        {/* the ring */}
-        <motion.div
-          style={{ opacity: ringOpacity, scale: ringScale }}
-          aria-hidden="true"
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[330px] h-[330px] rounded-full border border-pine-400/70"
-        >
-          <div className="absolute -inset-3 rounded-full border border-pine-500/30" />
-          <div className="absolute inset-0 rounded-full shadow-[0_0_80px_12px_rgba(76,175,143,0.25)]" />
-        </motion.div>
+        {/* the ring - shape follows how the chaos resolves for this variant */}
+        {variant === "assemble" ? (
+          <motion.div
+            style={{ opacity: ringOpacity, scaleY: ringScale }}
+            aria-hidden="true"
+            className="absolute left-[26%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-[300px] rounded-full bg-pine-400/60 shadow-[0_0_50px_10px_rgba(76,175,143,0.3)]"
+          />
+        ) : variant === "sweep" ? (
+          <motion.div
+            style={{ opacity: ringOpacity, scaleX: ringScale }}
+            aria-hidden="true"
+            className="absolute left-1/2 bottom-[14%] -translate-x-1/2 w-[70%] h-2 rounded-full bg-pine-400/50 shadow-[0_0_60px_16px_rgba(76,175,143,0.35)]"
+          />
+        ) : (
+          <motion.div
+            style={{ opacity: ringOpacity, scale: ringScale }}
+            aria-hidden="true"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[330px] h-[330px] rounded-full border border-pine-400/70"
+          >
+            <div className="absolute -inset-3 rounded-full border border-pine-500/30" />
+            <div className="absolute inset-0 rounded-full shadow-[0_0_80px_12px_rgba(76,175,143,0.25)]" />
+          </motion.div>
+        )}
 
-        {/* chaos items */}
-        <div aria-hidden="true">
+        {/* chaos items - the whole scatter scales down on small screens so
+            cards don't enter half-clipped at the viewport edges */}
+        <div aria-hidden="true" className="absolute inset-0 scale-[0.7] sm:scale-100">
           {items.map((item) => (
-            <ChaosItemShell key={item.id} p={p} item={item} />
+            <ChaosItemShell key={item.id} p={p} item={item} variant={variant} />
           ))}
         </div>
 
-        {/* the clarity mockup, materialising at centre */}
+        {/* the clarity mockup, arriving from a direction that matches the
+            variant but always settling centred */}
         <motion.div
-          style={{ opacity: uiOpacity, scale: uiScale }}
+          style={{ opacity: uiOpacity, scale: uiScale, x: uiX, y: uiY }}
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
         >
           {clarity}

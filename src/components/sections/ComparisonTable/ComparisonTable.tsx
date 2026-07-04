@@ -12,7 +12,7 @@ const rows = [
 
 function StatusIcon({ value }: { value: boolean | null }) {
   if (value === true)  return <Check  className="w-4 h-4 text-pine-600" />;
-  if (value === false) return <X      className="w-4 h-4 text-stone-400" />;
+  if (value === false) return <X      className="w-4 h-4 text-stone-500" />;
   return                      <Minus  className="w-4 h-4 text-amber-400" />;
 }
 
@@ -70,10 +70,10 @@ export const ComparisonTable = ({ heading = "How FettleMed compares" }: { headin
             <div className="flex items-center gap-5 mt-4 justify-end text-xs font-medium text-dim">
               <span className="flex items-center gap-1.5"><Check className="w-3 h-3 text-pine-600" /> Yes</span>
               <span className="flex items-center gap-1.5"><Minus className="w-3 h-3 text-amber-400" /> Partial</span>
-              <span className="flex items-center gap-1.5"><X className="w-3 h-3 text-stone-400" /> No</span>
+              <span className="flex items-center gap-1.5"><X className="w-3 h-3 text-stone-500" /> No</span>
             </div>
             <p className="text-[11px] text-dim-2 mt-3 leading-relaxed">
-              * EMR / HIS refers to traditional clinic management systems (e.g. Practo, Dr. Patti, hospital EMRs). Health App refers to consumer wellness apps (e.g. Apple Health, Google Fit).
+              * EMR / HIS refers to traditional clinic management and hospital record systems. Health App refers to consumer wellness apps.
             </p>
           </div>
       </div>

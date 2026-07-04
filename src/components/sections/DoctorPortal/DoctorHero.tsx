@@ -23,7 +23,7 @@ export function DoctorHero() {
             </h1>
             <FadeIn noYOffset eager delay={0.05}>
               <p className="text-xl text-dim mb-8 leading-relaxed max-w-2xl text-balance">
-                Built for the GP seeing 40 patients a day, not for the hospital with an IT department.
+                Built for the GP seeing 40 patients a day, with the clinical depth of hospital software and none of the IT overhead.
               </p>
               <div className="flex flex-col items-center lg:items-start gap-3">
                 <Button

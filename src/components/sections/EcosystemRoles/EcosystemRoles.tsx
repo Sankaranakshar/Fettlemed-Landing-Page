@@ -10,6 +10,12 @@ import {
   PatientRegistrationVisual,
 } from "@/components/sections/RoleVisuals";
 
+/* Visual container is a fixed height so all three cards split
+   visual/content in the same ratio. Each mockup's own natural size
+   differs (the patient list has 4 rows vs. 3 for the others), so
+   visualScale normalizes them to read at the same density. */
+const VISUAL_HEIGHT = "h-[312px]";
+
 const ROLES = [
   {
     Icon: Smartphone,
@@ -18,20 +24,24 @@ const ROLES = [
     bullets: [
       "Every prescription, lab, and visit in one place",
       "Share in two taps, revoke in one",
+      "Accessible on any phone, anytime",
     ],
     visual: <HealthRecordsVisual />,
+    visualScale: 0.85,
     to: "/patient-app",
     dark: false,
   },
   {
     Icon: Stethoscope,
     label: "For Doctors",
-    heading: "The full history, before they sit down",
+    heading: "Context before every consultation",
     bullets: [
-      "Consented records from other doctors, instantly",
-      "E-prescriptions and notes, synced to the patient",
+      "Full patient timeline at a glance",
+      "Records from other doctors, instantly",
+      "E-prescriptions synced to the patient",
     ],
     visual: <FullHistoryVisual />,
+    visualScale: 1.1,
     to: "/doctor-portal",
     dark: true,
   },
@@ -42,8 +52,10 @@ const ROLES = [
     bullets: [
       "Registration, queue, and billing together",
       "No IT team, no new hardware",
+      "Live queue status for every patient",
     ],
     visual: <PatientRegistrationVisual />,
+    visualScale: 1.05,
     to: "/clinic-management",
     dark: false,
   },
@@ -51,7 +63,7 @@ const ROLES = [
 
 export const EcosystemRoles = () => {
   return (
-    <section id="roles" className="py-12 md:py-16 bg-surface-50">
+    <section id="roles" className="py-12 md:py-16 bg-surface-50 scroll-mt-24">
       <div className="container mx-auto px-6 max-w-6xl">
         <FadeIn>
           <div className="text-center mb-10">
@@ -69,8 +81,8 @@ export const EcosystemRoles = () => {
               gaps between them, with a pulse travelling clinic-to-patient. */}
           <PulseLine className="hidden md:block absolute top-[120px] left-[8%] right-[8%] z-0" />
 
-          <div className="relative flex flex-col gap-0 md:grid md:grid-cols-3 md:gap-5">
-          {ROLES.map(({ Icon, label, heading, bullets, visual, to, dark }, i) => (
+          <div className="relative flex flex-col gap-0 md:grid md:grid-cols-3 md:gap-6">
+          {ROLES.map(({ Icon, label, heading, bullets, visual, visualScale, to, dark }, i) => (
             <React.Fragment key={label}>
             {/* Mobile: short vertical connector between stacked cards */}
             {i > 0 && (
@@ -86,20 +98,25 @@ export const EcosystemRoles = () => {
                 }`}
               >
                 <VisualOnView
-                  className={`flex items-center justify-center min-h-[240px] p-5 border-b ${
+                  className={`flex items-center justify-center ${VISUAL_HEIGHT} overflow-hidden p-6 border-b ${
                     dark ? "bg-pine-800/50 border-pine-700" : "bg-surface-50 border-pine-100"
                   }`}
                 >
-                  {visual}
+                  <div
+                    className="flex w-full max-w-[260px] items-center justify-center"
+                    style={{ transform: `scale(${visualScale})` }}
+                  >
+                    {visual}
+                  </div>
                 </VisualOnView>
                 <div className="flex flex-col flex-1 p-6">
-                  <div className={`flex items-center gap-2 text-xs font-medium uppercase tracking-widest mb-3 ${dark ? "text-pine-300" : "text-pine-600"}`}>
+                  <div className={`flex items-center gap-2 text-xs font-medium uppercase tracking-widest mb-4 ${dark ? "text-pine-300" : "text-pine-600"}`}>
                     <Icon className="w-4 h-4" /> {label}
                   </div>
-                  <h3 className={`text-xl font-medium tracking-tight mb-3 ${dark ? "text-white" : "text-pine-900"}`}>
+                  <h3 className={`text-xl font-medium tracking-tight mb-4 ${dark ? "text-white" : "text-pine-900"}`}>
                     {heading}
                   </h3>
-                  <ul className="space-y-2 mb-5">
+                  <ul className="space-y-2 mb-6">
                     {bullets.map((b) => (
                       <li key={b} className={`flex items-start gap-2.5 text-sm ${dark ? "text-pine-200" : "text-dim-2"}`}>
                         <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${dark ? "bg-pine-400" : "bg-pine-600"}`} />

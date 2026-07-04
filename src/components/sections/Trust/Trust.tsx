@@ -38,7 +38,7 @@ export const Trust = () => {
                  </div>
                  <h3 className="text-lg font-medium text-pine-900">Your data is yours. Always.</h3>
                </div>
-               <p className="text-dim-2 leading-relaxed text-base">Never sold, never advertised. Encrypted end to end, data centre in India.</p>
+               <p className="text-dim-2 leading-relaxed text-base">Never sold, never advertised. Encrypted end to end, primary data centre in India.</p>
              </div>
           </div>
 
@@ -71,7 +71,7 @@ export const Trust = () => {
               </motion.div>
               <div>
                 <p className="text-sm font-medium text-pine-900">Dr. Bhavani Sriram</p>
-                <p className="text-xs text-dim font-medium">Co-founder · MRCP (UK) · Singapore Silent Hero</p>
+                <p className="text-xs text-dim font-medium">Co-founder · MBBS · MRCP (UK), Paediatrics</p>
               </div>
             </div>
           </div>

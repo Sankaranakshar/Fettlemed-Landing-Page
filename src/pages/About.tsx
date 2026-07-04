@@ -94,18 +94,16 @@ function ChaosToClarity() {
           Why FettleMed exists
         </p>
 
-        {/* the ring: FettleMed's center of gravity */}
+        {/* the spine: a vertical capsule of light the constellation settles onto */}
         <motion.div
-          style={{ opacity: ringOpacity, scale: ringScale }}
+          style={{ opacity: ringOpacity, scaleY: ringScale }}
           aria-hidden="true"
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[310px] h-[310px] rounded-full border border-pine-400/70"
-        >
-          <div className="absolute -inset-3 rounded-full border border-pine-500/30" />
-          <div className="absolute inset-0 rounded-full shadow-[0_0_80px_12px_rgba(76,175,143,0.25)]" />
-        </motion.div>
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-[260px] rounded-full bg-pine-400/60 shadow-[0_0_70px_14px_rgba(76,175,143,0.3)]"
+        />
 
-        {/* scattered records */}
-        <div aria-hidden="true">
+        {/* scattered records - scaled down on small screens so cards
+            don't enter half-clipped at the viewport edges */}
+        <div aria-hidden="true" className="absolute inset-0 scale-[0.7] sm:scale-100">
           {CONSTELLATION.map((card) => (
             <ConstellationCard key={card.title} p={p} card={card} />
           ))}
@@ -267,7 +265,7 @@ export default function About() {
                   "The problem isn't money or access to doctors. It's the fragmentation of information."
                 </blockquote>
                 <figcaption className="text-pine-600 font-medium">
-                  — Dr. Sriram Shankar, Co-founder
+                  Dr. Sriram Shankar, Co-founder
                 </figcaption>
               </figure>
             </FadeIn>
