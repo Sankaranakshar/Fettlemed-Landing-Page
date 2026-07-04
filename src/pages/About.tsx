@@ -101,8 +101,9 @@ function ChaosToClarity() {
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-[260px] rounded-full bg-pine-400/60 shadow-[0_0_70px_14px_rgba(76,175,143,0.3)]"
         />
 
-        {/* scattered records */}
-        <div aria-hidden="true">
+        {/* scattered records - scaled down on small screens so cards
+            don't enter half-clipped at the viewport edges */}
+        <div aria-hidden="true" className="absolute inset-0 scale-[0.7] sm:scale-100">
           {CONSTELLATION.map((card) => (
             <ConstellationCard key={card.title} p={p} card={card} />
           ))}
