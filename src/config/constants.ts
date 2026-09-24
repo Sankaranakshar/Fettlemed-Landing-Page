@@ -1,3 +1,6 @@
+/** Canonical origin: the host that actually serves pages (fettlemed.com redirects here). */
+export const SITE_URL = "https://www.fettlemed.com";
+
 export const ANALYTICS = {
   gaTrackingId: import.meta.env.VITE_GA_TRACKING_ID || '',
   events: {

@@ -6,6 +6,9 @@
  * This script extracts those tags from the rendered HTML and moves them into <head>,
  * so Googlebot gets fully-populated <head> metadata without executing JavaScript.
  *
+ * Lifted tags carry a data-prerender attribute; src/main.tsx removes them
+ * before React mounts so the live page has exactly one of each tag.
+ *
  * For each route:
  *   1. Calls render(url) from the SSR build
  *   2. Extracts head-appropriate tags from the rendered HTML
@@ -68,7 +71,13 @@ function extractHeadTags(html) {
     return '';
   });
 
-  return { headTags: extracted.join('\n    '), cleanHtml: html };
+  // Mark every lifted tag so the client can drop it before React mounts.
+  // The client uses createRoot (not hydration), so React 19 hoists its own
+  // copies into <head> and never adopts these; left in place they duplicate
+  // React's tags and go stale on client-side navigation.
+  const marked = extracted.map((tag) => tag.replace(/^<(\w+)/, '<$1 data-prerender'));
+
+  return { headTags: marked.join('\n    '), cleanHtml: html };
 }
 
 async function prerender() {
@@ -125,7 +134,7 @@ async function prerender() {
       const priority = route === '/' ? '1.0' : route.includes('terms') || route.includes('privacy') ? '0.3' : '0.8';
       return (
         `  <url>\n` +
-        `    <loc>https://fettlemed.com${route === '/' ? '/' : route}</loc>\n` +
+        `    <loc>https://www.fettlemed.com${route === '/' ? '/' : `${route}/`}</loc>\n` +
         `    <lastmod>${today}</lastmod>\n` +
         `    <changefreq>weekly</changefreq>\n` +
         `    <priority>${priority}</priority>\n` +

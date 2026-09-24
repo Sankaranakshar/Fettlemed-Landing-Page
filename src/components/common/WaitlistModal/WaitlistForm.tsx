@@ -6,7 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/common/Button";
-import { WAITLIST_FORM } from "@/config/constants";
+import { WAITLIST_FORM, type WaitlistRole } from "@/config/constants";
+import { trackWaitlistSubmit } from "@/lib/analytics";
 
 // ---------------------------------------------------------------------------
 // Schema
@@ -195,6 +196,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
       setSubmitError(true);
       return;
     }
+    trackWaitlistSubmit(role as WaitlistRole, "full");
     try { localStorage.setItem("wl_submitted", "1"); } catch {}
     setSubmitted(true);
     onSuccess?.();

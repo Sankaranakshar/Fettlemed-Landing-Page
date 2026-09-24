@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
-import { WAITLIST_FORM } from "@/config/constants";
+import { WAITLIST_FORM, audienceRoleForPath } from "@/config/constants";
+import { trackWaitlistSubmit } from "@/lib/analytics";
 
 /**
  * Low-friction capture for visitors not ready for the full form:
@@ -31,6 +32,7 @@ export function FooterQuickJoin() {
       // no-cors is opaque; only genuine network failure throws, and even
       // then a retry path isn't worth the friction here
     }
+    trackWaitlistSubmit(audienceRoleForPath(window.location.pathname), "footer");
     try { localStorage.setItem("wl_submitted", "1"); } catch {}
     setState("done");
   };

@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
+import { SITE_URL } from '@/config/constants';
 
 interface SEOProps {
   title: string;
@@ -17,8 +18,11 @@ export function SEO({
   image = "/og.png"
 }: SEOProps) {
   const { pathname } = useLocation();
+  // Amplify serves each page at /<route>/ and fettlemed.com redirects to www,
+  // so the canonical form is www + trailing slash (the URL that returns 200).
+  const canonicalUrl = `${SITE_URL}${pathname.endsWith("/") ? pathname : `${pathname}/`}`;
   // Social scrapers need an absolute URL and a raster format
-  const imageUrl = image.startsWith("http") ? image : `https://fettlemed.com${image}`;
+  const imageUrl = image.startsWith("http") ? image : `${SITE_URL}${image}`;
   const isHome = title === 'Home';
   const fullTitle = isHome
     ? `${name}: Your Complete Health Record`
@@ -28,8 +32,8 @@ export function SEO({
     "@context": "https://schema.org",
     "@type": isHome ? "Organization" : "MedicalWebPage",
     "name": name,
-    "url": "https://fettlemed.com",
-    "logo": "https://fettlemed.com/brand/lockup.svg",
+    "url": `${SITE_URL}/`,
+    "logo": `${SITE_URL}/brand/lockup.svg`,
     "description": description,
     ...(isHome ? {
       "contactPoint": {
@@ -45,14 +49,14 @@ export function SEO({
       {/* Standard metadata tags */}
       <title>{fullTitle}</title>
       <meta name='description' content={description} />
-      <link rel="canonical" href={`https://fettlemed.com${pathname}`} />
+      <link rel="canonical" href={canonicalUrl} />
 
       {/* OpenGraph tags */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={imageUrl} />
-      <meta property="og:url" content={`https://fettlemed.com${pathname}`} />
+      <meta property="og:url" content={canonicalUrl} />
       
       {/* Twitter tags */}
       <meta name="twitter:creator" content="@FETTLEMEDHEALTH" />
