@@ -249,7 +249,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
             e.preventDefault();
             const next = roles[(roles.indexOf(role) + dir + roles.length) % roles.length];
             setRole(next);
-            (e.currentTarget.querySelector<HTMLButtonElement>(`[data-role="${next}"]`))?.focus();
+            ((e.currentTarget as HTMLElement).querySelector<HTMLButtonElement>(`[data-role="${next}"]`))?.focus();
           }}
         >
           {["Patients & Caregivers", "Doctor", "Clinic"].map((r) => (

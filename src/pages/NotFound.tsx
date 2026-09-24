@@ -9,7 +9,7 @@ import { Home, Smartphone, Search } from "lucide-react";
 export default function NotFound() {
   return (
     <>
-      <SEO title="404 - Not Found" description="The page you are looking for does not exist." />
+      <SEO title="Page Not Found" description="The page you are looking for does not exist." noindex />
       <div className="flex flex-col w-full min-h-[80vh] bg-surface-50 items-center justify-center p-6 text-center">
         <FadeIn>
           <div className="w-24 h-24 bg-pine-100 rounded-3xl flex items-center justify-center text-pine-600 mb-8 mx-auto shadow-sm">

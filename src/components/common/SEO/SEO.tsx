@@ -8,6 +8,7 @@ interface SEOProps {
   name?: string;
   type?: string;
   image?: string;
+  noindex?: boolean;
 }
 
 export function SEO({
@@ -15,7 +16,8 @@ export function SEO({
   description,
   name = "FettleMed",
   type = "website",
-  image = "/og.png"
+  image = "/og.png",
+  noindex = false
 }: SEOProps) {
   const { pathname } = useLocation();
   // Amplify serves each page at /<route>/ and fettlemed.com redirects to www,
@@ -36,9 +38,19 @@ export function SEO({
     "logo": `${SITE_URL}/brand/lockup.svg`,
     "description": description,
     ...(isHome ? {
+      "email": "hello@fettlemed.com",
+      "legalName": "NamNalam Health Tech Private Limited",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "INNOV8, SKCL Tech Square, 2nd Floor, No 14 SP, SIDCO T.V.K Industrial Estate, Guindy",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamil Nadu",
+        "postalCode": "600032",
+        "addressCountry": "IN"
+      },
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "partners@fettlemed.com",
+        "email": "hello@fettlemed.com",
         "contactType": "customer service"
       }
     } : {})
@@ -49,6 +61,7 @@ export function SEO({
       {/* Standard metadata tags */}
       <title>{fullTitle}</title>
       <meta name='description' content={description} />
+      {noindex && <meta name="robots" content="noindex" />}
       <link rel="canonical" href={canonicalUrl} />
 
       {/* OpenGraph tags */}
