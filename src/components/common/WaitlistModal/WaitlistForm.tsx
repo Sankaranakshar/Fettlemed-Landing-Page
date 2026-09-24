@@ -315,9 +315,9 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
       {/* Consent notice */}
       <p className="text-xs text-dim leading-relaxed">
         By submitting, you agree to our{' '}
-        <Link to="/terms-of-service" className="underline hover:text-pine-600 transition-colors">Terms of Service</Link>
+        <Link to="/terms-of-service/" className="underline hover:text-pine-600 transition-colors">Terms of Service</Link>
         {' '}and{' '}
-        <Link to="/privacy-policy" className="underline hover:text-pine-600 transition-colors">Privacy Policy</Link>.
+        <Link to="/privacy-policy/" className="underline hover:text-pine-600 transition-colors">Privacy Policy</Link>.
         We will not share your personal information with third parties.
       </p>
 

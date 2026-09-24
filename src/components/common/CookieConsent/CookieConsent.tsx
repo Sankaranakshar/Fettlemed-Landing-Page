@@ -42,7 +42,7 @@ export function CookieConsent() {
         <p className="text-pine-200 text-sm leading-relaxed max-w-2xl">
           We use cookies to understand how visitors use this site and to improve your experience.
           No personal health data is collected. You can decline and still use all features.{' '}
-          <Link to="/privacy-policy" className="underline hover:text-white transition-colors">
+          <Link to="/privacy-policy/" className="underline hover:text-white transition-colors">
             Privacy Policy
           </Link>
         </p>

@@ -37,10 +37,10 @@ export default function PatientApp() {
             <div className="container mx-auto px-6 max-w-2xl">
               <p className="text-pine-300 text-lg font-medium mb-8">FettleMed also serves the doctors and clinics you visit.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/doctor-portal" className="px-6 py-3 border border-pine-700 bg-pine-800 rounded-xl text-white text-sm font-medium hover:bg-pine-700 transition-colors">
+                <Link to="/doctor-portal/" className="px-6 py-3 border border-pine-700 bg-pine-800 rounded-xl text-white text-sm font-medium hover:bg-pine-700 transition-colors">
                   For Doctors →
                 </Link>
-                <Link to="/clinic-management" className="px-6 py-3 border border-pine-700 bg-pine-800 rounded-xl text-white text-sm font-medium hover:bg-pine-700 transition-colors">
+                <Link to="/clinic-management/" className="px-6 py-3 border border-pine-700 bg-pine-800 rounded-xl text-white text-sm font-medium hover:bg-pine-700 transition-colors">
                   For Clinics →
                 </Link>
               </div>

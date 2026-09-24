@@ -124,6 +124,31 @@ async function prerender() {
     }
   }
 
+  // Legacy short URLs only redirect inside the React app, so the server
+  // returned 404 for them (flagged in Search Console). Emit tiny static
+  // redirect pages; an instant meta refresh is treated as a permanent
+  // redirect by Google. Amplify 301 rules can replace these later.
+  const ALIASES = {
+    '/home': '/',
+    '/terms': '/terms-of-service/',
+    '/privacy': '/privacy-policy/',
+  };
+  for (const [from, to] of Object.entries(ALIASES)) {
+    const target = `https://www.fettlemed.com${to}`;
+    const html =
+      `<!doctype html><html lang="en"><head><meta charset="utf-8">` +
+      `<title>FettleMed</title>` +
+      `<link rel="canonical" href="${target}">` +
+      `<meta http-equiv="refresh" content="0; url=${to}">` +
+      `</head><body><a href="${to}">Continue to FettleMed</a>` +
+      `<script>location.replace(${JSON.stringify(to)} + location.search + location.hash)</script>` +
+      `</body></html>\n`;
+    const outDir = resolve(rootDir, `dist${from}`);
+    mkdirSync(outDir, { recursive: true });
+    writeFileSync(resolve(outDir, 'index.html'), html);
+    console.log(`  ✓  ${from} -> ${to}`);
+  }
+
   // Generate sitemap.xml from the same route list, dated to this build.
   // (Replaces the hand-maintained file that always went stale.)
   const today = new Date().toISOString().slice(0, 10);

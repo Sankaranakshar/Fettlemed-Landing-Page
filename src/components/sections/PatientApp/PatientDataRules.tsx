@@ -74,7 +74,7 @@ export function PatientDataRules() {
         </div>
 
         <FadeIn delay={0.5} className="text-center mt-5">
-          <Link to="/security" className="text-pine-600 font-medium hover:text-pine-700 transition-colors text-sm">
+          <Link to="/security/" className="text-pine-600 font-medium hover:text-pine-700 transition-colors text-sm">
             Read our full security and compliance details →
           </Link>
         </FadeIn>

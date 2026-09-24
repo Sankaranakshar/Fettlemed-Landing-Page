@@ -317,7 +317,7 @@ export default function About() {
                 <CheckCircle2 className="w-4 h-4 text-pine-600 shrink-0" /> {text}
               </span>
             ))}
-            <Link to="/security" className="flex items-center gap-1.5 text-pine-600 hover:text-pine-800 text-sm font-medium transition-colors">
+            <Link to="/security/" className="flex items-center gap-1.5 text-pine-600 hover:text-pine-800 text-sm font-medium transition-colors">
               How we protect your data <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

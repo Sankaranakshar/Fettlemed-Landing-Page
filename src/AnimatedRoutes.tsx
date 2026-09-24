@@ -60,9 +60,9 @@ export function AnimatedRoutes() {
         <Route path="/security" element={<Security />} />
         <Route path="/waitlist" element={<Waitlist />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="/terms" element={<Navigate to="/terms-of-service" replace />} />
+        <Route path="/terms" element={<Navigate to="/terms-of-service/" replace />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/privacy" element={<Navigate to="/privacy-policy" replace />} />
+        <Route path="/privacy" element={<Navigate to="/privacy-policy/" replace />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </motion.div>
