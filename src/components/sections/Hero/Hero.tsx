@@ -30,7 +30,7 @@ export const Hero = () => {
           <div className="w-full md:w-1/2 text-center md:text-left">
             {/* H1 renders instantly: it is the LCP element and never starts at opacity 0 */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-medium leading-[1.08] tracking-tight mb-4 md:mb-5 lg:mb-4 text-ink drop-shadow-sm">
-              The full history, ready <span className="text-pine-600">before the patient says a word.</span>
+              The connected health record for <span className="text-pine-600">Indian clinics, doctors, and families.</span>
             </h1>
             <FadeIn noYOffset eager delay={0.05}>
               <p className="text-lg md:text-xl text-dim mb-5 md:mb-5 lg:mb-4 max-w-xl mx-auto md:mx-0 leading-relaxed text-balance">
