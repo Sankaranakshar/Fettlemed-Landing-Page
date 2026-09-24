@@ -15,7 +15,7 @@ import { ClinicPilot } from "@/components/sections/ClinicManagement/ClinicPilot"
 export default function ClinicManagement() {
   return (
     <>
-      <SEO title="Clinic Management Software for Indian Clinics" description="FettleMed helps Indian clinics manage appointments, billing, and patient records in one platform. ABDM-aligned. No IT team needed. Built for GPs, specialists, and polyclinics." />
+      <SEO software={{ name: "FettleMed Clinic Management", category: "BusinessApplication" }} title="Clinic Management Software for Indian Clinics" description="FettleMed helps Indian clinics manage appointments, billing, and patient records in one platform. ABDM-aligned. No IT team needed. Built for GPs, specialists, and polyclinics." />
       <div className="flex flex-col w-full bg-surface-50 font-sans">
         <ClinicHero />
         <ClinicProblem />

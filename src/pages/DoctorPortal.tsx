@@ -14,7 +14,7 @@ import { DoctorPilot } from "@/components/sections/DoctorPortal/DoctorPilot";
 export default function DoctorPortal() {
   return (
     <>
-      <SEO title="EMR & e-Prescription Software for Doctors" description="FettleMed gives Indian doctors complete patient history before every consultation. Write digital prescriptions, track lab reports, and maintain clinical notes in one workspace. ABDM-aligned." />
+      <SEO software={{ name: "FettleMed Doctor Portal", category: "HealthApplication" }} title="EMR & e-Prescription Software for Doctors" description="FettleMed gives Indian doctors complete patient history before every consultation. Write digital prescriptions, track lab reports, and maintain clinical notes in one workspace. ABDM-aligned." />
       <div className="flex flex-col w-full bg-surface-50">
         <DoctorHero />
         <DoctorProblem />

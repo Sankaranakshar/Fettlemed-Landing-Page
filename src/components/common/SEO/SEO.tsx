@@ -9,6 +9,8 @@ interface SEOProps {
   type?: string;
   image?: string;
   noindex?: boolean;
+  /** Describe the page as a software product (product pages only). */
+  software?: { name: string; category: "HealthApplication" | "BusinessApplication" };
 }
 
 export function SEO({
@@ -17,7 +19,8 @@ export function SEO({
   name = "FettleMed",
   type = "website",
   image = "/og.png",
-  noindex = false
+  noindex = false,
+  software
 }: SEOProps) {
   const { pathname } = useLocation();
   // Amplify serves each page at /<route>/ and fettlemed.com redirects to www,
@@ -30,30 +33,50 @@ export function SEO({
     ? `${name}: Your Complete Health Record`
     : `${title} | ${name}`;
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": isHome ? "Organization" : "MedicalWebPage",
+  const organization = {
+    "@type": "Organization",
     "name": name,
     "url": `${SITE_URL}/`,
     "logo": `${SITE_URL}/brand/lockup.svg`,
+  };
+
+  // Home describes the company; product pages describe the software;
+  // everything else is a plain WebPage (these pages are not medical content).
+  const structuredData = isHome ? {
+    "@context": "https://schema.org",
+    ...organization,
     "description": description,
-    ...(isHome ? {
+    "email": "hello@fettlemed.com",
+    "legalName": "NamNalam Health Tech Private Limited",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "INNOV8, SKCL Tech Square, 2nd Floor, No 14 SP, SIDCO T.V.K Industrial Estate, Guindy",
+      "addressLocality": "Chennai",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "600032",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
       "email": "hello@fettlemed.com",
-      "legalName": "NamNalam Health Tech Private Limited",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "INNOV8, SKCL Tech Square, 2nd Floor, No 14 SP, SIDCO T.V.K Industrial Estate, Guindy",
-        "addressLocality": "Chennai",
-        "addressRegion": "Tamil Nadu",
-        "postalCode": "600032",
-        "addressCountry": "IN"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "hello@fettlemed.com",
-        "contactType": "customer service"
-      }
-    } : {})
+      "contactType": "customer service"
+    }
+  } : software ? {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": software.name,
+    "applicationCategory": software.category,
+    "operatingSystem": "Web",
+    "url": canonicalUrl,
+    "description": description,
+    "publisher": organization,
+  } : {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": fullTitle,
+    "url": canonicalUrl,
+    "description": description,
+    "publisher": organization,
   };
 
   return (
