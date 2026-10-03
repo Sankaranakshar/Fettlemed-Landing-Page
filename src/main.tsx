@@ -11,6 +11,11 @@ import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/ibm-plex-mono/500.css';
 // Analytics are initialized by CookieConsent after user opts in
 
+// Drop the head tags baked in by scripts/prerender.mjs. They exist for
+// crawlers that don't run JS; React renders its own copies (via SEO) and
+// keeps those in sync with the current route.
+document.head.querySelectorAll('[data-prerender]').forEach((el) => el.remove());
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

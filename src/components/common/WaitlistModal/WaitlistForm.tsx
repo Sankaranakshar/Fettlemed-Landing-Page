@@ -6,7 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/common/Button";
-import { WAITLIST_FORM } from "@/config/constants";
+import { WAITLIST_FORM, type WaitlistRole } from "@/config/constants";
+import { trackWaitlistSubmit } from "@/lib/analytics";
 
 // ---------------------------------------------------------------------------
 // Schema
@@ -195,6 +196,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
       setSubmitError(true);
       return;
     }
+    trackWaitlistSubmit(role as WaitlistRole, "full");
     try { localStorage.setItem("wl_submitted", "1"); } catch {}
     setSubmitted(true);
     onSuccess?.();
@@ -247,7 +249,7 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
             e.preventDefault();
             const next = roles[(roles.indexOf(role) + dir + roles.length) % roles.length];
             setRole(next);
-            (e.currentTarget.querySelector<HTMLButtonElement>(`[data-role="${next}"]`))?.focus();
+            ((e.currentTarget as HTMLElement).querySelector<HTMLButtonElement>(`[data-role="${next}"]`))?.focus();
           }}
         >
           {["Patients & Caregivers", "Doctor", "Clinic"].map((r) => (
@@ -313,9 +315,9 @@ export function WaitlistForm({ onSuccess, defaultRole }: WaitlistFormProps) {
       {/* Consent notice */}
       <p className="text-xs text-dim leading-relaxed">
         By submitting, you agree to our{' '}
-        <Link to="/terms-of-service" className="underline hover:text-pine-600 transition-colors">Terms of Service</Link>
+        <Link to="/terms-of-service/" className="underline hover:text-pine-600 transition-colors">Terms of Service</Link>
         {' '}and{' '}
-        <Link to="/privacy-policy" className="underline hover:text-pine-600 transition-colors">Privacy Policy</Link>.
+        <Link to="/privacy-policy/" className="underline hover:text-pine-600 transition-colors">Privacy Policy</Link>.
         We will not share your personal information with third parties.
       </p>
 

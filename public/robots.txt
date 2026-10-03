@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fettlemed.com/sitemap.xml
+Sitemap: https://www.fettlemed.com/sitemap.xml

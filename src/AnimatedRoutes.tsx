@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { trackPageView } from "@/lib/analytics";
 
 // Home is eagerly imported - it's the entry page and must not show a spinner
@@ -39,31 +39,32 @@ export function AnimatedRoutes() {
     }
   }, []);
 
+  // Fade-in only, no AnimatePresence exit. With mode="wait" the exit waited
+  // on every motion element inside the outgoing page, and when one never
+  // reported completion the old page (and its SEO head tags) stayed mounted
+  // while the URL changed. Keying on pathname unmounts it immediately.
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={location.pathname}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0, transition: { duration: 0.1, ease: "easeOut" } }}
-        transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
-      >
-        <Routes location={location}>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Navigate to="/" replace />} />
-          <Route path="/clinic-management" element={<ClinicManagement />} />
-          <Route path="/doctor-portal" element={<DoctorPortal />} />
-          <Route path="/patient-app" element={<PatientApp />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/security" element={<Security />} />
-          <Route path="/waitlist" element={<Waitlist />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/terms" element={<Navigate to="/terms-of-service" replace />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/privacy" element={<Navigate to="/privacy-policy" replace />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </motion.div>
-    </AnimatePresence>
+    <motion.div
+      key={location.pathname}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+    >
+      <Routes location={location}>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Navigate to="/" replace />} />
+        <Route path="/clinic-management" element={<ClinicManagement />} />
+        <Route path="/doctor-portal" element={<DoctorPortal />} />
+        <Route path="/patient-app" element={<PatientApp />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/security" element={<Security />} />
+        <Route path="/waitlist" element={<Waitlist />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/terms" element={<Navigate to="/terms-of-service/" replace />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/privacy" element={<Navigate to="/privacy-policy/" replace />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </motion.div>
   );
 }

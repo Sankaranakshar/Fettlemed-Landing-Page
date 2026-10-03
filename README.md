@@ -44,7 +44,7 @@ Submissions go directly to **Google Forms** via `fetch` with `mode: "no-cors"`. 
 
 ### Analytics
 
-Google Analytics 4 is loaded via `@gtag/js` after cookie consent is accepted. The measurement ID is set via `VITE_GA_MEASUREMENT_ID`. The GA instance is initialised with `send_page_view: false` — page views must be fired manually on each route change from `AnimatedRoutes.tsx`.
+Google Analytics 4 is loaded via `@gtag/js` after cookie consent is accepted. The measurement ID is set via `VITE_GA_TRACKING_ID`. The GA instance is initialised with `send_page_view: false` — page views must be fired manually on each route change from `AnimatedRoutes.tsx`.
 
 ### FAQ Data
 
@@ -104,7 +104,7 @@ cp .env.example .env
 
 | Variable | Required | Purpose |
 |----------|----------|---------|
-| `VITE_GA_MEASUREMENT_ID` | No | Google Analytics 4 Measurement ID (e.g. `G-XXXXXXXXXX`). Analytics is disabled if unset. |
+| `VITE_GA_TRACKING_ID` | No | Google Analytics 4 Measurement ID (e.g. `G-XXXXXXXXXX`). Analytics is disabled if unset. |
 
 All `VITE_` variables are inlined at build time by Vite. Do not add server-side secrets here — they will be visible in the client bundle.
 

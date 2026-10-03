@@ -28,7 +28,7 @@ const ROLES = [
     ],
     visual: <HealthRecordsVisual />,
     visualScale: 0.85,
-    to: "/patient-app",
+    to: "/patient-app/",
     dark: false,
   },
   {
@@ -42,7 +42,7 @@ const ROLES = [
     ],
     visual: <FullHistoryVisual />,
     visualScale: 1.1,
-    to: "/doctor-portal",
+    to: "/doctor-portal/",
     dark: true,
   },
   {
@@ -56,7 +56,7 @@ const ROLES = [
     ],
     visual: <PatientRegistrationVisual />,
     visualScale: 1.05,
-    to: "/clinic-management",
+    to: "/clinic-management/",
     dark: false,
   },
 ];

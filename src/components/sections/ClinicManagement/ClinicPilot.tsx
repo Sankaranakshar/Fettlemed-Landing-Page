@@ -45,7 +45,7 @@ export function ClinicPilot() {
 
                 <p className="text-pine-300 text-xs font-medium mt-4">
                    By applying, you agree to our{" "}
-                   <Link to="/privacy-policy" className="underline hover:text-pine-200 transition-colors">Privacy Policy</Link>.
+                   <Link to="/privacy-policy/" className="underline hover:text-pine-200 transition-colors">Privacy Policy</Link>.
                    {" "}Clinic and user data is end-to-end encrypted and never shared with third parties.
                 </p>
              </div>

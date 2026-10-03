@@ -419,10 +419,10 @@ export default function Security() {
                 {" "}A person replies, not a ticket system.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm font-medium">
-                <Link to="/privacy-policy" className="inline-flex items-center justify-center h-11 px-6 border-2 border-pine-900 text-pine-900 hover:bg-pine-50 rounded-xl transition-colors">
+                <Link to="/privacy-policy/" className="inline-flex items-center justify-center h-11 px-6 border-2 border-pine-900 text-pine-900 hover:bg-pine-50 rounded-xl transition-colors">
                   Read our Privacy Policy
                 </Link>
-                <Link to="/waitlist" className="inline-flex items-center justify-center h-11 px-6 text-pine-600 hover:text-pine-800 transition-colors">
+                <Link to="/waitlist/" className="inline-flex items-center justify-center h-11 px-6 text-pine-600 hover:text-pine-800 transition-colors">
                   Join the waitlist →
                 </Link>
               </div>

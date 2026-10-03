@@ -9,7 +9,7 @@ import { Home, Smartphone, Search } from "lucide-react";
 export default function NotFound() {
   return (
     <>
-      <SEO title="404 - Not Found" description="The page you are looking for does not exist." />
+      <SEO title="Page Not Found" description="The page you are looking for does not exist." noindex />
       <div className="flex flex-col w-full min-h-[80vh] bg-surface-50 items-center justify-center p-6 text-center">
         <FadeIn>
           <div className="w-24 h-24 bg-pine-100 rounded-3xl flex items-center justify-center text-pine-600 mb-8 mx-auto shadow-sm">
@@ -35,7 +35,7 @@ export default function NotFound() {
                 <Home className="w-5 h-5" /> Back to Home
               </Button>
             </Link>
-            <Link to="/patient-app" className="w-full sm:w-auto">
+            <Link to="/patient-app/" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto h-14 px-8 rounded-xl border-pine-100 text-dim hover:text-pine-900 font-medium flex items-center gap-2">
                 <Smartphone className="w-5 h-5" /> Patient App
               </Button>

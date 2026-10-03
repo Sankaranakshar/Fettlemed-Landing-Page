@@ -57,11 +57,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const audienceRole = audienceRoleForPath(location.pathname);
 
   const navLinks = [
-    { name: "For Patients", path: "/patient-app" },
-    { name: "For Doctors", path: "/doctor-portal" },
-    { name: "For Clinics", path: "/clinic-management" },
-    { name: "About", path: "/about" },
-    { name: "Security", path: "/security" },
+    { name: "For Patients", path: "/patient-app/" },
+    { name: "For Doctors", path: "/doctor-portal/" },
+    { name: "For Clinics", path: "/clinic-management/" },
+    { name: "About", path: "/about/" },
+    { name: "Security", path: "/security/" },
   ];
 
   return (
@@ -160,26 +160,26 @@ export function Layout({ children }: { children: React.ReactNode }) {
              {/* Column 1: Product */}
              <nav className="flex flex-col gap-4" aria-label="Product Links">
                 <h3 className="text-sm font-medium tracking-widest text-pine-300 uppercase mb-2">Product</h3>
-                <Link to="/patient-app" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Patients</Link>
-                <Link to="/doctor-portal" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Doctors</Link>
-                <Link to="/clinic-management" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Clinics</Link>
-                <Link to="/security" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Security</Link>
+                <Link to="/patient-app/" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Patients</Link>
+                <Link to="/doctor-portal/" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Doctors</Link>
+                <Link to="/clinic-management/" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">For Clinics</Link>
+                <Link to="/security/" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Security</Link>
              </nav>
 
              {/* Column 2: Company */}
              <nav className="flex flex-col gap-4" aria-label="Company Links">
                 <h3 className="text-sm font-medium tracking-widest text-pine-300 uppercase mb-2">Company</h3>
-                <Link to="/about" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">About</Link>
-                <Link to="/about#team" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Team</Link>
-                <Link to="/about#contact" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Contact</Link>
-                <Link to="/waitlist" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Join the Pilot</Link>
+                <Link to="/about/" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">About</Link>
+                <Link to="/about/#team" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Team</Link>
+                <Link to="/about/#contact" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Contact</Link>
+                <Link to="/waitlist/" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Join the Pilot</Link>
              </nav>
 
              {/* Column 3: Legal */}
              <nav className="flex flex-col gap-4" aria-label="Legal Links">
                 <h3 className="text-sm font-medium tracking-widest text-pine-300 uppercase mb-2">Legal</h3>
-                <Link to="/privacy-policy" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Privacy Policy</Link>
-                <Link to="/terms-of-service" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Terms of Service</Link>
+                <Link to="/privacy-policy/" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Privacy Policy</Link>
+                <Link to="/terms-of-service/" className="text-sm font-medium text-pine-200 hover:text-white transition-colors">Terms of Service</Link>
              </nav>
 
              {/* Column 4: Connect */}
